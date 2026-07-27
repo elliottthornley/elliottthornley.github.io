@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Read The Impossibility of a
+Satisfactory Population Prospect Axiology by Elliott Thornley." name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="The Impossibility of a
+Satisfactory Population Prospect Axiology" property="og:title"/>
+<meta content="Read The Impossibility of a
+Satisfactory Population Prospect Axiology by Elliott Thornley." property="og:description"/>
+<meta content="https://www.elliott-thornley.com/assets/images/elliott-thornley-headshot.jpg" property="og:image"/>
+<meta content="https://www.elliott-thornley.com/src/writing/impossibility-satisfactory-population-prospect-axiology/" property="og:url"/>
+<title>The Impossibility of a Satisfactory Population Prospect
+Axiology | Elliott Thornley</title>
+<link href="https://www.elliott-thornley.com/src/writing/impossibility-satisfactory-population-prospect-axiology/" rel="canonical"/>
+<link href="/assets/images/elliott-thornley-headshot.jpg" rel="icon" type="image/jpeg"/>
+<!-- Tufte CSS -->
+<link href="/assets/css/tufte.css?v=20260722e" rel="stylesheet"/>
+<!-- MathJax for math rendering -->
+<script>
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/bbox', '[tex]/html']
+            },
+            tex: {
+                packages: {'[+]': ['bbox', 'html']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    textsc: ['\\class{paper-math-smallcaps}{\\text{#1}}', 1]
+                }
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Custom styles -->
+<style>
+        nav { padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid #ccc; }
+        nav a, nav a:visited { margin-right: 1.5rem; color: #173f8f; font-size: 1.2rem; text-decoration: none; font-style: normal; }
+        nav a:hover { text-decoration: underline; }
+        .paper-header h1 { font-style: normal; font-weight: 600; }
+        .paper-source-links { width: 100%; max-width: var(--paper-text-width); margin: 0.15rem 0 1.35rem; color: #333; font-size: 1.08rem; line-height: 1.55; }
+        .paper-source-links a { color: #173f8f; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ccc; color: #666; }
+        u { text-decoration: underline; }
+    </style>
+</head>
+<body class="paper-page">
+<article class="paper-layout">
+<div class="paper-main">
+<nav>
+<a href="/">Home</a>
+</nav>
+<header class="paper-header">
+<h1>The Impossibility of a Satisfactory Population
+Prospect Axiology</h1>
+</header>
+<!-- GENERATED PAPER LINKS START -->
+<div class="paper-source-links">
+<a href="https://link.springer.com/article/10.1007/s11098-021-01621-4">Journal</a>
+            /
+            <a href="https://philpapers.org/archive/THOTIO-57.pdf">PDF</a>
+</div>
+<!-- GENERATED PAPER LINKS END -->
+<div class="abstract"><p class="abstract-label">Abstract</p>
+<p>Arrhenius’s impossibility
+            theorems purport to demonstrate that no population axiology
+            can satisfy each of a small number of intuitively compelling
+            adequacy conditions. However, it has recently been pointed
+            out that each theorem depends on a dubious assumption:
+            Finite Fine-Grainedness. This assumption states that there
+            exists a finite sequence of slight welfare differences
+            between any two welfare levels. Denying Finite
+            Fine-Grainedness makes room for a lexical population
+            axiology which satisfies all of the compelling adequacy
+            conditions in each theorem. Therefore, Arrhenius’s theorems
+            fail to prove that there is no satisfactory population
+            axiology.</p>
+<p>In this paper, I argue that Arrhenius’s theorems can be
+            repurposed. Since all of our population-affecting actions
+            have a non-zero probability of bringing about more than one
+            distinct population, it is population <em>prospect</em>
+            axiologies that are of practical relevance, and amended
+            versions of Arrhenius’s theorems demonstrate that there is
+            no satisfactory population prospect axiology. These
+            impossibility theorems do not depend on Finite
+            Fine-Grainedness, so lexical views do not escape them.</p>
+</div>
+<h1 data-number="1" id="introduction"><span class="header-section-number">1.</span> Introduction</h1>
+<p>Some possible populations are better than others. For
+            example, a population in which every person lives a
+            wonderful life is better than a population in which those
+            same people live awful lives. What’s more, this betterness
+            relation holds (at least sometimes) between populations that
+            differ in size. A population in which every person lives a
+            wonderful life is better than a marginally bigger population
+            in which every person lives an awful life.</p>
+<p>These cases are clear-cut, but others are less certain.
+            Is a population in which one million people live a wonderful
+            life better than a population in which one billion people
+            live a good life? Is a population in which two million
+            people live wonderful lives and one million people live
+            awful lives better than a population in which no one lives
+            at all? It would be useful to have a <em>population
+            axiology</em> <strong>–</strong> a betterness ordering over
+            populations <strong>–</strong> to adjudicate in cases like
+            these.</p>
+<p>Unfortunately, formulating a satisfactory population
+            axiology has proved difficult. Indeed, some claim that it is
+            impossible. Several authors offer <em>impossibility
+            theorems</em> purporting to demonstrate that no population
+            axiology can satisfy a small number of adequacy
+            conditions.⁠<label class="margin-toggle sidenote-number" for="sn-1"></label><input class="margin-toggle" id="sn-1" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">See, for example, <a class="citation-link" href="#ref-30">Parfit (1984, chap. 19)</a> <a class="citation-link" href="#ref-29">Ng (1989)</a>, <a class="citation-link" href="#ref-11">Blackorby and
+            Donaldson (1991)</a>, <a class="citation-link" href="#ref-15">Carlson (1998)</a>, <a class="citation-link" href="#ref-22">Kitcher (2000)</a>, and <a class="citation-link" href="#ref-34">Tännsjö
+            (2002)</a>.</span></span></span> Arrhenius’s six theorems
+            represent the
+            state-of-the-art.⁠<label class="margin-toggle sidenote-number" for="sn-2"></label><input class="margin-toggle" id="sn-2" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">The first four theorems are in <a class="citation-link" href="https://philpapers.org/rec/ARRFG">Arrhenius (2000)</a>. The fifth is in
+            (2003) and the sixth is in (2009; 2011). All six are collated in
+            (forthcoming).</span></span></span> They employ logically
+            weaker and intuitively more compelling adequacy conditions
+            than other theorems extant in the literature, and so have
+            drawn much of the scholarly attention.</p>
+<p>However, it has recently been pointed out that each of
+            Arrhenius’s six theorems rests on a dubious assumption
+            (<a class="citation-link" href="#ref-37">Thomas 2018</a>; <a class="citation-link" href="#ref-16">Carlson forthcoming</a>). The assumption, which
+            has been dubbed <em>Finite Fine-Grainedness</em>, states
+            that one can get from a very positive welfare level to a
+            very negative welfare level via a finite number of ‘slight’
+            decreases in
+            welfare.⁠<label class="margin-toggle sidenote-number" for="sn-3"></label><input class="margin-toggle" id="sn-3" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-37">Thomas (2018)</a> calls it ‘Small Steps.’</span></span></span>
+            The upshot of denying Finite Fine-Grainedness is twofold.
+            First, it makes room for a <em>lexical</em> <em>population
+            axiology</em> in which welfare levels and population-values
+            are represented by vectors. Views of this kind constitute a
+            counterexample to Arrhenius’s First, Fourth, Fifth, and
+            Sixth Impossibility Theorems. Second, it strips certain
+            adequacy conditions of their plausibility. More precisely,
+            it renders doubtful the Inequality Aversion condition
+            employed in Arrhenius’s Second and Third Impossibility
+            Theorems. Therefore, none of Arrhenius’s six theorems proves
+            that there is no satisfactory population axiology. Each
+            theorem depends on Finite Fine-Grainedness for the validity
+            of its proof or the plausibility of its adequacy
+            conditions.</p>
+<p>Nevertheless, Arrhenius’s theorems remain important. In
+            this paper, I demonstrate that they can be turned into
+            theorems stating the impossibility of a satisfactory
+            <em>population prospect axiology</em>: a satisfactory
+            betterness ordering over alternatives that have some
+            probability of bringing about one or more distinct
+            populations. Since all of our population-affecting actions
+            have a non-zero probability of bringing about more than one
+            distinct population, it is population prospect axiologies
+            that are of practical relevance, and these amended theorems
+            state that no such axiology can satisfy each of a small
+            number of compelling adequacy conditions. The key difference
+            is that these theorems employ <em>risky</em> versions of
+            Arrhenius’s original conditions. The original conditions
+            mandate, roughly, that a drop in welfare for one person can
+            be compensated by a large enough increase in welfare
+            elsewhere. The risky versions mandate, again roughly, that
+            <em>a slightly increased risk of</em> a drop in welfare for
+            one person can be compensated by a large enough increase in
+            welfare elsewhere. These risky adequacy conditions are
+            compelling even if Finite Fine-Grainedness is false, so
+            lexical views do not escape these amended theorems.</p>
+<p>I begin in Section 2 by outlining the framework of this
+            paper more precisely. Then in Section 3 I formulate the
+            adequacy conditions for Arrhenius’s favoured Sixth
+            Impossibility Theorem. I give some <em>prima facie</em>
+            reasons to doubt Finite Fine-Grainedness in Section 4, after
+            which I sketch out a simple lexical view and explain how it
+            escapes the Sixth Theorem. Then in Section 5 I present a
+            risky version of the theorem that does not depend on the
+            truth of Finite Fine-Grainedness. I prove that Arrhenius’s
+            other impossibility theorems can be patched up with a
+            similar manoeuvre in the Appendix.</p>
+<h1 data-number="2" id="the-framework"><span class="header-section-number">2.</span> The Framework</h1>
+<p>In this paper, I use definitions and structural
+            assumptions broadly in line with those of <a class="citation-link" href="#ref-4">Arrhenius (2011</a>;
+            <a class="citation-link" href="#ref-6">forthcoming</a>). Two exceptions are worth noting. First, I
+            borrow notation from Thomas’s
+            manuscript⁠<label class="margin-toggle sidenote-number" for="sn-4"></label><input class="margin-toggle" id="sn-4" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a href="https://users.ox.ac.uk/~mert2060/webfiles/Reconstructing-Arrhenius-for-web.pdf">http://users.ox.ac.uk/~mert2060/webfiles/Reconstructing-Arrhenius-for-web.pdf</a></span></span></span>
+            to simplify the presentation of the adequacy conditions and
+            proofs. Second, I drop the assumption of Finite
+            Fine-Grainedness in Section 5 and substitute new assumptions
+            about the ordering of population prospects.</p>
+<p>Arrhenius’s impossibility theorems make extensive use of
+            the notion of <em>welfare</em>: a measure of how good a
+            person’s life is for them. Lives are individuated by the
+            person whose life it is and the kind of life it is, and it
+            is assumed that the ‘has at least as high welfare as’
+            relation applied to the set of possible lives is reflexive
+            and transitive, but not necessarily complete. Life <span class="math inline">\(x\)</span> is better than life <span class="math inline">\(y\)</span> iff <span class="math inline">\(x\)</span> has at least as high
+            welfare as <span class="math inline">\(y\)</span> and <span class="math inline">\(y\)</span> does not have at least as
+            high welfare as <span class="paper-inline-math-unit"><span class="math inline">\(x\)</span>⁠.</span>
+            Lives <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are incomparable iff <span class="math inline">\(x\)</span> does not have at least as
+            high welfare as <span class="math inline">\(y\)</span> and
+            <span class="math inline">\(y\)</span> does not have at
+            least as high welfare as <span class="paper-inline-math-unit"><span class="math inline">\(x\)</span>⁠.</span>⁠<label class="margin-toggle sidenote-number" for="sn-5"></label><input class="margin-toggle" id="sn-5" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">We might instead claim that <span class="math inline">\(x\)</span>
+            and <span class="math inline">\(y\)</span> are incommensurable, on a
+            par, or imprecisely equally good in this case. For the purposes of this
+            the paper, the distinction between these relations is unimportant. See
+            <a class="citation-link" href="#ref-17">Chang (2016)</a> for discussion.</span></span></span> Lives
+            <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are equally good iff <span class="math inline">\(x\)</span> has at least as high
+            welfare as <span class="math inline">\(y\)</span> and <span class="math inline">\(y\)</span> has at least as high
+            welfare as <span class="paper-inline-math-unit"><span class="math inline">\(x\)</span>⁠.</span> If two
+            lives are equally good, they are at the same welfare
+            level.</p>
+<p>A life is neutral iff it is equally good for the person
+            living it as some <em>standard</em>. This standard is
+            defined differently by different authors. <a class="citation-link" href="#ref-4">Arrhenius (2011,
+            5)</a> defines it as a neutral welfare component: a component
+            that makes a person’s life neither better nor worse. Others
+            define it as nonexistence (<a class="citation-link" href="#ref-7">Arrhenius and Rabinowicz 2015</a>) or
+            a life constantly at a neutral level of temporal welfare
+            (<a class="citation-link" href="https://philpapers.org/rec/BROWL">Broome 2004, 68</a>; <a class="citation-link" href="https://www.cambridge.org/core/journals/economics-and-philosophy/article/abs/good-the-bad-and-the-ethically-neutral/B9B39B26AB19A4D6A5FFA93822DC5CBB">Bykvist 2007, 101</a>). My discussion is
+            compatible with all such definitions. A life is at a
+            positive welfare level iff it is better than a neutral life,
+            and at a negative welfare level iff it is worse than a
+            neutral life.</p>
+<p>Arrhenius assumes Finite Fine-Grainedness:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Finite Fine-Grainedness</p>
+<p>There exists a finite sequence of slight welfare
+            differences between any two welfare levels. (<a class="citation-link" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/theo.12094">Arrhenius 2016,
+            171</a>; <a class="citation-link" href="#ref-6">forthcoming</a>)</p>
+</blockquote>
+<p>We can leave ‘slight’ to be understood intuitively for
+            now. Suppose, for example, that <span class="math inline">\(x\)</span> is a long life and <span class="math inline">\(y\)</span> is an otherwise identical
+            life featuring one less second of mild pleasure. The
+            difference between the welfare levels of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> would certainly qualify as
+            slight.</p>
+<p>Arrhenius uses Finite Fine-Grainedness to ensure the
+            existence of a finite, linearly ordered set of welfare
+            levels, <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}\)</span>⁠,</span>
+            with two properties:</p>
+<ol type="1">
+<li><p>The set ranges from a very negative welfare level,
+            through a barely negative welfare level and three barely
+            positive welfare levels, each higher than the last, up to
+            three very positive welfare levels, each higher than the
+            last.</p></li>
+<li><p>The difference between adjacent welfare levels is
+            slight.</p></li>
+</ol>
+<p>We can represent the welfare levels in <span class="math inline">\(\mathbb{W}\)</span> with integers
+            ranging from <span class="math inline">\(\omega\)</span> up
+            to <span class="paper-inline-math-unit"><span class="math inline">\(\beta + 2\)</span>⁠:</span></p>
+<blockquote>
+<p><span class="display-equation" data-equation-number="1"><span class="math display">\[\omega &lt; \ldots &lt; - 1
+            &lt; 0 &lt; 1 &lt; 2 &lt; 3 &lt; \ldots &lt; \beta &lt;
+            \beta + 1 &lt; \beta + 2\]</span><span class="equation-number">(1)</span></span></p>
+</blockquote>
+<p>Here <span class="math inline">\(0\)</span> represents
+            the neutral welfare level, <span class="math inline">\(-
+            1\)</span> represents a barely negative level, and 1, 2, and
+            3 represent barely positive levels. <span class="math inline">\(\omega\)</span> represents a very
+            negative level, and <span class="math inline">\(\beta\)</span> and above represent
+            very positive levels. These are all the welfare levels
+            employed in Arrhenius’s proofs.</p>
+<p>A population is a set of lives in a possible world. A
+            population axiology is an ‘at least as good as’ relation on
+            the set of all possible populations: reflexive and
+            transitive, but not necessarily complete. Population <span class="math inline">\(X\)</span> is better than population
+            <span class="math inline">\(Y\)</span> iff <span class="math inline">\(X\)</span> is at least as good as
+            <span class="math inline">\(Y\)</span> and <span class="math inline">\(Y\)</span> is not at least as good as
+            <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span> Populations <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are incomparable iff <span class="math inline">\(X\)</span> is not at least as good as
+            <span class="math inline">\(Y\)</span> and <span class="math inline">\(Y\)</span> is not at least good as
+            <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span>⁠<label class="margin-toggle sidenote-number" for="sn-6"></label><input class="margin-toggle" id="sn-6" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Or else they are incommensurable, on a par, or imprecisely equally
+            good. See footnote 5.</span></span></span> Population <span class="math inline">\(X\)</span> is equally good as
+            population <span class="math inline">\(Y\)</span> iff <span class="math inline">\(X\)</span> is at least as good as
+            <span class="math inline">\(Y\)</span> and <span class="math inline">\(Y\)</span> is at least as good as
+            <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span> If two populations
+            are equally good, they have the same value.</p>
+<p>Two features of Arrhenius’s adequacy conditions are worth
+            noting. The first is that they quantify over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}\)</span>⁠.</span> This set may be a
+            proper subset of the set of all welfare levels, but that
+            possibility is of little consequence. If no population
+            axiology can satisfy Arrhenius’s adequacy conditions
+            quantifying over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}\)</span>⁠,</span> then no
+            population axiology can satisfy those adequacy conditions
+            quantifying over all welfare levels. The second is that each
+            adequacy condition includes an ‘other things being equal’
+            clause. That is needed because populations determine facts
+            besides the distribution of welfare, and these facts might
+            be axiologically relevant. The purpose of the ‘other things
+            being equal’ clause is to hold all such non-welfare facts
+            fixed.</p>
+<p>In what follows, I use <span class="math inline">\(\left.
+            ⟦a \right.⟧\)</span> to denote a population of one life at
+            welfare level <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span> and
+            <span class="math inline">\(m\left. ⟦a \right.⟧\)</span> to
+            denote a population of <span class="math inline">\(m\)</span> lives at <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠.</span> Uppercase letters like
+            <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> and <span class="math inline">\(Y\)</span> denote populations which
+            may feature lives at more than one welfare level.
+            Populations represented by different letters should be
+            understood as pairwise disjoint so that, for example, <span class="math inline">\(X\)</span> and <span class="math inline">\(m\left. ⟦a \right.⟧\)</span> have no
+            lives in common. <span class="math inline">\(X + m\left. ⟦a
+            \right.⟧\)</span> then denotes a population of all the lives
+            in <span class="math inline">\(X\)</span> and all the lives
+            in <span class="paper-inline-math-unit"><span class="math inline">\(m\left. ⟦a \right.⟧\)</span>⁠.</span>
+            I leave the ‘other things being equal’ clause in each
+            adequacy condition implicit. With that proviso, <span class="math inline">\(\succ\)</span> denotes ‘is better
+            than’ and <span class="math inline">\(\succeq\)</span>
+            denotes ‘is at least as good as.’</p>
+<h1 data-number="3" id="arrheniuss-sixth-impossibility-theorem"><span class="header-section-number">3.</span> Arrhenius’s Sixth
+            Impossibility Theorem</h1>
+<p>Arrhenius’s favoured Sixth Impossibility Theorem employs
+            the following five adequacy conditions:</p>
+<blockquote>
+<p><strong>Egalitarian Dominance:</strong> If population
+            <span class="math inline">\(A\)</span> is a perfectly equal
+            population of the same size as population <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠,</span> and every person in <span class="math inline">\(A\)</span> has higher welfare than
+            every person in <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠,</span> then
+            <span class="math inline">\(A\)</span> is better than <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.</span></p>
+<p class="paper-principle-start"><strong>Egalitarian Dominance (exact
+            formulation):</strong> For any <span class="paper-inline-math-unit"><span class="math inline">\(a
+            \in \mathbb{W}\)</span>⁠,</span> any <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in N}\)</span>⁠,</span> and any
+            population <span class="math inline">\(X\)</span> of size
+            <span class="math inline">\(n\)</span> with all lives at
+            welfare levels below <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span></p>
+<p class="paper-block-title"><span class="display-equation" data-equation-number="2"><span class="math display">\[X \prec n\left. ⟦a
+            \right.⟧\]</span><span class="equation-number">(2)</span></span></p>
+<p class="paper-principle-start"><strong>General Non-Extreme Priority:</strong> For any
+            welfare level <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span> there
+            exists a number <span class="math inline">\(n\)</span> of
+            lives such that, for any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> a population consisting of
+            <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> <span class="math inline">\(n\)</span> very positive welfare
+            lives, and one life at welfare level <span class="math inline">\(a\)</span> is at least as good as a
+            population consisting of <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> <span class="math inline">\(n\)</span> barely positive welfare
+            lives, and one life at a welfare level slightly above <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠.</span></p>
+<p class="paper-principle-start"><strong>General Non-Extreme Priority (exact
+            formulation):</strong> For any <span class="paper-inline-math-unit"><span class="math inline">\(a
+            \in \mathbb{W}\)</span>⁠,</span> there exists <span class="math inline">\(n\mathbb{\in N}\)</span> such that,
+            for any <span class="math inline">\(b,\ c \in \
+            \mathbb{W}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(0 &lt;
+            b \leq 3\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(c \geq
+            \beta\)</span>⁠,</span> and any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="3"><span class="math display">\[X + \left. ⟦a + 1 \right.⟧ +
+            n\left. ⟦b \right.⟧ \preceq X + \left. ⟦a \right.⟧ + n\left.
+            ⟦c \right.⟧\]</span><span class="equation-number">(3)</span></span></p>
+<p class="paper-principle-start"><strong>Non-Elitism:</strong> For any welfare levels
+            <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(b\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(c\)</span>⁠,</span> <span class="math inline">\(a\)</span> slightly higher than <span class="math inline">\(b\)</span> and <span class="math inline">\(b\)</span> higher than <span class="paper-inline-math-unit"><span class="math inline">\(c\)</span>⁠,</span> and for any one-life
+            population <span class="math inline">\(A\)</span> at welfare
+            level <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span> there is a
+            population <span class="math inline">\(C\)</span> at welfare
+            level <span class="paper-inline-math-unit"><span class="math inline">\(c\)</span>⁠,</span> and a
+            population <span class="math inline">\(B\)</span> of the
+            same size as <span class="math inline">\(A + C\)</span> such
+            that, for any population <span class="math inline">\(X\)</span> consisting of lives with
+            welfare ranging from <span class="math inline">\(c\)</span>
+            to <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span> <span class="math inline">\(X + B\)</span> is at least as good as
+            <span class="paper-inline-math-unit"><span class="math inline">\(X + A + C\)</span>⁠.</span></p>
+<p class="paper-principle-start"><strong>Non-Elitism (exact formulation):</strong> For any
+            <span class="math inline">\(a,\ c \in \mathbb{W}\)</span>
+            with <span class="paper-inline-math-unit"><span class="math inline">\(a - 1 &gt; c\)</span>⁠,</span>
+            there exists <span class="math inline">\(n\mathbb{\in
+            N}\)</span> such that, for any population <span class="math inline">\(X\)</span> with welfare levels ranging
+            from <span class="math inline">\(c\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="4"><span class="math display">\[X + \left. ⟦a \right.⟧ +
+            n\left. ⟦c \right.⟧ \preceq X + \left. ⟦a - 1 \right.⟧ +
+            n\left. ⟦a - 1 \right.⟧\]</span><span class="equation-number">(4)</span></span></p>
+<p class="paper-principle-start"><strong>Weak Non-Sadism:</strong> There is a negative
+            welfare level and a number of lives at this level such that
+            the addition of any number of lives with positive welfare is
+            at least as good as the addition of the lives with negative
+            welfare.</p>
+<p class="paper-principle-start"><strong>Weak Non-Sadism (exact formulation):</strong>
+            There exists <span class="math inline">\(a \in
+            \mathbb{W}\)</span> with <span class="math inline">\(a &lt;
+            0\)</span> and <span class="math inline">\(m\mathbb{\in
+            N}\)</span> such that, for any welfare level <span class="math inline">\(b \in \mathbb{W}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(b &gt; 0\)</span>⁠,</span> any <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in N}\)</span>⁠,</span> and any
+            population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span></p>
+<p class="paper-block-title"><span class="display-equation" data-equation-number="5"><span class="math display">\[X + m\left. ⟦a \right.⟧
+            \preceq X + n\left. ⟦b \right.⟧\]</span><span class="equation-number">(5)</span></span></p>
+<p class="paper-principle-start"><strong>Weak Quality Addition:</strong> There is a number
+            of very negative welfare lives such that, for any population
+            <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> there is a number of
+            very positive welfare lives such that the addition of the
+            very positive welfare lives to <span class="math inline">\(X\)</span> is at least as good as the
+            addition of the very negative welfare lives plus any number
+            of barely positive welfare lives to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span></p>
+<p class="paper-principle-start"><strong>Weak Quality Addition (exact
+            formulation):</strong> There exists <span class="math inline">\(a \in \mathbb{W}\)</span> with <span class="math inline">\(a &lt; 0\)</span> and <span class="math inline">\(m\mathbb{\in N}\)</span> such that,
+            for any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+            there exists <span class="math inline">\(b,\ c \in
+            \mathbb{W}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(0 &lt;
+            b \leq 3\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(c \geq
+            \beta\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in
+            N}\)</span>⁠,</span> such that for any <span class="paper-inline-math-unit"><span class="math inline">\(q\mathbb{\in N}\)</span>⁠,</span></p>
+<!-- ORIGINAL: > $X + m\left. ⟦a \right.⟧ + q\left. ⟦b \right.⟧ \preceq X + n\left. ⟦c \right.⟧$[^8] -->
+<p><span class="display-equation" data-equation-number="6"><span class="math display">\[X + m\left. ⟦a \right.⟧ +
+            q\left. ⟦b \right.⟧ \preceq X + n\left. ⟦c
+            \right.⟧\]</span><span class="equation-number">(6)</span></span>⁠<label class="margin-toggle sidenote-number" for="sn-7"></label><input class="margin-toggle" id="sn-7" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">This condition differs slightly from that of <a class="citation-link" href="#ref-4">Arrhenius (2011)</a>.
+            Arrhenius has the first two quantifiers the other way around, so that
+            the condition begins ‘For any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> there is…’ (2011, 9). As Thomas’s
+            manuscript notes, the Sixth Impossibility Theorem actually requires the
+            slightly stronger condition stated here. In any case, the stronger
+            version remains a compelling adequacy condition.</span></span></span></p>
+</blockquote>
+<p>Arrhenius’s Sixth Impossibility Theorem states that these
+            five adequacy conditions are incompatible:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Arrhenius’s Sixth Impossibility Theorem</p>
+<p>There is no population axiology which satisfies
+            Egalitarian Dominance, General Non-Extreme Priority,
+            Non-Elitism, Weak Non-Sadism, and Weak Quality Addition.
+            (<a class="citation-link" href="#ref-4">Arrhenius 2011, 9</a>; <a class="citation-link" href="#ref-6">forthcoming</a>)</p>
+</blockquote>
+<p>However, the theorem is only true given Finite
+            Fine-Grainedness. I prove that this is so in the next
+            section, by presenting <em>Lexical Totalism</em> as a
+            counterexample to the theorem. But the rough idea is as
+            follows. Arrhenius assumes that, while single applications
+            of Non-Elitism and General Non-Extreme Priority reduce a
+            person’s welfare only slightly, repeated applications of
+            these conditions can reduce a very positive welfare level to
+            a very negative welfare level. As we will see, this
+            assumption is exactly what Lexical Totalism denies.</p>
+<h1 data-number="4" id="lexical-totalism"><span class="header-section-number">4.</span> Lexical
+            Totalism</h1>
+<p>Recall Finite Fine-Grainedness:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Finite Fine-Grainedness</p>
+<p>There exists a finite sequence of slight welfare
+            differences between any two welfare levels. (<a class="citation-link" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/theo.12094">Arrhenius 2016,
+            171</a>; <a class="citation-link" href="#ref-6">forthcoming</a>)</p>
+</blockquote>
+<p>Although this assumption might seem compelling, there are
+            <em>prima facie</em> reasons to doubt it. Consider the
+            following case from Roger Crisp:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Haydn and the Oyster</p>
+<p>You are a soul in heaven waiting to be allocated a life
+            on Earth. It is late Friday afternoon, and you watch
+            anxiously as the supply of available lives dwindles. When
+            your turn comes, the angel in charge offers you a choice
+            between two lives, that of the composer Joseph Haydn and
+            that of an oyster. Besides composing some wonderful music
+            and influencing the evolution of the symphony, Haydn will
+            meet with success and honour in his own lifetime, be
+            cheerful and popular, travel, and gain much enjoyment from
+            field sports. The oyster’s life is far less exciting. Though
+            this is rather a sophisticated oyster, its life will consist
+            only of mild sensual pleasure, rather like that experienced
+            by humans when floating very drunk in a warm bath. When you
+            request the life of Haydn, the angel sighs, ‘I’ll never get
+            rid of this oyster life. It’s been hanging around for ages.
+            Look, I’ll offer you a special deal. Haydn will die at the
+            age of seventy‐seven. But I’ll make the oyster life as long
+            as you like.’ (<a class="citation-link" href="#ref-18">Crisp 1997, 24</a>; <a class="citation-link" href="#ref-19">2006, 112</a>; see also <a class="citation-link" href="#ref-23">McTaggart
+            1927, 452–53</a>)</p>
+</blockquote>
+<p>Suppose that, as the oyster, you would never get bored of
+            your mild sensual pleasure. Many of us share the following
+            two intuitions about this case:</p>
+<ol type="1">
+<li><p>Increasing the length of the oyster life by one day
+            increases its welfare level by some slight but constant
+            amount.</p></li>
+<li><p>An oyster life of any length is at a lower welfare
+            level than the life of Haydn.</p></li>
+</ol>
+<p>This combination of intuitions casts doubt on Finite
+            Fine-Grainedness, for although each added day of oyster life
+            yields a constant increase in welfare level, no number of
+            additional days can make the oyster life at least as good as
+            the life of
+            Haydn.⁠<label class="margin-toggle sidenote-number" for="sn-8"></label><input class="margin-toggle" id="sn-8" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">The truth of these intuitions would not themselves
+            <em>contradict</em> Finite Fine-Grainedness, because it could be that
+            some other way of slightly increasing the oyster’s welfare could
+            eventually render the oyster life at least as good as Haydn’s. However,
+            as <a class="citation-link" href="#ref-16">Carlson (forthcoming)</a> points out, their truth would contradict Finite
+            Fine-Grainedness if we also assume that a difference in welfare levels
+            is slight only if it is not infinitely greater than some other
+            difference in welfare levels.</span></span></span> What’s
+            more, we might think that the only improvements that could
+            bring the oyster life up to Haydn’s welfare level do not
+            come in slight increments. Suppose, for example, that the
+            oyster life could be at least as good as Haydn’s only if we
+            endowed the oyster with autonomy, or made it capable of
+            love, or gave its life meaning. Suppose further that no
+            lives differing in their quantities of autonomy, love, or
+            meaning differ only slightly in welfare. In that case,
+            Finite Fine-Grainedness would be false.</p>
+<p>We might try to account for these intuitions by claiming
+            that the life of Haydn is of infinite value relative to the
+            oyster life. But there are good reasons to avoid this move.
+            One is that, if the value of Haydn’s life is infinite, then
+            the expected value of any prospect with a non-zero
+            probability of resulting in Haydn’s life is also infinite. A
+            prospect that results in Haydn’s life for certain has the
+            same infinite expected value as a prospect that results in
+            Haydn’s life with probability one-in-a-hundred and an oyster
+            life otherwise.</p>
+<p>A better way of accounting for these intuitions is to
+            represent welfare levels with a vector. For example, we can
+            have the welfare level of a life <span class="math inline">\(x\)</span> as a vector of higher and
+            lower goods <strong>–</strong> <span class="math inline">\(\left( h_{x},\ l_{x} \right)\)</span>
+<strong>–</strong> each representable by integers without
+            upper or lower bound. These welfare levels can then be
+            ordered lexically, so that a welfare level <span class="math inline">\(\left( h_{x},\ l_{x} \right)\)</span>
+            is at least as high as a welfare level <span class="math inline">\(\left( h_{y},\ l_{y} \right)\)</span>
+            iff either <span class="math inline">\(h_{x} &gt;
+            h_{y}\)</span> or <span class="math inline">\(h_{x} =
+            h_{y}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l_{x} \geq
+            l_{y}\)</span>⁠.</span> We can specify that autonomy, love, and
+            meaning are higher goods, while sensual pleasure is a lower
+            good. Given this specification, the life of Haydn contains
+            some non-zero quantity of higher goods and the oyster life
+            contains none. The lexical ordering can then account for
+            both of our intuitions. Increasing the length of the oyster
+            life by one day increases its quantity of lower goods by
+            some slight but constant amount, but no quantity of lower
+            goods in an oyster life can match the non-zero quantity of
+            higher goods in the life of Haydn. And extending this
+            lexical ordering to cover prospects gives the right results
+            in the risky case outlined above. Let Haydn’s welfare level
+            be <span class="math inline">\((a,0)\)</span> with <span class="math inline">\(a &gt; 0\)</span> and the oyster’s
+            welfare level <span class="math inline">\((0,b)\)</span>
+            with <span class="paper-inline-math-unit"><span class="math inline">\(b &gt; 0\)</span>⁠,</span> and
+            define the expected value of a prospect as a
+            probability-weighted average of the values of its possible
+            outcomes. Then the expected value of the prospect that
+            results in Haydn’s life for certain is <span class="math inline">\((a,0)\)</span> and the expected value
+            of the prospect that results in Haydn’s life with
+            probability one-in-a-hundred and an oyster life otherwise is
+            <span class="paper-inline-math-unit"><span class="math inline">\((0.01a,0.99b)\)</span>⁠.</span> And
+            <span class="paper-inline-math-unit"><span class="math inline">\(a &gt; 0.01a\)</span>⁠,</span> so the
+            lexical ordering has the former prospect better than the
+            latter.</p>
+<p>We can follow <a class="citation-link" href="#ref-16">Carlson (forthcoming)</a> in filling out the
+            view as follows:</p>
+<blockquote class="paper-nested-definition paper-statement">
+<p>A welfare level <span class="math inline">\(\left(
+            h_{x},\ l_{x} \right)\)</span> is</p>
+<p>positive iff <span class="paper-inline-math-unit"><span class="math inline">\(h_{x} &gt;
+            0\)</span>⁠,</span> or <span class="math inline">\(h_{x} =
+            0\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l_{x} &gt;
+            0\)</span>⁠,</span></p>
+<p>negative iff <span class="paper-inline-math-unit"><span class="math inline">\(h_{x} &lt;
+            0\)</span>⁠,</span> or <span class="math inline">\(h_{x} =
+            0\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l_{x} &lt;
+            0\)</span>⁠,</span></p>
+<p>neutral iff <span class="math inline">\(h_{x} =
+            0\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l_{x} =
+            0\)</span>⁠,</span></p>
+<p>very positive iff <span class="paper-inline-math-unit"><span class="math inline">\(h_{x} \geq
+            e\)</span>⁠,</span> for a particular positive integer <span class="paper-inline-math-unit"><span class="math inline">\(e\)</span>⁠,</span></p>
+<p>barely positive only if <span class="math inline">\(h_{x}
+            = 0\ \)</span>and <span class="paper-inline-math-unit"><span class="math inline">\(l_{x} &gt;
+            0\)</span>⁠,</span></p>
+<p>barely negative only if <span class="math inline">\(h_{x}
+            = 0\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l_{x} &lt;
+            0\)</span>⁠,</span> and</p>
+<p>very negative iff <span class="paper-inline-math-unit"><span class="math inline">\(h_{x} \leq
+            f\)</span>⁠,</span> for a particular negative integer <span class="paper-inline-math-unit"><span class="math inline">\(f\)</span>⁠.</span></p>
+<p>A welfare level <span class="math inline">\(\left(
+            h_{x},\ l_{x} \right)\)</span> is merely slightly higher
+            than a welfare level <span class="math inline">\(\left(
+            h_{y},\ l_{y} \right)\)</span> only if <span class="math inline">\(h_{x} = h_{y}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l_{x} = l_{y} + u\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(u &gt; 0\)</span>⁠.</span></p>
+</blockquote>
+<p>On this view, Finite Fine-Grainedness is false. A welfare
+            difference is slight only if it involves no change in the
+            quantity of higher goods, so no number of slight welfare
+            differences can bridge the gap between welfare levels that
+            differ in their quantity of higher goods.</p>
+<p>We can order populations in the same way that we order
+            lives. Let the value of a population <span class="math inline">\(X\)</span> be represented by the
+            vector <span class="paper-inline-math-unit"><span class="math inline">\(\left( h_{X},\ l_{X}
+            \right)\)</span>⁠,</span> where <span class="math inline">\(h_{X}\)</span> is the sum of all the
+            higher goods and <span class="math inline">\(l_{X}\)</span>
+            is the sum of all the lower goods in the lives in <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span> Population <span class="math inline">\(X\)</span> is at least as good as
+            population <span class="math inline">\(Y\)</span> iff either
+            <span class="math inline">\(h_{X} &gt; h_{Y}\)</span> or
+            <span class="math inline">\(h_{X} = h_{Y}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l_{X} \geq l_{Y}\)</span>⁠.</span> Call this
+            population axiology <em>Lexical Totalism</em>.</p>
+<p>As <a class="citation-link" href="#ref-37">Thomas (2018)</a> and <a class="citation-link" href="#ref-16">Carlson (forthcoming)</a> note, Lexical
+            Totalism is a counterexample to Arrhenius’s Sixth
+            Impossibility Theorem. It satisfies all five adequacy
+            conditions. It satisfies Egalitarian Dominance because every
+            person in <span class="math inline">\(A\)</span> having
+            higher welfare than every person in <span class="math inline">\(B\)</span> entails that total welfare
+            in <span class="math inline">\(A\)</span> is higher than in
+            <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.</span> And it satisfies
+            Weak Non-Sadism because adding any number of negative
+            welfare lives reduces total welfare while adding any number
+            of positive welfare lives increases it. Weak Quality
+            Addition is satisfied for a similar reason. Adding any
+            number of very positive welfare lives increases total
+            welfare, while adding any combination of very negative
+            welfare lives and barely positive welfare lives reduces it.
+            More precisely, let <span class="math inline">\(\left(
+            h_{X},l_{X} \right)\)</span> represent the value of <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span> Adding very positive
+            welfare lives means adding <span class="math inline">\((p,\
+            q)\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(p &gt;
+            0\)</span>⁠,</span> while adding a combination of very negative
+            welfare lives and barely positive welfare lives means adding
+            <span class="math inline">\((r,s)\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(r &lt; 0\)</span>⁠.</span> Weak Quality
+            Addition is satisfied because <span class="math inline">\(\left( h_{X} + p,l_{X} + q
+            \right)\)</span> is greater than <span class="math inline">\(\left( h_{X} + r,\ l_{X} + s
+            \right)\)</span> no matter what values <span class="math inline">\(q\)</span> and <span class="math inline">\(s\)</span> take.</p>
+<p>Lexical Totalism also satisfies General Non-Extreme
+            Priority. Let <span class="math inline">\(\left( h_{a},\
+            l_{a} \right)\)</span> represent welfare level <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠.</span> Then a population
+            consisting of <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> one
+            life at <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span> and some
+            number of very positive welfare lives has a value of <span class="math inline">\(\left( h_{X} + h_{a} + p,\ l_{X} +
+            l_{a} + q \right)\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(p &gt; 0\)</span>⁠.</span> Meanwhile, a
+            population consisting of <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> one life at a welfare
+            level slightly above <span class="math inline">\(a\)</span>
+            (represented by <span class="math inline">\(\left( h_{a},\
+            l_{a} + u \right)\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(u &gt; 0\)</span>⁠),</span> and some number of
+            barely positive welfare lives has a value of <span class="math inline">\(\left( h_{X} + h_{a},\ l_{X} + l_{a} +
+            u + s \right)\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(u
+            &gt; 0\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(s &gt;
+            0\)</span>⁠.</span> General Non-Extreme Priority is satisfied
+            because <span class="math inline">\(\left( h_{X} + h_{a} +
+            p,\ l_{X} + l_{a} + q \right)\)</span> is greater than <span class="math inline">\(\left( h_{X} + h_{a},\ l_{X} + l_{a} +
+            u + s \right)\)</span> no matter what values <span class="paper-inline-math-unit"><span class="math inline">\(q\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(u\)</span>⁠,</span> and <span class="math inline">\(s\)</span> take.</p>
+<p>Non-Elitism completes the set. Again, let <span class="math inline">\(\left( h_{a},\ l_{a} \right)\)</span>
+            represent welfare level <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span> so that <span class="math inline">\(\left( h_{a},\ l_{a} - u
+            \right)\)</span> with <span class="math inline">\(u &gt;
+            0\)</span> represents welfare level <span class="paper-inline-math-unit"><span class="math inline">\(b\)</span>⁠,</span> and let <span class="math inline">\(\left( h_{c},\ l_{c} \right)\)</span>
+            represent welfare level <span class="paper-inline-math-unit"><span class="math inline">\(c\)</span>⁠.</span> Then the value of <span class="math inline">\(X + B\)</span> is <span class="math inline">\(\left( h_{X} + n\left( h_{a} \right),\
+            l_{X} + n(l_{a} - u) \right)\)</span> and the value of <span class="math inline">\(X + A + C\)</span> is <span class="paper-inline-math-unit"><span class="math inline">\(\left( h_{X} + h_{a} + (n - 1)\left(
+            h_{c} \right),\ l_{X} + l_{a} + (n - 1)\left( l_{c} \right)
+            \right)\)</span>⁠.</span> Cancelling the <span class="math inline">\(h_{X}\)</span> and <span class="math inline">\(l_{X}\)</span> terms, we can see that
+            Non-Elitism is satisfied: <span class="math inline">\(\left(
+            n\left( h_{a} \right),\ n(l_{a} - u) \right)\)</span> is at
+            least as good as <span class="math inline">\(\left( h_{a} +
+            (n - 1)\left( h_{c} \right),\ l_{a} + (n - 1)\left( l_{c}
+            \right) \right)\)</span> for some <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in N}\)</span>⁠,</span> since <span class="math inline">\(b &gt; c\)</span> implies that either
+            <span class="math inline">\(h_{a} &gt; h_{c}\)</span> or
+            <span class="math inline">\(h_{a} = h_{c}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\((l_{a} - u) &gt; l_{c}\)</span>⁠.</span></p>
+<p>Therefore, Arrhenius’s Sixth Impossibility Theorem is
+            escapable. Population axiologies that deny Finite
+            Fine-Grainedness can satisfy all of its adequacy conditions.
+            What’s more, these axiologies have other advantages besides.
+            Lexical Totalism coheres nicely with our intuitions in cases
+            like Haydn and the Oyster, its lexical ordering of lives
+            admits of a natural extension to populations and prospects,
+            and all the while it remains faithful to the appealing idea
+            that a population is at least as good as another iff it
+            contains at least as much welfare.</p>
+<p>Lexical Totalism also satisfies all the adequacy
+            conditions in Arrhenius’s First, Fourth, and Fifth
+            Impossibility
+            Theorems.⁠<label class="margin-toggle sidenote-number" for="sn-9"></label><input class="margin-toggle" id="sn-9" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">As <a class="citation-link" href="#ref-16">Carlson (forthcoming)</a> proves.</span></span></span>
+            The Second and Third Impossibility Theorems are a different
+            matter. They feature the following adequacy condition:</p>
+<blockquote>
+<p><strong>Inequality Aversion:</strong> For any welfare
+            levels <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(b\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(c\)</span>⁠,</span> <span class="math inline">\(a\)</span> higher than <span class="paper-inline-math-unit"><span class="math inline">\(b\)</span>⁠,</span> and <span class="math inline">\(b\)</span> higher than <span class="paper-inline-math-unit"><span class="math inline">\(c\)</span>⁠,</span> and for any population
+            <span class="math inline">\(A\)</span> with welfare <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span> there is a larger
+            population <span class="math inline">\(C\)</span> with
+            welfare <span class="paper-inline-math-unit"><span class="math inline">\(c\)</span>⁠,</span> such that a
+            perfectly equal population <span class="math inline">\(B\)</span> of the same size as <span class="math inline">\(A + C\)</span> and with welfare <span class="paper-inline-math-unit"><span class="math inline">\(b\)</span>⁠,</span> is at least as good as
+            <span class="paper-inline-math-unit"><span class="math inline">\(A + C\)</span>⁠.</span></p>
+</blockquote>
+<p>Lexical Totalism violates this condition when, for
+            example, <span class="math inline">\(a\)</span> is a very
+            positive welfare level and <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> are barely positive welfare
+            levels. However, in this case, Inequality Aversion does not
+            seem particularly compelling. Suppose, for example, that
+            <span class="math inline">\(a\)</span> is the welfare level
+            enjoyed by Haydn, <span class="math inline">\(b\)</span> is
+            the welfare level enjoyed by an oyster that lives
+            one-hundred years, and <span class="math inline">\(c\)</span> is the welfare level
+            enjoyed by an oyster that lives ninety-nine years.
+            Inequality Aversion states that, for any number <span class="math inline">\(m\)</span> of lives equally good as
+            Haydn’s, there is some number <span class="math inline">\(n\)</span> of ninety-nine year oyster
+            lives such that <span class="math inline">\(m + n\)</span>
+            one-hundred year oyster lives are at least as good as <span class="math inline">\(m\ \)</span>Haydn-quality lives and
+            <span class="math inline">\(n\)</span> ninety-nine year
+            oyster lives.</p>
+<p>In fact, Arrhenius acknowledges that Inequality Aversion
+            is not particularly compelling considered alone
+            (forthcoming, 147). But he defends it by deriving it from
+            the more compelling Non-Elitism condition (forthcoming,
+            150f.). His derivation, however, depends on Finite
+            Fine-Grainedness (forthcoming, 323<strong>–</strong>26). If
+            we deny Finite Fine-Grainedness, no such thing follows.
+            Therefore, advocates of Lexical Totalism can claim that
+            their view satisfies all of the compelling adequacy
+            conditions in each of Arrhenius’s six impossibility
+            theorems.</p>
+<p><a class="citation-link" href="#ref-22">Kitcher (2000)</a>, <a class="citation-link" href="#ref-37">Thomas (2018)</a>, <a class="citation-link" href="https://philpapers.org/archive/NEBTWR.pdf">Nebel (2021)</a>, and <a class="citation-link" href="#ref-16">Carlson
+            (forthcoming)</a> offer lexical views along these lines. As they
+            note, these views can be tweaked and generalised in various
+            ways. Welfare levels could be represented by vectors with
+            any number of elements, each element could be represented by
+            any subset of the real numbers, and the ordering could
+            employ thresholds of various kinds to account for
+            incomparability. Suppose, for example, that population <span class="math inline">\(X\)</span> is at least as good as
+            population <span class="math inline">\(Y\)</span> iff either
+            <span class="paper-breakable-math"><span class="math inline">\(h_{X}\mathbf{–}h_{Y}\)</span><wbr/><span class="math inline">\(&gt;
+            \mathrm{\Delta}\)</span></span> or <span class="math inline">\(h_{X} \geq h_{Y}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l_{X} \geq l_{Y}\)</span>⁠.</span> In that
+            case, it could be that neither of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is at least as good as the
+            other. It could also be indeterminate whether the quantity
+            of higher goods in a life exceeds some threshold, in which
+            case the ordering of lives and populations will also admit
+            of indeterminacy.</p>
+<p>All such views, however, must deny Finite
+            Fine-Grainedness to avoid Arrhenius’s Sixth Impossibility
+            Theorem, and we might complain that this denial is not
+            well-motivated. One line of argument in favour of Finite
+            Fine-Grainedness is as follows. Every plausible candidate
+            for being a higher good (e.g. autonomy, love, meaning) comes
+            in fine-grained quantities, and if two lives are identical
+            but for a slight difference in their quantity of some higher
+            good, they differ only slightly in welfare. These two
+            premises imply Finite Fine-Grainedness.</p>
+<p>This argument has some force, but it is hardly
+            irresistible. Deniers of Finite Fine-Grainedness point out
+            that the nature of welfare remains an open question (<a class="citation-link" href="#ref-37">Thomas
+            2018, 829–30</a>; <a class="citation-link" href="https://philpapers.org/archive/NEBTWR.pdf">Nebel 2021, 10, 36</a>; <a class="citation-link" href="#ref-16">Carlson forthcoming,
+            22–26</a>). We simply do not know what makes a life good, and so
+            we do not know that higher goods are fine-grained. What’s
+            more, they can draw on a whole array of axiological
+            phenomena to flesh out the case for doubt. Mill’s
+            distinction between higher and lower pleasures is one
+            starting point. He claims that some pairs of pleasures are
+            such that ‘those who are competently acquainted with both’
+            place one ‘so far above the other that they… would not
+            resign it for any quantity of the other pleasure.’ (<a class="citation-link" href="#ref-24">Mill
+            1861, chap. 2, para. 5</a>). And there is no smooth sequence
+            between these higher and lower pleasures because they depend
+            on different faculties. Higher pleasures depend on our
+            ‘intellect,’ ‘imagination,’ and ‘moral sentiments,’ while
+            lower pleasures require only ‘mere sensation.’ (<a class="citation-link" href="#ref-24">Mill 1861,
+            chap. 2, para. 4</a>). From this foundation, it is just a short
+            step to the claim that a life featuring higher pleasures
+            differs markedly in welfare from any life lacking them.</p>
+<p>Another argument comes from Nebel. He suggests that even
+            if autonomy and meaning are fine-grained, the primary
+            determinant of welfare might be the binary instantiation of
+            these goods (<a class="citation-link" href="https://philpapers.org/archive/NEBTWR.pdf">Nebel 2021, 11</a><strong>–</strong>12). Perhaps no
+            life that is meaningful <em>simpliciter</em> is merely
+            slightly better than a life that is meaningless
+            <em>simpliciter</em>. Granted, ‘meaningful’ is almost
+            certainly a vague term, but that is no reason to reject the
+            view. Many compelling moral principles contain vague terms.
+            One example is the claim that it is wrong to experiment on a
+            subject that <em>has not given their informed consent</em>.
+            And vagueness plays a key role in many population axiologies
+            too. <a class="citation-link" href="https://philpapers.org/rec/BROWL">Broome (2004, 180</a><strong>–</strong>82), for example,
+            claims that it can be vague whether a life is better lived
+            than not lived.</p>
+<p><a class="citation-link" href="#ref-20">Meanwhile, Griffin (1988, 86)</a> and <a class="citation-link" href="#ref-16">Carlson (forthcoming)</a>
+            suggest that higher goods might be a composite of other
+            goods, none of which is in itself higher. A life might have
+            to instantiate autonomy, love, knowledge, virtue, and
+            meaning to some degree in order to reach a very positive
+            welfare level, and any life instantiating just four of these
+            five goods might be at a welfare level markedly lower. The
+            presence of all five might be a kind of Moorean ‘organic
+            unity’ in which the whole is more than the sum of its parts
+            (<a class="citation-link" href="#ref-25">Moore 1903, 78–80</a>).</p>
+<p>These accounts are incomplete, but plausible enough in
+            their outlines. Therefore, we cannot conclude that a
+            population axiology is unsatisfactory simply because it
+            violates Finite Fine-Grainedness, and any argument to this
+            effect must reckon with a whole array of axiological
+            phenomena. Determining whether a satisfactory population
+            axiology is possible thus seems to require resolving some
+            tricky questions about the nature of welfare.</p>
+<p>I claim, however, that no such axiological enquiries are
+            necessary. What matters for all practical purposes is the
+            possibility of a satisfactory population <em>prospect</em>
+            axiology, and the impossibility of such an axiology can be
+            proved without employing Finite Fine-Grainedness. The key
+            insight is that <em>expected</em> welfare levels are
+            finitely fine-grained, even if welfare levels are not.</p>
+<h1 data-number="5" id="the-risky-sixth-impossibility-theorem"><span class="header-section-number">5.</span> The Risky Sixth
+            Impossibility Theorem</h1>
+<p>My risky versions of Arrhenius’s impossibility theorems
+            employ the notion of a <em>population prospect</em> which I
+            define, somewhat clunkily, as an alternative with some
+            non-zero probability of bringing about one or more distinct
+            populations. These population prospects can be divided into
+            the trivial and the non-trivial. <em>Trivial population
+            prospects</em> are those alternatives that bring about some
+            population with probability 1. <em>Non-trivial population
+            prospects</em> are those alternatives that bring about two
+            or more distinct populations with probabilities strictly
+            between 0 and
+            1.⁠<label class="margin-toggle sidenote-number" for="sn-10"></label><input class="margin-toggle" id="sn-10" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">These definitions are in line with those given by Arrhenius and
+            Stefánsson (2020) in their manuscript on population ethics under risk.
+            Arrhenius and Stefánsson also offer impossibility theorems in population
+            prospect axiology. However, their theorems employ different axioms to
+            the theorems below. Their axioms do not so obviously dispense with the
+            need to assume Finite Fine-Grainedness.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">As Arrhenius and Stefánsson note, the literature in population ethics
+            has thus far mostly disregarded questions of risk. For exceptions, see
+            <a class="citation-link" href="#ref-10">Blackorby, Bossert, and Donaldson (2005)</a>, <a class="citation-link" href="#ref-32">Roberts (2007)</a>, <a class="citation-link" href="#ref-9">Asheim and
+            Zuber (2016)</a>, <a class="citation-link" href="#ref-36">Thomas (2016)</a>, <a class="citation-link" href="#ref-26">Nebel (2017</a>; <a class="citation-link" href="#ref-27">2019</a>; <a class="citation-link" href="https://philpapers.org/archive/NEBTWR.pdf">2021</a>), <a class="citation-link" href="https://scholar.princeton.edu/sites/default/files/cfi/files/budolfson_spears_2018_repugnant_cfi.pdf">Budolfson and
+            Spears (2018)</a>, and <a class="citation-link" href="https://ftp.iza.org/dp12668.pdf">Spears and Budolfson (2019)</a>.</span></span></span></p>
+<p>We might denote non-trivial population prospects with
+            <span class="paper-inline-math-unit"><span class="math inline">\(\left\lbrack p_{1}X_{1},\
+            \ldots,p_{n}X_{n} \right\rbrack\)</span>⁠,</span> where each <span class="math inline">\(p_{i}\)</span> is a probability (with
+            <span class="math inline">\(0 &lt; p_{i} &lt; 1\)</span> and
+            <span class="paper-inline-math-unit"><span class="math inline">\(p_{1} + \ldots + p_{n} =
+            1\)</span>⁠)</span> and each <span class="math inline">\(X_{i}\)</span> is a population. The
+            prospect <span class="math inline">\(\left\lbrack
+            p_{1}X_{1},\ \ldots,p_{n}X_{n} \right\rbrack\)</span> brings
+            about <span class="math inline">\(X_{1}\)</span> with
+            probability <span class="paper-inline-math-unit"><span class="math inline">\(p_{1}\)</span>⁠,</span><span class="math inline">\(\ X_{2}\)</span> with probability
+            <span class="paper-inline-math-unit"><span class="math inline">\(p_{2}\)</span>⁠,</span> and so on.
+            However, this notation quickly becomes unwieldy for
+            prospects that bring about different sets of lives with
+            different probabilities. Suppose, for example, that a
+            prospect brings about <span class="math inline">\(\left. ⟦a
+            \right.⟧\)</span> with probability <span class="paper-inline-math-unit"><span class="math inline">\(p\)</span>⁠,</span> <span class="math inline">\(\left. ⟦a - 1 \right.⟧\)</span> with
+            probability <span class="paper-inline-math-unit"><span class="math inline">\(1 - p\)</span>⁠,</span>
+<span class="math inline">\(Y\)</span> with probability
+            <span class="paper-inline-math-unit"><span class="math inline">\(1\)</span>⁠,</span> and no other lives
+            with non-zero probability. We could denote this prospect
+            with <span class="paper-inline-math-unit"><span class="math inline">\(\left\lbrack (p)\left(
+            \left. ⟦a \right.⟧ + Y \right),(1 - p)\left( \left. ⟦a - 1
+            \right.⟧ + Y \right) \right\rbrack\)</span>⁠,</span> but it is
+            simpler to separate those populations brought about with
+            probability less than 1 from those populations brought about
+            with certainty, so that we denote the prospect with <span class="paper-inline-math-unit paper-inline-math-unit-breakable"><span class="paper-breakable-math"><span class="math inline">\(\left\lbrack (p)\left. ⟦a \right.⟧,(1
+            - p)\left. ⟦a - 1 \right.⟧ \right\rbrack\)</span><wbr/><span class="math inline">\(+ Y\)</span></span>⁠.</span> I
+            adopt the simpler convention in what follows.</p>
+<p>Given my definitions, Arrhenius’s original theorems can
+            be understood as stating that there is no satisfactory
+            betterness ordering over <em>trivial</em> population
+            prospects. I go beyond these theorems in assuming that the
+            ‘at least as good as’ relation applies to
+            <em>non-trivial</em> population prospects as well as trivial
+            ones. More precisely, I assume that the ‘at least as good
+            as’ relation is reflexive over the set of population
+            prospects and that it holds, at least sometimes, when one or
+            both of its relata are non-trivial population prospects.
+            This assumption seems difficult to deny. Suppose that a
+            first alternative brings about a population of one million
+            people living wonderful lives with probability 0.5 and a
+            population of one million people living almost-wonderful
+            lives otherwise, and that a second alternative brings about
+            a population of one million people living awful lives with
+            probability 1. It seems obvious that the first alternative
+            is better than the
+            second.⁠<label class="margin-toggle sidenote-number" for="sn-11"></label><input class="margin-toggle" id="sn-11" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">In this example, the first alternative stochastically dominates the
+            second. But there are other compelling examples of betterness over
+            prospects that do not have this feature. Suppose, for example, that a
+            first alternative brings about a population of one million people living
+            wonderful lives with probability 1, and a second alternative brings
+            about a population of one million people living
+            ever-so-slightly-better-than-wonderful lives with probability 0.00001
+            and a population of one million people living awful lives otherwise. The
+            first alternative seems better than the second.</span></span></span></p>
+<p>What’s more, denying that any non-trivial population
+            prospect is better than any other would strip one’s chosen
+            population axiology of all practical relevance, since all of
+            our population-affecting actions have some non-zero
+            probability of bringing about more than one distinct
+            population. Suppose, for example, that a government minister
+            is considering a policy that would reduce the cost of
+            childcare. Whether she implements the policy or not, there
+            is no single population that will come about with
+            probability 1, so all of her alternatives are non-trivial
+            population prospects. If no such prospects are better than
+            any others, then population axiology cannot inform her
+            decision. The same goes for more personal decisions. My
+            having a child has a non-zero probability of resulting in
+            more than one distinct population, because it is uncertain
+            how many children my child will have. And the effects of
+            refraining are not certain either. There’s always a chance
+            that it will spur a government minister to implement a
+            policy reducing the cost of childcare.</p>
+<p>I also assume that the ‘at least as good as’ relation is
+            transitive over the set of population prospects. Some
+            authors deny the transitivity assumption in Arrhenius’s
+            original impossibility theorems (<a class="citation-link" href="#ref-31">Rachels 2004</a>; <a class="citation-link" href="#ref-35">Temkin 2012</a>),
+            and one might be tempted to do the same here. However, this
+            move strikes most as a drastic step. At worst, it is denying
+            a logical truth (<a class="citation-link" href="https://philpapers.org/rec/BROWL">Broome 2004, chap. 4</a>). At best, it requires
+            a radical upheaval of axiology and practical
+            rationality.</p>
+<p>Recall that Arrhenius uses Finite Fine-Grainedness to
+            ensure the existence of a finite, linearly ordered set of
+            welfare levels, <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}\)</span>⁠,</span> with two
+            properties:</p>
+<ol type="1">
+<li><p>The set ranges from a very negative welfare level,
+            through a barely negative welfare level and three barely
+            positive welfare levels, each higher than the last, up to
+            three very positive welfare levels, each higher than the
+            last.</p></li>
+<li><p>The difference between adjacent welfare levels is
+            slight.</p></li>
+</ol>
+<p>If Finite Fine-Grainedness is false in the way that
+            Lexical Totalists suggest, there is no such set. But there
+            will still be finite, linearly ordered sets of welfare
+            levels with just the first property. We can pick out one
+            such set in which many of the differences between adjacent
+            welfare levels are slight, and those differences that are
+            not slight are not egregiously big either. Call this set
+            <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠.</span> As
+            before, we can represent these welfare levels with integers
+            ranging from <span class="math inline">\(\omega\)</span> up
+            to <span class="paper-inline-math-unit"><span class="math inline">\(\beta + 2\)</span>⁠:</span></p>
+<blockquote>
+<p><span class="display-equation" data-equation-number="7"><span class="math display">\[\omega &lt; \ldots &lt; - 1
+            &lt; 0 &lt; 1 &lt; 2 &lt; 3 &lt; \ldots &lt; \beta &lt;
+            \beta + 1 &lt; \beta + 2\]</span><span class="equation-number">(7)</span></span></p>
+</blockquote>
+<p>Again, <span class="math inline">\(0\)</span> represents
+            the neutral welfare level, <span class="math inline">\(-
+            1\)</span> represents a barely negative level, 1, 2, and 3
+            represent barely positive levels, <span class="math inline">\(\omega\)</span> represents a very
+            negative level, and <span class="math inline">\(\beta\)</span> and above represent
+            very positive levels. This time, however, there is at least
+            one pair of adjacent welfare levels that differ more than
+            slightly.</p>
+<p>Two features that my adequacy conditions share with
+            Arrhenius’s are worth reiterating. First, my adequacy
+            conditions quantify over<span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{\ W}^{*}\)</span>⁠.</span> Like
+            Arrhenius’s <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}\)</span>⁠,</span>
+            this set may be a proper subset of all possible welfare
+            levels, but that possibility is of little consequence. If no
+            population prospect axiology can satisfy these adequacy
+            conditions quantifying over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠,</span> then no
+            population prospect axiology can satisfy these adequacy
+            conditions quantifying over all welfare levels. The second
+            is that my adequacy conditions also leave an ‘other things
+            being equal’ clause implicit.</p>
+<p>Now recall the General Non-Extreme Priority and
+            Non-Elitism conditions employed in Arrhenius’s Sixth
+            Impossibility Theorem. Applied to <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠,</span> the informal
+            statements and the exact formulations of these conditions
+            come apart. The informal statements refer to welfare levels
+            that <em>differ slightly</em> while the exact formulations
+            refer to <em>adjacent</em> welfare levels, and <span class="math inline">\(\mathbb{W}^{*}\)</span> features at
+            least one pair of adjacent welfare levels that differ more
+            than slightly. As we have seen, the informal versions of
+            Arrhenius’s adequacy conditions are not incompatible over
+            <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠,</span> because
+            repeated applications of these conditions cannot reduce a
+            very positive welfare level to a very negative one. They
+            cannot ‘jump the gap’ between the pair(s) of adjacent
+            welfare levels that differ more than slightly. The exact
+            formulations, on the other hand, are incompatible over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠,</span> since they
+            pay no heed to the size of the difference between adjacent
+            welfare levels. Applied to <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠,</span> the
+            conditions are as follows:</p>
+<!-- ORIGINAL: > **General Non-Extreme Priority over** $\mathbb{W}$**\* (exact formulation):** -->
+<blockquote>
+<p><strong>General Non-Extreme Priority over <span class="math inline">\(\mathbb{W}^{*}\)</span> (exact
+            formulation):</strong> For any <span class="paper-inline-math-unit"><span class="math inline">\(a
+            \in \ \mathbb{W}^{*}\)</span>⁠,</span> there exists <span class="math inline">\(n\mathbb{\in N}\)</span> such that,
+            for any <span class="math inline">\(b,\ c \in \
+            \mathbb{W}^{*}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(0
+            &lt; b \leq 3\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(c \geq
+            \beta\)</span>⁠,</span> and any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="8"><span class="math display">\[X + \left. ⟦a + 1 \right.⟧ +
+            n\left. ⟦b \right.⟧ \preceq X + \left. ⟦a \right.⟧ + n\left.
+            ⟦c \right.⟧\]</span><span class="equation-number">(8)</span></span></p>
+<!-- ORIGINAL: > **Non-Elitism over** $\mathbb{W}$**\* (exact formulation):** -->
+<p class="paper-principle-start"><strong>Non-Elitism over <span class="math inline">\(\mathbb{W}^{*}\)</span> (exact
+            formulation):</strong> For any <span class="math inline">\(a,\ c \in \ \mathbb{W}^{*}\)</span>
+            with <span class="paper-inline-math-unit"><span class="math inline">\(a - 1 &gt; c\)</span>⁠,</span>
+            there exists <span class="math inline">\(n\mathbb{\in
+            N}\)</span> such that, for any population <span class="math inline">\(X\)</span> with welfare levels ranging
+            from <span class="math inline">\(c\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="9"><span class="math display">\[X + \left. ⟦a \right.⟧ +
+            n\left. ⟦c \right.⟧ \preceq X + \left. ⟦a - 1 \right.⟧ +
+            n\left. ⟦a - 1 \right.⟧\]</span><span class="equation-number">(9)</span></span></p>
+</blockquote>
+<p>However, both of these conditions are open to doubt.
+            Consider first General Non-Extreme Priority. Suppose that
+            the difference between welfare levels <span class="math inline">\(a\)</span> and <span class="math inline">\(a + 1\)</span> is not slight. Perhaps
+            <span class="math inline">\(a + 1\)</span> corresponds to a
+            life featuring only ‘lower bads’ like non-debilitating harm,
+            whereas <span class="math inline">\(a\)</span> corresponds
+            to a life featuring ‘higher bads’ like debilitating harm
+            (see <a class="citation-link" href="#ref-21">Handfield and Rabinowicz 2018</a>). In that case, we might
+            claim that <span class="paper-breakable-math"><span class="math inline">\(X\)</span><wbr/><span class="math inline">\(+ \left. ⟦a
+            \right.⟧\)</span><wbr/><span class="math inline">\(+ n\left. ⟦c \right.⟧\)</span></span> is worse than <span class="paper-breakable-math"><span class="math inline">\(X\)</span><wbr/><span class="math inline">\(+ \left. ⟦a + 1 \right.⟧\)</span><wbr/><span class="math inline">\(+ n\left.
+            ⟦b \right.⟧\)</span></span> no matter how large <span class="math inline">\(n\)</span> is. No number of very
+            positive welfare lives can make up for a life featuring
+            debilitating harm.</p>
+<p>We might doubt Non-Elitism for a similar reason. Suppose
+            this time that the difference between welfare levels <span class="math inline">\(a\)</span> and <span class="math inline">\(a - 1\)</span> is not slight. Perhaps
+            <span class="math inline">\(a\)</span> corresponds to a life
+            featuring a higher good like autonomy, whereas <span class="math inline">\(a - 1\)</span> and <span class="math inline">\(c\)</span> correspond to lives
+            featuring only lower goods like sensual pleasure. In that
+            case, we might claim that <span class="paper-breakable-math"><span class="math inline">\(X\)</span><wbr/><span class="math inline">\(+
+            \left. ⟦a - 1 \right.⟧\)</span><wbr/><span class="math inline">\(+ n\left. ⟦a - 1 \right.⟧\)</span></span> is
+            worse than <span class="paper-breakable-math"><span class="math inline">\(X\)</span><wbr/><span class="math inline">\(+ \left. ⟦a
+            \right.⟧\)</span><wbr/><span class="math inline">\(+ n\left. ⟦c \right.⟧\)</span></span> no matter how large
+            <span class="math inline">\(n\)</span> is. No increase in
+            the quantity of sensual pleasure can make up for the loss of
+            autonomy.</p>
+<p>However, I claim that the following risky versions of
+            General Non-Extreme Priority and Non-Elitism are compelling,
+            even quantified over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠:</span></p>
+<blockquote>
+<p><strong>Risky General Non-Extreme Priority (exact
+            formulation):</strong> For any <span class="paper-inline-math-unit"><span class="math inline">\(a
+            \in \ \mathbb{W}^{*}\)</span>⁠,</span> there exists <span class="math inline">\(m\mathbb{\in N}\)</span> and <span class="math inline">\(p\)</span> of the form <span class="math inline">\(\frac{1}{r}\)</span> with <span class="math inline">\(r\mathbb{\in N}\)</span> such that,
+            for any <span class="math inline">\(k\mathbb{\in R}\)</span>
+            with <span class="paper-inline-math-unit"><span class="math inline">\(0 \leq k \leq 1 -
+            p\)</span>⁠,</span> any <span class="math inline">\(b,c \in \
+            \mathbb{W}^{*}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(0
+            &lt; b \leq 3\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(c \geq
+            \beta\)</span>⁠,</span> and any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="10"><span class="math display">\[X + \left\lbrack (1 -
+            k)\left. ⟦a \right.⟧,\ (k)\left. ⟦a - 1 \right.⟧
+            \right\rbrack + m\left. ⟦b \right.⟧ \preceq X + \left\lbrack
+            (1 - k - p)\left. ⟦a \right.⟧,\ (k + p)\left. ⟦a - 1
+            \right.⟧ \right\rbrack + m\left. ⟦c \right.⟧\]</span><span class="equation-number">(10)</span></span></p>
+<p class="paper-principle-start"><strong>Risky Non-Elitism (exact formulation):</strong>
+            For any <span class="math inline">\(a,\ c \in \
+            \mathbb{W}^{*}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(a -
+            1 &gt; c\)</span>⁠,</span> there exists <span class="math inline">\(m\mathbb{\in N}\)</span> and <span class="math inline">\(p\)</span> of the form <span class="math inline">\(\frac{1}{r}\)</span> with <span class="math inline">\(r\mathbb{\in N}\)</span> such that,
+            for any <span class="math inline">\(k\mathbb{\in R}\)</span>
+            with <span class="math inline">\(0 \leq k \leq 1 -
+            p\)</span> and any population <span class="math inline">\(X\)</span> consisting of lives with
+            welfare ranging from <span class="math inline">\(c\)</span>
+            to <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="11"><span class="math display">\[X + \left\lbrack (1 -
+            k)\left. ⟦a \right.⟧,\ (k)\left. ⟦a - 1 \right.⟧
+            \right\rbrack + m\left. ⟦c \right.⟧ \preceq X + \left\lbrack
+            (1 - k - p)\left. ⟦a \right.⟧,\ (k + p)\left. ⟦a - 1
+            \right.⟧ \right\rbrack + m\left. ⟦a - 1
+            \right.⟧\]</span><span class="equation-number">(11)</span></span></p>
+</blockquote>
+<p>This assortment of quantifiers and variables is somewhat
+            difficult to parse, but the rough idea is as follows.
+            Arrhenius’s original conditions mandate that some fixed drop
+            in welfare for one person can always be compensated by a
+            rise in welfare for some number of other people. The risky
+            versions mandate only that some fixed <em>increase in the
+            risk of</em> some drop in welfare for one person can always
+            be compensated by a rise in welfare for some number of other
+            people. The size of this fixed increase in risk could be
+            very small. The only restriction is that multiplying it by
+            some natural number gives an answer of 1. And that makes
+            these risky conditions compelling even in cases where the
+            original conditions are not. Consider again the case that
+            casts doubt on General Non-Extreme Priority: <span class="math inline">\(a\)</span> corresponds to a life
+            featuring some debilitating harm, <span class="math inline">\(a + 1\)</span> corresponds to a life
+            featuring only non-debilitating harm, <span class="math inline">\(b\)</span> corresponds to a barely
+            positive welfare life, and <span class="math inline">\(c\)</span> corresponds to a very
+            positive welfare life. Risky General Non-Extreme Priority
+            states only that some tiny increase in the risk of a drop in
+            welfare from a life of non-debilitating harm to a life
+            featuring some debilitating harm can be compensated by
+            raising some number of lives from barely positive welfare
+            levels to very positive welfare levels. This increase in
+            risk could be <span class="math inline">\(10^{-
+            100}\)</span> <span class="paper-inline-math-unit">(<span class="math inline">\(0.0\ldots
+            1\)</span></span> with <span class="math inline">\(99\)</span>
+            zeroes between the decimal-point and the <span class="paper-inline-math-unit"><span class="math inline">\(1\)</span>⁠).</span> To get a grip on just how
+            small this increase is, consider the following. Suppose you
+            had a biased coin that came up heads with probability <span class="paper-inline-math-unit"><span class="math inline">\(10^{- 100}\)</span>⁠.</span> Even if you had
+            flipped this coin one million times per millisecond from the
+            Big Bang up until now, your chance of seeing one or more
+            heads would still be less than <span class="math inline">\(10^{- 73}\)</span> <span class="paper-inline-math-unit">(<span class="math inline">\(0.0\ldots 1\)</span></span> with <span class="math inline">\(72\)</span> zeroes between the
+            decimal-point and the <span class="paper-inline-math-unit"><span class="math inline">\(1\)</span>⁠).</span>⁠<label class="margin-toggle sidenote-number" for="sn-12"></label><input class="margin-toggle" id="sn-12" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Rounding up the time since the Big Bang to 14 billion years, there
+            have been <span class="math inline">\(4.415 \times 10^{20}\)</span>
+            milliseconds between then and now. Flipping the coin one million times
+            per millisecond give <span class="math inline">\(4.415 \times
+            10^{26}\)</span> coin flips. Subtracting <span class="math inline">\(10^{- 100}\)</span> from 1 and raising the answer
+            to the power of <span class="math inline">\(4.415 \times
+            10^{26}\)</span> gives the probability of seeing <span class="math inline">\(0\)</span> heads. Subtracting this probability
+            from <span class="math inline">\(1\)</span> gives <span class="paper-inline-math-unit"><span class="math inline">\(4.415 \times 10^{- 74}\)</span>⁠.</span></span></span></span>
+            One person’s undergoing this (nigh-on non-existent) increase
+            in risk can surely be compensated by raising some number of
+            lives from barely positive to very positive welfare
+            levels.</p>
+<p>The same goes for Risky Non-Elitism. It is compelling
+            even in cases where the original Non-Elitism condition is
+            not. Again, let <span class="math inline">\(a\)</span>
+            correspond to a life featuring some higher good like
+            autonomy, <span class="math inline">\(a - 1\)</span>
+            correspond to a life featuring only sensual pleasure, and
+            <span class="math inline">\(c\)</span> correspond to a life
+            featuring slightly less sensual pleasure. Risky Non-Elitism
+            states only that some tiny increase in the risk of a drop in
+            welfare from a life of autonomy to a life of sensual
+            pleasure can be compensated by some increase in the quantity
+            of sensual pleasure elsewhere. Again, this increase in risk
+            could be a nigh-on non-existent <span class="paper-inline-math-unit"><span class="math inline">\(10^{- 100}\)</span>⁠.</span> That makes Risky
+            Non-Elitism very difficult to deny.</p>
+<p>These risky conditions, in conjunction with the
+            transitivity of the ‘at least as good as’ relation over
+            population prospects, imply that the original conditions are
+            true over the welfare levels in <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠.</span> Risky General
+            Non-Extreme Priority plus transitivity implies General
+            Non-Extreme Priority proper, and Risky Non-Elitism plus
+            transitivity implies Non-Elitism proper, as I prove below.
+            First, General Non-Extreme Priority:</p>
+<blockquote>
+<p>Fix any <span class="math inline">\(a\)</span> as in
+            General Non-Extreme Priority. From Risky General Non-Extreme
+            Priority, we obtain corresponding <span class="paper-inline-math-unit"><span class="math inline">\(m\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(p\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(r\)</span>⁠.</span> Let <span class="paper-inline-math-unit"><span class="math inline">\(n = rm\)</span>⁠.</span> Consider the
+            following population with any <span class="math inline">\(b\)</span> and <span class="math inline">\(X\)</span> as in General Non-Extreme
+            Priority:</p>
+<p class="paper-block-title"><span class="display-equation" data-equation-number="12"><span class="math display">\[X + \left. ⟦a + 1 \right.⟧ +
+            n\left. ⟦b \right.⟧\]</span><span class="equation-number">(12)</span></span></p>
+<p>Since <span class="paper-inline-math-unit"><span class="math inline">\(n = rm\)</span>⁠,</span> the
+            above can be expressed as follows, with all <span class="math inline">\(m_{i} = m:\)</span></p>
+<p><span class="display-equation" data-equation-number="13"><span class="math display">\[X + \left. ⟦a + 1 \right.⟧ +
+            m_{1}\left. ⟦b \right.⟧ + m_{2}\left. ⟦b \right.⟧ +
+            m_{3}\left. ⟦b \right.⟧ + \ldots + m_{r}\left. ⟦b
+            \right.⟧\]</span><span class="equation-number">(13)</span></span></p>
+<p>Applying Risky General Non-Extreme Priority yields the
+            following, with any <span class="math inline">\(c\)</span>
+            as in General Non-Extreme Priority:</p>
+<p><span class="display-equation" data-equation-number="14"><span class="math display">\[\preceq X + \left\lbrack (1
+            - p)\left. ⟦a + 1 \right.⟧,(p)\left. ⟦a \right.⟧
+            \right\rbrack + m_{1}\left. ⟦c \right.⟧ + m_{2}\left. ⟦b
+            \right.⟧ + m_{3}\left. ⟦b \right.⟧ + \ldots + m_{r}\left. ⟦b
+            \right.⟧\]</span><span class="equation-number">(14)</span></span></p>
+<p>Applying it again yields:</p>
+<p><span class="display-equation" data-equation-number="15"><span class="math display">\[\preceq X + \left\lbrack (1
+            - 2p)\left. ⟦a + 1 \right.⟧,(2p)\left. ⟦a \right.⟧
+            \right\rbrack + m_{1}\left. ⟦c \right.⟧ + m_{2}\left. ⟦c
+            \right.⟧ + m_{3}\left. ⟦b \right.⟧ + \ldots + m_{r}\left. ⟦b
+            \right.⟧\]</span><span class="equation-number">(15)</span></span></p>
+<p>Applying it <span class="math inline">\(r - 2\)</span>
+            more times yields:</p>
+<p><span class="display-equation" data-equation-number="16"><span class="math display">\[\preceq X + \left\lbrack (1
+            - rp)\left. ⟦a + 1 \right.⟧,(rp)\left. ⟦a \right.⟧
+            \right\rbrack + m_{1}\left. ⟦c \right.⟧ + m_{2}\left. ⟦c
+            \right.⟧ + m_{3}\left. ⟦c \right.⟧ + \ldots + m_{r}\left. ⟦c
+            \right.⟧\]</span><span class="equation-number">(16)</span></span></p>
+<p>Since <span class="paper-inline-math-unit"><span class="math inline">\(rp = 1\)</span>⁠,</span> the
+            above simplifies to:</p>
+<p><span class="display-equation" data-equation-number="17"><span class="math display">\[X + \left. ⟦a \right.⟧ +
+            m_{1}\left. ⟦c \right.⟧ + m_{2}\left. ⟦c \right.⟧ +
+            m_{3}\left. ⟦c \right.⟧ + \ldots + m_{r}\left. ⟦c
+            \right.⟧\]</span><span class="equation-number">(17)</span></span></p>
+<p>Since <span class="paper-inline-math-unit"><span class="math inline">\(n = rm\)</span>⁠,</span> the
+            above simplifies to:</p>
+<p class="paper-block-title"><span class="display-equation" data-equation-number="18"><span class="math display">\[X + \left. ⟦a \right.⟧ +
+            n\left. ⟦c \right.⟧\]</span><span class="equation-number">(18)</span></span></p>
+<p>And by the transitivity of the ‘at least as good as’
+            relation, we can conclude:</p>
+<p><span class="display-equation" data-equation-number="19"><span class="math display">\[X + \left. ⟦a + 1 \right.⟧ +
+            n\left. ⟦b \right.⟧ \preceq X + \left. ⟦a \right.⟧ + n\left.
+            ⟦c \right.⟧\]</span><span class="equation-number">(19)</span></span></p>
+<p>Which is General Non-Extreme Priority, as desired.</p>
+</blockquote>
+<p>Second, Non-Elitism:</p>
+<blockquote>
+<p>Fix any <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span> <span class="math inline">\(c\)</span> as in Non-Elitism. From
+            Risky Non-Elitism, we obtain corresponding <span class="paper-inline-math-unit"><span class="math inline">\(m\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(p\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(r\)</span>⁠.</span> Let <span class="paper-inline-math-unit"><span class="math inline">\(n = rm\)</span>⁠.</span> Consider the
+            following population with any <span class="math inline">\(X\)</span> as in Non-Elitism:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="20"><span class="math display">\[X + \left. ⟦a \right.⟧ +
+            n\left. ⟦c \right.⟧\]</span><span class="equation-number">(20)</span></span></p>
+<blockquote>
+<p>Since <span class="paper-inline-math-unit"><span class="math inline">\(n = rm\)</span>⁠,</span> the
+            above can be expressed as follows, with all <span class="math inline">\(m_{i} = m:\)</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="21"><span class="math display">\[X + \left. ⟦a \right.⟧ +
+            m_{1}\left. ⟦c \right.⟧ + m_{2}\left. ⟦c \right.⟧ +
+            m_{3}\left. ⟦c \right.⟧ + \ldots + m_{r}\left. ⟦c
+            \right.⟧\]</span><span class="equation-number">(21)</span></span></p>
+<blockquote>
+<p>Applying Risky Non-Elitism yields:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="22"><span class="math display">\[\preceq X + \left\lbrack (1
+            - p)\left. ⟦a \right.⟧,(p)\left. ⟦a - 1 \right.⟧
+            \right\rbrack + m_{1}\left. ⟦a - 1 \right.⟧ + m_{2}\left. ⟦c
+            \right.⟧ + m_{3}\left. ⟦c \right.⟧ + \ldots + m_{r}\left. ⟦c
+            \right.⟧\]</span><span class="equation-number">(22)</span></span></p>
+<blockquote>
+<p>Applying it again yields:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="23"><span class="math display">\[\preceq X + \left\lbrack (1
+            - 2p)\left. ⟦a \right.⟧,(2p)\left. ⟦a - 1 \right.⟧
+            \right\rbrack + m_{1}\left. ⟦a - 1 \right.⟧ + m_{2}\left. ⟦a
+            - 1 \right.⟧ + m_{3}\left. ⟦c \right.⟧ + \ldots +
+            m_{r}\left. ⟦c \right.⟧\]</span><span class="equation-number">(23)</span></span></p>
+<blockquote>
+<p>Applying it <span class="math inline">\(r - 2\)</span>
+            more times yields:</p>
+<p><span class="display-equation" data-equation-number="24"><span class="math display">\[\preceq X + \left\lbrack (1
+            - rp)\left. ⟦a \right.⟧,(rp)\left. ⟦a - 1 \right.⟧
+            \right\rbrack + m_{1}\left. ⟦a - 1 \right.⟧ + m_{2}\left. ⟦a
+            - 1 \right.⟧ + m_{3}\left. ⟦a - 1 \right.⟧ + \ldots +
+            m_{r}\left. ⟦a - 1 \right.⟧\]</span><span class="equation-number">(24)</span></span></p>
+<p>Since <span class="paper-inline-math-unit"><span class="math inline">\(rp = 1\)</span>⁠,</span> the
+            above simplifies to:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="25"><span class="math display">\[X + \left. ⟦a - 1 \right.⟧ +
+            m_{1}\left. ⟦a - 1 \right.⟧ + m_{2}\left. ⟦a - 1 \right.⟧ +
+            m_{3}\left. ⟦a - 1 \right.⟧ + \ldots + m_{r}\left. ⟦a - 1
+            \right.⟧\]</span><span class="equation-number">(25)</span></span></p>
+<blockquote>
+<p>Since <span class="paper-inline-math-unit"><span class="math inline">\(n = rm\)</span>⁠,</span> the
+            above simplifies to:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="26"><span class="math display">\[X + \left. ⟦a - 1 \right.⟧ +
+            n\left. ⟦a - 1 \right.⟧\]</span><span class="equation-number">(26)</span></span></p>
+<blockquote>
+<p>And by the transitivity of the ‘at least as good as’
+            relation, we can conclude:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="27"><span class="math display">\[X + \left. ⟦a \right.⟧ +
+            n\left. ⟦c \right.⟧ \preceq X + \left. ⟦a - 1 \right.⟧ +
+            n\left. ⟦a - 1 \right.⟧\]</span><span class="equation-number">(27)</span></span></p>
+<blockquote>
+<p>Which is Non-Elitism, as desired.</p>
+</blockquote>
+<p>The impossibility theorem can then be proved using
+            Arrhenius’s original conditions understood as adequacy
+            conditions on population prospects and quantified over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠.</span> The proof is
+            isomorphic to that given by <a class="citation-link" href="#ref-4">Arrhenius (2011</a>; <a class="citation-link" href="#ref-6">forthcoming</a>),
+            so I will not repeat it
+            here.⁠<label class="margin-toggle sidenote-number" for="sn-13"></label><input class="margin-toggle" id="sn-13" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Although note that Thomas’s manuscript points out that the proof in
+            <a class="citation-link" href="#ref-4">Arrhenius (2011)</a> contains a minor mistake. The theorem actually requires
+            the slightly stronger version of Weak Quality Addition formulated above.
+            See footnote 7.</span></span></span> The conclusion is as
+            follows:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">The Risky Sixth Impossibility Theorem</p>
+<p>There is no population prospect axiology which satisfies
+            Egalitarian Dominance, Risky General Non-Extreme Priority,
+            Risky Non-Elitism, Weak Non-Sadism, and Weak Quality
+            Addition.</p>
+</blockquote>
+<p>Each of these adequacy conditions is compelling even if
+            Finite Fine-Grainedness is false, so lexical views do not
+            escape this impossibility theorem. They must violate Risky
+            General Non-Extreme Priority or Risky Non-Elitism, or else
+            take the drastic step of claiming that the ‘at least as good
+            as’ relation is intransitive over population prospects.
+            Therefore, the Risky Sixth Impossibility Theorem
+            demonstrates that there is no satisfactory population
+            prospect
+            axiology.⁠<label class="margin-toggle sidenote-number" for="sn-14"></label><input class="margin-toggle" id="sn-14" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">I thank Teruji Thomas, William MacAskill, Andreas Mogensen, and an
+            anonymous reviewer for helpful comments and discussion.</span></span></span></p>
+<h1 id="references">References</h1>
+<p class="reference-entry" id="ref-1">Arrhenius, Gustaf. 2000. ‘<a class="reference-title-link" href="https://philpapers.org/rec/ARRFG">Future Generations: A Challenge
+ for Moral Theory</a>’. PhD Thesis, Uppsala University. </p>
+<p class="reference-entry" id="ref-2">———. 2003. ‘The Very Repugnant Conclusion’. In <em>Logic,
+            Law, Morality: Thirteen Essays in Practical Philosophy in
+            Honour of Lennart Åqvist</em>, edited by Krister Segerberg
+            and Ryszard Sliwinski, 29–44. Uppsala: Uppsala Philosophical
+            Studies.</p>
+<p class="reference-entry" id="ref-3">———. 2009. ‘One More Axiological Impossibility Theorem’.
+            In <em>Logic, Ethics and All That Jazz. Essays in Honour of
+            Jordan Howard Sobel</em>, edited by Lars-Göran Johansson,
+            Jan Österberg, and Ryszard Sliwinski, 23–37. Uppsala:
+            Uppsala Philosophical Studies.</p>
+<p class="reference-entry" id="ref-4">———. 2011. ‘The Impossibility of a Satisfactory
+            Population Ethics’. In <em>Descriptive and Normative
+            Approaches to Human Behavior</em>. Singapore: World
+            Scientific Publishing Company.</p>
+<p class="reference-entry" id="ref-5">———. 2016. ‘<a class="reference-title-link" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/theo.12094">Population Ethics and Different-Number-Based
+ Imprecision</a>’. <em>Theoria</em> 82 (2): 166–81. </p>
+<p class="reference-entry" id="ref-6">———. forthcoming. <em>Population Ethics: The Challenge of
+            Future Generations</em>. Oxford: Oxford University
+            Press.</p>
+<p class="reference-entry" id="ref-7">Arrhenius, Gustaf, and Wlodek Rabinowicz. 2015. ‘The
+            Value of Existence’. In <em>The Oxford Handbook of Value
+            Theory</em>, edited by Iwao Hirose and Jonas Olson, 424–44.
+            Oxford Handbooks in Philosophy. New York: Oxford University
+            Press.</p>
+<p class="reference-entry" id="ref-8">Arrhenius, Gustaf, and H. Orri Stefansson. 2020.
+ ‘<a class="reference-title-link" href="https://philpapers.org/archive/ARRPEU.pdf">Population Ethics Under Risk</a>’.
+  </p>
+<p class="reference-entry" id="ref-9">Asheim, Geir B., and Stéphane Zuber. 2016. ‘Evaluating
+            Intergenerational Risks’. <em>Journal of Mathematical
+            Economics</em> 65: 104–17.</p>
+<p class="reference-entry" id="ref-10">Blackorby, Charles, Walter Bossert, and David Donaldson.
+            2005. <em>Population Issues in Social Choice Theory, Welfare
+            Economics, and Ethics</em>. Cambridge: Cambridge University
+            Press.</p>
+<p class="reference-entry" id="ref-11">Blackorby, Charles, and David Donaldson. 1991. ‘Normative
+            Population Theory: A Comment’. <em>Social Choice and
+            Welfare</em> 8 (3): 261–67.</p>
+<p class="reference-entry" id="ref-12">Broome, John. 2004. <em><a class="reference-title-link" href="https://philpapers.org/rec/BROWL">Weighing Lives</a></em> Oxford:
+ Oxford University Press. </p>
+<p class="reference-entry" id="ref-13">Budolfson, Mark, and Dean Spears. 2018. ‘<a class="reference-title-link" href="https://scholar.princeton.edu/sites/default/files/cfi/files/budolfson_spears_2018_repugnant_cfi.pdf">Why the
+ Repugnant Conclusion Is Inescapable</a>’.
+  </p>
+<p class="reference-entry" id="ref-14">Bykvist, Krister. 2007. ‘<a class="reference-title-link" href="https://www.cambridge.org/core/journals/economics-and-philosophy/article/abs/good-the-bad-and-the-ethically-neutral/B9B39B26AB19A4D6A5FFA93822DC5CBB">The Good, the Bad and the
+ Ethically Neutral</a>’. <em>Economics &amp; Philosophy</em> 23
+ (1): 97–105. </p>
+<p class="reference-entry" id="ref-15">Carlson, Erik. 1998. ‘Mere Addition and Two Trilemmas of
+            Population Ethics’. <em>Economics &amp; Philosophy</em> 14
+            (2): 283–306.</p>
+<p class="reference-entry" id="ref-16">———. forthcoming. ‘On Some Impossibility Theorems in
+            Population Ethics’. In <em>The Oxford Handbook of Population
+            Ethics</em>, edited by Krister Bykvist and Tim Campbell.
+            Oxford: Oxford University Press.</p>
+<p class="reference-entry" id="ref-17">Chang, Ruth. 2016. ‘Parity, Imprecise Comparability, and
+            the Repugnant Conclusion’. <em>Theoria</em> 82 (2):
+            183–215.</p>
+<p class="reference-entry" id="ref-18">Crisp, Roger. 1997. <em>Mill on Utilitarianism</em>.
+            London: Routledge.</p>
+<p class="reference-entry" id="ref-19">———. 2006. <em>Reasons and the Good</em>. Oxford: Oxford
+            University Press.</p>
+<p class="reference-entry" id="ref-20">Griffin, James. 1988. <em>Well-Being: Its Meaning,
+            Measurement and Moral Importance</em>. Oxford: Oxford
+            University Press.</p>
+<p class="reference-entry" id="ref-21">Handfield, Toby, and Wlodek Rabinowicz. 2018.
+            ‘Incommensurability and Vagueness in Spectrum Arguments:
+            Options for Saving Transitivity of Betterness’.
+            <em>Philosophical Studies</em> 175 (9): 2373–87.</p>
+<p class="reference-entry" id="ref-22">Kitcher, Philip. 2000. ‘Parfit’s Puzzle’. <em>Noûs</em>
+            34 (4): 550–577.</p>
+<p class="reference-entry" id="ref-23">McTaggart, John M.E. 1927. <em>The Nature of Existence
+            Volume II</em>. Cambridge: Cambridge University Press.</p>
+<p class="reference-entry" id="ref-24">Mill, J. S. 1861. <em>Utilitarianism</em>. Edited by
+            Roger Crisp. Oxford Philosophical Texts. Oxford: Oxford
+            University Press. 1998.</p>
+<p class="reference-entry" id="ref-25">Moore, G.E. 1903. <em>Principia Ethica</em>. Edited by
+            Thomas Baldwin. Revised Edition. Cambridge: Cambridge
+            University Press. 1993.</p>
+<p class="reference-entry" id="ref-26">Nebel, Jacob M. 2017. ‘Priority, Not Equality, for
+            Possible People’. <em>Ethics</em> 127 (4): 896–911.</p>
+<p class="reference-entry" id="ref-27">———. 2019. ‘An Intrapersonal Addition Paradox’.
+            <em>Ethics</em> 129 (2): 309–43.</p>
+<p class="reference-entry" id="ref-28">———. 2021. ‘<a class="reference-title-link" href="https://philpapers.org/archive/NEBTWR.pdf">Totalism without Repugnance</a>’. In <em>Ethics
+ and Existence: The Legacy of Derek Parfit</em>, edited by
+ Jeff McMahan, Tim Campbell, James Goodrich, and Ketan
+ Ramakrishnan. Oxford: Oxford University Press.
+  </p>
+<p class="reference-entry" id="ref-29">Ng, Yew-Kwang. 1989. ‘What Should We Do About Future
+            Generations?’ <em>Economics &amp; Philosophy</em> 5 (2):
+            235–53.</p>
+<p class="reference-entry" id="ref-30">Parfit, Derek. 1984. <em>Reasons and Persons</em>.
+            Oxford: Clarendon Press.</p>
+<p class="reference-entry" id="ref-31">Rachels, Stuart. 2004. ‘Repugnance or Intransitivity: A
+            Repugnant But Forced Choice’. In <em>The Repugnant
+            Conclusion: Essays on Population Ethics</em>, edited by
+            Jesper Ryberg Torbjörn Tännsjö. Dordrecht: Kluwer Academic
+            Publishers.</p>
+<p class="reference-entry" id="ref-32">Roberts, Melinda A. 2007. ‘The Non-Identity Fallacy:
+            Harm, Probability and Another Look at Parfit’s Depletion
+            Example’. <em>Utilitas</em> 19 (3): 267–311.</p>
+<p class="reference-entry" id="ref-33">Spears, Dean, and Mark Budolfson. 2019. ‘<a class="reference-title-link" href="https://ftp.iza.org/dp12668.pdf">Why
+ Variable-Population Social Orderings Cannot Escape the
+ Repugnant Conclusion: Proofs and Implications</a>’.
+  </p>
+<p class="reference-entry" id="ref-34">Tännsjö, Torbjörn. 2002. ‘Why We Ought to Accept the
+            Repugnant Conclusion’. <em>Utilitas</em> 14 (3): 339.</p>
+<p class="reference-entry" id="ref-35">Temkin, Larry S. 2012. <em>Rethinking the Good: Moral
+            Ideals and the Nature of Practical Reasoning</em>. New York:
+            Oxford University Press.</p>
+<p class="reference-entry" id="ref-36">Thomas, Teruji. 2016. ‘Topics in Population Ethics’.
+            DPhil Thesis, University of Oxford.</p>
+<p class="reference-entry" id="ref-37">———. 2018. ‘Some Possibilities in Population Axiology’.
+            <em>Mind</em> 127 (507): 807–32.</p>
+<!-- ORIGINAL: [^5]: http://users.ox.ac.uk/\~mert2060/webfiles/Reconstructing-Arrhenius-for-web.pdf -->
+<h1 data-appendix="true" data-number="A" id="appendix"><span class="header-section-number">A.</span> Appendix</h1>
+<p>In this section, I prove that Arrhenius’s other
+            impossibility theorems can be patched up with a similar
+            manoeuvre. Each can be turned into a theorem stating that no
+            population prospect axiology satisfies a small number of
+            adequacy conditions, independently of Finite
+            Fine-Grainedness.</p>
+<h2 data-appendix="true" data-number="A.1" id="the-risky-first-impossibility-theorem"><span class="header-section-number">A.1.</span> The Risky First
+            Impossibility Theorem</h2>
+<p>Arrhenius’s First Impossibility Theorem states that the
+            following adequacy conditions are incompatible:</p>
+<blockquote>
+<p><strong>Egalitarian Dominance (exact
+            formulation):</strong> For any <span class="paper-inline-math-unit"><span class="math inline">\(a
+            \in \mathbb{W}\)</span>⁠,</span> any <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in N}\)</span>⁠,</span> and any
+            population <span class="math inline">\(X\)</span> of size
+            <span class="math inline">\(n\)</span> with all lives at
+            welfare levels below <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="28"><span class="math display">\[X \prec n\left. ⟦a
+            \right.⟧\]</span><span class="equation-number">(28)</span></span></p>
+<blockquote>
+<p><strong>Quantity (exact formulation):</strong> For any
+            <span class="paper-inline-math-unit"><span class="math inline">\(a \in \mathbb{W}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(a &gt; 1\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(m\mathbb{\in N}\)</span>⁠,</span> there exists
+            <span class="math inline">\(n\mathbb{\in N}\)</span> such
+            that,</p>
+<p class="paper-block-title"><span class="display-equation" data-equation-number="29"><span class="math display">\[m\left. ⟦a \right.⟧
+            \preccurlyeq n\left. ⟦a - 1 \right.⟧\]</span><span class="equation-number">(29)</span></span></p>
+<p class="paper-principle-start"><strong>Quality (exact formulation):</strong> There
+            exists <span class="math inline">\(m\mathbb{\in N}\)</span>
+            such that, for any <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in
+            N}\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="30"><span class="math display">\[n\left. ⟦3 \right.⟧
+            \preccurlyeq m\left. ⟦\beta \right.⟧\]</span><span class="equation-number">(30)</span></span></p>
+</blockquote>
+<p>Quantity is not particularly compelling applied to <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠,</span> because some
+            pair of welfare levels <span class="math inline">\(a\)</span> and <span class="math inline">\(a - 1\)</span> differ more than
+            slightly. However, Risky Quantity is compelling:</p>
+<blockquote>
+<p><strong>Risky Quantity (exact formulation):</strong> For
+            any <span class="math inline">\(a \in
+            \mathbb{W}^{*}\)</span> with <span class="math inline">\(a
+            &gt; 1\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(m\mathbb{\in
+            N}\)</span>⁠,</span> there exists <span class="math inline">\(h \in
+            \mathbb{N}\)</span> and <span class="math inline">\(p\)</span> of the form <span class="math inline">\(\frac{1}{r}\)</span> with <span class="math inline">\(r\mathbb{\in N}\)</span> such that,
+            for any <span class="math inline">\(k\mathbb{\in R}\)</span>
+            with <span class="math inline">\(0 \leq k \leq 1 -
+            p\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(g\mathbb{\in N
+            \cup}\left\{ 0 \right\}\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="31"><span class="math display">\[\left\lbrack (1 - k)m\left.
+            ⟦a \right.⟧,\ (k)m\left. ⟦a - 1 \right.⟧ \right\rbrack +
+            g\left. ⟦a - 1 \right.⟧ \preccurlyeq \left\lbrack (1 - k -
+            p)m\left. ⟦a \right.⟧,(k + p)m\left. ⟦a - 1 \right.⟧
+            \right\rbrack + g\left. ⟦a - 1 \right.⟧ + h\left. ⟦a - 1
+            \right.⟧\]</span><span class="equation-number">(31)</span></span></p>
+</blockquote>
+<p>It states, roughly, that a fixed increase in the risk of
+            a drop in welfare for the best-off in a population (from one
+            positive welfare level to another) can always be compensated
+            by the addition of some number of lives at the lower
+            positive welfare level. Risky Quantity plus transitivity
+            implies that Quantity is true over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠:</span></p>
+<blockquote>
+<p>Fix any <span class="math inline">\(a\)</span> and <span class="math inline">\(m\)</span> as in Quantity. From Risky
+            Quantity, we obtain corresponding <span class="math inline">\(p\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(r\)</span>⁠.</span> We will apply Risky
+            Quantity <span class="math inline">\(r\)</span> times, with
+            different values of <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span>
+            Consider first <span class="paper-inline-math-unit"><span class="math inline">\(g_{1} =
+            0\)</span>⁠.</span> From Risky Quantity, we obtain <span class="paper-inline-math-unit"><span class="math inline">\(h_{1}\)</span>⁠.</span> Then inductively set
+            <span class="math inline">\(g_{i + 1} = g_{i} +
+            h_{i}\)</span> and obtain <span class="paper-inline-math-unit"><span class="math inline">\(h_{i +
+            1}\)</span>⁠.</span> Finally, set <span class="paper-inline-math-unit paper-inline-math-unit-breakable"><span class="paper-breakable-math"><span class="math inline">\(n\)</span><wbr/><span class="math inline">\(= m\)</span><wbr/><span class="math inline">\(+ h_{1}\)</span><wbr/><span class="math inline">\(+ h_{2}\)</span><wbr/><span class="math inline">\(+ h_{3}\)</span><wbr/><span class="math inline">\(+ \ldots\)</span><wbr/><span class="math inline">\(+ h_{r}\)</span></span>⁠.</span> Consider
+            the following population:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="32"><span class="math display">\[m\left. ⟦a
+            \right.⟧\]</span><span class="equation-number">(32)</span></span></p>
+<blockquote>
+<p>Applying Risky Quantity yields:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="33"><span class="math display">\[\preccurlyeq \left\lbrack (1
+            - p)m\left. ⟦a \right.⟧,\ (p)m\left. ⟦a - 1 \right.⟧
+            \right\rbrack + h_{1}\left. ⟦a - 1 \right.⟧\]</span><span class="equation-number">(33)</span></span></p>
+<blockquote>
+<p>Applying it again yields:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="34"><span class="math display">\[\preccurlyeq \left\lbrack (1
+            - 2p)m\left. ⟦a \right.⟧,\ (2p)m\left. ⟦a - 1 \right.⟧
+            \right\rbrack + h_{1}\left. ⟦a - 1 \right.⟧ + h_{2}\left. ⟦a
+            - 1 \right.⟧\]</span><span class="equation-number">(34)</span></span></p>
+<blockquote>
+<p>Applying it <span class="math inline">\(r - 2\)</span>
+            more times yields:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="35"><span class="math display">\[\preccurlyeq \left\lbrack (1
+            - rp)m\left. ⟦a \right.⟧,\ (rp)m\left. ⟦a - 1 \right.⟧
+            \right\rbrack + h_{1}\left. ⟦a - 1 \right.⟧ + h_{2}\left. ⟦a
+            - 1 \right.⟧ + \ldots + h_{r}\left. ⟦a - 1
+            \right.⟧\]</span><span class="equation-number">(35)</span></span></p>
+<blockquote>
+<p>Since <span class="math inline">\(rp = 1\)</span> and
+            <span class="paper-inline-math-unit paper-inline-math-unit-breakable"><span class="paper-breakable-math"><span class="math inline">\(n\)</span><wbr/><span class="math inline">\(= m\)</span><wbr/><span class="math inline">\(+ h_{1}\)</span><wbr/><span class="math inline">\(+ h_{2}\)</span><wbr/><span class="math inline">\(+ h_{3}\)</span><wbr/><span class="math inline">\(+
+            \ldots\)</span><wbr/><span class="math inline">\(+ h_{r}\)</span></span>⁠,</span> the above simplifies to:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="36"><span class="math display">\[n\left. ⟦a - 1
+            \right.⟧\]</span><span class="equation-number">(36)</span></span></p>
+<blockquote>
+<p>And by the transitivity of the ‘at least as good as’
+            relation, we can conclude:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="37"><span class="math display">\[m\left. ⟦a \right.⟧
+            \preccurlyeq n\left. ⟦a - 1 \right.⟧\]</span><span class="equation-number">(37)</span></span></p>
+<blockquote>
+<p>Which is Quantity, as desired.</p>
+</blockquote>
+<p>The theorem can then be proved using Arrhenius’s original
+            conditions understood as adequacy conditions on population
+            prospects and quantified over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠.</span> The proof is
+            isomorphic to that given by <a class="citation-link" href="https://philpapers.org/rec/ARRFG">Arrhenius (2000</a>; <a class="citation-link" href="#ref-6">forthcoming</a>).
+            The conclusion is as follows:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">The Risky First Impossibility Theorem</p>
+<p>There is no population prospect axiology which satisfies
+            Egalitarian Dominance, Risky Quantity, and Quality.</p>
+</blockquote>
+<h2 data-appendix="true" data-number="A.2" id="the-risky-second-impossibility-theorem"><span class="header-section-number">A.2.</span> The Risky
+            Second Impossibility Theorem</h2>
+<p>Arrhenius’s Second Impossibility Theorem states that the
+            following adequacy conditions are incompatible:</p>
+<blockquote>
+<p><strong>Egalitarian Dominance (exact
+            formulation):</strong> For any <span class="paper-inline-math-unit"><span class="math inline">\(a
+            \in \mathbb{W}\)</span>⁠,</span> any <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in N}\)</span>⁠,</span> and any
+            population <span class="math inline">\(X\)</span> of size
+            <span class="math inline">\(n\)</span> with all lives at
+            welfare levels below <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="38"><span class="math display">\[X \prec n\left. ⟦a
+            \right.⟧\]</span><span class="equation-number">(38)</span></span></p>
+<blockquote>
+<p><strong>Dominance Addition (exact formulation):</strong>
+            For any <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> of the same size with all
+            welfare levels in <span class="math inline">\(X\)</span>
+            higher than all welfare levels in <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> any <span class="math inline">\(a \in \mathbb{W}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(a &gt; 0\)</span>⁠,</span> and any <span class="paper-inline-math-unit"><span class="math inline">\(m\mathbb{\in N}\)</span>⁠,</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="39"><span class="math display">\[X + m⟦a⟧ \nprec
+            Y\]</span><span class="equation-number">(39)</span></span></p>
+<blockquote>
+<p><strong>Inequality Aversion (exact formulation):</strong>
+            For any <span class="math inline">\(a,b,c \in
+            \mathbb{W}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(a &gt;
+            b &gt; c\)</span>⁠,</span> and any <span class="paper-inline-math-unit"><span class="math inline">\(m\mathbb{\in N}\)</span>⁠,</span> there exists
+            <span class="math inline">\(q\mathbb{\in N}\)</span> such
+            that,</p>
+<p><span class="display-equation" data-equation-number="40"><span class="math display">\[m\left. ⟦a \right.⟧ +
+            q\left. ⟦c \right.⟧ \preccurlyeq (m + q)\left. ⟦b
+            \right.⟧\]</span><span class="equation-number">(40)</span></span></p>
+<p class="paper-principle-start"><strong>Quality (exact formulation):</strong> There
+            exists <span class="math inline">\(m\mathbb{\in N}\)</span>
+            such that, for any <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in
+            N}\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="41"><span class="math display">\[n\left. ⟦3 \right.⟧
+            \preccurlyeq m\left. ⟦\beta \right.⟧\]</span><span class="equation-number">(41)</span></span></p>
+</blockquote>
+<p>Inequality Aversion is not particularly compelling
+            applied to <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠.</span> However,
+            Risky Non-Elitism is compelling, and we saw above that Risky
+            Non-Elitism plus transitivity implies that Non-Elitism is
+            true over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠.</span> Non-Elitism,
+            in turn, implies Inequality Aversion:</p>
+<blockquote>
+<p>Fix any <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(b\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(c\)</span>⁠,</span> <span class="math inline">\(m\)</span> as in Inequality Aversion.
+            From Non-Elitism, we obtain corresponding <span class="paper-inline-math-unit"><span class="math inline">\(n_{1}\)</span>⁠:</span> the number of lives we
+            must raise from <span class="math inline">\(\left. ⟦c
+            \right.⟧\)</span> to <span class="math inline">\(\left. ⟦a -
+            1 \right.⟧\)</span> to compensate one life falling from
+            <span class="math inline">\(\left. ⟦a \right.⟧\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(\left. ⟦a - 1 \right.⟧\)</span>⁠.</span>
+            Let <span class="math inline">\(m_{1} = m\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(q_{1} = m_{1}n_{1}\)</span>⁠,</span> so that
+            <span class="math inline">\(q_{1}\)</span> gives the number
+            of lives we must raise from <span class="math inline">\(\left. ⟦c \right.⟧\)</span> to <span class="math inline">\(\left. ⟦a - 1 \right.⟧\)</span> to
+            compensate <span class="math inline">\(m\)</span> lives
+            falling from <span class="math inline">\(\left. ⟦a
+            \right.⟧\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(\left. ⟦a -
+            1 \right.⟧\)</span>⁠.</span> From Non-Elitism, we also obtain <span class="paper-inline-math-unit"><span class="math inline">\(n_{2}\)</span>⁠:</span> the number of lives we
+            must raise from <span class="math inline">\(\left. ⟦c
+            \right.⟧\)</span> to <span class="math inline">\(\left. ⟦a -
+            2 \right.⟧\)</span> to compensate one life falling from
+            <span class="math inline">\(\left. ⟦a - 1 \right.⟧\)</span>
+            to <span class="paper-inline-math-unit"><span class="math inline">\(\left. ⟦a - 2
+            \right.⟧\)</span>⁠,</span> and so on. Let <span class="math inline">\(m_{2} = m_{1} + q_{1}\)</span> and
+            <span class="paper-inline-math-unit"><span class="math inline">\(q_{2} = m_{2}n_{2}\)</span>⁠,</span> and
+            so on, so that for all <span class="math inline">\(i\)</span> up to <span class="paper-inline-math-unit"><span class="math inline">\(i = a - b\)</span>⁠:</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="42"><span class="math display">\[m_{i} = m_{i - 1} + q_{i -
+            1}\]</span><span class="equation-number">(42)</span></span></p>
+<p><span class="display-equation" data-equation-number="43"><span class="math display">\[q_{i} =
+            m_{i}n_{i}\]</span><span class="equation-number">(43)</span></span></p>
+<blockquote>
+<p>Consider the following population with <span class="paper-inline-math-unit paper-inline-math-unit-breakable"><span class="paper-breakable-math"><span class="math inline">\(q\)</span><wbr/><span class="math inline">\(= q_{1}\)</span><wbr/><span class="math inline">\(+ q_{2}\)</span><wbr/><span class="math inline">\(+ \ldots\)</span><wbr/><span class="math inline">\(+ q_{a -
+            b}\)</span></span>⁠:</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="44"><span class="math display">\[m\left. ⟦a \right.⟧ +
+            q\left. ⟦c \right.⟧\]</span><span class="equation-number">(44)</span></span></p>
+<blockquote>
+<p>Since <span class="paper-inline-math-unit paper-inline-math-unit-breakable"><span class="paper-breakable-math"><span class="math inline">\(q\)</span><wbr/><span class="math inline">\(= q_{1}\)</span><wbr/><span class="math inline">\(+ q_{2}\)</span><wbr/><span class="math inline">\(+
+            \ldots\)</span><wbr/><span class="math inline">\(+ q_{a - b}\)</span></span>⁠,</span> the above can be expressed
+            as:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="45"><span class="math display">\[m\left. ⟦a \right.⟧ +
+            q_{1}\left. ⟦c \right.⟧ + q_{2}\left. ⟦c \right.⟧ + \ldots +
+            q_{a - b}\left. ⟦c \right.⟧\]</span><span class="equation-number">(45)</span></span></p>
+<blockquote>
+<p>Applying Non-Elitism <span class="math inline">\(m_{1}\)</span> times yields:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="46"><span class="math display">\[\preccurlyeq m\left. ⟦a - 1
+            \right.⟧ + q_{1}\left. ⟦a - 1 \right.⟧ + q_{2}\left. ⟦c
+            \right.⟧ + \ldots + q_{a - b}\left. ⟦c \right.⟧\]</span><span class="equation-number">(46)</span></span></p>
+<blockquote>
+<p>Applying it <span class="math inline">\(m_{2}\)</span>
+            times yields:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="47"><span class="math display">\[\preccurlyeq m\left. ⟦a - 2
+            \right.⟧ + q_{1}\left. ⟦a - 2 \right.⟧ + q_{2}\left. ⟦a - 2
+            \right.⟧ + \ldots + q_{a - b}\left. ⟦c \right.⟧\]</span><span class="equation-number">(47)</span></span></p>
+<blockquote>
+<p>Applying it a further <span class="math inline">\(m_{3} +
+            \ldots + m_{a - b}\)</span> times yields:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="48"><span class="math display">\[\preccurlyeq m\left. ⟦b
+            \right.⟧ + q_{1}\left. ⟦b \right.⟧ + q_{2}\left. ⟦b \right.⟧
+            + \ldots + q_{a - b}\left. ⟦b \right.⟧\]</span><span class="equation-number">(48)</span></span></p>
+<blockquote>
+<p>Since <span class="paper-inline-math-unit paper-inline-math-unit-breakable"><span class="paper-breakable-math"><span class="math inline">\(q\)</span><wbr/><span class="math inline">\(= q_{1}\)</span><wbr/><span class="math inline">\(+ q_{2}\)</span><wbr/><span class="math inline">\(+
+            \ldots\)</span><wbr/><span class="math inline">\(+ q_{a - b}\)</span></span>⁠,</span> this simplifies to:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="49"><span class="math display">\[(m + q)\left. ⟦b
+            \right.⟧\]</span><span class="equation-number">(49)</span></span></p>
+<blockquote>
+<p>And by the transitivity of the ‘at least as good as’
+            relation, we can conclude:</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="50"><span class="math display">\[m\left. ⟦a \right.⟧ +
+            q\left. ⟦c \right.⟧ \preccurlyeq (m + q)\left. ⟦b
+            \right.⟧\]</span><span class="equation-number">(50)</span></span></p>
+<blockquote>
+<p>Which is Inequality Aversion, as desired.</p>
+</blockquote>
+<p>The theorem can then be proved using Arrhenius’s original
+            conditions understood as adequacy conditions on population
+            prospects and quantified over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠.</span> The proof is
+            isomorphic to that given by <a class="citation-link" href="https://philpapers.org/rec/ARRFG">Arrhenius (2000</a>; <a class="citation-link" href="#ref-6">forthcoming</a>).
+            The conclusion is as follows:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">The Risky Second Impossibility Theorem</p>
+<p>There is no population prospect axiology which satisfies
+            Egalitarian Dominance, Dominance Addition, Risky
+            Non-Elitism, and Quality.</p>
+</blockquote>
+<h2 data-appendix="true" data-number="A.3" id="the-risky-third-impossibility-theorem"><span class="header-section-number">A.3.</span> The Risky Third
+            Impossibility Theorem</h2>
+<p>Arrhenius’s Third Impossibility Theorem states that the
+            following adequacy conditions are incompatible:</p>
+<blockquote>
+<p><strong>Egalitarian Dominance (exact
+            formulation):</strong> For any <span class="paper-inline-math-unit"><span class="math inline">\(a
+            \in \mathbb{W}\)</span>⁠,</span> any <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in N}\)</span>⁠,</span> and any
+            population <span class="math inline">\(X\)</span> of size
+            <span class="math inline">\(n\)</span> with all lives at
+            welfare levels below <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="51"><span class="math display">\[X \prec n\left. ⟦a
+            \right.⟧\]</span><span class="equation-number">(51)</span></span></p>
+<blockquote>
+<p><strong>Inequality Aversion (exact formulation):</strong>
+            For any <span class="math inline">\(a,b,c \in
+            \mathbb{W}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(a &gt;
+            b &gt; c\)</span>⁠,</span> and any <span class="paper-inline-math-unit"><span class="math inline">\(m\mathbb{\in N}\)</span>⁠,</span> there exists
+            <span class="math inline">\(q\mathbb{\in N}\)</span> such
+            that,</p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="52"><span class="math display">\[m\left. ⟦a \right.⟧ +
+            q\left. ⟦c \right.⟧ \preccurlyeq (m + q)\left. ⟦b
+            \right.⟧\]</span><span class="equation-number">(52)</span></span></p>
+<blockquote>
+<p><strong>Non-Sadism (exact formulation):</strong> For any
+            <span class="math inline">\(a,c \in \mathbb{W}\)</span> with
+            <span class="paper-inline-math-unit"><span class="math inline">\(a &gt; 0 &gt; c\)</span>⁠,</span> any
+            <span class="paper-inline-math-unit"><span class="math inline">\(m,n\mathbb{\in N}\)</span>⁠,</span> and
+            any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="53"><span class="math display">\[X + n\left. ⟦c \right.⟧
+            \preccurlyeq X + m\left. ⟦a \right.⟧\]</span><span class="equation-number">(53)</span></span></p>
+<blockquote>
+<p><strong>Non-Extreme Priority (exact
+            formulation):</strong> There exists <span class="math inline">\(n\mathbb{\in N}\)</span> such that,
+            for any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="54"><span class="math display">\[X + \left. ⟦3 \right.⟧ +
+            n\left. ⟦3 \right.⟧ \preccurlyeq X + \left. ⟦ - 1 \right.⟧ +
+            n\left. ⟦\beta \right.⟧\]</span><span class="equation-number">(54)</span></span></p>
+<p class="paper-principle-start"><strong>Quality Addition (exact formulation):</strong>
+            For any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+            there exists <span class="math inline">\(m\mathbb{\in
+            N}\)</span> such that, for any <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in N}\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="55"><span class="math display">\[X + n\left. ⟦3 \right.⟧
+            \preccurlyeq X + m\left. ⟦\beta \right.⟧\]</span><span class="equation-number">(55)</span></span></p>
+</blockquote>
+<p>We might doubt that Inequality Aversion and Non-Extreme
+            Priority are true over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠.</span> However, as
+            we saw above, Inequality Aversion follows from Risky
+            Non-Elitism. Non-Extreme Priority, meanwhile, follows from
+            Risky Non-Extreme Priority:</p>
+<blockquote>
+<p><strong>Risky Non-Extreme Priority (exact
+            formulation):</strong> There exists <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in N}\)</span>⁠,</span> and <span class="math inline">\(p\)</span> of the form <span class="math inline">\(\frac{1}{r}\)</span> with <span class="math inline">\(r\mathbb{\in N}\)</span> such that,
+            for any <span class="math inline">\(k\mathbb{\in R}\)</span>
+            with <span class="math inline">\(0 \leq k \leq 1 -
+            p\)</span> and any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="56"><span class="math display">\[X + \left\lbrack (1 -
+            k)\left. ⟦3 \right.⟧,(k)\left. ⟦ - 1 \right.⟧ \right\rbrack
+            + n\left. ⟦3 \right.⟧ \preccurlyeq X + \left\lbrack (1 - k -
+            p)\left. ⟦3 \right.⟧,(k + p)\left. ⟦ - 1 \right.⟧
+            \right\rbrack + n\left. ⟦\beta \right.⟧\]</span><span class="equation-number">(56)</span></span></p>
+</blockquote>
+<p>These versions of General Non-Extreme Priority and Risky
+            General Non-Extreme Priority differ only insofar as they
+            replace welfare levels <span class="paper-inline-math-unit"><span class="math inline">\(a +
+            1\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(b\)</span>⁠,</span> and <span class="math inline">\(c\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(3\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(- 1\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(3\)</span>⁠,</span> and <span class="math inline">\(\beta\)</span> respectively.
+            Therefore, the proof that Non-Extreme Priority follows from
+            Risky Non-Extreme Priority is isomorphic to the proof that
+            General Non-Extreme Priority follows from Risky General
+            Non-Extreme Priority given above. The theorem can then be
+            proved using Arrhenius’s original conditions understood as
+            adequacy conditions on population prospects and quantified
+            over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠.</span>
+            That proof is isomorphic to the one given by <a class="citation-link" href="https://philpapers.org/rec/ARRFG">Arrhenius
+            (2000</a>; <a class="citation-link" href="#ref-6">forthcoming</a>). The conclusion is as follows:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">The Risky Third Impossibility Theorem</p>
+<p>There is no population prospect axiology which satisfies
+            Egalitarian Dominance, Risky Non-Elitism, Non-Sadism, Risky
+            Non-Extreme Priority, and Quality Addition.</p>
+</blockquote>
+<h2 data-appendix="true" data-number="A.4" id="the-risky-fourth-impossibility-theorem"><span class="header-section-number">A.4.</span> The Risky
+            Fourth Impossibility Theorem</h2>
+<p>Arrhenius’s Fourth Impossibility Theorem states that the
+            following adequacy conditions are incompatible:</p>
+<blockquote>
+<p><strong>Egalitarian Dominance (exact
+            formulation):</strong> For any <span class="paper-inline-math-unit"><span class="math inline">\(a
+            \in \mathbb{W}\)</span>⁠,</span> any <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in N}\)</span>⁠,</span> and any
+            population <span class="math inline">\(X\)</span> of size
+            <span class="math inline">\(n\)</span> with all lives at
+            welfare levels below <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="57"><span class="math display">\[X \prec n\left. ⟦a
+            \right.⟧\]</span><span class="equation-number">(57)</span></span></p>
+<blockquote>
+<p><strong>General Non-Extreme Priority (exact
+            formulation):</strong> For any <span class="paper-inline-math-unit"><span class="math inline">\(a
+            \in \ \mathbb{W}\)</span>⁠,</span> there exists <span class="math inline">\(n\mathbb{\in N}\)</span> such that,
+            for any <span class="math inline">\(b,\ c \in
+            \mathbb{W}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(0 &lt;
+            b \leq 3\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(c \geq
+            \beta\)</span>⁠,</span> and any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="58"><span class="math display">\[X + \left. ⟦a + 1 \right.⟧ +
+            n\left. ⟦b \right.⟧ \preccurlyeq X + \left. ⟦a \right.⟧ +
+            n\left. ⟦c \right.⟧\]</span><span class="equation-number">(58)</span></span></p>
+<blockquote>
+<p><strong>Non-Elitism (exact formulation):</strong> For any
+            <span class="math inline">\(a,\ c \in \mathbb{W}\)</span>
+            with <span class="paper-inline-math-unit"><span class="math inline">\(a - 1 &gt; c\)</span>⁠,</span>
+            there exists <span class="math inline">\(n\mathbb{\in
+            N}\)</span> such that, for any population <span class="math inline">\(X\)</span> with welfare levels ranging
+            from <span class="math inline">\(c\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="59"><span class="math display">\[X + \left. ⟦a \right.⟧ +
+            n\left. ⟦c \right.⟧ \preccurlyeq X + \left. ⟦a - 1 \right.⟧
+            + n\left. ⟦a - 1 \right.⟧\]</span><span class="equation-number">(59)</span></span></p>
+<blockquote>
+<p><strong>Weak Non-Sadism (exact formulation):</strong>
+            There exists <span class="math inline">\(a \in
+            \mathbb{W}\)</span> with <span class="math inline">\(a &lt;
+            0\)</span> and <span class="math inline">\(m\mathbb{\in
+            N}\)</span> such that, for any welfare level <span class="math inline">\(b \in \mathbb{W}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(b &gt; 0\)</span>⁠,</span> any <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in N}\)</span>⁠,</span> and any
+            population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span></p>
+<p class="paper-block-title"><span class="display-equation" data-equation-number="60"><span class="math display">\[X + m\left. ⟦a \right.⟧
+            \preccurlyeq X + n\left. ⟦b \right.⟧\]</span><span class="equation-number">(60)</span></span></p>
+<p class="paper-principle-start"><strong>Quality Addition (exact formulation):</strong>
+            For any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+            there exists <span class="math inline">\(m\mathbb{\in
+            N}\)</span> such that, for any <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in N}\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="61"><span class="math display">\[X + n\left. ⟦3 \right.⟧
+            \preccurlyeq X + m\left. ⟦\beta \right.⟧\]</span><span class="equation-number">(61)</span></span></p>
+</blockquote>
+<p>As we saw above, General Non-Extreme Priority and
+            Non-Elitism follow from their risky versions. The theorem
+            can then be proved using Arrhenius’s original conditions
+            understood as adequacy conditions on population prospects
+            and quantified over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠.</span> The proof is
+            isomorphic to that given by <a class="citation-link" href="https://philpapers.org/rec/ARRFG">Arrhenius (2000</a>; <a class="citation-link" href="#ref-6">forthcoming</a>).
+            The conclusion is as follows:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">The Risky Fourth Impossibility Theorem</p>
+<p>There is no population prospect axiology which satisfies
+            Egalitarian Dominance, Risky General Non-Extreme Priority,
+            Risky Non-Elitism, Weak Non-Sadism, and Quality
+            Addition.</p>
+</blockquote>
+<h2 data-appendix="true" data-number="A.5" id="the-risky-fifth-impossibility-theorem"><span class="header-section-number">A.5.</span> The Risky Fifth
+            Impossibility Theorem</h2>
+<p>Arrhenius’s Fifth Impossibility Theorem states that the
+            following adequacy conditions are incompatible:</p>
+<blockquote>
+<p><strong>Egalitarian Dominance (exact
+            formulation):</strong> For any <span class="paper-inline-math-unit"><span class="math inline">\(a
+            \in \mathbb{W}\)</span>⁠,</span> any <span class="paper-inline-math-unit"><span class="math inline">\(n\mathbb{\in N}\)</span>⁠,</span> and any
+            population <span class="math inline">\(X\)</span> of size
+            <span class="math inline">\(n\)</span> with all lives at
+            welfare levels below <span class="paper-inline-math-unit"><span class="math inline">\(a\)</span>⁠,</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="62"><span class="math display">\[X \prec n\left. ⟦a
+            \right.⟧\]</span><span class="equation-number">(62)</span></span></p>
+<blockquote>
+<p><strong>Dominance Addition (exact formulation):</strong>
+            For any <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> of the same size with all
+            welfare levels in <span class="math inline">\(X\)</span>
+            higher than all welfare levels in <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> any <span class="math inline">\(a \in \mathbb{W}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(a &gt; 0\)</span>⁠,</span> and any <span class="paper-inline-math-unit"><span class="math inline">\(m\mathbb{\in N}\)</span>⁠,</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="63"><span class="math display">\[X + m⟦a⟧ \nprec
+            Y\]</span><span class="equation-number">(63)</span></span></p>
+<blockquote>
+<p><strong>General Non-Elitism (exact formulation):</strong>
+            For any <span class="math inline">\(a,\ c \in
+            \mathbb{W}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(a - 1
+            &gt; c\)</span>⁠,</span> there exists <span class="math inline">\(n\mathbb{\in N}\)</span> such that,
+            for any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="64"><span class="math display">\[X + \left. ⟦a \right.⟧ +
+            n\left. ⟦c \right.⟧ \preccurlyeq X + \left. ⟦a - 1 \right.⟧
+            + n\left. ⟦a - 1 \right.⟧\]</span><span class="equation-number">(64)</span></span></p>
+<blockquote>
+<p><strong>General Non-Extreme Priority (exact
+            formulation):</strong> For any <span class="paper-inline-math-unit"><span class="math inline">\(a
+            \in \mathbb{W}\)</span>⁠,</span> there exists <span class="math inline">\(n\mathbb{\in N}\)</span> such that,
+            for any <span class="math inline">\(b,\ c \in \
+            \mathbb{W}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(0 &lt;
+            b \leq 3\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(c \geq
+            \beta\)</span>⁠,</span> and any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span></p>
+</blockquote>
+<p><span class="display-equation" data-equation-number="65"><span class="math display">\[X + \left. ⟦a + 1 \right.⟧ +
+            n\left. ⟦b \right.⟧ \preccurlyeq X + \left. ⟦a \right.⟧ +
+            n\left. ⟦c \right.⟧\]</span><span class="equation-number">(65)</span></span></p>
+<blockquote>
+<p><strong>Weak Quality (exact formulation):</strong> There
+            exists<span class="math inline">\(\ a,b \in
+            \mathbb{W}\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(a \geq
+            \beta\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(b &lt;
+            0\)</span>⁠,</span> and <span class="math inline">\(m,\ n\mathbb{\in
+            N}\)</span> such that, for any <span class="math inline">\(c
+            \in \mathbb{W}\)</span> with <span class="math inline">\(0
+            &lt; c \leq 3\)</span> and any <span class="paper-inline-math-unit"><span class="math inline">\(q\mathbb{\in N}\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="66"><span class="math display">\[m\left. ⟦b \right.⟧ +
+            q\left. ⟦c \right.⟧ \preccurlyeq n\left. ⟦a
+            \right.⟧\]</span><span class="equation-number">(66)</span></span></p>
+</blockquote>
+<p>As we saw above, General Non-Extreme Priority follows
+            from its risky version. The same is true of General
+            Non-Elitism. It follows from Risky General Non-Elitism:</p>
+<blockquote>
+<p><strong>Risky General Non-Elitism (exact
+            formulation):</strong> For any <span class="math inline">\(a,\ c \in \mathbb{W}^{*}\)</span> with
+            <span class="paper-inline-math-unit"><span class="math inline">\(a - 1 &gt; c\)</span>⁠,</span> there
+            exists <span class="math inline">\(m\mathbb{\in N}\)</span>
+            and <span class="math inline">\(p\)</span> of the form <span class="math inline">\(\frac{1}{r}\)</span> with <span class="math inline">\(r\mathbb{\in N}\)</span> such that,
+            for any <span class="math inline">\(k\mathbb{\in R}\)</span>
+            with <span class="math inline">\(0 \leq k \leq 1 -
+            p\)</span> and any population <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span></p>
+<p><span class="display-equation" data-equation-number="67"><span class="math display">\[X + \left\lbrack (1 -
+            k)\left. ⟦a \right.⟧,\ k\left. ⟦a - 1 \right.⟧ \right\rbrack
+            + m\left. ⟦c \right.⟧ \preccurlyeq X + \left\lbrack (1 - k -
+            p)\left. ⟦a \right.⟧,\ (k + p)\left. ⟦a - 1 \right.⟧
+            \right\rbrack + m\left. ⟦a - 1 \right.⟧\]</span><span class="equation-number">(67)</span></span></p>
+</blockquote>
+<p>These generalised versions of Non-Elitism and Risky
+            Non-Elitism differ only insofar as they relax the
+            restriction on the welfare levels contained in <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> so the proof that General
+            Non-Elitism follows from Risky General Non-Elitism is
+            isomorphic to the proof that Non-Elitism follows from Risky
+            Non-Elitism given above. The theorem can then be proved
+            using Arrhenius’s original conditions understood as adequacy
+            conditions on population prospects and quantified over <span class="paper-inline-math-unit"><span class="math inline">\(\mathbb{W}^{*}\)</span>⁠.</span> That proof is
+            isomorphic to the one given by <a class="citation-link" href="#ref-2">Arrhenius (2003)</a>. The
+            conclusion is as follows:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">The Risky Fifth Impossibility Theorem</p>
+<p>There is no population prospect axiology which satisfies
+            Egalitarian Dominance, Dominance Addition, Risky General
+            Non-Elitism, Risky General Non-Extreme Priority, and Weak
+            Quality.</p>
+</blockquote>
+<footer>
+<p><a href="/">Back to home</a></p>
+</footer>
+</div>
+</article>
+<script defer="" src="/assets/js/paper-toc.js?v=20260722e"></script>
+</body>
+</html>

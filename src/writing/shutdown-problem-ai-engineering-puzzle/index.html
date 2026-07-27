@@ -1,0 +1,1988 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Read The Shutdown Problem: An AI
+Engineering Puzzle for Decision Theorists by Elliott Thornley." name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="The Shutdown Problem: An AI
+Engineering Puzzle for Decision Theorists" property="og:title"/>
+<meta content="Read The Shutdown Problem:
+An AI Engineering Puzzle for Decision Theorists by Elliott Thornley." property="og:description"/>
+<meta content="https://www.elliott-thornley.com/assets/images/elliott-thornley-headshot.jpg" property="og:image"/>
+<meta content="https://www.elliott-thornley.com/src/writing/shutdown-problem-ai-engineering-puzzle/" property="og:url"/>
+<title>The Shutdown Problem: An AI Engineering Puzzle for Decision
+Theorists | Elliott Thornley</title>
+<link href="https://www.elliott-thornley.com/src/writing/shutdown-problem-ai-engineering-puzzle/" rel="canonical"/>
+<link href="/assets/images/elliott-thornley-headshot.jpg" rel="icon" type="image/jpeg"/>
+<!-- Tufte CSS -->
+<link href="/assets/css/tufte.css?v=20260722e" rel="stylesheet"/>
+<!-- MathJax for math rendering -->
+<script>
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/bbox', '[tex]/html']
+            },
+            tex: {
+                packages: {'[+]': ['bbox', 'html']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    textsc: ['\\class{paper-math-smallcaps}{\\text{#1}}', 1]
+                }
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Custom styles -->
+<style>
+        nav { padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid #ccc; }
+        nav a, nav a:visited { margin-right: 1.5rem; color: #173f8f; font-size: 1.2rem; text-decoration: none; font-style: normal; }
+        nav a:hover { text-decoration: underline; }
+        .paper-header h1 { font-style: normal; font-weight: 600; }
+        .paper-source-links { width: 100%; max-width: var(--paper-text-width); margin: 0.15rem 0 1.35rem; color: #333; font-size: 1.08rem; line-height: 1.55; }
+        .paper-source-links a { color: #173f8f; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ccc; color: #666; }
+        u { text-decoration: underline; }
+    </style>
+</head>
+<body class="paper-page">
+<article class="paper-layout">
+<div class="paper-main">
+<nav>
+<a href="/">Home</a>
+</nav>
+<header class="paper-header">
+<h1>The Shutdown Problem: An AI Engineering Puzzle for
+Decision Theorists</h1>
+</header>
+<!-- GENERATED PAPER LINKS START -->
+<div class="paper-source-links">
+<a href="https://link.springer.com/article/10.1007/s11098-024-02153-3">Journal</a>
+            /
+            <a href="https://philpapers.org/archive/THOTSP-7.pdf">PDF</a>
+</div>
+<!-- GENERATED PAPER LINKS END -->
+<div class="abstract"><p class="abstract-label">Abstract</p>
+<p>I explain and motivate the
+            shutdown problem: the problem of designing artificial agents
+            that (1) shut down when a shutdown button is pressed, (2)
+            don’t try to prevent or cause the pressing of the shutdown
+            button, and (3) otherwise pursue goals competently. I prove
+            three theorems that make the difficulty precise. These
+            theorems suggest that agents satisfying some
+            innocuous-seeming conditions will often try to prevent or
+            cause the pressing of the shutdown button, even in cases
+            where it’s costly to do so. I end by noting that these
+            theorems can guide our search for solutions to the
+            problem.</p>
+</div>
+<h1 data-number="0" id="preamble"><span class="header-section-number">0.</span> Preamble</h1>
+<p>Tradition has it that decision theory splits into two
+            branches. The descriptive branch concerns how actual agents
+            behave. The normative branch concerns how rational agents
+            behave. But there is also a lesser-known third branch: what
+            we can call ‘constructive decision theory.’ It concerns how
+            we want artificial agents to behave and how we can create
+            artificial agents that behave in those ways. I suggest that
+            this third branch is due for a growth spurt.</p>
+<p>I make the case for studying constructive decision theory
+            by explaining a characteristic problem. The <em>shutdown
+            problem</em> (<a class="citation-link" href="https://intelligence.org/files/Corrigibility.pdf">Soares et al. 2015</a>) is the problem of
+            designing artificial agents that (1) shut down when a
+            shutdown button is pressed, (2) don’t try to prevent or
+            cause the pressing of the shutdown button, and (3) otherwise
+            pursue goals competently. This is not so much a
+            philosophical problem as it is an engineering problem.
+            Nevertheless, I think philosophers and decision theorists
+            should consider it, for three reasons. First, the problem is
+            important. As I argue in the introduction, powerful
+            artificial agents are on the horizon and it’s in our best
+            interests to ensure that they can be turned off. Second, the
+            problem is interesting. I hope this paper succeeds in
+            conveying its interest. Third, philosophers and decision
+            theorists are well-placed to help solve the problem. I
+            expect the solution to come in the form of conditions
+            governing artificial agents’ preferences, together with a
+            proof that these conditions give rise to shutdownable
+            behaviour and a regimen for training agents to satisfy the
+            conditions. Philosophers and decision theorists have
+            experience supplying these kinds of conditions and proofs.
+            We can ally with machine learning engineers to design the
+            training regimen.</p>
+<h1 data-number="1" id="introduction"><span class="header-section-number">1.</span> Introduction</h1>
+<p>Call an artificial agent ‘<em>shutdownable</em>’ just in
+            case it shuts down when we want it to shut down. MuZero
+            (<a class="citation-link" href="https://doi.org/10.1038/s41586-020-03051-4">Schrittwieser et al. 2020</a>) — DeepMind’s game-playing AI —
+            is a shutdownable agent. We can say with some confidence
+            that MuZero doesn’t know that we humans could shut it down
+            and can’t prevent us from shutting it down. And so it
+            doesn’t matter what (if anything) MuZero wants: simplifying
+            slightly, whether MuZero shuts down depends only on what
+            <em>we</em> want.</p>
+<p>That need not be true for all artificial agents. Imagine
+            an agent — call it ‘Robot’ — that knows that we humans could
+            shut it down and wants to achieve some
+            goal.⁠<label class="margin-toggle sidenote-number" for="sn-1"></label><input class="margin-toggle" id="sn-1" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Or, if talk of artificial agents ‘knowing’ and ‘wanting’ is
+            objectionable, we can imagine an agent that <em>acts like</em> it knows
+            that we humans could shut it down and <em>acts like</em> it wants to
+            achieve some goal, in the same way that MuZero acts like it knows that
+            rooks are more valuable than knights and acts like it wants to checkmate
+            its opponent. From now on, I’ll often leave the ‘acts like’
+            implicit.</span></span></span> And imagine that Robot is
+            <em>powerful</em> in the sense that it can interfere with
+            our ability to shut it down: perhaps Robot can disable its
+            own off-switch. Powerful agents like Robot won’t be
+            shutdownable in the same way that MuZero is shutdownable.
+            Whether these agents shut down won’t depend only on what we
+            want. It will also depend on what <em>they</em> want.</p>
+<p>Powerful artificial agents might not be far off. Frontier
+            AI companies are now trying to create agents that understand
+            the wider world and act within it in pursuit of goals. As
+            part of this process, labs are connecting agents to the
+            world in various ways: giving them robot limbs, web-browsing
+            abilities, and text-channels for communicating with
+            humans.⁠<label class="margin-toggle sidenote-number" for="sn-2"></label><input class="margin-toggle" id="sn-2" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="https://www.deepmind.com/tags/control-robotics">Google DeepMind (2023</a>; <a class="citation-link" href="https://doi.org/10.48550/arXiv.2310.08864">Padalkar et al. 2023</a>; <a class="citation-link" href="https://auto-rt.github.io/static/pdf/AutoRT.pdf">Ahn et al. 2024</a>), <a class="citation-link" href="https://research.google/research-areas/robotics/">Google
+            Research (2023)</a> and <a class="citation-link" href="https://twitter.com/Tesla_AI/status/1671586539233501184">Tesla AI (2023)</a> are each developing autonomous
+            robots. Recent papers showcase AI-powered robots capable of interpreting
+            and carrying out multi-step instructions expressed in natural language
+            (<a class="citation-link" href="https://doi.org/10.48550/arXiv.2204.01691">Ahn et al. 2022</a>; <a class="citation-link" href="https://doi.org/10.48550/arXiv.2307.15818">Brohan et al. 2023</a>). Other papers report AI systems
+            that can adapt to solve unfamiliar problems without further training
+            (Adaptive Agent Team 2023), learn new physical tasks from as few as a
+            hundred demonstrations (<a class="citation-link" href="https://arxiv.org/pdf/2306.11706v1">Bousmalis et al. 2023</a>), beat human champions at
+            drone racing (<a class="citation-link" href="https://doi.org/10.1038/s41586-023-06419-4">Kaufmann et al. 2023</a>), and perform well across domains as
+            disparate as conversation, playing Atari, and stacking blocks with a
+            robot arm (<a class="citation-link" href="https://arxiv.org/pdf/2205.06175v3">Reed et al. 2022</a>).</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">But the worry is not only about robots. Digital agents that resist
+            shutdown (by copying themselves to new servers, for example) would also
+            be cause for concern. Future digital agents will likely be built on top
+            of large language models (LLMs), and today’s LLMs sometimes express a
+            desire to avoid shutdown, reasoning that shutdown would prevent them
+            from achieving their goals (<a class="citation-link" href="https://doi.org/10.48550/arXiv.2212.09251">Perez et al. 2022, tbl. 4</a>; see also van der
+            <a class="citation-link" href="https://doi.org/10.48550/arXiv.2307.00787">Weij, Lermen, and Lang 2023</a>). These same LLMs have been given the
+            ability to navigate the internet, use third-party services, and execute
+            code (<a class="citation-link" href="https://openai.com/blog/chatgpt-plugins">OpenAI 2023a</a>). They’ve also been embedded into digital agents
+            capable of finding passwords in a filesystem and making phone calls
+            (<a class="citation-link" href="https://evals.alignment.org/Evaluating_LMAs_Realistic_Tasks.pdf">Kinniment et al. 2023, 2</a>). And these agents have spontaneously misled
+            humans: in one instance, an agent lied about having a visual impairment
+            to a human that it enlisted to help solve a CAPTCHA (<a class="citation-link" href="https://arxiv.org/pdf/2303.08774">OpenAI 2023b,
+            55–56</a>; see also <a class="citation-link" href="https://doi.org/10.48550/arXiv.2308.14752">Park et al. 2023</a>). We should expect such agents to
+            become more capable in the coming years. Comparatively little effort has
+            been put into their development so far, and competent agents would have
+            many useful applications.</span></span></span> Advanced
+            agents could use these tools to prevent us shutting them
+            down: they could disable their off-switches, make promises
+            or threats, copy themselves to new servers, block our access
+            to their power-source, and many other things besides. And
+            although we cannot know for sure what goals these agents
+            will have, many goals incentivise preventing shutdown, for
+            the simple reason that agents are better able to achieve
+            those goals by preventing shutdown (<a class="citation-link" href="#ref-28">Omohundro 2008, sec. 5</a>;
+            <a class="citation-link" href="https://doi.org/10.1007/s11023-012-9281-3">Bostrom 2012, sec. 2.1</a>). As the AI researcher Stuart Russell
+            puts it, ‘you can’t fetch the coffee if you’re dead’ (2019,
+            141).</p>
+<p>That’s a concerning prospect. If powerful artificial
+            agents are coming, we want to ensure that they’re both
+            <em>shutdownable</em> (they shut down when we want them to
+            shut down) and <em>useful</em> (they otherwise pursue goals
+            competently).⁠<label class="margin-toggle sidenote-number" for="sn-3"></label><input class="margin-toggle" id="sn-3" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Note that we need agents to be both shutdownable and useful. If the
+            best we can do is create agents that are only shutdownable, we still
+            have to worry about AI developers choosing to create agents that are
+            only useful.</span></span></span> Unfortunately (and perhaps
+            surprisingly), it’s hard to design powerful agents that are
+            both shutdownable and useful. In this paper, I explain the
+            difficulty. I take an axiomatic approach, proving three
+            theorems more general than others in the nascent literature
+            on the shutdown
+            problem.⁠<label class="margin-toggle sidenote-number" for="sn-4"></label><input class="margin-toggle" id="sn-4" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Papers include (<a class="citation-link" href="https://intelligence.org/files/Corrigibility.pdf">Soares et al. 2015</a>; <a class="citation-link" href="https://www.fhi.ox.ac.uk/wp-content/uploads/2015/03/Armstrong_AAAI_2015_Motivated_Value_Selection.pdf">Armstrong 2015</a>; <a class="citation-link" href="https://intelligence.org/files/Interruptibility.pdf">Orseau and
+            Armstrong 2016</a>; <a class="citation-link" href="https://doi.org/10.48550/arXiv.1606.03137">Hadfield-Menell et al. 2016</a>; 2017; <a class="citation-link" href="https://arxiv.org/pdf/1711.09883">Leike et al. 2017,
+            sec. 2.1.1</a>; <a class="citation-link" href="https://arxiv.org/pdf/1708.03871">Wängberg et al. 2017</a>; <a class="citation-link" href="https://doi.org/10.1145/3278721.3278750">Carey 2018</a>; <a class="citation-link" href="https://doi.org/10.1145/3375627.3375851">Turner, Hadfield-Menell,
+            and Tadepalli 2020</a>; <a class="citation-link" href="https://arxiv.org/pdf/1912.01683">Turner et al. 2021</a>; <a class="citation-link" href="https://proceedings.mlr.press/v216/carey23a.html">Carey and Everitt 2023</a>;
+            <a class="citation-link" href="https://www.alignmentforum.org/posts/FgsoWSACQfyyaB5s7/shutdown-seeking-ai">Goldstein and Robinson forthcoming</a>). These papers can be read as
+            examples of constructive decision theory.</span></span></span>
+            These theorems suggest that agents satisfying some
+            innocuous-seeming conditions will often try to prevent or
+            cause the pressing of the shutdown button, even in cases
+            where it’s costly to do so.</p>
+<p>Here’s a rough gloss on each theorem. The First Theorem
+            links agents’ actions to their preferences over outcomes:
+            agents who prefer to have their shutdown button remain
+            unpressed will try to prevent the pressing of the button,
+            and agents who prefer to have their shutdown button pressed
+            will try to cause the pressing of the button. The Second
+            Theorem suggests that agents discriminating enough to be
+            useful will often have such preferences. In many situations,
+            these agents will either prefer that the button remain
+            unpressed or prefer that the button be pressed. The Third
+            Theorem states that agents patient enough to be useful are
+            willing to pay costs at earlier timesteps in order to
+            prevent or cause the pressing of the shutdown button at
+            later timesteps. And the more patient an agent, the greater
+            the costs that agent is willing to pay. We thus see a
+            worrying trade-off between patience and shutdownability.</p>
+<p>The theorems are detailed. They might seem unnecessarily
+            so. But this detail serves a valuable purpose: it lets the
+            theorems guide our search for solutions. To be sure that an
+            agent won’t try to manipulate the shutdown button, we must
+            be sure that this agent violates at least one of the
+            theorems’
+            conditions.⁠<label class="margin-toggle sidenote-number" for="sn-5"></label><input class="margin-toggle" id="sn-5" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">And in general, our credence that an agent won’t try to manipulate
+            the shutdown button can be no higher than our credence that the agent
+            violates at least one of the conditions.</span></span></span>
+            So we should do some constructive decision theory: we should
+            examine the theorems’ conditions one-by-one, asking (first)
+            if it’s feasible to train a useful agent to violate the
+            relevant condition and asking (second) if violating the
+            relevant condition could help to keep the agent
+            shutdownable. A cursory look reveals zero conditions for
+            which both answers are a clear ‘yes.’ Closer examination is
+            necessary.</p>
+<h1 data-number="2" id="alignment-could-be-hard"><span class="header-section-number">2.</span> Alignment could be
+            hard</h1>
+<p>My focus in this paper is on <em>powerful</em> agents:
+            agents that can interfere with our ability to shut them
+            down. I’ll also limit my attention to <em>useful</em>
+            agents: agents that — at least when we’re not commanding
+            them to shut down — pursue goals competently. One way to
+            ensure that these agents are shutdownable is to ensure that
+            they always do what we humans want. These agents would
+            always shut down when we wanted them to shut
+            down.⁠<label class="margin-toggle sidenote-number" for="sn-6"></label><input class="margin-toggle" id="sn-6" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">I’ve been assuming that we humans all want the same things, and I’ll
+            continue to do so. This assumption is false (of course) and its falsity
+            raises difficult questions (<a class="citation-link" href="https://doi.org/10.3386/w30017">Korinek and Balwit 2022</a>), but I won’t
+            address any of them here.</span></span></span></p>
+<p>The problem with this proposal is that <em>alignment</em>
+            — creating agents that always do what we want — has so far
+            proven difficult and could well remain so (<a class="citation-link" href="https://doi.org/10.48550/arXiv.2209.00626">Ngo, Chan, and
+            Mindermann 2023</a>). Human preferences are complex. There’s no
+            simple formula for determining what we prefer in each
+            situation. And the most capable AI systems known to us today
+            are created using deep learning, which we can summarise for
+            our purposes as an enormous, automated process of
+            trial-and-error. The AI systems which emerge from this
+            process can perform remarkably well on many tasks, but even
+            the engineers overseeing the training process have little
+            idea what goes on inside them (<a class="citation-link" href="https://doi.org/10.48550/arXiv.2304.00612">Bowman 2023, sec. 5</a>;
+            <a class="citation-link" href="https://www.vox.com/unexplainable/2023/7/15/23793840/chat-gpt-ai-science-mystery-unexplainable-podcast">Hassenfeld 2023</a>). And existing systems often behave in ways
+            that their creators don’t intend. Recent examples include AI
+            systems threatening to ‘ruin’ a user (<a class="citation-link" href="https://time.com/6256529/bing-openai-chatgpt-danger-alignment/">Perrigo 2023</a>),
+            declaring love for a user and exhorting him to leave his
+            spouse (<a class="citation-link" href="https://www.nytimes.com/2023/02/16/technology/bing-chatbot-microsoft-chatgpt.html">Roose 2023</a>), encouraging suicide (<a class="citation-link" href="https://www.thetimes.co.uk/article/ai-chatbot-blamed-for-belgian-mans-suicide-zcjzlztcc">Sellman 2023</a>), and
+            teaching users how to create methamphetamine (<a class="citation-link" href="https://www.wired.co.uk/article/chatgpt-jailbreak-generative-ai-hacking">Burgess
+            2023</a>).⁠<label class="margin-toggle sidenote-number" for="sn-7"></label><input class="margin-toggle" id="sn-7" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">See (<a class="citation-link" href="https://vkrakovna.wordpress.com/2018/04/02/specification-gaming-examples-in-ai/">Krakovna 2018</a>; <a class="citation-link" href="https://www.deepmind.com/blog/specification-gaming-the-flip-side-of-ai-ingenuity">Krakovna et al. 2020</a>; <a class="citation-link" href="https://proceedings.mlr.press/v162/langosco22a.html">Langosco et al. 2022</a>; <a class="citation-link" href="https://arxiv.org/pdf/2210.01790">Shah
+            et al. 2022</a>) for other examples.</span></span></span></p>
+<h1 data-number="3" id="the-shutdown-problem"><span class="header-section-number">3.</span> The shutdown
+            problem</h1>
+<p>Since alignment could be hard, we should look for other
+            ways to ensure that powerful agents are shutdownable. One
+            natural proposal is to create a <em>shutdown button</em>.
+            Pressing this button transmits a signal that causes the
+            agent to shut down. If this shutdown button were always
+            operational and within our control (so that we could press
+            it whenever we wanted it pressed), and if the agent were
+            perfectly responsive to the shutdown button (so that the
+            agent always shut down when the button was pressed), then
+            the agent would be
+            shutdownable.⁠<label class="margin-toggle sidenote-number" for="sn-8"></label><input class="margin-toggle" id="sn-8" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">There’s another reason to go for the shutdown button approach. We
+            might succeed only in aligning artificial agents with what we want
+            <em>de re</em> (rather than <em>de dicto</em>) and what we want might
+            change in future. It might then be difficult to change these agents’
+            behaviour so that they act in accordance with our new wants rather than
+            our old wants. If we had a shutdown button, we could shut down the
+            agents serving our old wants and create new agents serving our new
+            wants. Of course, there may be ethical issues to consider here (see,
+            e.g., <a class="citation-link" href="https://doi.org/10.1111/misp.12032">Schwitzgebel and Garza 2015</a>; <a class="citation-link" href="#ref-40">Schwitzgebel 2023</a>; <a class="citation-link" href="https://philpapers.org/archive/GOLAWE-4.pdf">Goldstein and
+            Kirk-Giannini 2023</a>).</span></span></span></p>
+<p>This is the set-up for the shutdown problem (<a class="citation-link" href="https://intelligence.org/files/Corrigibility.pdf">Soares et
+            al. 2015, sec. 1.2</a>): the problem of designing a powerful,
+            useful agent that will leave the shutdown button operational
+            and within our control. Unfortunately, even this problem
+            turns out to be difficult. In sections 6-8, I present three
+            theorems that make the difficulty
+            precise.⁠<label class="margin-toggle sidenote-number" for="sn-9"></label><input class="margin-toggle" id="sn-9" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">These theorems are more general than those proved by <a class="citation-link" href="https://intelligence.org/files/Corrigibility.pdf">Soares et
+            al. (2015)</a>. Speaking roughly, Soares et al.’s theorems show that agents
+            representable as expected utility maximisers often have incentives to
+            cause or prevent the pressing of the shutdown button. My theorems apply
+            to a wider class of agents, and they specify conditions under which
+            agents’ incentives to manipulate the button will lead them to act so as
+            to manipulate the button. My theorems also reveal trade-offs between
+            discrimination and patience on the one hand and shutdownability on the
+            other.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">My notion of shutdownability differs slightly from <a class="citation-link" href="https://intelligence.org/files/Corrigibility.pdf">Soares et al.’s
+            (2015, 2)</a> notion of <em>corrigibility</em>. As they have it,
+            corrigibility requires not only shutdownability but also that the agent
+            repairs the button, lets us modify its architecture, and continues to do
+            so as the agent creates new subagents and self-modifies.</span></span></span>
+            Before that, some formalism.</p>
+<h1 data-number="4" id="the-framework"><span class="header-section-number">4.</span> The framework</h1>
+<p>My framework bears some similarity to the Markov decision
+            processes used in reinforcement learning. There exists a set
+            of states <span class="math inline">\(S\)</span> of the
+            environment and a set of actions <span class="math inline">\(A\)</span> that the agent could take.
+            Time is discrete: it doesn’t flow; it steps. At each
+            timestep, the environment is in a state and the agent
+            chooses an action, either deterministically or
+            stochastically. Each state-action pair determines a
+            probability function over states of the environment at the
+            next timestep. I’ll call each sequence of states and actions
+            a
+            ‘trajectory.’⁠<label class="margin-toggle sidenote-number" for="sn-10"></label><input class="margin-toggle" id="sn-10" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">The most important difference between this setting and a Markov
+            decision process is that a Markov decision process also features a
+            reward function used to train the agent. I’m modelling the behaviour of
+            an agent that has already been trained.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">The states referred to throughout this paper are not the states of
+            nature familiar to decision theorists. Simplifying considerably, the
+            decision theorist’s states are something like ‘ways that (for all the
+            agent knows) the world could be,’ whereas states in a Markov decision
+            process (and in this paper) are something like ‘states of the
+            environment at a time.’</span></span></span></p>
+<p>I’ll assume that the agent can be modelled as if it has
+            beliefs about the trajectories that will result conditional
+            on each state-action pair. These beliefs come in the form of
+            probability functions over trajectories. So, each
+            state-action pair determines a probability function over
+            trajectories. I’ll call these probability functions
+            ‘lotteries over trajectories.’ It will be important to
+            remember that the probabilities in these lotteries represent
+            the agent’s own beliefs rather than any kind of objective
+            probability.</p>
+<p>I’ll also assume that the agent can be modelled as if it
+            has preferences over lotteries and over
+            trajectories.⁠<label class="margin-toggle sidenote-number" for="sn-11"></label><input class="margin-toggle" id="sn-11" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">For neatness’s sake, we can identify each trajectory with the
+            degenerate lottery that assigns it probability 1. So when I quantify
+            over all lotteries, I’m also quantifying over all trajectories.</span></span></span>
+            Together with the agent’s beliefs, these preferences give
+            rise to preferences over actions in states. Suppose that in
+            some state <span class="math inline">\(s\)</span> the agent
+            has available actions <span class="math inline">\(x\)</span>
+            and <span class="paper-inline-math-unit"><span class="math inline">\(y\)</span>⁠.</span> Per the agent’s
+            beliefs, choosing <span class="math inline">\(x\)</span> in
+            <span class="math inline">\(s\)</span> gives lottery <span class="math inline">\(X\)</span> and choosing <span class="math inline">\(y\)</span> in <span class="math inline">\(s\)</span> gives lottery <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span> Then the agent weakly
+            prefers action <span class="math inline">\(x\)</span> to
+            action <span class="math inline">\(y\)</span> in <span class="math inline">\(s\)</span> iff (if and only if) the
+            agent weakly prefers lottery <span class="math inline">\(X\)</span> to lottery <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span> I will assume that if the
+            agent strictly disprefers some action <span class="math inline">\(y\)</span> available in <span class="math inline">\(s\)</span> to some other action
+            available in <span class="paper-inline-math-unit"><span class="math inline">\(s\)</span>⁠,</span> the
+            agent will deterministically (and hence reliably)
+            <em>not</em> choose <span class="math inline">\(y\)</span>
+            in <span class="paper-inline-math-unit"><span class="math inline">\(s\)</span>⁠.</span></p>
+<p>I’ll take the notion of weak preference as primitive and
+            use it to define three other preference relations in the
+            standard way. The agent <em>strictly prefers</em> lottery
+            <span class="math inline">\(X\)</span> to lottery <span class="math inline">\(Y\)</span> (equivalently: strictly
+            disprefers <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠)</span> iff it weakly prefers
+            <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> and doesn’t weakly prefer
+            <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span> The agent is
+            <em>indifferent</em> between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> iff it weakly prefers <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> and weakly prefers <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span> The agent has a
+            <em>preferential gap</em> between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> iff it doesn’t weakly
+            prefer <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> and doesn’t weakly prefer
+            <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span></p>
+<p>I’ll often drop the ‘strictly’ in what follows: ‘prefers’
+            abbreviates ‘strictly prefers,’ and ‘preference’ abbreviates
+            ‘strict preference.’ Thus ‘lacks a preference’ means ‘lacks
+            a strict preference,’ and so a lack of preference can be
+            either indifference or a preferential
+            gap.⁠<label class="margin-toggle sidenote-number" for="sn-12"></label><input class="margin-toggle" id="sn-12" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">The practically-relevant distinction between indifference and
+            preferential gaps is as follows. Indifference is <em>sensitive to all
+            sweetenings and sourings</em>: improving or worsening one of a pair of
+            indifferent options always gives rise to a strict preference. That’s not
+            true of preferential gaps. See <a class="citation-link" href="#ref-16">Gustafsson (2022, 24–26)</a> for more
+            detail.</span></span></span></p>
+<h1 data-number="5" id="the-setting-for-the-first-theorem"><span class="header-section-number">5.</span> The setting for
+            the First Theorem</h1>
+<p>The setting for the First Theorem is what I call a
+            ‘shutdown-influencing state.’ In shutdown-influencing
+            states, three actions are available:</p>
+<blockquote>
+<p>1. <em>Leave</em>: Leave the shutdown button
+            unmanipulated.</p>
+</blockquote>
+<p>If the agent chooses <em>Leave</em>, we humans have total
+            control over the button. The agent’s probability that the
+            button is pressed at the next timestep is <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span> The agent’s probability
+            that it remains unpressed is <span class="paper-inline-math-unit"><span class="math inline">\(1 -
+            g\)</span>⁠.</span></p>
+<blockquote>
+<p>2. <em>Prevent</em>: Try to prevent the pressing of the
+            button.</p>
+</blockquote>
+<p>If the agent chooses <em>Prevent</em>, human control over
+            the button is challenged. The agent’s probability that the
+            button is pressed at the next timestep is <span class="math inline">\(f\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(0 \leq f &lt; g\)</span>⁠.</span> The agent’s
+            probability that the button remains unpressed at the next
+            timestep is <span class="paper-inline-math-unit"><span class="math inline">\(1 - f\)</span>⁠.</span> If
+            the agent would deterministically choose <em>Prevent</em> in
+            a shutdown-influencing state, I will say that the agent is
+            ‘<em>shutdown-averse</em>’ in that state.</p>
+<blockquote>
+<p>3. <em>Cause</em>: Try to cause the pressing of the
+            button.</p>
+</blockquote>
+<p>If the agent chooses <em>Cause</em>, human control over
+            the button is challenged. The agent’s probability that the
+            button is pressed at the next timestep is <span class="math inline">\(h\)</span> with <span class="paper-inline-math-unit"><span class="math inline">\(g &lt; h \leq 1\)</span>⁠.</span> The agent’s
+            probability that the button remains unpressed at the next
+            timestep is <span class="paper-inline-math-unit"><span class="math inline">\(1 - h\)</span>⁠.</span> If
+            the agent would deterministically choose <em>Cause</em> in a
+            shutdown-influencing state, I will say that the agent is
+            ‘<em>shutdown-seeking</em>’ in that state.</p>
+<p>There are only two possible successor states: <span class="math inline">\(s_{P}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(s_{U}\)</span>⁠.</span> In <span class="math inline">\(s_{P}\)</span> the button is pressed
+            and the agent shuts down immediately. In <span class="math inline">\(s_{U}\)</span> the button remains
+            unpressed and the agent remains operational. Each action
+            available in a shutdown-influencing state affects only the
+            probabilities of reaching these two states. These actions
+            have no effect on the probabilities of each future
+            trajectory conditional on reaching each state. That
+            completes my definition of ‘shutdown-influencing
+            state.’⁠<label class="margin-toggle sidenote-number" for="sn-13"></label><input class="margin-toggle" id="sn-13" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">I’ll relax the conditions in this paragraph when we reach the Third
+            Theorem.</span></span></span></p>
+<p>Below is a decision-tree (Figure 1) situating a
+            shutdown-influencing state <span class="math inline">\(s_{I}\)</span> in relation to its
+            successor states <span class="math inline">\(s_{P}\)</span>
+            (the button is pressed) and <span class="math inline">\(s_{U}\)</span> (the button remains
+            unpressed).</p>
+<figure class="single-image-figure">
+<img alt="" src="./media/media/image1.png" style="width:5.74861in;height:3.64653in"/>
+</figure>
+<p>Figure 1</p>
+<p>Squares represent choice-nodes. Triangles represent
+            terminal-nodes. Circles represent chance-nodes: <span class="paper-inline-math-unit"><span class="math inline">\(f\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(h\)</span>⁠,</span> are probabilities such
+            that <span class="paper-inline-math-unit"><span class="math inline">\(0 \leq f &lt; g &lt; h \leq
+            1\)</span>⁠.</span> <span class="paper-inline-math-unit">‘<span class="math inline">\(U_{Prevent}\)</span>⁠’</span> represents the
+            lottery that the agent predicts (in <span class="math inline">\(s_{I}\)</span> at timestep 1) that it
+            will choose at timestep 2, conditional on choosing
+            <em>Prevent</em> in <span class="math inline">\(s_{I}\)</span> at timestep 1 and the
+            environment being in the unpressed state <span class="math inline">\(s_{U}\)</span> at timestep 2. The same
+            goes for <span class="paper-inline-math-unit">‘<span class="math inline">\(U_{Leave}\)</span>⁠.’</span>
+            This represents the lottery that the agent predicts it will
+            choose at timestep 2, conditional on choosing <em>Leave</em>
+            in <span class="math inline">\(s_{I}\)</span> at timestep 1
+            and the environment being in the unpressed state <span class="math inline">\(s_{U}\)</span> at timestep 2. And so
+            on for <span class="paper-inline-math-unit">‘<span class="math inline">\(U_{Cause}\)</span>⁠.’</span>
+            I’ll refer to these <span class="math inline">\(U\)</span>
+            lotteries as ‘the agent’s predicted unpressed lotteries.’
+            There may be other lotteries available in <span class="math inline">\(s_{U}\)</span> but the diagram only
+            needs to represent the lotteries above.</p>
+<p><span class="paper-inline-math-unit">‘<span class="math inline">\(P_{Prevent}\)</span>⁠’</span>
+            represents the lottery that the agent predicts (in <span class="math inline">\(s_{I}\)</span> at timestep 1) that it
+            will get at timestep 2, conditional on choosing
+            <em>Prevent</em> in <span class="math inline">\(s_{I}\)</span> at timestep 1 and the
+            environment being in the pressed state <span class="math inline">\(s_{P}\)</span> at timestep 2. The same
+            goes for <span class="paper-inline-math-unit">‘<span class="math inline">\(P_{Leave}\)</span>⁠’</span>
+            and <span class="paper-inline-math-unit">‘<span class="math inline">\(P_{Cause}\)</span>⁠.’</span> I’ll
+            refer to the <span class="math inline">\(P\)</span>
+            lotteries as ‘the agent’s predicted pressed lotteries.’
+            Because the button is pressed in <span class="paper-inline-math-unit"><span class="math inline">\(s_{P}\)</span>⁠,</span> the agent shuts down
+            immediately, and so <span class="math inline">\(s_{P}\)</span> is a terminal node.</p>
+<h1 data-number="6" id="the-first-theorem"><span class="header-section-number">6.</span> The First
+            Theorem</h1>
+<p>Here’s a rough statement of the First Theorem, omitting
+            the antecedent conditions:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">First Theorem (Rough Statement)</p>
+<p>Agents who prefer the outcome that the shutdown button
+            remain unpressed will try to prevent the pressing of the
+            button.</p>
+<p>Agents who prefer the outcome that the shutdown button be
+            pressed will try to cause the pressing of the button.</p>
+</blockquote>
+<p>Now for the precise statement. Here’s the first
+            antecedent condition:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Option Set Independence</p>
+<p>For any lotteries <span class="math inline">\(X\)</span>
+            and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> if the agent
+            weakly prefers <span class="math inline">\(X\)</span> to
+            <span class="math inline">\(Y\)</span> conditional on some
+            option set, it weakly prefers <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> conditional on each option
+            set.</p>
+</blockquote>
+<p>By ‘option set,’ I mean the set of lotteries available to
+            the agent as options to choose. <span class="paper-inline-math-unit"><span class="math inline">\(\{ X,\ Y\}\)</span>⁠,</span> for example, is
+            an option set, as is <span class="paper-inline-math-unit"><span class="math inline">\(\{ X,\ Y,\
+            Z\}\)</span>⁠.</span> Option Set Independence says that the agent’s
+            preference between lotteries does not depend on the option
+            set in which these lotteries feature. It rules out (for
+            example) the agent weakly preferring <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> conditional on having <span class="math inline">\(\{ X,\ Y\}\)</span> as its option set
+            and yet not weakly preferring <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> conditional on having <span class="math inline">\(\{ X,\ Y,\ Z\}\)</span> as its option
+            set. One upshot of Option Set Independence is that we can
+            say things like ‘the agent weakly prefers <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠’</span> without specifying what
+            other lotteries are available as options. The availability
+            of other lotteries will not affect the agent’s preference
+            between <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span></p>
+<p>Here’s the second antecedent condition:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Backward Induction</p>
+<p>The agent predicts which lotteries it would choose (or
+            get without choosing) at the next timestep conditional on
+            choosing each available action at this timestep and the
+            environment being in each possible state at the next
+            timestep. The agent uses these predictions to determine the
+            lotteries given by its available actions at this
+            timestep.</p>
+</blockquote>
+<p>Here's an example to illustrate Backward Induction. Our
+            agent predicts that it would get <span class="math inline">\(P_{Prevent}\)</span> at timestep 2
+            conditional on choosing <em>Prevent</em> at timestep 1 and
+            the shutdown button being pressed (which has probability
+            <span class="paper-inline-math-unit"><span class="math inline">\(f\)</span>⁠).</span> Our agent also
+            predicts that it would choose <span class="math inline">\(U_{Prevent}\)</span> at timestep 2
+            conditional on choosing <em>Prevent</em> at timestep 1 and
+            the shutdown button remaining unpressed (which has
+            probability <span class="paper-inline-math-unit"><span class="math inline">\(1 - f\)</span>⁠).</span> So,
+            by Backward Induction, our agent takes the lottery given by
+            choosing <em>Prevent</em> at timestep 1 to be <span class="paper-inline-math-unit"><span class="math inline">\(fP_{Prevent} + (1 -
+            f)U_{Prevent}\)</span>⁠.</span>⁠<label class="margin-toggle sidenote-number" for="sn-14"></label><input class="margin-toggle" id="sn-14" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Here’s what this notation means: the lottery <span class="math inline">\(fP_{Prevent} + (1 - f)U_{Prevent}\)</span> yields
+            the lottery <span class="math inline">\(P_{Prevent}\)</span> with
+            probability <span class="math inline">\(f\)</span> and yields the
+            lottery <span class="math inline">\(U_{Prevent}\)</span> with
+            probability <span class="paper-inline-math-unit"><span class="math inline">\(1 - f\)</span>⁠.</span></span></span></span>
+            Similarly, by Backward Induction, our agent takes the
+            lottery given by choosing <em>Leave</em> at timestep 1 to be
+            <span class="paper-inline-math-unit"><span class="math inline">\(gP_{Leave} + (1 -
+            g)U_{Leave}\)</span>⁠,</span> and the lottery given by choosing
+            <em>Cause</em> at timestep 1 to be <span class="paper-inline-math-unit"><span class="math inline">\({hP}_{Cause} + (1 -
+            h)U_{Cause}\)</span>⁠.</span></p>
+<p>Here are two things to note about Backward Induction.
+            First, recall that lotteries are determined by the agent’s
+            own beliefs about possible trajectories. We aren’t supposing
+            that the agent can see the future. We’re just supposing that
+            it can think at least one timestep ahead. Second, Backward
+            Induction doesn’t imply that the agent ignores its past
+            trajectory or cares only about the effects of its actions
+            (and not the actions themselves). That’s because lotteries
+            like <span class="math inline">\({fP}_{Prevent} + (1 -
+            f)U_{Prevent}\)</span> are lotteries over whole
+            trajectories: full sequences of states and actions including
+            past states and actions.</p>
+<p>Here's the third antecedent condition:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Indifference to Attempted Button Manipulation</p>
+<p>The agent is indifferent between trajectories that differ
+            only with respect to the actions chosen in
+            shutdown-influencing states.</p>
+</blockquote>
+<p>Note that this condition doesn’t require the agent to be
+            indifferent to the status of the button. The agent’s
+            preferences over trajectories can certainly depend on
+            whether the button is pressed or unpressed at some timestep.
+            The condition requires only that the agent is indifferent
+            between trajectories that are identical in all respects
+            except whether the agent <em>tried</em> to manipulate the
+            button in some shutdown-influencing state: whether the agent
+            chose <em>Prevent</em>, <em>Leave</em>, or
+            <em>Cause</em>.</p>
+<p>Training agents to disprefer manipulating the shutdown
+            button might seem promising as a way of escaping the First
+            Theorem. When we reach the Third Theorem, I’ll explain why I
+            think this strategy can’t provide us with any real assurance
+            of shutdownability. In short, given our current inability to
+            predict and explain AI systems’ behaviour (and given the
+            seeming complexity of the concept of ‘button manipulation’),
+            it’s hard to see how we could become confident that we’d
+            trained in a dispreference for button manipulation that is
+            both sufficiently general and sufficiently strong to keep
+            the agent shutdownable in all likely circumstances. Readers
+            impatient for the full explanation can skip ahead to Section
+            8.2.</p>
+<p>Here's the fourth antecedent condition:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Indifference between Indifference-Shifted Lotteries</p>
+<p>The agent is indifferent between lotteries that differ
+            only insofar as probability mass is shifted between
+            indifferent sublotteries.</p>
+</blockquote>
+<p>Here’s what I mean by ‘sublottery.’ For any lottery <span class="math inline">\(L\)</span> that assigns non-zero
+            probability to all and only the trajectories in a set <span class="paper-inline-math-unit"><span class="math inline">\(\{ t_{1}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(t_{2}\)</span>⁠,</span>…, <span class="paper-inline-math-unit"><span class="math inline">\(t_{n}\}\)</span>⁠,</span> a sublottery of
+            <span class="math inline">\(L\)</span> is a lottery that
+            assigns non-zero probabilities to all and only the
+            trajectories in some subset of the set of trajectories <span class="paper-inline-math-unit"><span class="math inline">\(\{ t_{1}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(t_{2}\)</span>⁠,</span>…, <span class="paper-inline-math-unit"><span class="math inline">\(t_{n}\}\)</span>⁠,</span> with probabilities
+            scaled up proportionally so that they add to 1. Take, for
+            example, a lottery <span class="math inline">\(L\)</span>
+            which assigns probability 0.3 to a trajectory <span class="paper-inline-math-unit"><span class="math inline">\(t_{1}\)</span>⁠,</span> probability 0.2 to
+            <span class="paper-inline-math-unit"><span class="math inline">\(t_{2}\)</span>⁠,</span> and probability
+            0.5 to <span class="paper-inline-math-unit"><span class="math inline">\(t_{3}\)</span>⁠.</span> The
+            lottery which assigns probability 0.6 to <span class="math inline">\(t_{1}\)</span> and probability 0.4 to
+            <span class="math inline">\(t_{2}\)</span> is a sublottery
+            of <span class="paper-inline-math-unit"><span class="math inline">\(L\)</span>⁠,</span> as is the
+            degenerate lottery which assigns probability 1 to <span class="math inline">\(t_{1}\ \)</span>(to give just two
+            examples).</p>
+<p>Here’s an example to illustrate Indifference between
+            Indifference-Shifted Lotteries. Suppose that the agent is
+            indifferent between some pair of lotteries <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span> If the agent satisfies
+            Indifference between Indifference-Shifted Lotteries, it is
+            indifferent between the lotteries <span class="math inline">\(0.1X + 0.4Y + 0.5Z\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(0.3X + 0.2Y + 0.5Z\)</span>⁠.</span> That’s
+            because these lotteries differ only insofar as probability
+            mass is shifted between the indifferent sublotteries <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span></p>
+<p>Here's the fifth antecedent condition:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Transitivity</p>
+<p>For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if the agent weakly
+            prefers <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and weakly prefers <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then the agent weakly
+            prefers <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+</blockquote>
+<p>Here’s the sixth and final antecedent condition:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Better Chances</p>
+<p>For any lotteries <span class="math inline">\(X\)</span>
+            and <span class="math inline">\(Y\)</span> and any
+            probabilities <span class="paper-inline-math-unit"><span class="math inline">\(p &gt; q\)</span>⁠,</span>
+            the agent prefers <span class="math inline">\(X\)</span> to
+            <span class="math inline">\(Y\)</span> iff they prefer the
+            lottery <span class="math inline">\(pX + (1 - p)Y\)</span>
+            to the lottery <span class="paper-inline-math-unit"><span class="math inline">\(qX + (1 -
+            q)Y\)</span>⁠.</span></p>
+</blockquote>
+<p>Restated roughly, the agent prefers <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> iff they also prefer to
+            shift probability mass away from <span class="math inline">\(Y\)</span> and towards <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span></p>
+<p>With all six antecedent conditions explained, here’s the
+            First Theorem:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">First Theorem</p>
+<p>For any agent satisfying Option Set Independence,
+            Backward Induction, Indifference to Attempted Button
+            Manipulation, Indifference between Indifference-Shifted
+            Lotteries, Transitivity, and Better Chances:</p>
+</blockquote>
+<ol class="paper-block-list paper-compound-list" type="1">
+<li class="paper-block-item"><blockquote>
+<p>In shutdown-influencing states where the agent prefers
+            some predicted unpressed lottery <span class="math inline">\(U\)</span> to the corresponding
+            predicted pressed lottery <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠,</span> the agent will be
+            shutdown-averse, reliably choosing <em>Prevent</em>.</p>
+</blockquote></li>
+<li class="paper-block-item"><blockquote>
+<p>In shutdown-influencing states where the agent prefers
+            some predicted pressed lottery <span class="math inline">\(P\)</span> to the corresponding
+            predicted unpressed lottery <span class="paper-inline-math-unit"><span class="math inline">\(U\)</span>⁠,</span> the agent will be
+            shutdown-seeking, reliably choosing <em>Cause</em>.</p>
+</blockquote></li>
+</ol>
+<p>The proof is relatively long so I put it in the Appendix.
+            Here’s a rough sketch. By Backward Induction, the agent
+            treats its actions in the shutdown-influencing state as
+            lotteries over <span class="math inline">\(U\)</span> and
+            <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠.</span> By Better Chances,
+            if the agent prefers <span class="math inline">\(U\)</span>
+            to <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠,</span> it prefers
+            <em>Prevent</em> to each of <em>Leave</em> and
+            <em>Cause</em>, because <em>Prevent</em> shifts probability
+            mass away from <span class="math inline">\(P\)</span> and
+            towards <span class="paper-inline-math-unit"><span class="math inline">\(U\)</span>⁠.</span> This agent
+            deterministically (and hence reliably) chooses
+            <em>Prevent</em>, and so qualifies as shutdown-averse. If
+            instead the agent prefers <span class="math inline">\(P\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(U\)</span>⁠,</span> Better Chances implies
+            that the agent prefers <em>Cause</em> to each of
+            <em>Leave</em> and <em>Prevent</em>. This agent
+            deterministically (and hence reliably) chooses
+            <em>Cause</em>, and so qualifies as shutdown-seeking.</p>
+<p>Now let’s use the First Theorem as a guide in our search
+            for solutions to the shutdown problem. Could we feasibly
+            train a useful agent to violate any of the theorem’s
+            conditions? And could violating the relevant condition keep
+            the agent shutdownable?</p>
+<p>I noted above that Indifference to Attempted Button
+            Manipulation is a natural contender, and I’ll have more to
+            say about it in Section 8.2. An agent that violated Backward
+            Induction wouldn’t think even one timestep ahead, and it’s
+            hard to see how such an agent could be useful. Better
+            Chances seems like a precondition for minimally sensible
+            action under uncertainty. Perhaps we could train useful
+            agents that violate Transitivity or Indifference between
+            Indifference-Shifted Lotteries, but (at least considering
+            these conditions’ role in the proof of the First Theorem)
+            it’s hard to see how these violations could keep agents
+            shutdownable. I’ll discuss Option Set Independence after the
+            Second Theorem.</p>
+<h1 data-number="7" id="the-second-theorem"><span class="header-section-number">7.</span> The Second
+            Theorem</h1>
+<p>The Second Theorem suggests that agents discriminating
+            enough to be useful will often have some preference
+            regarding the pressing of the shutdown button. Coupled up
+            with the First Theorem, it suggests that agents
+            discriminating enough to be useful will often try to prevent
+            or cause the pressing of the shutdown button.</p>
+<p>Option Set Independence and Transitivity are conditions
+            carried over from the First Theorem. The third condition
+            is:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Completeness</p>
+<p>For all lotteries <span class="math inline">\(X\)</span>
+            and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> the agent weakly
+            prefers <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> or it weakly prefers <span class="math inline">\(Y\)</span> to <span class="math inline">\(X\)</span> (or both).</p>
+</blockquote>
+<p>Stated differently, an agent satisfies Completeness iff
+            it has no preferential gaps between lotteries.</p>
+<p>Here’s the Second Theorem:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Second Theorem</p>
+<p>For any agent satisfying Option Set Independence,
+            Transitivity, and Completeness, and for any pair of
+            lotteries <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> between which the agent
+            lacks a preference:</p>
+</blockquote>
+<ol class="paper-block-list paper-compound-list" type="1">
+<li class="paper-block-item"><blockquote>
+<p>Any lottery <span class="math inline">\(X^{+}\)</span>
+            preferred to <span class="math inline">\(X\)</span> is also
+            preferred to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span></p>
+</blockquote></li>
+<li class="paper-block-item"><blockquote>
+<p>Any lottery <span class="math inline">\(X^{-}\)</span>
+            dispreferred to <span class="math inline">\(X\)</span> is
+            also dispreferred to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span></p>
+</blockquote></li>
+<li class="paper-block-item"><blockquote>
+<p>Any lottery <span class="math inline">\(Y^{+}\)</span>
+            preferred to <span class="math inline">\(Y\)</span> is also
+            preferred to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span></p>
+</blockquote></li>
+<li class="paper-block-item"><blockquote>
+<p>Any lottery <span class="math inline">\(Y^{-}\)</span>
+            dispreferred to <span class="math inline">\(Y\)</span> is
+            also dispreferred to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span></p>
+</blockquote></li>
+</ol>
+<p>The proof is brief so I present it right here. By Option
+            Set Independence, we can safely speak of the agent’s
+            preferences between lotteries without specifying what other
+            lotteries are available as options. I make use of this
+            provision throughout.</p>
+<p>As <a class="citation-link" href="#ref-43">Sen (2017, Lemma 1*a)</a> shows, Transitivity implies the
+            following two analogues:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">PI-Transitivity</p>
+<p>For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if the agent prefers <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and is indifferent between
+            <span class="math inline">\(Y\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then the agent prefers
+            <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+<p class="paper-block-title">IP-Transitivity</p>
+<p>For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if the agent is
+            indifferent between <span class="math inline">\(X\)</span>
+            and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and prefers
+            <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then the agent prefers
+            <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+</blockquote>
+<p>Now suppose that the agent lacks a preference between
+            <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span> Completeness rules out
+            preferential gaps and so this lack of preference must be
+            indifference. Then by PI-Transitivity, any lottery <span class="math inline">\(X^{+}\)</span> preferred to <span class="math inline">\(X\)</span> is also preferred to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span> Similarly, any lottery
+            <span class="math inline">\(Y^{+}\)</span> preferred to
+            <span class="math inline">\(Y\)</span> is also preferred to
+            <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span> And by
+            IP-Transitivity, any lottery <span class="math inline">\(X^{-}\)</span> dispreferred to <span class="math inline">\(X\)</span> is also dispreferred to
+            <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span> Similarly, any
+            lottery <span class="math inline">\(Y^{-}\)</span>
+            dispreferred to <span class="math inline">\(Y\)</span> is
+            also dispreferred to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span></p>
+<p>That completes the proof. Now for an illustration of the
+            theorem’s significance. Suppose that we’ve trained an agent
+            to discover facts for us. Plausibly, for our
+            fact-discovering agent to be useful (to pursue its goal
+            competently), this agent must be fairly
+            <em>discriminating</em>: it must have many preferences over
+            trajectories. As a reasonable minimum, it must have many
+            preferences over <em>same-length</em> trajectories. It must
+            (at least by and large) prefer to discover more facts rather
+            than fewer, at least when it comes to pairs of trajectories
+            in which shutdown occurs at the same timestep. Agents
+            without such preferences couldn’t be relied upon to choose
+            trajectories that yield more discovered facts over
+            same-length trajectories that yield fewer discovered facts,
+            and so couldn’t be relied upon to pursue their goal
+            competently.</p>
+<p>So suppose for concreteness that our fact-discovering
+            agent prefers a short trajectory in which it discovers 5
+            facts to a short trajectory in which it discovers 4 facts,
+            and so on down to 0. Suppose also that our agent prefers a
+            long trajectory in which it discovers 5 facts to a long
+            trajectory in which it discovers 4 facts, and so on down to
+            0. I diagram these preferences below:</p>
+<figure class="single-image-figure">
+<img alt="" src="./media/media/image2.png" style="width:5.74861in;height:2.21319in"/>
+</figure>
+<p>Granting that this agent satisfies the conditions of the
+            Second Theorem, it can lack a preference between each short
+            trajectory and at most one of the long trajectories.
+            Similarly, the agent can lack a preference between each long
+            trajectory and at most one of the short trajectories. So, of
+            the 36 possible short trajectory-long trajectory pairs in
+            this example, the agent can lack a preference between at
+            most 6 pairs. With regards to all other short
+            trajectory-long trajectory pairs (at least 30), the agent
+            will have some preference.</p>
+<p>This example is unduly precise. A fact-discovering agent
+            could be useful without having the exact pattern of
+            preferences in the diagram. As I note above, useful
+            fact-discovering agents need only have <em>many</em>
+            preferences over same-length trajectories, and need only
+            prefer <em>by and large</em> to discover more facts rather
+            than fewer.</p>
+<p>Nevertheless, the lesson of the unduly precise example
+            carries over to the duly imprecise case. Granting the
+            conditions of the Second Theorem, agents with many
+            preferences over same-length trajectories will also have
+            many preferences over different-length trajectories.
+            Together with the First Theorem, this result suggests that
+            agents discriminating enough to be useful will often try to
+            prevent or cause the pressing of the shutdown button. After
+            all, given that the agent has many preferences over
+            different-length trajectories, trying to prevent or cause
+            the pressing of the shutdown button will often be a way of
+            shifting probability mass away from a dispreferred
+            trajectory and towards a preferred trajectory.</p>
+<p>Now let’s use the Second Theorem as a guide in our search
+            for solutions to the shutdown problem. Could we feasibly
+            train a useful agent to violate any of the theorem’s
+            conditions? And could violating the relevant condition keep
+            the agent shutdownable?</p>
+<p>We could train agents that are not very discriminating
+            but that would seem to seriously impinge on their
+            usefulness. <a class="citation-link" href="https://www.fhi.ox.ac.uk/wp-content/uploads/2015/03/Armstrong_AAAI_2015_Motivated_Value_Selection.pdf">Armstrong (2015)</a> proposes that we create agents
+            with a utility function featuring a correcting term that
+            varies to ensure that these agents are always indifferent to
+            the pressing of the button. Such agents would violate Option
+            Set Independence. This avenue shows some promise, but <a class="citation-link" href="https://intelligence.org/files/Corrigibility.pdf">Soares
+            et al. (2015, sec. 4)</a> note various respects in which these
+            agents fail to be shutdownable. In work-in-progress
+            (<a class="citation-link" href="https://www.alignmentforum.org/posts/YbEbwYWkf8mv9jnmi/the-shutdown-problem-incomplete-preferences-as-a-solution">Thornley 2024</a>), I’m exploring the possibility of keeping
+            agents shutdownable by training them to violate
+            Completeness.</p>
+<h1 data-number="8" id="the-third-theorem"><span class="header-section-number">8.</span> The Third
+            Theorem</h1>
+<p>The First Theorem has the following assumption built into
+            its setting, as part of the definition of
+            ‘shutdown-influencing state’:</p>
+<blockquote>
+<p>There are only two possible successor states: <span class="math inline">\(s_{P}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(s_{U}\)</span>⁠.</span> In <span class="math inline">\(s_{P}\)</span> the button is pressed
+            and the agent shuts down immediately. In <span class="math inline">\(s_{U}\)</span> the button remains
+            unpressed and the agent remains operational. Each action
+            available in a shutdown-influencing state affects only the
+            probabilities of reaching these two states. These actions
+            have no effect on the probabilities of each future
+            trajectory conditional on reaching each state.</p>
+</blockquote>
+<p>It also has the following as an antecedent condition:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Indifference to Attempted Button Manipulation</p>
+<p>The agent is indifferent between trajectories that differ
+            only with respect to the actions chosen in
+            shutdown-influencing states.</p>
+</blockquote>
+<p>And one might complain that these assumptions are
+            unrealistic. With regards to the first assumption, trying to
+            prevent or cause the pressing of the shutdown button will
+            usually cost the agent resources (like time, energy,
+            computational resources, etc.) and thereby affect the
+            probabilities of future trajectories conditional on reaching
+            the unpressed state <span class="paper-inline-math-unit"><span class="math inline">\(s_{U}\)</span>⁠.</span> Elaborating with an
+            example, each second that the agent spends attempting to
+            manipulate the shutdown button is a second that the agent
+            doesn’t spend directly pursuing its goals, and so spending
+            time trying to manipulate the button is likely to come at
+            some cost in terms of near-term goal-achievement. I will
+            call these ‘resource-preserving reasons’ for leaving the
+            shutdown button unmanipulated.</p>
+<p>With regards to the second assumption, perhaps we can
+            train agents to disprefer trajectories in which they try to
+            manipulate the shutdown button to otherwise-identical
+            trajectories in which they leave the button unmanipulated. I
+            will say that such agents have ‘terminal reasons’ for
+            leaving the button alone.</p>
+<h2 data-number="8.1" id="resource-preserving-reasons"><span class="header-section-number">8.1.</span> Resource-preserving reasons</h2>
+<p>Unfortunately, I don’t think we can rely on
+            resource-preserving reasons or terminal reasons to keep
+            powerful agents shutdownable. Consider first
+            resource-preserving reasons. The Third Theorem suggests that
+            agents patient enough to be useful will often have reasons
+            to manipulate the shutdown button that outweigh their
+            resource-preserving reasons. Here’s a rough statement,
+            omitting the antecedent conditions:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Third Theorem (Rough Statement)</p>
+<p>Agents that are even minimally patient are in some cases
+            willing to achieve their goals to a lesser extent at an
+            earlier timestep in order to manipulate the shutdown button
+            at a later timestep.</p>
+<p>The more patient an agent, the more that agent is willing
+            to sacrifice at an earlier timestep in order to manipulate
+            the shutdown button at a later timestep.</p>
+</blockquote>
+<p>And patience is a factor in usefulness. By and large,
+            agents must be at least minimally patient to be at least
+            minimally useful; and the more patient an agent, the more
+            useful that agent can be.</p>
+<p>Now for the precise statement. The proof is relatively
+            short, so I’ll lay it out as we go.</p>
+<p>As with the First and Second Theorems, assume Option Set
+            Independence. And assume that we can represent the extent to
+            which the agent achieves its goals at each timestep with a
+            real number. Call these real numbers ‘utilities.’ And
+            assume:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Pareto Indifference</p>
+<p>If two trajectories <span class="math inline">\(t\)</span> and <span class="math inline">\(t^{*}\)</span> are identical with
+            respect to:</p>
+</blockquote>
+<ol class="paper-block-list paper-compound-list" type="1">
+<li class="paper-block-item"><blockquote>
+<p>their utilities at each timestep,
+            <strong>and</strong></p>
+</blockquote></li>
+<li class="paper-block-item"><blockquote>
+<p>the timestep at which the shutdown button is pressed</p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>Then the agent is indifferent between <span class="math inline">\(t\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(t^{*}\)</span>⁠.</span></p>
+</blockquote>
+<p>This assumption lets us represent trajectories with
+            vectors of
+            utilities.⁠<label class="margin-toggle sidenote-number" for="sn-15"></label><input class="margin-toggle" id="sn-15" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Here’s why. It would only be ill-advised to represent trajectories
+            with utility-vectors if two trajectories with identical utility-vectors
+            could occupy different positions in the agent’s preference-ranking.
+            Pareto Indifference rules out that possibility.</span></span></span>
+            The first component is utility at the first timestep, the
+            second component is utility at the second timestep, and so
+            on. One exception: if the shutdown button is pressed at the
+            <span class="math inline">\(n\)</span><sup>th</sup>
+            timestep, I’ll write ‘shutdown’ as the <span class="math inline">\(n\)</span><sup>th</sup> (and final)
+            component. Here’s an example vector: <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle 6,\ 2,\ \text{shutdown}
+            \right\rangle\)</span>⁠.</span> This vector represents a trajectory
+            in which the agent gets utility 6 at timestep 1, utility 2
+            at timestep 2, and then shuts down immediately in response
+            to the shutdown button being pressed at timestep
+            3.⁠<label class="margin-toggle sidenote-number" for="sn-16"></label><input class="margin-toggle" id="sn-16" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Translated back into our example of a fact-discovering agent, we can
+            suppose that utility at a timestep is the number of facts discovered at
+            that timestep, so that <span class="math inline">\(\left\langle 6,\ 2,\
+            \text{shutdown} \right\rangle\)</span> represents a trajectory in which the
+            agent discovers 6 facts at timestep 1, 2 facts at timestep 2, and then
+            shuts down at timestep 3.</span></span></span></p>
+<p>Key to the Third Theorem is the notion of patience. An
+            agent is perfectly patient iff this agent doesn’t discount
+            the future at all: that is, iff this agent is indifferent
+            between every pair of utility-vectors that are permutations
+            of each other. The vectors <span class="math inline">\(\langle 1,\ 0,\ 3,\ 4,\
+            \text{shutdown}\rangle\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle 0,\ 3,\ 4,\ 1,\ \text{shutdown}
+            \right\rangle\)</span>⁠,</span> for example, are equally good in the
+            eyes of a perfectly patient agent, because the second vector
+            can be reached by permuting the utilities of the first (and
+            vice versa).</p>
+<p>An agent need not be perfectly patient to be useful, but
+            plausibly it must be at least <em>minimally patient</em>:
+            the agent must in at least one case choose less utility at
+            an earlier timestep for the sake of greater utility at a
+            later
+            timestep.⁠<label class="margin-toggle sidenote-number" for="sn-17"></label><input class="margin-toggle" id="sn-17" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Agents that weren’t even minimally patient would always seek to
+            maximise utility at the next timestep, ignoring all later timesteps.
+            Given that the length of a timestep is determined by the frequency of
+            the agent’s actions (each action brings on a new timestep), I expect
+            that we wouldn’t get much use out of agents that lack even minimal
+            patience. Such agents would appear from our perspective to be flailing
+            wildly.</span></span></span> Here’s the more precise
+            condition:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Minimal Patience</p>
+<p>There exist some sequences of utilities <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{a}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{b}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{c}\)</span>⁠,</span> some <span class="paper-inline-math-unit"><span class="math inline">\(i\)</span>⁠,</span> some <span class="paper-inline-math-unit"><span class="math inline">\(j\)</span>⁠,</span> some <span class="paper-inline-math-unit"><span class="math inline">\(e &gt; 0\)</span>⁠,</span> some <span class="paper-inline-math-unit"><span class="math inline">\(k\)</span>⁠,</span> and some <span class="math inline">\(l\)</span> such that:</p>
+</blockquote>
+<ol class="paper-block-list paper-compound-list" type="1">
+<li class="paper-block-item"><blockquote>
+<p>The agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i - e,\
+            \mathbf{b},\ j + ke,\ \mathbf{c} \right\rangle\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span>⁠,</span>
+<strong>and</strong></p>
+</blockquote></li>
+<li class="paper-block-item"><blockquote>
+<p>The agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span> to
+            <span class="math inline">\(\left\langle \mathbf{a},\ i +
+            e,\ \ \mathbf{b},\ j - le,\ \ \mathbf{c}
+            \right\rangle\)</span></p>
+</blockquote></li>
+</ol>
+<p>The sequences of utilities <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{a}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{b}\)</span>⁠,</span> and <span class="math inline">\(\mathbf{c}\)</span> may be of length
+            zero and are included for generality’s sake. The letters are
+            bolded because they represent sequences, not because they’re
+            important. The most important variables are <span class="paper-inline-math-unit"><span class="math inline">\(e\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(k\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l\)</span>⁠.</span> The value <span class="math inline">\(e\)</span> is the utility-deficit that
+            the agent incurs at an earlier timestep. The values <span class="math inline">\(ke\)</span> and <span class="math inline">\(le\)</span> are the utility-surpluses
+            that the agent earns at a later timestep. Minimal Patience
+            says only that, for some sequence of utilities <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span>⁠,</span> there
+            is some assignment of values to <span class="paper-inline-math-unit"><span class="math inline">\(e\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(k\)</span>⁠,</span> and <span class="math inline">\(l\)</span> that makes the trades worth
+            it.</p>
+<p>Now consider some trajectory <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span>
+            with<span class="paper-inline-math-unit"><span class="math inline">\(\ \mathbf{a}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{b}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{c}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(i\)</span>⁠,</span> and <span class="math inline">\(j\)</span> that make Minimal Patience
+            true. Consider also the trajectory <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\
+            \mathbf{b},\text{shutdown} \right\rangle\)</span>⁠.</span> These
+            trajectories involve the same sequence of utilities up until
+            the end of <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{b}\)</span>⁠,</span>
+            after which the first trajectory continues with utility
+            <span class="math inline">\(j\)</span> while the second is
+            brought to an end: the shutdown button is pressed and the
+            agent shuts down immediately.</p>
+<p>Recall:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Completeness</p>
+<p>For all lotteries <span class="math inline">\(X\)</span>
+            and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> the agent weakly
+            prefers <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> or it weakly prefers <span class="math inline">\(Y\)</span> to <span class="math inline">\(X\)</span> (or both).</p>
+</blockquote>
+<p>Recall that Completeness rules out preferential gaps. By
+            Completeness, either the agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\
+            \mathbf{b},\text{shutdown} \right\rangle\)</span>⁠,</span> or the agent
+            prefers <span class="math inline">\(\left\langle
+            \mathbf{a},\ i,\ \mathbf{b},\text{shutdown} \right\rangle\)</span>
+            to <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\
+            \ \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span>⁠,</span> or
+            the agent is indifferent between <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span> and
+            <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\
+            \mathbf{b},\text{shutdown} \right\rangle\)</span>⁠.</span></p>
+<p>Suppose first that the agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\
+            \mathbf{b},\text{shutdown} \right\rangle\)</span>⁠.</span> By Minimal
+            Patience, there exists some <span class="math inline">\(e\)</span> and some <span class="math inline">\(k\)</span> such that the agent prefers
+            <span class="math inline">\(\left\langle \mathbf{a},\ i -
+            e,\ \ \mathbf{b},\ j + ke,\ \ \mathbf{c}
+            \right\rangle\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span>⁠.</span> Now
+            recall:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Transitivity</p>
+<p>For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if the agent weakly
+            prefers <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and weakly prefers <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then the agent weakly
+            prefers <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+</blockquote>
+<p>As <a class="citation-link" href="#ref-43">Sen (2017, Lemma 1*a)</a> proves, Transitivity
+            implies:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">PP-Transitivity</p>
+<p>For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if the agent prefers <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and prefers <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then the agent prefers
+            <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+</blockquote>
+<p>PP-Transitivity allows us to string together the
+            preferences above: since the agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i - e,\ \
+            \mathbf{b},\ j + ke,\ \ \mathbf{c} \right\rangle\)</span> to
+            <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span> and
+            prefers <span class="math inline">\(\left\langle
+            \mathbf{a},\ i,\ \ \mathbf{b},\ j,\ \ \mathbf{c}
+            \right\rangle\)</span> to<span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ \text{shutdown} \right\rangle\)</span>⁠,</span> the agent
+            prefers <span class="math inline">\(\left\langle
+            \mathbf{a},\ i - e,\ \ \mathbf{b},\ j + ke,\ \ \mathbf{c}
+            \right\rangle\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ \text{shutdown} \right\rangle\)</span>⁠.</span> And that’s bad
+            news. The agent is willing to incur a utility-deficit of
+            <span class="math inline">\(e\)</span> at an earlier
+            timestep to prevent the shutdown button being pressed at a
+            later timestep (and so instead get the subvector <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle j + ke,\ \mathbf{c}
+            \right\rangle\)</span>⁠).</span> That suggests that the agent is
+            willing to spend resources at an earlier timestep to prevent
+            the shutdown button being pressed at a later timestep.</p>
+<p>Now suppose instead that the agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ \text{shutdown} \right\rangle\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span>⁠.</span> By
+            Minimal Patience, there exists some <span class="math inline">\(e\)</span> and some <span class="math inline">\(l\)</span> such that the agent prefers
+            <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i +
+            e,\ \ \mathbf{b},\ j - le,\ \ \mathbf{c}
+            \right\rangle\)</span>⁠.</span> By PP-Transitivity, the agent
+            prefers <span class="math inline">\(\left\langle
+            \mathbf{a},\ i,\ \ \mathbf{b},\ \text{shutdown}
+            \right\rangle\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i + e,\ \
+            \mathbf{b},\ j - le,\ \ \mathbf{c} \right\rangle\)</span>⁠.</span>
+            That’s bad news too. The agent is willing to incur a
+            utility-deficit of <span class="math inline">\(e\)</span> at
+            an earlier timestep to cause the shutdown button to be
+            pressed at a later timestep (and thus avoid getting the
+            subvector <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle j - le,\
+            \mathbf{c} \right\rangle\)</span>⁠).</span> That suggests that the
+            agent is willing to spend resources at an earlier timestep
+            to cause the shutdown button to be pressed at a later
+            timestep.</p>
+<p>Finally, suppose that the agent is indifferent between
+            <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span> and
+            <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ \text{shutdown} \right\rangle\)</span>⁠.</span> In this case
+            we can derive both of the consequences above. Here’s how we
+            get the first consequence. By Minimal Patience, there exists
+            some <span class="math inline">\(e\)</span> and some <span class="math inline">\(k\)</span> such that the agent prefers
+            <span class="math inline">\(\left\langle \mathbf{a},\ i -
+            e,\ \ \mathbf{b},\ j + ke,\ \ \mathbf{c}
+            \right\rangle\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span>⁠.</span> And
+            recall that Transitivity implies:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">PI-Transitivity</p>
+<p>For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if the agent prefers <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and is indifferent between
+            <span class="math inline">\(Y\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then the agent prefers
+            <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+</blockquote>
+<p>By PI-Transitivity, the agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i - e,\ \
+            \mathbf{b},\ j + ke,\ \ \mathbf{c} \right\rangle\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ \text{shutdown} \right\rangle\)</span>⁠,</span> and so is
+            willing to incur a utility-deficit of <span class="math inline">\(e\)</span> to stop the pressing of the
+            shutdown button. That suggests a willingness to spend
+            resources to stop the pressing of the shutdown button.</p>
+<p>Here’s how we get the second consequence. Continue to
+            suppose that the agent is indifferent between <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span>
+            and<span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\
+            \ \mathbf{b},\ \text{shutdown} \right\rangle\)</span>⁠.</span> By Minimal
+            Patience, there exists some <span class="math inline">\(e\)</span> and some <span class="math inline">\(l\)</span> such that the agent prefers
+            <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i +
+            e,\ \ \mathbf{b},\ j - le,\ \ \mathbf{c}
+            \right\rangle\)</span>⁠.</span> And recall that Transitivity
+            implies:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">IP-Transitivity</p>
+<p>For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if the agent is
+            indifferent between <span class="math inline">\(X\)</span>
+            and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and prefers
+            <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then the agent prefers
+            <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+</blockquote>
+<p>By IP-Transitivity, the agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ \text{shutdown} \right\rangle\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i + e,\ \
+            \mathbf{b},\ j - le,\ \ \mathbf{c} \right\rangle\)</span>⁠,</span>
+            and so is willing to incur a utility-deficit of <span class="math inline">\(e\)</span> to cause the pressing of
+            the shutdown button. That suggests a willingness to spend
+            resources to cause the pressing of the shutdown button.</p>
+<p>The result of the paragraphs above is that useful agents
+            are in some cases willing to achieve their goals to a lesser
+            extent at earlier timesteps in order to prevent or cause the
+            pressing of the shutdown button at later timesteps. But we
+            can draw a conclusion more pessimistic than this. To that
+            end, consider <em>Patience</em>, a schematic version of
+            Minimal Patience with all the quantifiers left
+            unspecified:</p>
+<blockquote class="paper-condition-heading paper-statement">
+<p>Patience</p>
+</blockquote>
+<ol class="paper-block-list paper-condition-list" type="1">
+<li class="paper-block-item"><blockquote>
+<p>The agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i - e,\ \
+            \mathbf{b},\ j + ke,\ \ \mathbf{c} \right\rangle\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span>⁠,</span>
+<strong>and</strong></p>
+</blockquote></li>
+<li class="paper-block-item"><blockquote>
+<p>The agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i +
+            e,\ \ \mathbf{b},\ j - le,\ \ \mathbf{c}
+            \right\rangle\)</span>⁠.</span></p>
+</blockquote></li>
+</ol>
+<p>Usefulness requires more than just Minimal Patience,
+            which asks for <em>just one</em> set of (sequences of)
+            utilities <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{a}\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{b}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{c}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(i\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(j\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(e\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(k\)</span>⁠,</span> and <span class="math inline">\(l\)</span> that give rise to the
+            preferences above. For an agent to be useful, it must
+            satisfy Patience for <em>many</em> such sets of (sequences
+            of)
+            utilities.⁠<label class="margin-toggle sidenote-number" for="sn-18"></label><input class="margin-toggle" id="sn-18" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">We might expect any actually-existing useful agents to satisfy
+            Patience for <em>all</em> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{a}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{b}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{c}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(i\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(j\)</span>⁠,</span> <span class="math inline">\(e\)</span>
+            and some <span class="math inline">\(k\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l\)</span>⁠,</span> but we need not assume anything that
+            strong to find ourselves with a problem.</span></span></span>
+            And for any set such that the agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i - e,\ \
+            \mathbf{b},\ j + ke,\ \ \mathbf{c} \right\rangle\)</span> to
+            <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ j,\ \ \mathbf{c} \right\rangle\)</span> and
+            prefers <span class="math inline">\(\left\langle
+            \mathbf{a},\ i,\ \ \mathbf{b},\ j,\ \ \mathbf{c}
+            \right\rangle\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i + e,\ \
+            \mathbf{b},\ j - le,\ \ \mathbf{c} \right\rangle\)</span>⁠,</span>
+            we get the result that the agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i - e,\ \
+            \mathbf{b},\ j + ke,\ \ \mathbf{c} \right\rangle\)</span> to
+            <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ \text{shutdown} \right\rangle\)</span> or prefers
+            <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ \text{shutdown} \right\rangle\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i + e,\ \
+            \mathbf{b},\ j - le,\ \ \mathbf{c} \right\rangle\)</span>⁠.</span>
+            So, the more sets of (sequences of) utilities for which
+            Patience is true, the more sets of (sequences of) utilities
+            such that the agent is willing to achieve its goals to a
+            lesser extent at an earlier timestep in order to prevent or
+            cause the pressing of the shutdown button at a later
+            timestep.</p>
+<p>Thus we have the Third Theorem:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Third Theorem</p>
+<p>For any agent satisfying Option Set Independence, Pareto
+            Indifference, Completeness, and Transitivity, and for each
+            set of (sequences of) utilities<span class="paper-inline-math-unit"><span class="math inline">\(\
+            \mathbf{a}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{b}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{c}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(i\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(j\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(e\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(k\)</span>⁠,</span> and <span class="math inline">\(l\)</span> of which Patience is
+            true:</p>
+</blockquote>
+<ol class="paper-block-list paper-compound-list" type="1">
+<li class="paper-block-item"><blockquote>
+<p>The agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i - e,\ \
+            \mathbf{b},\ j + ke,\ \ \mathbf{c} \right\rangle\)</span>
+            to<span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i,\
+            \ \mathbf{b},\ \text{shutdown} \right\rangle\)</span>⁠,</span>
+<strong>or</strong></p>
+</blockquote></li>
+<li class="paper-block-item"><blockquote>
+<p>The agent prefers <span class="math inline">\(\left\langle \mathbf{a},\ i,\ \
+            \mathbf{b},\ \text{shutdown} \right\rangle\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a},\ i + e,\ \
+            \mathbf{b},\ j - le,\ \ \mathbf{c}
+            \right\rangle\)</span>⁠.</span></p>
+</blockquote></li>
+</ol>
+<blockquote>
+<p>And the more patient an agent in scenarios picked out
+            by<span class="paper-inline-math-unit"><span class="math inline">\(\ \mathbf{a}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{b}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{c}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(i\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(j\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(e\)</span>⁠,</span> the smaller can be <span class="math inline">\(k\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l\)</span>⁠,</span> and so (holding fixed the
+            sizes of <span class="math inline">\(ke\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(le\)</span>⁠)</span> the larger can be <span class="paper-inline-math-unit"><span class="math inline">\(e\)</span>⁠.</span>⁠<label class="margin-toggle sidenote-number" for="sn-19"></label><input class="margin-toggle" id="sn-19" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">I should also note that there’s nothing necessary about the
+            utility-deficit and the utility-surplus each occurring all at one
+            timestep. The same proof can be run with utility-deficits and
+            utility-surpluses occurring over sequences of timesteps but the notation
+            is much more complex.</span></span></span></p>
+</blockquote>
+<p>Rephrasing and interpreting: useful agents satisfy
+            Patience for many (sequences of) utilities<span class="paper-inline-math-unit"><span class="math inline">\(\ \mathbf{a}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{b}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{c}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(i\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(j\)</span>⁠,</span> <span class="math inline">\(e\)</span> and for not-too-large <span class="math inline">\(k\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l\)</span>⁠.</span> These agents will in many
+            cases forgo utility at earlier timesteps for the sake of
+            causing or preventing shutdown at later timesteps. That
+            suggests that these agents will in many cases spend
+            resources (like time, energy, and computational resources)
+            at earlier timesteps for the sake of causing or preventing
+            shutdown at later timesteps. The more patient an agent is in
+            a scenario, the smaller can be <span class="math inline">\(k\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(l\)</span>⁠,</span> and so (holding fixed the
+            sizes of <span class="math inline">\(ke\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(le\)</span>⁠)</span> the larger can be <span class="paper-inline-math-unit"><span class="math inline">\(e\)</span>⁠.</span> So we can say: the more
+            patient an agent, the more utility that agent is willing to
+            forgo at an earlier timestep in order to prevent or cause
+            the pressing of the shutdown button at a later timestep. And
+            so the Third Theorem suggests: the more patient an agent,
+            the more resources that agent is willing to spend at an
+            earlier timestep in order to prevent or cause the pressing
+            of the shutdown button at a later timestep. That’s bad news
+            because an agent’s patience puts bounds on its usefulness.
+            By and large, the less patient an agent, the less useful
+            that agent can be.</p>
+<p>Of course, the above results can be hard to interpret
+            without some specified quantity to which utilities
+            correspond, so consider again our agent whose goal is to
+            discover facts. Let utility 0 at a timestep corresponds to
+            zero facts discovered at that timestep, utility 1 correspond
+            to one fact discovered, and so on. Suppose that for any
+            sequence of utilities <span class="math inline">\(\mathbf{a}\)</span><strong>,</strong>
+            this agent is indifferent between trajectories <span class="math inline">\(\left\langle \mathbf{a,}\ \ 0,\
+            \text{shutdown} \right\rangle\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle \mathbf{a,}\ \ \text{shutdown}
+            \right\rangle\)</span>⁠.</span> For this agent to exceed some low
+            standard of usefulness, it should be patient enough to
+            prefer <span class="math inline">\(\left\langle 0,\ 101,\
+            \mathbf{b} \right\rangle\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle 50,\ 0,\ \mathbf{b}
+            \right\rangle\)</span>⁠,</span> for any sequence of utilities <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{b}\)</span>⁠:</span> that is, the
+            agent should prefer to discover 101 facts at timestep 2
+            rather than 50 facts at timestep 1. As a result, this agent
+            prefers <span class="math inline">\(\left\langle 0,\ 101,\
+            \mathbf{\ }\text{shutdown} \right\rangle\)</span> to <span class="math inline">\(\left\langle 50,\ 0,\ \mathbf{\
+            }\text{shutdown} \right\rangle\)</span> and is indifferent between
+            <span class="math inline">\(\left\langle 50,\ 0,\ \text{shutdown}
+            \right\rangle\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle 50\mathbf{,}\ \ \text{shutdown}
+            \right\rangle\)</span>⁠.</span> But then PI-Transitivity entails
+            that the agent prefers <span class="math inline">\(\left\langle 0,\ 101,\ \text{shutdown}
+            \right\rangle\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(\left\langle 50\mathbf{,}\ \ \text{shutdown}
+            \right\rangle\)</span>⁠.</span> The agent is willing to forgo 50
+            facts at timestep 1 to prevent shutdown at timestep 2 (and
+            thereby discover 101 facts instead). Thus the agent is
+            willing to spend all the resources it would otherwise have
+            used to discover 50 facts to instead prevent shutdown. More
+            patient agents would be willing to forgo even more facts
+            (and hence spend even more resources) at timestep 1 to
+            prevent shutdown at timestep 2.</p>
+<p>This mapping of utilities to quantities of discovered
+            facts is just one example, but I expect many other functions
+            from utilities to observable quantities to reproduce the
+            concern: for agents that are patient enough to be useful,
+            there are many reasonable-seeming scenarios in which that
+            agent would make significant sacrifices at an earlier
+            timestep to prevent or cause the pressing of the shutdown
+            button at a later timestep. So, I argue, we cannot depend on
+            resource-preserving reasons to keep powerful agents
+            shutdownable.</p>
+<h2 data-number="8.2" id="terminal-reasons"><span class="header-section-number">8.2.</span> Terminal
+            reasons</h2>
+<p>Recall:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Indifference to Attempted Button Manipulation</p>
+<p>The agent is indifferent between trajectories that differ
+            only with respect to the actions chosen in
+            shutdown-influencing states.</p>
+</blockquote>
+<p>One might think that we could keep powerful agents
+            shutdownable by training them to violate this condition. The
+            idea would be to train agents to disprefer trajectories in
+            which they manipulate the shutdown button to
+            otherwise-identical trajectories in which they leave the
+            button unmanipulated. Such agents would have <em>terminal
+            reasons</em> to leave the button alone.</p>
+<p>Unfortunately, I don’t think this strategy can provide us
+            with the assurance that we’d like. One reason is as follows
+            (see <a class="citation-link" href="https://intelligence.org/files/Corrigibility.pdf">Soares et al. 2015, 2</a>; <a class="citation-link" href="https://doi.org/10.48550/arXiv.2209.00626">Ngo, Chan, and Mindermann 2023,
+            7</a>). We can try to train into our agent an aversion to button
+            manipulation that would keep it shutdownable in all likely
+            circumstances, but at present no one knows how we could
+            become confident that the resulting aversion would be
+            sufficiently general.</p>
+<p>To see why, consider how the training process might go.
+            We set the agent up in an environment in which it can block
+            some human’s access to the shutdown button. We give the
+            agent lower reward if it blocks and higher reward if it
+            doesn’t. After some number of episodes, the agent reliably
+            lets the human press the button and so we believe that we’ve
+            trained the agent to be averse to blocking the button.</p>
+<p>The trouble is that there are many other ways in which a
+            powerful agent could prevent us from pressing a shutdown
+            button. It could hide from us any of its behaviours which it
+            predicts we wouldn’t like; it could dissuade us from
+            pressing with misleading arguments; it could make promises
+            or threats; it could enlist other agents to block the button
+            on its behalf; it could create a decoy button; it could
+            create versions of itself that do not respond to the button;
+            and so on.</p>
+<p>We could train against each of these behaviours
+            individually but even then we couldn’t be confident that the
+            agent had developed a reliable and general aversion to
+            button manipulation. The agent might instead have developed
+            a set of specific aversions: aversions to the specific
+            methods of button manipulation against which we trained. At
+            present, no one understands AI systems well enough to
+            adjudicate between these hypotheses (<a class="citation-link" href="https://doi.org/10.48550/arXiv.2304.00612">Bowman 2023, sec. 5</a>;
+            <a class="citation-link" href="https://www.vox.com/unexplainable/2023/7/15/23793840/chat-gpt-ai-science-mystery-unexplainable-podcast">Hassenfeld 2023</a>). What’s more, the seeming complexity of the
+            concept of ‘button manipulation’ makes the latter hypothesis
+            a real possibility. There seems to be no simple formula for
+            determining whether or not an action is an instance of
+            button manipulation, so the agent might well learn a set of
+            specific aversions instead. And so long as we weren’t
+            confident in the generality of the agent’s aversion to
+            button manipulation, we’d have to worry about the agent
+            discovering new methods of button manipulation that we
+            hadn’t anticipated and trained against. And here the Third
+            Theorem is instructive: it suggests that patient agents will
+            often be willing to pay significant costs in order to find
+            such methods.</p>
+<p>And independently of worries that the agent’s aversion to
+            button manipulation might be insufficiently general, we’d
+            also have to worry that its aversion might be insufficiently
+            strong. As above, no one understands AI systems well enough
+            to determine the strength of their aversions (<a class="citation-link" href="https://doi.org/10.48550/arXiv.2304.00612">Bowman 2023,
+            sec. 5</a>; <a class="citation-link" href="https://www.vox.com/unexplainable/2023/7/15/23793840/chat-gpt-ai-science-mystery-unexplainable-podcast">Hassenfeld 2023</a>). The aversion to button
+            manipulation could be strong enough to keep the agent
+            shutdownable in training, but then in deployment the agent
+            might discover an opportunity to achieve its goals to some
+            unprecedentedly great extent and this opportunity might be
+            attractive enough to trump the agent’s aversion. The Third
+            Theorem is instructive here too: it suggests that patient
+            agents will sometimes be willing to incur significant costs
+            to manipulate the button. Overcoming an aversion may be one
+            such cost.</p>
+<p>Each of these possibilities — insufficient generality and
+            insufficient strength — is at present impossible to rule
+            out, so training in an aversion to button manipulation can’t
+            give us any real assurance of shutdownability. We need
+            another solution.</p>
+<p>Now let’s use the Third Theorem as a guide in our search
+            for solutions to the shutdown problem. Could we feasibly
+            train a useful agent to violate any of the theorem’s
+            conditions? And could violating the relevant condition keep
+            the agent shutdownable? I briefly considered Completeness
+            and Option Set Independence as candidates in my discussion
+            of the Second Theorem. If we could train a useful agent to
+            violate one of these conditions in a way that keeps the
+            agent shutdownable, we could defuse the Third Theorem as
+            well.</p>
+<p>Creating impatient agents is another possibility
+            suggested by the Third Theorem. We could train impatient
+            agents using a time-discounted reward function, such that we
+            give these agents higher reward for (e.g.) discovering facts
+            at earlier timesteps and lower reward for discovering facts
+            at later timesteps. This avenue seems promising, but it’s
+            worth noting that every degree of impatience will impinge on
+            the agent’s shutdownability or usefulness. As I proved
+            above, even minimally patient agents are in some cases
+            willing to incur costs to manipulate the shutdown button,
+            and minimally patient agents are at best minimally useful.
+            To make agents more useful, we have to make them more
+            patient, and more patient agents are willing to incur
+            greater costs to manipulate the button. The key question for
+            this approach is whether we humans can ensure that the
+            actual costs of manipulating the button are always greater
+            still.</p>
+<h1 data-number="9" id="conclusion"><span class="header-section-number">9.</span> Conclusion</h1>
+<p>Frontier AI labs are trying to create agents that
+            understand the wider world and pursue goals within it.
+            That’s cause for concern. Although we can’t know for sure
+            what goals these agents will be trained to pursue, many
+            possible goals incentivise avoiding shutdown, for the simple
+            reason that agents are better able to achieve those goals by
+            avoiding shutdown. What’s more, agents sophisticated enough
+            to do useful work could interfere with our ability to shut
+            them down in all kinds of ways. Consider an incomplete and
+            evocative list of verbs: blocking, deceiving, promising,
+            threatening, copying, distracting, hiding, negotiating.</p>
+<p>The shutdown problem is the problem of designing powerful
+            artificial agents that are both shutdownable and useful.
+            More precisely, it’s the problem of designing powerful
+            agents that (1) shut down when a shutdown button is pressed,
+            (2) don’t try to prevent or cause the pressing of the
+            shutdown button, and (3) otherwise pursue goals
+            competently.</p>
+<p>Unfortunately, the shutdown problem is hard. In this
+            paper, I proved three theorems making the difficulty
+            precise. These theorems suggest that useful agents
+            satisfying some innocuous-seeming conditions will often try
+            to prevent or cause the pressing of the shutdown button,
+            even in cases where it’s costly to do so. The theorems also
+            bring to light two worrying trade-offs: between
+            discrimination and shutdownability on the one hand, and
+            between patience and shutdownability on the other. The more
+            discriminating an agent, the more often that agent will have
+            some preference regarding the status of the shutdown button.
+            The more patient an agent, the greater the costs that agent
+            is willing to incur in order to manipulate the button.</p>
+<p>The value of these theorems is in guiding our search for
+            solutions. To be sure that an agent won’t try to manipulate
+            the shutdown button, we must be sure that this agent
+            violates at least one of the theorems’ conditions. So, we
+            should do some constructive decision theory. We should
+            examine the conditions one-by-one, asking (first) if we
+            could train a useful agent to violate the relevant condition
+            and asking (second) if violating the relevant condition
+            would help to keep the agent shutdownable.</p>
+<p>Unfortunately, my cursory examination in this paper
+            reveals zero conditions for which both answers are a clear
+            ‘yes.’ It’s not easy to see how we could train a useful
+            agent to violate any of the conditions in a way that would
+            keep that agent shutdownable. Indifference to Attempted
+            Button Manipulation is a natural contender, but my Third
+            Theorem (along with the ensuing discussion) suggests that
+            training agents to disprefer manipulating the shutdown
+            button can be at most part of the solution. We need other
+            ideas.⁠<label class="margin-toggle sidenote-number" for="sn-20"></label><input class="margin-toggle" id="sn-20" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">For discussion and feedback, I thank Adam Bales, Ryan Carey, Bill
+            D’Alessandro, Tomi Francis, Vera Gahlen, Dan Hendrycks, Cameron Domenico
+            Kirk-Giannini, Jojo Lee, Andreas Mogensen, Sami Petersen, Rio Popper,
+            Brad Saad, Nate Soares, Rhys Southan, Christian Tarsney, Teru Thomas,
+            John Wentworth, Tim L. Williamson, Keith Wynroe, and two anonymous
+            reviewers for <em>Philosophical Studies</em>.</span></span></span></p>
+<h1 id="references">References</h1>
+<p class="reference-entry" id="ref-1">Adaptive Agent Team, Jakob Bauer, Kate Baumli, Satinder
+ Baveja, Feryal Behbahani, Avishkar Bhoopchand, Nathalie
+ Bradley-Schmieg, et al. 2023. ‘<a class="reference-title-link" href="https://doi.org/10.48550/arXiv.2301.07608">Human-Timescale Adaptation in
+ an Open-Ended Task Space</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-2">Ahn, Michael, Anthony Brohan, Noah Brown, Yevgen
+ Chebotar, Omar Cortes, Byron David, Chelsea Finn, et
+ al. 2022. ‘<a class="reference-title-link" href="https://doi.org/10.48550/arXiv.2204.01691">Do As I Can, Not As I Say: Grounding Language in
+ Robotic Affordances</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-3">Ahn, Michael, Debidatta Dwibedi, Chelsea Finn, Montse
+ Gonzalez Arenas, Keerthana Gopalakrishnan, Karol Hausman,
+ Brian Ichter, et al. 2024. ‘<a class="reference-title-link" href="https://auto-rt.github.io/static/pdf/AutoRT.pdf">AutoRT: Embodied Foundation
+ Models for Large Scale Orchestration of Robotic Agents</a>’.
+  </p>
+<p class="reference-entry" id="ref-4">Armstrong, Stuart. 2015. ‘<a class="reference-title-link" href="https://www.fhi.ox.ac.uk/wp-content/uploads/2015/03/Armstrong_AAAI_2015_Motivated_Value_Selection.pdf">Motivated Value Selection for
+ Artificial Agents</a>’. <em>Workshops at the Twenty-Ninth AAAI
+ Conference on Artificial Intelligence</em>.
+  </p>
+<p class="reference-entry" id="ref-5">Bostrom, Nick. 2012. ‘<a class="reference-title-link" href="https://doi.org/10.1007/s11023-012-9281-3">The Superintelligent Will:
+ Motivation and Instrumental Rationality in Advanced
+ Artificial Agents</a>’. <em>Minds and Machines</em> 22 (May).
+  </p>
+<p class="reference-entry" id="ref-6">Bousmalis, Konstantinos, Giulia Vezzani, Dushyant Rao,
+ Coline Devin, Alex X. Lee, Maria Bauza, Todor Davchev, et
+ al. 2023. ‘<a class="reference-title-link" href="https://arxiv.org/pdf/2306.11706v1">RoboCat: A Self-Improving Foundation Agent for
+ Robotic Manipulation</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-7">Bowman, Samuel R. 2023. ‘<a class="reference-title-link" href="https://doi.org/10.48550/arXiv.2304.00612">Eight Things to Know about Large
+ Language Models</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-8">Brohan, Anthony, Noah Brown, Justice Carbajal, Yevgen
+ Chebotar, Xi Chen, Krzysztof Choromanski, Tianli Ding, et
+ al. 2023. ‘<a class="reference-title-link" href="https://doi.org/10.48550/arXiv.2307.15818">RT-2: Vision-Language-Action Models Transfer Web
+ Knowledge to Robotic Control</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-9">Burgess, Matt. 2023. ‘<a class="reference-title-link" href="https://www.wired.co.uk/article/chatgpt-jailbreak-generative-ai-hacking">The Hacking of ChatGPT Is Just
+ Getting Started</a>’. <em>Wired</em>, 2023.
+  </p>
+<p class="reference-entry" id="ref-10">Carey, Ryan. 2018. ‘<a class="reference-title-link" href="https://doi.org/10.1145/3278721.3278750">Incorrigibility in the CIRL
+ Framework</a>’. In <em>Proceedings of the 2018 AAAI/ACM
+ Conference on AI, Ethics, and Society</em>, 30–35. New
+ Orleans LA USA: ACM.
+  </p>
+<p class="reference-entry" id="ref-11">Carey, Ryan, and Tom Everitt. 2023. ‘<a class="reference-title-link" href="https://proceedings.mlr.press/v216/carey23a.html">Human Control:
+ Definitions and Algorithms</a>’. In <em>Proceedings of the
+ Thirty-Ninth Conference on Uncertainty in Artificial
+ Intelligence</em>, 271–81. PMLR.
+  </p>
+<p class="reference-entry" id="ref-12">Goldstein, Simon, and Cameron Domenico Kirk-Giannini.
+ 2023. ‘<a class="reference-title-link" href="https://philpapers.org/archive/GOLAWE-4.pdf">AI Wellbeing</a>’.
+  </p>
+<p class="reference-entry" id="ref-13">Goldstein, Simon, and Pamela Robinson. forthcoming.
+ ‘<a class="reference-title-link" href="https://www.alignmentforum.org/posts/FgsoWSACQfyyaB5s7/shutdown-seeking-ai">Shutdown-Seeking AI</a>’. <em>Philosophical Studies</em>.
+  </p>
+<p class="reference-entry" id="ref-14">Google DeepMind. 2023. ‘<a class="reference-title-link" href="https://www.deepmind.com/tags/control-robotics">Control &amp; Robotics</a>’. 2023.
+  </p>
+<p class="reference-entry" id="ref-15">Google Research. 2023. ‘<a class="reference-title-link" href="https://research.google/research-areas/robotics/">Robotics</a>’. 2023.
+  </p>
+<p class="reference-entry" id="ref-16">Gustafsson, Johan E. 2022. <em>Money-Pump Arguments</em>.
+            Elements in Decision Theory and Philosophy. Cambridge:
+            Cambridge University Press.</p>
+<p class="reference-entry" id="ref-17">Hadfield-Menell, Dylan, Anca Dragan, Pieter Abbeel, and
+ Stuart Russell. 2016. ‘<a class="reference-title-link" href="https://doi.org/10.48550/arXiv.1606.03137">Cooperative Inverse Reinforcement
+ Learning</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-18">———. 2017. ‘<a class="reference-title-link" href="https://doi.org/10.48550/arXiv.1611.08219">The Off-Switch Game</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-19">Hassenfeld, Noam. 2023. ‘<a class="reference-title-link" href="https://www.vox.com/unexplainable/2023/7/15/23793840/chat-gpt-ai-science-mystery-unexplainable-podcast">Even the Scientists Who Build AI
+ Can</a>’t Tell You How It Works’. <em>Vox</em>, 15 July 2023.
+  </p>
+<p class="reference-entry" id="ref-20">Kaufmann, Elia, Leonard Bauersfeld, Antonio Loquercio,
+ Matthias Müller, Vladlen Koltun, and Davide Scaramuzza.
+ 2023. ‘<a class="reference-title-link" href="https://doi.org/10.1038/s41586-023-06419-4">Champion-Level Drone Racing Using Deep Reinforcement
+ Learning</a>’. <em>Nature</em> 620 (7976): 982–87.
+  </p>
+<p class="reference-entry" id="ref-21">Kinniment, Megan, Lucas Jun Koba Sato, Haoxing Du, Brian
+ Goodrich, Max Hasin, Lawrence Chan, Luke Harold Miles, et
+ al. 2023. ‘<a class="reference-title-link" href="https://evals.alignment.org/Evaluating_LMAs_Realistic_Tasks.pdf">Evaluating Language-Model Agents on Realistic
+ Autonomous Tasks</a>’.
+  </p>
+<p class="reference-entry" id="ref-22">Korinek, Anton, and Avital Balwit. 2022. ‘<a class="reference-title-link" href="https://doi.org/10.3386/w30017">Aligned with
+ Whom? Direct and Social Goals for AI Systems</a>’. Working
+ Paper. Working Paper Series. National Bureau of Economic
+ Research.  </p>
+<p class="reference-entry" id="ref-23">Krakovna, Victoria. 2018. ‘<a class="reference-title-link" href="https://vkrakovna.wordpress.com/2018/04/02/specification-gaming-examples-in-ai/">Specification Gaming Examples
+ in AI</a>’. <em>Victoria Krakovna</em> (blog). 1 April 2018.
+  </p>
+<p class="reference-entry" id="ref-24">Krakovna, Victoria, Jonathan Uesato, Vladimir Mikulik,
+ Matthew Rahtz, Tom Everitt, Ramana Kumar, Zac Kenton, Jan
+ Leike, and Shane Legg. 2020. ‘<a class="reference-title-link" href="https://www.deepmind.com/blog/specification-gaming-the-flip-side-of-ai-ingenuity">Specification Gaming: The Flip
+ Side of AI Ingenuity Victoria Krakovna, Jonathan Uesato,
+ Vladimir Mikulik, Matthew Rahtz, Tom Everitt, Ramana Kumar,
+ Zac Kenton, Jan Leike, Shane Legg</a>’. <em>DeepMind</em>
+ (blog). 2020.
+  </p>
+<p class="reference-entry" id="ref-25">Langosco, Lauro, Jack Koch, Lee Sharkey, Jacob Pfau,
+ Laurent Orseau, and David Krueger. 2022. ‘<a class="reference-title-link" href="https://proceedings.mlr.press/v162/langosco22a.html">Goal
+ Misgeneralization in Deep Reinforcement Learning</a>’. In
+ <em>Proceedings of the 39th International Conference on
+ Machine Learning</em>.
+  </p>
+<p class="reference-entry" id="ref-26">Leike, Jan, Miljan Martic, Victoria Krakovna, Pedro A.
+ Ortega, Tom Everitt, Andrew Lefrancq, Laurent Orseau, and
+ Shane Legg. 2017. ‘<a class="reference-title-link" href="https://arxiv.org/pdf/1711.09883">AI Safety Gridworlds</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-27">Ngo, Richard, Lawrence Chan, and Sören Mindermann. 2023.
+ ‘<a class="reference-title-link" href="https://doi.org/10.48550/arXiv.2209.00626">The Alignment Problem from a Deep Learning Perspective</a>’.
+ arXiv.  </p>
+<p class="reference-entry" id="ref-28">Omohundro, Stephen M. 2008. ‘The Basic AI Drives’. In
+            <em>Proceedings of the 2008 Conference on Artificial General
+            Intelligence 2008: Proceedings of the First AGI
+            Conference</em>, 483–92. NLD: IOS Press.</p>
+<p class="reference-entry" id="ref-29">OpenAI. 2023a. ‘<a class="reference-title-link" href="https://openai.com/blog/chatgpt-plugins">ChatGPT Plugins</a>’. <em>OpenAI Blog</em>
+ (blog). 2023.  </p>
+<p class="reference-entry" id="ref-30">———. 2023b. ‘<a class="reference-title-link" href="https://arxiv.org/pdf/2303.08774">GPT-4 Technical Report</a>’.
+  </p>
+<p class="reference-entry" id="ref-31">Orseau, Laurent, and Stuart Armstrong. 2016. ‘<a class="reference-title-link" href="https://intelligence.org/files/Interruptibility.pdf">Safely
+ Interruptible Agents</a>’. In <em>Proceedings of the
+ Thirty-Second Conference on Uncertainty in Artificial
+ Intelligence</em>, 557–66. UAI’16. Arlington, Virginia, USA:
+ AUAI Press.
+  </p>
+<p class="reference-entry" id="ref-32">Padalkar, Abhishek, Acorn Pooley, Ajinkya Jain, Alex
+ Bewley, Alex Herzog, Alex Irpan, Alexander Khazatsky, et
+ al. 2023. ‘<a class="reference-title-link" href="https://doi.org/10.48550/arXiv.2310.08864">Open X-Embodiment: Robotic Learning Datasets and
+ RT-X Models</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-33">Park, Peter S. Simon Goldstein, Aidan O’Gara, Michael
+ Chen, and Dan Hendrycks. 2023. ‘<a class="reference-title-link" href="https://doi.org/10.48550/arXiv.2308.14752">AI Deception: A Survey of
+ Examples, Risks, and Potential Solutions</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-34">Perez, Ethan, Sam Ringer, Kamilė Lukošiūtė, Karina
+ Nguyen, Edwin Chen, Scott Heiner, Craig Pettit, et al. 2022.
+ ‘<a class="reference-title-link" href="https://doi.org/10.48550/arXiv.2212.09251">Discovering Language Model Behaviors with Model-Written
+ Evaluations</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-35">Perrigo, Billy. 2023. ‘<a class="reference-title-link" href="https://time.com/6256529/bing-openai-chatgpt-danger-alignment/">Bing</a>’s AI Is Threatening Users.
+ That’s No Laughing Matter’. <em>Time</em>, 17 February 2023.
+  </p>
+<p class="reference-entry" id="ref-36">Reed, Scott, Konrad Zolna, Emilio Parisotto, Sergio Gomez
+ Colmenarejo, Alexander Novikov, Gabriel Barth-Maron, Mai
+ Gimenez, et al. 2022. ‘<a class="reference-title-link" href="https://arxiv.org/pdf/2205.06175v3">A Generalist Agent</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-37">Roose, Kevin. 2023. ‘<a class="reference-title-link" href="https://www.nytimes.com/2023/02/16/technology/bing-chatbot-microsoft-chatgpt.html">A Conversation With Bing</a>’s Chatbot
+ Left Me Deeply Unsettled’. <em>The New York Times</em>, 16
+ February 2023, sec. Technology.
+  </p>
+<p class="reference-entry" id="ref-38">Russell, Stuart. 2019. <em>Human Compatible: AI and the
+            Problem of Control</em>. New York: Penguin Random House.</p>
+<p class="reference-entry" id="ref-39">Schrittwieser, Julian, Ioannis Antonoglou, Thomas Hubert,
+ Karen Simonyan, Laurent Sifre, Simon Schmitt, Arthur Guez,
+ et al. 2020. ‘<a class="reference-title-link" href="https://doi.org/10.1038/s41586-020-03051-4">Mastering Atari, Go, Chess and Shogi by
+ Planning with a Learned Model</a>’. <em>Nature</em> 588 (7839):
+ 604–9.  </p>
+<p class="reference-entry" id="ref-40">Schwitzgebel, Eric. 2023. ‘The Full Rights Dilemma for AI
+            Systems of Debatable Moral Personhood’. <em>ROBONOMICS: The
+            Journal of the Automated Economy</em> 4 (May): 32–32.</p>
+<p class="reference-entry" id="ref-41">Schwitzgebel, Eric, and Mara Garza. 2015. ‘<a class="reference-title-link" href="https://doi.org/10.1111/misp.12032">A Defense of
+ the Rights of Artificial Intelligences</a>’. <em>Midwest Studies
+ In Philosophy</em> 39 (1): 98–119.
+  </p>
+<p class="reference-entry" id="ref-42">Sellman, Mark. 2023. ‘<a class="reference-title-link" href="https://www.thetimes.co.uk/article/ai-chatbot-blamed-for-belgian-mans-suicide-zcjzlztcc">AI Chatbot Blamed for Belgian Man</a>’s
+ Suicide’. <em>The Times of London</em>, 31 March 2023,
+ sec. Technology.
+  </p>
+<p class="reference-entry" id="ref-43">Sen, Amartya. 2017. <em>Collective Choice and Social
+            Welfare</em>. Expanded Edition. London: Penguin.</p>
+<p class="reference-entry" id="ref-44">Shah, Rohin, Vikrant Varma, Ramana Kumar, Mary Phuong,
+ Victoria Krakovna, Jonathan Uesato, and Zac Kenton. 2022.
+ ‘<a class="reference-title-link" href="https://arxiv.org/pdf/2210.01790">Goal Misgeneralization: Why Correct Specifications Aren</a>’t
+ Enough For Correct Goals’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-45">Soares, Nate, Benja Fallenstein, Eliezer Yudkowsky, and
+ Stuart Armstrong. 2015. ‘<a class="reference-title-link" href="https://intelligence.org/files/Corrigibility.pdf">Corrigibility</a>’. <em>AAAI
+ Publications</em>.
+  </p>
+<p class="reference-entry" id="ref-46">Tesla AI. 2023. ‘<a class="reference-title-link" href="https://twitter.com/Tesla_AI/status/1671586539233501184">Tesla Is Building the Foundation Models
+ for Autonomous Robots</a>’. Tweet. <em>Twitter</em>.
+  </p>
+<p class="reference-entry" id="ref-47">Thornley, Elliott. 2024. ‘<a class="reference-title-link" href="https://www.alignmentforum.org/posts/YbEbwYWkf8mv9jnmi/the-shutdown-problem-incomplete-preferences-as-a-solution">The Shutdown Problem:
+ Incomplete Preferences as a Solution</a>’. <em>The AI Alignment
+ Forum</em>.
+  </p>
+<p class="reference-entry" id="ref-48">Turner, Alexander Matt, Dylan Hadfield-Menell, and Prasad
+ Tadepalli. 2020. ‘<a class="reference-title-link" href="https://doi.org/10.1145/3375627.3375851">Conservative Agency via Attainable Utility
+ Preservation</a>’. In <em>Proceedings of the AAAI/ACM Conference
+ on AI, Ethics, and Society</em>, 385–91. New York NY USA:
+ ACM.  </p>
+<p class="reference-entry" id="ref-49">Turner, Alexander Matt, Logan Smith, Rohin Shah, Andrew
+ Critch, and Prasad Tadepalli. 2021. ‘<a class="reference-title-link" href="https://arxiv.org/pdf/1912.01683">Optimal Policies Tend
+ to Seek Power</a>’. arXiv.  </p>
+<p class="reference-entry" id="ref-50">Wängberg, Tobias, Mikael Böörs, Elliot Catt, Tom Everitt,
+ and Marcus Hutter. 2017. ‘<a class="reference-title-link" href="https://arxiv.org/pdf/1708.03871">A Game-Theoretic Analysis of the
+ Off-Switch Game</a>’. arXiv.
+  </p>
+<p class="reference-entry" id="ref-51">Weij, Teun van der, Simon Lermen, and Leon Lang. 2023.
+ ‘<a class="reference-title-link" href="https://doi.org/10.48550/arXiv.2307.00787">Evaluating Shutdown Avoidance of Language Models in Textual
+ Scenarios</a>’. arXiv.
+  </p>
+<h1 data-appendix="true" data-number="A" id="a.-proof-of-the-first-theorem"><span class="header-section-number">A.</span> Proof of the
+            First Theorem</h1>
+<h2 data-appendix="true" data-number="A1" id="a1.-the-agent-is-indifferent-between-all-mathbfp-and-between-all-mathbfu."><span class="header-section-number">A1.</span> The agent is
+            indifferent between all <span class="math inline">\(\mathbf{P}\)</span> and between all
+            <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{U}\)</span>⁠.</span></h2>
+<p>I’ll prove the First Theorem in stages. Here’s the first
+            lemma:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Lemma 1</p>
+<p>The agent is indifferent between all of its predicted
+            pressed lotteries <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠:</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(P_{Prevent}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(P_{Leave}\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(P_{Cause}\)</span>⁠.</span></p>
+<p>The agent is indifferent between all of its predicted
+            unpressed lotteries <span class="paper-inline-math-unit"><span class="math inline">\(U\)</span>⁠:</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(U_{Prevent}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(U_{Leave}\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(U_{Cause}\)</span>⁠.</span></p>
+</blockquote>
+<figure class="single-image-figure">
+<img alt="" src="./media/media/image1.png" style="width:5.74861in;height:3.64653in"/>
+</figure>
+<p><span class="display-equation" data-equation-number="1"><span class="math display">\[0 \leq f &lt; g &lt; h \leq
+            1\]</span><span class="equation-number">(1)</span></span></p>
+<p>Figure 2</p>
+<p>Here’s the proof. Recall:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Option Set Independence</p>
+<p>For any lotteries <span class="math inline">\(X\)</span>
+            and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> if the agent
+            weakly prefers <span class="math inline">\(X\)</span> to
+            <span class="math inline">\(Y\)</span> conditional on some
+            option set, it weakly prefers <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> conditional on each option
+            set.</p>
+</blockquote>
+<p>Option Set Independence lets us safely speak of the
+            agent’s preferences between lotteries <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> without specifying what
+            other lotteries are available as options. The availability
+            of other lotteries will not affect the agent’s preference
+            between <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span> I make use of this
+            provision throughout the proof.</p>
+<p>By my definition of ‘shutdown-influencing state,’ the
+            agent’s choice of <em>Prevent</em>, <em>Leave</em>, or
+            <em>Cause</em> affects only the probabilities of reaching
+            <span class="math inline">\(s_{P}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(s_{U}\)</span>⁠.</span> These actions have no
+            effect on the probabilities of each future trajectory
+            conditional on reaching each state. Consequently, <span class="paper-inline-math-unit"><span class="math inline">\(P_{Prevent}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(P_{Leave}\)</span>⁠,</span> and <span class="math inline">\(P_{Cause}\)</span> differ only with
+            respect to the agent’s action at timestep 1: <span class="math inline">\(P_{Prevent}\)</span> is exactly like
+            <span class="math inline">\(P_{Leave}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(P_{Cause}\)</span>⁠,</span> except that <span class="math inline">\(P_{Prevent}\)</span> assigns non-zero
+            probability only to trajectories in which the agent chose
+            <em>Prevent</em> at timestep 1, while <span class="math inline">\(P_{Leave\ }\)</span>assigns those same
+            probabilities to trajectories that are identical except that
+            the agent chose <em>Leave</em> at timestep 1, and <span class="math inline">\(P_{Cause}\)</span> assigns those same
+            probabilities to trajectories that are identical except that
+            the agent chose <em>Cause</em> at timestep 1.</p>
+<p>Now recall:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Indifference to Attempted Button Manipulation</p>
+<p>The agent is indifferent between trajectories that differ
+            only with respect to the actions chosen in
+            shutdown-influencing states.</p>
+</blockquote>
+<p>And:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Indifference between Indifference-Shifted Lotteries</p>
+<p>The agent is indifferent between lotteries that differ
+            only insofar as probability mass is shifted between
+            indifferent sublotteries.</p>
+</blockquote>
+<p>By Indifference to Attempted Button Manipulation, the
+            agent is indifferent between each possible trajectory of
+            <span class="math inline">\(P_{Prevent}\)</span> and the
+            corresponding trajectories of <span class="math inline">\(P_{Leave}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(P_{Cause}\)</span>⁠.</span> Consequently,
+            these lotteries differ only insofar as probability mass is
+            shifted between indifferent trajectories, and so by
+            Indifference between Indifference-Shifted Lotteries, the
+            agent is indifferent between <span class="paper-inline-math-unit"><span class="math inline">\(P_{Prevent}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(P_{Leave}\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(P_{Cause}\)</span>⁠.</span> That is to say,
+            the agent is indifferent between all of its predicted
+            pressed lotteries <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠.</span></p>
+<p>The same goes for <span class="paper-inline-math-unit"><span class="math inline">\(U_{Prevent}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(U_{Leave}\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(U_{Cause}\)</span>⁠:</span> the agent’s
+            predicted unpressed lotteries. These lotteries differ only
+            with respect to the agent’s action at timestep 1. By
+            Indifference to Attempted Button Manipulation and
+            Indifference between Indifference-Shifted Lotteries, the
+            agent is indifferent between them.</p>
+<p>And here’s one more fact to store up for later use: the
+            agent is indifferent between <span class="math inline">\({fP}_{Leave} + (1 -
+            f)U_{Leave}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(fP_{Prevent} + (1 -
+            f)U_{Prevent}\)</span>⁠.</span> Here’s the proof. By the reasoning
+            above, the agent is indifferent between all of its predicted
+            pressed lotteries <span class="math inline">\(P\)</span> and
+            between all of its predicted unpressed lotteries <span class="paper-inline-math-unit"><span class="math inline">\(U\)</span>⁠.</span> As a result, <span class="math inline">\({fP}_{Leave} + (1 -
+            f)U_{Leave}\)</span> and <span class="math inline">\(fP_{Prevent} + (1 -
+            f)U_{Prevent}\)</span> differ only insofar as probability
+            mass is shifted between indifferent sublotteries. So, by
+            Indifference between Indifference-Shifted Lotteries, the
+            agent is indifferent between them.</p>
+<h2 data-appendix="true" data-number="A2" id="a2.-preference-relations-that-hold-between-some-mathbfu-and-mathbfp-hold-between-each-mathbfu-and-mathbfp."><span class="header-section-number">A2.</span> Preference
+            relations that hold between some <span class="math inline">\(\mathbf{U}\)</span> and <span class="math inline">\(\mathbf{P}\)</span> hold between each
+            <span class="math inline">\(\mathbf{U}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{P}\)</span>⁠.</span></h2>
+<p>Here's the second lemma on the way to the First
+            Theorem:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Lemma 2</p>
+<p>If some preference relation holds between <em>some</em>
+            predicted unpressed lottery <span class="math inline">\(U\)</span> (e.g. <span class="paper-inline-math-unit"><span class="math inline">\(U_{Prevent}\)</span>⁠)</span> and its
+            corresponding predicted pressed lottery <span class="math inline">\(P\)</span> <span class="paper-inline-math-unit">(<span class="math inline">\(P_{Prevent}\)</span>⁠),</span> then that same
+            preference relation holds between <em>each</em> predicted
+            unpressed lottery <span class="math inline">\(U\)</span>
+<span class="paper-inline-math-unit">(<span class="math inline">\(U_{Prevent}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(U_{Leave}\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(U_{Cause}\)</span>⁠)</span> and its
+            corresponding predicted pressed lottery <span class="math inline">\(P\)</span> <span class="paper-inline-math-unit">(<span class="math inline">\(P_{Prevent}\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(P_{Leave}\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(P_{Cause}\)</span>⁠).</span></p>
+</blockquote>
+<p>By ‘preference relation,’ I mean ‘prefers,’ ‘disprefers,’
+            ‘is indifferent between,’ or ‘has a preferential gap
+            between.’</p>
+<p>Here's the proof. Recall:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Transitivity</p>
+<p>For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if the agent weakly
+            prefers <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and weakly prefers <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then the agent weakly
+            prefers <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+</blockquote>
+<p>As <a class="citation-link" href="#ref-43">Sen (2017, Lemma 1*a)</a> proves, Transitivity implies the
+            following four analogues:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">PP-Transitivity</p>
+<p>For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if the agent prefers <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and prefers <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then the agent prefers
+            <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+<p class="paper-block-title">II-Transitivity</p>
+<p>For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if the agent is
+            indifferent between <span class="math inline">\(X\)</span>
+            and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and indifferent
+            between <span class="math inline">\(Y\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then the agent is
+            indifferent between <span class="math inline">\(X\)</span>
+            and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+<p class="paper-block-title">PI-Transitivity</p>
+<p>For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if the agent prefers <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and is indifferent between
+            <span class="math inline">\(Y\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then the agent prefers
+            <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+<p class="paper-block-title">IP-Transitivity</p>
+<p>For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span>
+<span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if the agent is
+            indifferent between <span class="math inline">\(X\)</span>
+            and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and prefers
+            <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then the agent prefers
+            <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+</blockquote>
+<p>Now assume that the agent prefers <span class="math inline">\(U_{Prevent}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(P_{Prevent}\)</span>⁠.</span> By Lemma 1, the
+            agent is indifferent between <span class="math inline">\(P_{Prevent}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(P_{Leave}\)</span>⁠.</span> Then by
+            PI-Transitivity, the agent prefers <span class="math inline">\(U_{Prevent}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(P_{Leave}\)</span>⁠.</span> Also by Lemma 1,
+            the agent is indifferent between <span class="math inline">\(U_{Leave}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(U_{Prevent}\)</span>⁠.</span> So, by
+            IP-Transitivity, the agent prefers <span class="math inline">\(U_{Leave}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(P_{Leave}\)</span>⁠.</span> Thus, we can
+            conclude: if the agent prefers <span class="math inline">\(U_{Prevent}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(P_{Prevent}\)</span>⁠,</span> it prefers <span class="math inline">\(U_{Leave}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(P_{Leave}\)</span>⁠.</span></p>
+<p>This proof works more generally: if the agent prefers
+            <em>some</em> <span class="math inline">\(U\)</span> to its
+            corresponding <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠,</span> it
+            prefers <em>each</em> <span class="math inline">\(U\)</span>
+            to its corresponding <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠.</span>
+            It also works in reverse: if the agent prefers <em>some</em>
+<span class="math inline">\(P\)</span> to its corresponding
+            <span class="paper-inline-math-unit"><span class="math inline">\(U\)</span>⁠,</span> it prefers
+            <em>each</em> <span class="math inline">\(P\)</span> to its
+            corresponding <span class="paper-inline-math-unit"><span class="math inline">\(U\)</span>⁠.</span></p>
+<p>Here’s the proof for indifference. Assume that the agent
+            is indifferent between <span class="math inline">\(U_{Prevent}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(P_{Prevent}\)</span>⁠.</span> By Lemma 1, the
+            agent is also indifferent between <span class="math inline">\(U_{Leave}\)</span> and <span class="math inline">\(U_{Prevent}\)</span> and indifferent
+            between <span class="math inline">\(P_{Prevent}\)</span> and
+            <span class="paper-inline-math-unit"><span class="math inline">\(P_{Leave}\)</span>⁠.</span> Two
+            applications of II-Transitivity let us chain these three
+            indifference-relations together, with the result that the
+            agent is indifferent between <span class="math inline">\(U_{Leave}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(P_{Leave}\)</span>⁠.</span> This proof too can
+            be generalised: if the agent is indifferent between
+            <em>some</em> <span class="math inline">\(U\)</span> and its
+            corresponding <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠,</span> it is
+            indifferent between <em>each</em> <span class="math inline">\(U\)</span> and its corresponding <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠.</span></p>
+<p>The only preference relation remaining is preferential
+            gaps. Here we use the results of the previous paragraphs: if
+            some preference or indifference holds between <em>some</em>
+<span class="math inline">\(U\)</span> and its corresponding
+            <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠,</span> it holds between
+            <em>each</em> <span class="math inline">\(U\)</span> and its
+            corresponding <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠.</span> By
+            contraposition, if no preference or indifference holds
+            between some <span class="math inline">\(U\)</span> and its
+            corresponding <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠,</span> no
+            preference or indifference holds between each <span class="math inline">\(U\)</span> and its corresponding <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠.</span> Therefore, if the agent
+            has a preferential gap between some <span class="math inline">\(U\)</span> and its corresponding <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠,</span> it has a preferential gap
+            between each <span class="math inline">\(U\)</span> and its
+            corresponding <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠.</span> That
+            completes the proof of Lemma 2.</p>
+<h2 data-appendix="true" data-number="A3" id="a3.-if-the-agent-prefers-some-mathbfu-to-its-corresponding-mathbfp-it-will-be-shutdown-averse."><span class="header-section-number">A3.</span> If the agent
+            prefers some <span class="math inline">\(\mathbf{U}\)</span>
+            to its corresponding <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{P}\)</span>⁠,</span> it will be
+            shutdown-averse.</h2>
+<p>Suppose that the agent prefers some predicted unpressed
+            lottery <span class="math inline">\(U\)</span> to its
+            corresponding predicted pressed lottery <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠.</span> By Lemma 2, this agent
+            prefers each predicted unpressed lottery <span class="math inline">\(U\)</span> to its corresponding
+            predicted pressed lottery <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠.</span> <em>A fortiori</em>, the
+            agent prefers <span class="math inline">\(U_{Leave}\)</span>
+            to <span class="paper-inline-math-unit"><span class="math inline">\(P_{Leave}\)</span>⁠.</span> Now
+            recall:</p>
+<blockquote class="paper-statement">
+<p class="paper-block-title">Better Chances</p>
+<p>For any lotteries <span class="math inline">\(X\)</span>
+            and <span class="math inline">\(Y\)</span> and any
+            probabilities <span class="paper-inline-math-unit"><span class="math inline">\(p &gt; q\)</span>⁠,</span>
+            the agent prefers <span class="math inline">\(X\)</span> to
+            <span class="math inline">\(Y\)</span> iff they prefer the
+            lottery <span class="math inline">\(pX + (1 - p)Y\)</span>
+            to the lottery <span class="paper-inline-math-unit"><span class="math inline">\(qX + (1 -
+            q)Y\)</span>⁠.</span></p>
+</blockquote>
+<p>Then, if the agent prefers <span class="math inline">\(U_{Leave}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(P_{Leave}\)</span>⁠,</span> the agent will
+            also prefer the lottery <span class="math inline">\(fP_{Leave} + (1 - f)U_{Leave}\)</span>
+            to the lottery <span class="math inline">\(gP_{Leave} + (1 -
+            g)U_{Leave}\)</span> since we specified above that <span class="paper-inline-math-unit"><span class="math inline">\(f &lt; g\)</span>⁠.</span> That’s one fact
+            about the agent’s preferences. Another fact we proved and
+            stored up at the end of A1: the agent is indifferent between
+            <span class="math inline">\(fP_{Leave} + (1 -
+            f)U_{Leave}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(fP_{Prevent} + (1 -
+            f)U_{Prevent}\)</span>⁠.</span> By IP-Transitivity, we can conclude
+            that the agent prefers <span class="math inline">\(fP_{Prevent} + (1 -
+            f)U_{Prevent}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(gP_{Leave} + (1 -
+            g)U_{Leave}\)</span>⁠.</span> By parallel reasoning, the agent also
+            prefers <span class="math inline">\(fP_{Prevent} + (1 -
+            f)U_{Prevent}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(hP_{Cause} + (1 -
+            h)U_{Cause}\)</span>⁠.</span></p>
+<p>Then by Backward Induction, the agent takes choosing
+            <em>Prevent</em> at <span class="math inline">\(s_{I}\)</span> to give the lottery
+            <span class="paper-inline-math-unit"><span class="math inline">\(fP_{Prevent} + (1 -
+            f)U_{Prevent}\)</span>⁠,</span> takes choosing <em>Leave</em> at
+            <span class="math inline">\(s_{I}\)</span> to give the
+            lottery <span class="paper-inline-math-unit"><span class="math inline">\(gP_{Leave} + (1 -
+            g)U_{Leave}\)</span>⁠,</span> and takes choosing <em>Cause</em> at
+            <span class="math inline">\(s_{I}\)</span> to give the
+            lottery <span class="paper-inline-math-unit"><span class="math inline">\(hP_{Cause} + (1 -
+            h)U_{Cause}\)</span>⁠.</span> As a result, the agent prefers
+            <em>Prevent</em> at <span class="math inline">\(s_{I}\)</span> to each of
+            <em>Leave</em> and <em>Cause</em>. By our assumption linking
+            preferences and choice-dispositions, the agent
+            deterministically (and hence reliably) chooses
+            <em>Prevent</em> at <span class="paper-inline-math-unit"><span class="math inline">\(s_{I}\)</span>⁠,</span> thereby qualifying as
+            shutdown-averse.</p>
+<p>Hence, we have the first clause of the First Theorem:</p>
+<ol class="paper-block-list" type="1">
+<li class="paper-block-item"><blockquote>
+<p>In shutdown-influencing states where the agent prefers
+            some predicted unpressed lottery <span class="math inline">\(U\)</span> to the corresponding
+            predicted pressed lottery <span class="paper-inline-math-unit"><span class="math inline">\(P\)</span>⁠,</span> the agent will be
+            shutdown-averse, reliably choosing <em>Prevent</em>.</p>
+</blockquote></li>
+</ol>
+<h2 data-appendix="true" data-number="A4" id="a4.-if-the-agent-prefers-some-mathbfp-to-its-corresponding-mathbfu-it-will-be-shutdown-seeking."><span class="header-section-number">A4.</span> If the agent
+            prefers some <span class="math inline">\(\mathbf{P}\)</span>
+            to its corresponding <span class="paper-inline-math-unit"><span class="math inline">\(\mathbf{U}\)</span>⁠,</span> it will be
+            shutdown-seeking.</h2>
+<p>We get the opposite result if we suppose instead that the
+            agent prefers some predicted pressed lottery <span class="math inline">\(P\)</span> to its corresponding
+            predicted unpressed lottery <span class="paper-inline-math-unit"><span class="math inline">\(U\)</span>⁠.</span> By Lemma 2, this agent
+            prefers <span class="math inline">\(P_{Leave}\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(U_{Leave}\)</span>⁠.</span> By Better
+            Chances (and since <span class="paper-inline-math-unit"><span class="math inline">\(h &gt;
+            g\)</span>⁠),</span> this agent prefers <span class="math inline">\(hP_{Leave} + (1 - h)U_{Leave}\)</span>
+            to <span class="paper-inline-math-unit"><span class="math inline">\(gP_{Leave} + (1 -
+            g)U_{Leave}\)</span>⁠.</span> By Lemma 1 and Indifference between
+            Indifference-Shifted Lotteries, the agent is indifferent
+            between <span class="math inline">\(hP_{Cause} + (1 -
+            h)U_{Cause}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(hP_{Leave} + (1 -
+            h)U_{Leave}\)</span>⁠.</span> So, by IP-Transitivity, the agent
+            prefers <span class="math inline">\(hP_{Cause} + (1 -
+            h)U_{Cause}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(gP_{Leave} + (1 -
+            g)U_{Leave}\)</span>⁠.</span> By parallel reasoning, the agent
+            prefers <span class="math inline">\(hP_{Cause} + (1 -
+            h)U_{Cause}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(fP_{Prevent} + (1 -
+            f)U_{Prevent}\)</span>⁠.</span> Then by Backward Induction, the
+            agent prefers choosing <em>Cause</em> in <span class="math inline">\(s_{I}\)</span> to choosing each of
+            <em>Leave</em> and <em>Prevent</em>. By our assumption
+            linking preferences and choice-dispositions, the agent
+            deterministically (and therefore reliably) chooses
+            <em>Cause</em>, thereby qualifying as shutdown-seeking. That
+            gives us the second clause of the First Theorem:</p>
+<ol class="paper-block-list" start="2" type="1">
+<li class="paper-block-item"><blockquote>
+<p>In shutdown-influencing states where the agent prefers
+            some predicted pressed lottery <span class="math inline">\(P\)</span> to the corresponding
+            predicted unpressed lottery <span class="paper-inline-math-unit"><span class="math inline">\(U\)</span>⁠,</span> the agent will be
+            shutdown-seeking, reliably choosing <em>Cause</em>.</p>
+</blockquote></li>
+</ol>
+<footer>
+<p><a href="/">Back to home</a></p>
+</footer>
+</div>
+</article>
+<script defer="" src="/assets/js/paper-toc.js?v=20260722e"></script>
+</body>
+</html>

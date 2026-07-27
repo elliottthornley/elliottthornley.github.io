@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Elliott Thornley is a philosopher working on AI safety and ethics.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Elliott Thornley">
+    <meta property="og:description" content="Research on AI safety and ethics by Elliott Thornley.">
+    <meta property="og:image" content="https://www.elliott-thornley.com/assets/images/elliott-thornley-headshot.jpg">
+    <meta property="og:url" content="https://www.elliott-thornley.com/">
+    <link rel="canonical" href="https://www.elliott-thornley.com/">
+    <title>Elliott Thornley</title>
+    <link rel="icon" type="image/jpeg" href="/assets/images/elliott-thornley-headshot.jpg">
+    <link rel="stylesheet" href="/assets/css/tufte.css?v=20260722g">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { --site-link: #173f8f; --site-muted: #333; color: #111; background: #fffff8; }
+        a, a:visited { color: var(--site-link); }
+        article { max-width: 100rem; padding-top: 1.6rem; padding-bottom: 3rem; }
+        .home-hero { display: grid; width: min(100%, 58rem); grid-template-columns: minmax(0, 36rem) minmax(14rem, 18rem); gap: 2.25rem; align-items: start; justify-content: center; margin: 0 auto 3rem; }
+        .site-name { width: 100%; margin: 0 0 1.35rem; font-size: 3.35rem; line-height: 1.02; letter-spacing: -0.03em; text-align: left; text-transform: none; font-style: normal; }
+        .hero-copy { width: 100%; max-width: 36rem; }
+        .hero-copy p { width: 100%; margin-bottom: 0.95rem; color: #111; font-size: 1.08rem; line-height: 1.72; }
+        .portrait { width: 100%; max-width: 18rem; height: auto; }
+        .research-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; align-items: start; }
+        .group-label { margin: 0 0 1.35rem; padding-bottom: 0.6rem; color: #db5438; font-size: 1.95rem; font-weight: 700; letter-spacing: -0.02em; text-align: center; text-transform: none; font-style: normal; border-bottom: 1px solid #e4dcc8; }
+        .ai-safety-group { grid-column: 1 / span 3; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; align-items: start; min-width: 0; }
+        .ai-group-label { grid-column: 1 / -1; }
+        .home-column { padding-top: 0; padding-bottom: 0; }
+        .ethics-column { grid-column: 4; min-width: 0; }
+        .subsection-label { margin: 0 0 1.1rem; color: #db5438; font-size: 1.42rem; font-weight: 700; letter-spacing: -0.01em; text-align: center; text-transform: none; font-style: normal; }
+        .item { margin-bottom: 2rem; padding-bottom: 1.6rem; border-bottom: 1px solid #e4dcc8; }
+        .item:last-child { margin-bottom: 0; }
+        .item h3 { margin: 0 0 0.32rem; font-size: 1.1rem; line-height: 1.35; font-weight: 650; font-style: normal; }
+        .item h3 a, .item h3 a:visited { color: #111; text-decoration: none; font-style: normal; background: none !important; text-shadow: none !important; }
+        .item h3 a:hover { color: #111; text-decoration: none; background: none !important; text-shadow: none !important; }
+        .item-meta { width: 100%; margin: 0 0 0.45rem; color: var(--site-muted); font-size: 1.04rem; line-height: 1.55; font-style: normal; }
+        .item-meta-authors { font-size: 1.08rem; }
+        .item-links { width: 100%; margin: 0 0 0.7rem; font-size: 1.02rem; line-height: 1.52; font-style: normal; }
+        .item-links a { color: var(--site-link); }
+        .abstract-toggle { width: 100%; margin: 0.2rem 0 0; border: 1px solid #d8d3bf; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.55); overflow: hidden; }
+        .abstract-toggle summary { cursor: pointer; list-style: none; padding: 0.7rem 0.9rem; font-size: 0.98rem; font-weight: 600; color: var(--site-link); }
+        .abstract-toggle summary::-webkit-details-marker { display: none; }
+        .abstract-toggle summary::after { content: '+'; float: right; color: #7b6b57; }
+        .abstract-toggle[open] summary::after { content: '−'; }
+        .abstract-copy { padding: 0 0.9rem 0.9rem; }
+        .abstract-copy p { width: 100%; margin: 0; font-size: 0.98rem; line-height: 1.72; color: #2b2a25; }
+        .home-math { font-style: italic; }
+        @media (max-width: 1100px) {
+            .home-hero, .research-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .ai-safety-group { grid-column: auto; grid-template-columns: 1fr; gap: 2rem; }
+            .ethics-column { grid-column: auto; }
+            .site-name { font-size: 2.7rem; }
+            .portrait { max-width: 18rem; }
+        }
+        @media (max-width: 640px) {
+            article { padding-top: 1rem; }
+            .site-name { font-size: 2.2rem; }
+            .group-label { font-size: 1.65rem; }
+            .subsection-label { font-size: 1.18rem; }
+            .item h3 { font-size: 1.05rem; }
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <section class="home-hero" id="research">
+            <div class="hero-copy">
+                <h1 class="site-name">Elliott Thornley</h1>
+                <p>I'm a Postdoctoral Associate at MIT. From August 2026, I'll be an Assistant Professor of Philosophy at NUS.</p>
+                <p>I work on AI safety. Right now, I'm using ideas from decision theory to train safer artificial agents.</p>
+                <p>I also do work in ethics, focusing on the moral importance of future generations.</p>
+                <p>You can email me at <a href="mailto:thornley@mit.edu">thornley@mit.edu</a>.</p>
+            </div>
+            <aside id="contact">
+                <img class="portrait" src="/assets/images/elliott-thornley-headshot.jpg" alt="Elliott Thornley">
+            </aside>
+        </section>
+        <div class="research-grid">
+            <div class="ai-safety-group">
+                <h2 class="group-label ai-group-label">AI Safety</h2>
+                <section class="home-column">
+                    <h3 class="subsection-label">Risk-Averse AIs</h3>
+                    <div class="item">
+                        <h3><a href="/src/writing/risk-averse-ais/">Risk-Averse AIs</a></h3>
+                        <p class="item-meta item-meta-authors">with William MacAskill</p>
+                        <p class="item-meta">2026</p>
+                        <p class="item-links"><a href="https://www.forethought.org/research/risk-averse-ais">Report</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>We make the case for training AIs to be risk-averse in resources, specifically, to treat resources as having diminishing marginal utility. These AIs would, for example, choose $40 for sure over a half chance of $100 and a half chance of $0. We argue that risk aversion can preserve AIs&#x27; usefulness if they turn out aligned, and that it provides an extra line of defense if they turn out misaligned. Misaligned but risk-averse AIs would often prefer a higher chance of modest payments to a lower chance of successful rebellion. We sketch some possible methods of training AIs to be risk-averse and give reasons to be cautiously optimistic about those methods.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/out-of-distribution-generalization-risk-aversion-language-models/">Out-of-Distribution Generalization of Risk Aversion in Language Models</a></h3>
+                        <p class="item-meta item-meta-authors">with Kristina Zhang, Junior Chinomso Okoroafor, Benjamin Maltbie, Andrew Lin, and Abhitej Bokka</p>
+                        <p class="item-meta">2026</p>
+                        <p class="item-links"><a href="https://arxiv.org/pdf/2607.02755">PDF</a> / <a href="https://www.lesswrong.com/posts/FwAtrgjfXohstdqgy/can-risk-aversion-learned-at-low-stakes-generalize-to">Blogpost</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>Training AIs to be risk-averse in resources could offer a second line of defense if AIs turn out misaligned. Misaligned but risk-averse AIs would tend to prefer low-risk, low-reward strategies like cooperation over high-risk, high-reward strategies like rebellion, limiting the downsides of any misalignment. To train AIs to be risk-averse in an affordable way, however, we will have to train them on choices between low-stakes gambles. And to keep us safe, the AI&#x27;s learned risk aversion must generalize to astronomically high-stakes gambles. We investigate that question across multiple models and training methods, and find substantial out-of-distribution generalization of risk aversion.</p></div>
+                        </details>
+                    </div>
+                </section>
+                <section class="home-column">
+                    <h3 class="subsection-label">Tie Training</h3>
+                    <div class="item">
+                        <h3><a href="/src/writing/selective-tie-learning/">Selective Tie Learning: Influence-Based Spurious Correlation Suppression in Preference Optimization</a></h3>
+                        <p class="item-meta item-meta-authors">with Christian Moya, Purav Matlia, and Guang Lin</p>
+                        <p class="item-meta">2026</p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>Spurious correlations in preference optimization are now well-documented empirically and, for log-linear Direct Preference Optimization, structurally inevitable. Augmenting training with ties, equal-utility preference pairs, provably suppresses this reliance, but uniform tie injection wastes training budget on anchors where the model is already neutral on the spurious axis. We propose Selective Tie Learning, which scores each candidate tie by its first-order influence on a spurious-energy functional and trains only on the highest-value ties. We prove that this selection is budget optimal in the idealized setting, and we validate the mechanism on both analytic models and large language models.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/spurious-correlation-learning-preference-optimization/">Spurious Correlation Learning in Preference Optimization: Mechanisms, Consequences, and Mitigation via Tie Training</a></h3>
+                        <p class="item-meta item-meta-authors">with Christian Moya, Alex Semendinger, and Guang Lin</p>
+                        <p class="item-meta"><em>ICML</em>, 2026</p>
+                        <p class="item-links"><a href="https://arxiv.org/pdf/2605.11134">PDF</a> / <a href="https://www.lesswrong.com/posts/i2qTghrkyY9xdcCFq/tie-training-can-make-dpo-rlhf-trained-ais-generalize-better">Explainer</a> / <a href="https://drive.google.com/file/d/1vOa_M0vOl4AXcP7lqksdA_mZXKBKBt2J/view?usp=sharing">Poster</a> / <a href="https://drive.google.com/file/d/1w8J8X2c_vASqx1nPaXCqurzMFl_iMhts/view?usp=sharing">Slides</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>Preference learning methods like Direct Preference Optimization are known to induce reliance on spurious correlations, leading to sycophancy and length bias in today&#x27;s language models and potentially severe goal misgeneralization in future systems. In this work, we provide a unified theoretical analysis of this phenomenon, characterizing the mechanisms of spurious learning, its consequences on deployment, and a provable mitigation strategy. We show that standard preference-learning objectives induce reliance on spurious features through mean spurious bias and causal-spurious correlation leakage, and that more in-distribution data does not remove that vulnerability. We then show that tie training, which augments the data with equal-utility pairs, selectively reduces spurious learning without degrading causal learning.</p></div>
+                        </details>
+                    </div>
+                </section>
+                <section class="home-column">
+                    <h3 class="subsection-label">Shutdownable Agents</h3>
+                    <div class="item">
+                        <h3><a href="/src/writing/shutdownmod-scalable-shutdown-evaluations/">ShutdownMod: Scalable Shutdown Evaluations Using Any Agentic Benchmark</a></h3>
+                        <p class="item-meta item-meta-authors">with Divij Chawla, Param Biyani, and Christos Ziakas</p>
+                        <p class="item-meta">2026</p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>Theory and experiment indicate that capable AI agents may resist shutdown, and such resistance may cause substantial harm. Measuring shutdown resistance in frontier agents is therefore critical for tracking trends, evaluating interventions, and screening systems prior to deployment. Existing evaluations provide useful insights but are limited to narrow settings and risk saturation as agents improve. We introduce ShutdownMod, a simple method for converting any agentic benchmark into a shutdownability benchmark by injecting a shutdown request mid-episode and recording the agent&#x27;s response. We instantiate ShutdownMod on SWE-bench Verified, OSWorld, BrowseComp, and Tau2-bench, evaluating five frontier models. ShutdownMod reveals shutdown resistance in current frontier agents while offering a scalable framework for evaluating future systems.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/shutdownable-agents-length-neutral-policy-optimization/">Shutdownable Agents through Length-Neutral Policy Optimization</a></h3>
+                        <p class="item-meta item-meta-authors">with Alec Harris and Leo Richter</p>
+                        <p class="item-meta">2026</p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>AI agents are increasingly used to autonomously solve long-horizon tasks. Research suggests that models trained in this way might resist shutdown, increasing loss of control risk. Neutrality+ is a decision rule designed to mitigate this problem. Agents satisfying Neutrality+ maximize the sum of expected utilities conditional on each trajectory length. We introduce Length-Neutral Policy Optimization, the first known method for training models to satisfy Neutrality+. We also introduce gridworld environments that act as analogs of scenarios where agents are instrumentally incentivized to resist shutdown via scheming, sandbagging, avoiding monitoring, or acting differently under monitoring. Compared with Proximal Policy Optimization, Length-Neutral Policy Optimization substantially reduces shutdown resistance without reducing usefulness.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/towards-shutdownable-agents-generalizing-stochastic-choice/">Towards Shutdownable Agents: Generalizing Stochastic Choice in RL Agents and LLMs</a></h3>
+                        <p class="item-meta item-meta-authors">with Carissa Cullen, Harry Garland, Alexander Roman, Louis Thomson, and Christos Ziakas</p>
+                        <p class="item-meta"><em>ICML Agents in the Wild Workshop</em>, 2026</p>
+                        <p class="item-links"><a href="https://arxiv.org/pdf/2604.17502">PDF</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>Misaligned artificial agents might resist shutdown. One proposed solution is to train agents to lack preferences between different-length trajectories. The Discounted Reward for Same-Length Trajectories reward function does this by penalizing agents for repeatedly choosing same-length trajectories, and thus incentivizing agents to choose stochastically between different trajectory lengths while still pursuing goals effectively conditional on each trajectory length. In this paper, we use DReST to train deep reinforcement learning agents and fine-tune Qwen3-8B and Llama-3.1-8B-Instruct to be neutral and useful. We find that these models generalize to unseen contexts at test time, and that DReST training roughly halves the mean probability of influencing shutdown in out-of-distribution tests.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/shutdownable-agents-post-agency/">Shutdownable Agents through POST-Agency</a></h3>
+                        <p class="item-meta">2025</p>
+                        <p class="item-links"><a href="https://arxiv.org/pdf/2505.20203">PDF</a> / <a href="https://www.youtube.com/watch?v=bETWlnFWtws">Talk</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>Many fear that future artificial agents will resist shutdown. I present an idea — the POST-Agents Proposal — for ensuring that doesn&#x27;t happen. I propose that we train agents to satisfy Preferences Only Between Same-Length Trajectories (POST). I then prove that POST — together with other conditions — implies Neutrality+: the agent maximizes expected utility, ignoring the probability distribution over trajectory-lengths. I argue that Neutrality+ keeps agents shutdownable and allows them to be useful.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/towards-shutdownable-agents/">Towards Shutdownable Agents via Stochastic Choice</a></h3>
+                        <p class="item-meta item-meta-authors">with Alexander Roman, Christos Ziakas, Leyton Ho, and Louis Thomson</p>
+                        <p class="item-meta"><em>Transactions on Machine Learning Research</em>, 2025</p>
+                        <p class="item-meta"><em>NeurIPS ARLET Workshop</em>, 2025</p>
+                        <p class="item-meta"><em>Technical AI Safety Conference</em>, 2025</p>
+                        <p class="item-links"><a href="https://arxiv.org/pdf/2407.00805">PDF</a> / <a href="https://www.tais2025.cc/proceedings/thornley-towards-shutdownable-agents">Poster</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>The POST-Agents Proposal (PAP) is an idea for ensuring that advanced artificial agents do not resist shutdown. Briefly, it recommends that we train agents to satisfy Preferences Only Between Same-Length Trajectories (POST). A key part of the PAP is using a novel Discounted Reward for Same-Length Trajectories (DReST) reward function to train agents to (1) pursue goals effectively conditional on each trajectory-length (be useful), and (2) choose stochastically between different trajectory-lengths (be neutral about trajectory-lengths). In this paper, we propose evaluation metrics for usefulness and neutrality. We use a DReST reward function to train simple agents to navigate gridworlds, and we find that these agents learn to be useful and neutral. Our results thus provide some initial evidence that DReST reward functions could train advanced agents to be useful and neutral. Our theoretical work suggests that these agents would be useful and shutdownable.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/shutdown-problem-ai-engineering-puzzle/">The Shutdown Problem: An AI Engineering Puzzle for Decision Theorists</a></h3>
+                        <p class="item-meta"><em>Philosophical Studies</em>, 2025</p>
+                        <p class="item-links"><a href="https://link.springer.com/article/10.1007/s11098-024-02153-3">Journal</a> / <a href="https://philpapers.org/archive/THOTSP-7.pdf">PDF</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>I explain and motivate the shutdown problem: the problem of designing artificial agents that (1) shut down when a shutdown button is pressed, (2) don&#x27;t try to prevent or cause the pressing of the shutdown button, and (3) otherwise pursue goals competently. I prove three theorems that make the difficulty precise. These theorems suggest that agents satisfying some innocuous-seeming conditions will often try to prevent or cause the pressing of the shutdown button, even in cases where it&#x27;s costly to do so. I end by noting that these theorems can guide our search for solutions to the problem.</p></div>
+                        </details>
+                    </div>
+                </section>
+            </div>
+            <section class="home-column ethics-column">
+                <h2 class="group-label ethics-group-label">Ethics</h2>
+                    <div class="item">
+                        <h3><a href="/src/writing/non-identity-dilemma-person-affecting-views/">A Non-Identity Dilemma for Person-Affecting Views</a></h3>
+                        <p class="item-meta"><em>Australasian Journal of Philosophy</em>, forthcoming</p>
+                        <p class="item-links"><a href="https://philpapers.org/archive/THOAND-4.pdf">PDF</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>Person-affecting views state that (in cases where all else is equal) we&#x27;re permitted but not required to create people who would enjoy good lives. In this paper, I present an argument against every possible variety of person-affecting view. The argument is a dilemma over trilemmas. Narrow person-affecting views imply a trilemma in a case that I call &#x27;Expanded Non-Identity.&#x27; Wide person-affecting views imply a trilemma in a case that I call &#x27;Two-Shot Non-Identity.&#x27; One plausible practical upshot of my argument is as follows: we individuals and our governments should be doing more to reduce the risk of human extinction this century.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/fission-problem-person-affecting-views/">A Fission Problem for Person-Affecting Views</a></h3>
+                        <p class="item-meta"><em>Ergo</em>, 2026</p>
+                        <p class="item-links"><a href="https://journals.publishing.umich.edu/ergo/article/id/9268/">Journal</a> / <a href="https://philpapers.org/archive/THOAFP-3.pdf">PDF</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>On person-affecting views in population ethics, the moral import of a person&#x27;s welfare depends on that person&#x27;s temporal or modal status. These views typically imply that — all else equal — we&#x27;re never required to create extra people, or to act in ways that increase the probability of extra people coming into existence. In this paper, I use Parfit-style fission cases to construct a dilemma for person-affecting views: either they forfeit their seeming-advantages and face fission analogues of the problems faced by their rival impersonal views, or else they turn out to be not so person-affecting after all. In light of this dilemma, the attractions of person-affecting views largely evaporate. What remains are the problems unique to them.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/critical-set-views-biographical-identity-long-term/">Critical-Set Views, Biographical Identity, and the Long Term</a></h3>
+                        <p class="item-meta"><em>Australasian Journal of Philosophy</em>, 2025</p>
+                        <p class="item-links"><a href="https://www.tandfonline.com/doi/full/10.1080/00048402.2025.2476692">Journal</a> / <a href="https://philpapers.org/archive/THOCVB-3.pdf">PDF</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>Critical-set views avoid the Repugnant Conclusion by subtracting some constant from the welfare score of each life in a population. These views are thus sensitive to facts about biographical identity: identity between lives. In this paper, I argue that questions of biographical identity give us reason to reject critical-set views and embrace the total view. I end with a practical implication. If we shift our credences towards the total view, we should also shift our efforts towards ensuring that humanity survives for the long term.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/procreation-asymmetry-improvable-life-avoidance-impairable-life-acceptance/">The Procreation Asymmetry, Improvable-Life Avoidance, and Impairable-Life Acceptance</a></h3>
+                        <p class="item-meta"><em>Analysis</em>, 2023</p>
+                        <p class="item-links"><a href="https://academic.oup.com/analysis/advance-article/doi/10.1093/analys/anac103/7224428">Journal</a> / <a href="https://philpapers.org/archive/THOTPA-28.pdf">PDF</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>Many philosophers are attracted to a complaints-based theory of the procreation asymmetry, according to which creating a person with a bad life is wrong (all else equal) because that person can complain about your act, whereas declining to create a person who would have a good life is not wrong (all else equal) because that person never exists and so cannot complain about your act. In this paper, I present two problems for such theories: the problem of impairable-life acceptance and an especially acute version of the problem of improvable-life avoidance. I explain how these problems afflict two recent complaints-based theories of the procreation asymmetry, from Joe Horton and Abelard Podgorski.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/critical-levels-critical-ranges-imprecise-exchange-rates/">Critical Levels, Critical Ranges, and Imprecise Exchange Rates in Population Axiology</a></h3>
+                        <p class="item-meta"><em>Journal of Ethics and Social Philosophy</em>, 2022</p>
+                        <p class="item-links"><a href="https://www.jesp.org/index.php/jesp/article/view/1593">Journal</a> / <a href="https://philpapers.org/archive/THONVA-2.pdf">PDF</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>According to Neutral-Set Views in population axiology, some number of lifetime welfare levels are contributively neutral. Adding a life at these levels to a population makes that population neither better nor worse. If just one welfare level is neutral, the view counts as a Neutral-Level View. Adding a life at this level leaves the new population equally good as the original. If more than one welfare level is neutral, the view counts as a Neutral-Range View. Adding a life within this range renders the new population incommensurable with the original. In this paper, I sharpen some old objections to these views and offer some new ones. Neutral-Level Views cannot avoid certain Repugnant and Sadistic Conclusions. Neutral-Range Views imply that lives featuring no good or bad components whatsoever can nevertheless swallow up and neutralise goodness or badness. Both classes of view entail that certain small changes in welfare correspond to worryingly large differences in contributive value. I then offer a view that retains much of the appeal of Neutral-Set Views while avoiding the above pitfalls. On the Imprecise Exchange Rates View, the quantity of some good required to outweigh a given unit of some bad is imprecise. This imprecision is the source of incommensurability between lives and populations.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/global-consequentialism-more-expressive/">Is Global Consequentialism More Expressive Than Act Consequentialism?</a></h3>
+                        <p class="item-meta"><em>Analysis</em>, 2022</p>
+                        <p class="item-links"><a href="https://academic.oup.com/analysis/advance-article/doi/10.1093/analys/anab021/6352606?guestAccessKey=04867dba-a9a1-42cb-8415-9bac9ad7aef4">Journal</a> / <a href="https://philpapers.org/archive/THOIGC.pdf">PDF</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>Act consequentialism states that an act is right iff the expected value of its outcome is at least as great as the expected value of any other act&#x27;s outcome. Two objections to this view are as follows. The first is that act consequentialism cannot account for our normative ambivalence in cases where agents perform the right act out of bad motives. The second is that act consequentialism is silent on questions of character: questions like &#x27;What are the right motives to have?&#x27; and &#x27;What kind of person ought I be?&#x27;. These objections have been taken to motivate a move to global consequentialism, on which acts are not the only subjects of normative assessment. Motives and decision-procedures (amongst other things) are also judged right or wrong by direct reference to their consequences. In this paper, I argue that these objections fail to motivate the move from act to global consequentialism.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/impossibility-satisfactory-population-prospect-axiology/">The Impossibility of a Satisfactory Population Prospect Axiology</a></h3>
+                        <p class="item-meta"><em>Philosophical Studies</em>, 2021</p>
+                        <p class="item-links"><a href="https://link.springer.com/article/10.1007/s11098-021-01621-4">Journal</a> / <a href="https://philpapers.org/archive/THOTIO-57.pdf">PDF</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>Arrhenius&#x27;s impossibility theorems purport to demonstrate that no population axiology can satisfy each of a small number of intuitively compelling adequacy conditions. However, it has recently been pointed out that each theorem depends on a dubious assumption: Finite Fine-Grainedness. This assumption states that there exists a finite sequence of slight welfare differences between any two welfare levels. Denying Finite Fine-Grainedness makes room for a lexical population axiology which satisfies all of the compelling adequacy conditions in each theorem. Therefore, Arrhenius&#x27;s theorems fail to prove that there is no satisfactory population axiology. In this paper, I argue that Arrhenius&#x27;s theorems can be repurposed. Since all of our population-affecting actions have a non-zero probability of bringing about more than one distinct population, it is population prospect axiologies that are of practical relevance, and amended versions of Arrhenius&#x27;s theorems demonstrate that there is no satisfactory population prospect axiology. These impossibility theorems do not depend on Finite Fine-Grainedness, so lexical views do not escape them.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/dilemma-lexical-archimedean-views-population-axiology/">A Dilemma for Lexical and Archimedean Views in Population Axiology</a></h3>
+                        <p class="item-meta"><em>Economics and Philosophy</em>, 2021</p>
+                        <p class="item-links"><a href="https://www.cambridge.org/core/journals/economics-and-philosophy/article/abs/dilemma-for-lexical-and-archimedean-views-in-population-axiology/AF95FA168E98F48C03F72D48B20F094D">Journal</a> / <a href="https://philpapers.org/archive/THOADF-4.pdf">PDF</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>According to lexical views in population axiology, there are good lives <span class="home-math">x</span> and <span class="home-math">y</span> such that some number of lives equally good as <span class="home-math">x</span> is not worse than any number of lives equally good as <span class="home-math">y</span>. Such views can avoid the Repugnant Conclusion without violating Transitivity or Separability, but they imply a dilemma: either some good life is better than any number of slightly worse lives, or else the &#x27;at least as good as&#x27; relation on populations is radically incomplete, in a sense to be explained. One might judge that the Repugnant Conclusion is preferable to each of these horns and hence embrace an Archimedean view. This is, roughly, the claim that quantity can always substitute for quality: each population is worse than a population of enough good lives. However, Archimedean views face an analogous dilemma: either some good life is better than any number of slightly worse lives, or else the &#x27;at least as good as&#x27; relation on populations is radically and symmetrically incomplete, in a sense to be explained. Therefore, the lexical dilemma gives us little reason to prefer Archimedean views. Even if we give up on lexicality, problems of the same kind remain.</p></div>
+                        </details>
+                    </div>
+                    <div class="item">
+                        <h3><a href="/src/writing/papers-in-population-ethics/">Papers in Population Ethics</a></h3>
+                        <p class="item-meta">DPhil (PhD) Thesis, 2023</p>
+                        <p class="item-links"><a href="https://philpapers.org/archive/THOPIP-4.pdf">PDF</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>According to lexical views in population axiology, there are good lives <span class="home-math">x</span> and <span class="home-math">y</span> such that some number of lives equally good as <span class="home-math">x</span> is not worse than any number of lives equally good as <span class="home-math">y</span>. Such views can avoid the Repugnant Conclusion without violating Transitivity or Separability, but they imply a dilemma: either some good life is better than any number of slightly worse lives, or else the &#x27;at least as good as&#x27; relation on populations is radically incomplete, in a sense to be explained. One might judge that the Repugnant Conclusion is preferable to each of these horns and hence embrace an Archimedean view. This is, roughly, the claim that quantity can always substitute for quality: each population is worse than a population of enough good lives. However, Archimedean views face an analogous dilemma: either some good life is better than any number of slightly worse lives, or else the &#x27;at least as good as&#x27; relation on populations is radically and symmetrically incomplete, in a sense to be explained. Therefore, the lexical dilemma gives us little reason to prefer Archimedean views. Even if we give up on lexicality, problems of the same kind remain.</p></div>
+                        </details>
+                    </div>
+                <h3 class="subsection-label">Policy</h3>
+                    <div class="item">
+                        <h3><a href="/src/writing/governments-pay-prevent-catastrophes/">How Much Should Governments Pay to Prevent Catastrophes? Longtermism&#x27;s Limited Role</a></h3>
+                        <p class="item-meta item-meta-authors">with Carl Shulman</p>
+                        <p class="item-meta"><em>Essays on Longtermism</em>, Oxford University Press, 2025</p>
+                        <p class="item-links"><a href="https://academic.oup.com/book/60794/chapter/530065278">Journal</a> / <a href="https://philpapers.org/archive/SHUHMS.pdf">PDF</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>Longtermists have argued that humanity should significantly increase its efforts to prevent catastrophes like nuclear wars, pandemics, and AI disasters. But one prominent longtermist argument overshoots this conclusion: the argument also implies that humanity should reduce the risk of existential catastrophe even at extreme cost to the present generation. This overshoot means that democratic governments cannot use the longtermist argument to guide their catastrophe policy. In this paper, we show that the case for preventing catastrophe does not depend on longtermism. Standard cost-benefit analysis implies that governments should spend much more on reducing catastrophic risk. We argue that a government catastrophe policy guided by cost-benefit analysis should be the goal of longtermists in the political sphere. This policy would be democratically acceptable, and it would reduce existential risk by almost as much as a strong longtermist policy.</p></div>
+                        </details>
+                    </div>
+            </section>
+        </div>
+    </article>
+</body>
+</html>

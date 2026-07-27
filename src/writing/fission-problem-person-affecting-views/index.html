@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Read A Fission Problem for
+Person-Affecting Views by Elliott Thornley." name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="A Fission Problem for
+Person-Affecting Views" property="og:title"/>
+<meta content="Read A Fission Problem for
+Person-Affecting Views by Elliott Thornley." property="og:description"/>
+<meta content="https://www.elliott-thornley.com/assets/images/elliott-thornley-headshot.jpg" property="og:image"/>
+<meta content="https://www.elliott-thornley.com/src/writing/fission-problem-person-affecting-views/" property="og:url"/>
+<title>A Fission Problem for Person-Affecting
+Views | Elliott Thornley</title>
+<link href="https://www.elliott-thornley.com/src/writing/fission-problem-person-affecting-views/" rel="canonical"/>
+<link href="/assets/images/elliott-thornley-headshot.jpg" rel="icon" type="image/jpeg"/>
+<!-- Tufte CSS -->
+<link href="/assets/css/tufte.css?v=20260722e" rel="stylesheet"/>
+<!-- MathJax for math rendering -->
+<script>
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/bbox', '[tex]/html']
+            },
+            tex: {
+                packages: {'[+]': ['bbox', 'html']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    textsc: ['\\class{paper-math-smallcaps}{\\text{#1}}', 1]
+                }
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Custom styles -->
+<style>
+        nav { padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid #ccc; }
+        nav a, nav a:visited { margin-right: 1.5rem; color: #173f8f; font-size: 1.2rem; text-decoration: none; font-style: normal; }
+        nav a:hover { text-decoration: underline; }
+        .paper-header h1 { font-style: normal; font-weight: 600; }
+        .paper-source-links { width: 100%; max-width: var(--paper-text-width); margin: 0.15rem 0 1.35rem; color: #333; font-size: 1.08rem; line-height: 1.55; }
+        .paper-source-links a { color: #173f8f; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ccc; color: #666; }
+        u { text-decoration: underline; }
+    </style>
+</head>
+<body class="paper-page">
+<article class="paper-layout">
+<div class="paper-main wide-table">
+<nav>
+<a href="/">Home</a>
+</nav>
+<header class="paper-header">
+<h1>A Fission Problem for Person-Affecting Views</h1>
+</header>
+<!-- GENERATED PAPER LINKS START -->
+<div class="paper-source-links">
+<a href="https://journals.publishing.umich.edu/ergo/article/id/9268/">Journal</a>
+            /
+            <a href="https://philpapers.org/archive/THOAFP-3.pdf">PDF</a>
+</div>
+<!-- GENERATED PAPER LINKS END -->
+<div class="abstract"><p class="abstract-label">Abstract</p>
+<p>On person-affecting views in
+            population ethics, the moral import of a person’s welfare
+            depends on that person’s temporal or modal status. These
+            views typically imply that — all else equal — we’re never
+            required to create extra people, or to act in ways that
+            increase the probability of extra people coming into
+            existence.</p>
+<p>In this paper, I use Parfit-style fission cases to
+            construct a dilemma for person-affecting views: either they
+            forfeit their seeming-advantages and face fission analogues
+            of the problems faced by their rival impersonal views, or
+            else they turn out to be not so person-affecting after all.
+            In light of this dilemma, the attractions of
+            person-affecting views largely evaporate. What remains are
+            the problems unique to them.</p>
+</div>
+<h1 data-number="1" id="introduction"><span class="header-section-number">1.</span> Introduction</h1>
+<p>Suppose that you find yourself with a choice. You can
+            either:</p>
+<blockquote>
+<p>(a) Donate $4500 to the Against Malaria Foundation
+            (AMF).</p>
+</blockquote>
+<p>Or:</p>
+<blockquote>
+<p>(b) Donate $4500 to the Nuclear Threat Initiative
+            (NTI).</p>
+</blockquote>
+<p>You’re confident that donating to AMF would save a child
+            from dying of malaria. You’re also reasonably sure that this
+            child would go on to live an additional 70 years of good
+            life. On the other hand, you estimate that donating to NTI
+            would increase the probability that humanity survives the
+            coming century by about one-in-ten-quadrillion <span class="paper-inline-math-unit">(<span class="math inline">\(10^{- 16}\)</span>⁠).</span> And you expect
+            that if humanity survives the coming century, the future
+            will contain one-hundred-quadrillion <span class="paper-inline-math-unit">(<span class="math inline">\(10^{17}\)</span>⁠)</span> good lives, each
+            lasting around 70 years. Where should you send your
+            money?</p>
+<p>Here’s a quick argument for NTI. By donating to AMF,
+            you’d cause about 70 additional years of good life to be
+            lived, in expectation. By donating to NTI, you’d cause about
+            700 additional years of good life to be lived, in
+            expectation. It’s better to add 700 years of good life than
+            it is to add 70 years of good life. Therefore, you should
+            send your money to NTI.</p>
+<p>There are many ways to resist this quick argument, but
+            perhaps the most natural way is to claim that the years of
+            good life that might result from your NTI donation <em>just
+            don’t matter</em> in the same way as the years of good life
+            that would result from your AMF donation. By donating to
+            AMF, you gift 70 more years to a person who
+            <em>actually</em> exists, who <em>will</em> exist regardless
+            of your decision, and who exists <em>right now</em>. The
+            same can’t be said of your donation to NTI. The vast
+            majority of those additional years would accrue far in the
+            future: to people who do not and need never exist.</p>
+<p>This is a <em>person-affecting</em> response to the quick
+            argument. On person-affecting views in population ethics,
+            the moral import of a person’s welfare depends on that
+            person’s temporal or modal status. These views typically
+            imply that — all else equal — we’re never required to create
+            extra people, or to act in ways that increase the
+            probability of extra people coming into existence.</p>
+<p>The allure of person-affecting views is partly in their
+            foundations. These views often have their start in two
+            claims that many find intuitive: (1) the
+            <em>Person-Affecting Restriction</em>: one outcome can’t be
+            better than another unless it’s better for some person, and
+            (2) <em>Existence Anticomparativism</em>: existing can’t be
+            better for a person than not existing.</p>
+<p>However, another big draw of person-affecting views is
+            their upshots. These views avoid some well-known problems
+            faced by their rival impersonal views. Consider expected
+            total utilitarianism: one prominent impersonal view. It
+            implies that there are cases in which we’re required to
+            create new happy people rather than help existing people,
+            cases in which we’re required to make great sacrifices to
+            create new people with lives barely worth living, and cases
+            in which we’re required to make great sacrifices to slightly
+            reduce the chance of near-term human extinction.
+            Person-affecting views mostly avoid these problems, and that
+            might seem like a significant point in their favour.</p>
+<p>In this paper, I argue that these advantages are largely
+            illusory. Using Parfit-style fission cases, I construct a
+            dilemma for person-affecting views: either these views
+            violate the spirit of the Person-Affecting Restriction, or
+            else they imply fission analogues of the problems that
+            blight impersonal views. These fission analogues are about
+            as troubling as the original problems, and so they undermine
+            much of the motivation for preferring person-affecting views
+            to impersonal views. Considering the objections unique to
+            person-affecting views, we should prefer impersonal views on
+            balance.</p>
+<p>Rejecting person-affecting views doesn’t immediately
+            commit us to NTI over AMF. There are many ways to resist the
+            quick argument. But — as I hope to show in this paper — the
+            most natural line of resistance isn’t as attractive as it
+            might first
+            seem.⁠<label class="margin-toggle sidenote-number" for="sn-1"></label><input class="margin-toggle" id="sn-1" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">In a companion paper (<a class="citation-link" href="https://philpapers.org/archive/THOCVB-3.pdf">Thornley forthcoming</a>), I argue that fission
+            also presents a challenge to critical-level and critical-range views in
+            population ethics. In that paper’s introduction, I give a brief argument
+            against such views, intended to save the time of readers of a certain
+            metaphysical bent. Here’s the analogous argument against
+            person-affecting views:</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">On person-affecting views, our moral obligations can depend on the
+            affected persons’ temporal or modal status.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">A person’s temporal or modal status can depend on our answers to
+            questions of personal identity. (Whether a person <em>presently</em>,
+            <em>actually</em>, or <em>necessarily</em> exists in some scenario — or
+            whether they’re <em>harmed</em> by some action — can depend on whether
+            that person is identical to some person existing at other times or in
+            other possible worlds.)</span></span><span class="sidenote-paragraph"><span class="sidenote-blockquote">
+<span class="sidenote-block-paragraph">C1. So, on person-affecting views, our moral obligations can depend
+            on our answers to questions of personal identity.</span>
+</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Questions of personal identity are <em>empty</em>: their answers
+            can’t be discovered but at most stipulated.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Our moral obligations can’t depend on an answer to an empty
+            question.</span></span><span class="sidenote-paragraph"><span class="sidenote-blockquote">
+<span class="sidenote-block-paragraph">C2. Therefore, person-affecting views are false.</span>
+</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">I have some sympathy for this argument, but my case against
+            person-affecting views doesn’t depend on it.</span></span></span></p>
+<h1 data-number="2" id="person-affecting-views"><span class="header-section-number">2.</span> Person-affecting
+            Views</h1>
+<p>I’ve defined ‘person-affecting views’ as follows: those
+            views on which the moral import of a person’s welfare
+            depends on that person’s temporal or modal
+            status.⁠<label class="margin-toggle sidenote-number" for="sn-2"></label><input class="margin-toggle" id="sn-2" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">There are a couple of complexities to note here. <a class="citation-link" href="#ref-3">First, Bader’s
+            (2022)</a> <em>same-number utilitarianism</em> doesn’t discriminate on
+            temporal or modal grounds, but counts as person-affecting on another
+            natural definition of the term: the view implies that it’s never better
+            to create new people, all else equal. On Bader’s view, populations of
+            the same size are ordered by sum-totals of welfare, while populations of
+            different sizes are incomparable. I explain how my arguments apply to
+            Bader’s view in footnote 22.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Second, some define ‘person-affecting views’ as all and only those
+            views that satisfy the Person-Affecting Restriction. That would make
+            total utilitarianism paired with the negation of Existence
+            Anticomparativism a person-affecting view. It would also imply that
+            <em>wide views</em> (explained below) paired with Existence
+            Anticomparativism are not person-affecting. Since my arguments tell
+            against wide views but not total utilitarianism, I use the definition of
+            ‘person-affecting views’ to which this footnote is appended.</span></span></span>
+            Such views typically designate some people as
+            <em>extra</em>, and then claim that the welfare of these
+            extra people doesn’t matter in the same way as the welfare
+            of non-extra people. On <em>presentism</em>, it’s future
+            people that are extra. On <em>actualism</em>, it’s
+            non-actual people: those who don’t and won’t exist in the
+            actual world. On <em>necessitarianism</em>, it’s
+            non-necessary people: those whose existence depends on our
+            choice. On <em>comparativism</em>, it’s people who exist in
+            just one of two compared
+            outcomes.⁠<label class="margin-toggle sidenote-number" for="sn-3"></label><input class="margin-toggle" id="sn-3" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">As stated, comparativism applies only in two-option cases. The view
+            is usually supplemented with a rule that determines what we’re permitted
+            to do in cases with three-or-more options (<a class="citation-link" href="#ref-61">Ross 2015</a>: sec.5; <a class="citation-link" href="#ref-71">Thomas
+            2023</a>: sec.4.1).</span></span></span></p>
+<p><em>Harm-minimisation views</em> (HMVs) are a slightly
+            different matter. As the name indicates, they ask us to
+            minimise <em>harm</em>, understood as the amount by which a
+            person’s welfare falls short of what it could have been.
+            What makes these views paradigmatically person-affecting is
+            their claim that a person can’t be harmed in an outcome in
+            which they don’t
+            exist.⁠<label class="margin-toggle sidenote-number" for="sn-4"></label><input class="margin-toggle" id="sn-4" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Or, on <a class="citation-link" href="#ref-60">Roberts’ (2011b: 356)</a> view: any harms to a person are morally
+            insignificant in outcomes in which they don’t exist.</span></span></span>
+            HMVs don’t categorise people as extra and non-extra
+            <em>simpliciter</em>, but we can understand them to
+            designate people as extra <em>in an outcome</em> <span class="math inline">\(A\)</span> <em>relative to an outcome
+            B</em>. A person is extra in this way iff that person exists
+            in <span class="math inline">\(A\)</span> but not in <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.</span> In the two-option cases I
+            discuss below, I often write that people are extra
+            <em>simpliciter</em>. Applied to HMVs, I mean that they are
+            extra <em>in the outcome in which they exist, relative to
+            the other available outcome</em>.</p>
+<p>Each of the above five classes of person-affecting view
+            is broad. As stated, they leave many issues unsettled. One
+            issue is how to treat the welfare of extra people living bad
+            lives. On <em>symmetric</em> views, the welfare of extra
+            people doesn’t matter at all, whether their lives are good
+            or bad. Many find symmetric views implausible, due in part
+            to cases like the following. Suppose that Nikita imposes
+            some small cost on non-extra people to prevent the creation
+            of a huge number of extra people living awful lives. If
+            extra people’s welfare doesn’t matter at all (and there are
+            no relevant non-welfarist considerations in play), Nikita’s
+            act is wrong. But her act seems
+            right.⁠<label class="margin-toggle sidenote-number" for="sn-5"></label><input class="margin-toggle" id="sn-5" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">This case is a generalisation of <a class="citation-link" href="#ref-26">Hare’s (2007: 499)</a> ‘Childless
+            George’ case.</span></span></span> That intuition might lead
+            us to prefer an <em>asymmetric</em> view, on which the
+            welfare of extra people living bad lives matters in the same
+            way as the welfare of non-extra people, while the welfare of
+            extra people living good lives does not.</p>
+<p>Here’s a second dimension along which person-affecting
+            views can vary. They can be <em>soft</em>, <em>hard</em>, or
+            <em>very hard</em>, depending on the way in which they take
+            extra good lives to
+            matter.⁠<label class="margin-toggle sidenote-number" for="sn-6"></label><input class="margin-toggle" id="sn-6" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Here and below, I use ‘extra good lives’ as shorthand for ‘the
+            welfare of extra people living good lives.’ The same goes for my use of
+            ‘extra bad lives.’ The ‘soft’ and ‘hard’ labels come from <a class="citation-link" href="#ref-71">Thomas (2023:
+            487)</a>.</span></span></span> To see the difference, consider
+            the following populations:</p>
+<p class="display-label">
+<strong>Soft, Hard, or Very Hard</strong>
+</p>
+<table style="width:94%;">
+<colgroup>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+<col style="width: 11%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="2">Population A</th>
+<th colspan="2">Population B</th>
+<th colspan="2">Population C</th>
+<th colspan="2">Population D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nicholas</td>
+<td style="text-align: center;">100</td>
+<td>Nicholas</td>
+<td style="text-align: center;">100</td>
+<td>Nicholas</td>
+<td style="text-align: center;">100</td>
+<td>Nicholas</td>
+<td style="text-align: center;">99</td>
+</tr>
+<tr>
+<td>Vivianne</td>
+<td style="text-align: center;">Ω</td>
+<td>Vivianne</td>
+<td style="text-align: center;"><span class="math inline">\(g\)</span></td>
+<td>Vivianne</td>
+<td style="text-align: center;"><span class="math inline">\(g\)</span></td>
+<td>Vivianne</td>
+<td style="text-align: center;"><span class="math inline">\(g\)</span></td>
+</tr>
+<tr>
+<td>Mana</td>
+<td style="text-align: center;">Ω</td>
+<td>Mana</td>
+<td style="text-align: center;">Ω</td>
+<td>Mana</td>
+<td style="text-align: center;">-1</td>
+<td>Mana</td>
+<td style="text-align: center;">Ω</td>
+</tr>
+</tbody>
+</table>
+<p>The numbers in this table represent people’s welfare.
+            Positive numbers indicate good lives and negative numbers
+            indicate bad lives. Ω indicates that a person doesn’t exist
+            in a population.</p>
+<p>Population <span class="math inline">\(B\)</span> is
+            identical to population <span class="math inline">\(A\)</span> but for the addition of
+            Vivianne, living a good life with welfare <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span> Population <span class="math inline">\(C\)</span> adds Vivianne too, but this
+            time at some cost: Mana lives a bad life in <span class="paper-inline-math-unit"><span class="math inline">\(C\)</span>⁠,</span> while in <span class="math inline">\(A\)</span> she lives no life at all.
+            Population <span class="math inline">\(D\)</span> also adds
+            Vivianne at some cost: Nicholas is worse off in <span class="math inline">\(D\)</span> than he is in <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠.</span></p>
+<p>As noted above, person-affecting views typically imply
+            that — all else equal — we’re never <em>required</em> to
+            create extra good lives. That means that no matter how good
+            Vivianne’s life is — no matter how large <span class="math inline">\(g\)</span> is — we’re never required
+            to choose <span class="math inline">\(B\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠.</span> Either is permissible in a
+            choice between the two.</p>
+<p>On very hard views, we’re also never <em>permitted</em>
+            to create extra good lives if doing so involves the creation
+            of extra bad lives or any harm to non-extra people. That
+            means that, no matter how good Vivianne’s life is, we’re
+            never permitted to choose <span class="math inline">\(C\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> or <span class="math inline">\(D\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠.</span></p>
+<p>Hard views also forbid creating extra good lives if doing
+            so harms non-extra people, but they permit creating
+            combinations of extra good and bad lives, so long as the
+            good lives are good enough. That means that we’re required
+            to choose <span class="math inline">\(A\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(D\)</span>⁠,</span> but permitted to choose
+            <span class="math inline">\(C\)</span> over <span class="math inline">\(A\)</span> for large enough values of
+            <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span></p>
+<p>On soft views, by contrast, creating extra good lives can
+            be permissible both when doing so involves creating extra
+            bad lives and when doing so harms non-extra people. So long
+            as Vivianne’s life is good enough, we’re permitted to choose
+            <span class="math inline">\(C\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> and <span class="math inline">\(D\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠.</span></p>
+<p>Here’s a third dimension along which species of
+            actualism, necessitarianism, comparativism, and HMVs can
+            differ.⁠<label class="margin-toggle sidenote-number" for="sn-7"></label><input class="margin-toggle" id="sn-7" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">The distinction concerns how a person’s modal status is determined,
+            and so doesn’t apply to presentism.</span></span></span>
+            Such views can be <em>narrow</em> or
+            <em>wide</em>.⁠<label class="margin-toggle sidenote-number" for="sn-8"></label><input class="margin-toggle" id="sn-8" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">These labels are also borrowed from <a class="citation-link" href="#ref-71">Thomas (2023: 490)</a>. I note, as he
+            does, that they’re a close but imperfect match for traditional
+            terminology.</span></span></span> To see the difference,
+            consider the following <em>Non-Identity</em> <em>Case</em>
+            (<a class="citation-link" href="#ref-54">Parfit, 1984</a>: 16):</p>
+<p class="display-label">
+<strong>Non-Identity Case</strong>
+</p>
+<table style="width:98%;">
+<colgroup>
+<col style="width: 24%"/>
+<col style="width: 24%"/>
+<col style="width: 24%"/>
+<col style="width: 24%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="2">Population D</th>
+<th colspan="2">Population E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Healthy</td>
+<td style="text-align: center;">100</td>
+<td>Healthy</td>
+<td style="text-align: center;">Ω</td>
+</tr>
+<tr>
+<td>Unhealthy</td>
+<td style="text-align: center;">Ω</td>
+<td>Unhealthy</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>In this case, narrow views permit us to create either
+            Healthy or Unhealthy. That’s because narrow views are
+            defined as those views that use transworld identity as their
+            counterpart relation for the purposes of determining which
+            persons are extra. Healthy and Unhealthy are not identical,
+            so both count as extra on narrow necessitarianism,
+            comparativism, and HMVs, and Healthy counts as extra if we
+            create Unhealthy (and vice versa) on narrow actualism. Since
+            Healthy and Unhealthy are both extra, we’re granted broad
+            latitude in choosing who to create. Wide views, on the other
+            hand, require us to create Healthy. That’s because wide
+            views are defined as those views that employ counterpart
+            relations that extend transworld identity. These extended
+            counterpart relations first pair people up by identity, and
+            then go on to pair up some non-identical people. The
+            relations offered in the literature are typically
+            <em>saturating</em> — they pair up as many people as
+            possible — and so imply that Healthy and Unhealthy are
+            counterparts (<a class="citation-link" href="#ref-45">Meacham 2012</a>: 266–267; <a class="citation-link" href="https://philpapers.org/archive/THOTIP.pdf">Thomas 2016</a>: 211, 2023:
+            30–31). On wide views, therefore, both Healthy and Unhealthy
+            count as non-extra, and their welfare matters accordingly.
+            Plausible views will require that we bestow larger rather
+            than smaller benefits on non-extra people, and so require
+            that we create Healthy.</p>
+<p>The above dimensions give some sense of the variety of
+            possible person-affecting views. Even so, many views in the
+            literature don’t slot neatly into the resulting taxonomy.
+            That’s partly because the taxonomy doesn’t map the entirety
+            of logical space and partly because many person-affecting
+            views are sketched out in strokes too broad to determine
+            where they fall along certain
+            axes.⁠<label class="margin-toggle sidenote-number" for="sn-9"></label><input class="margin-toggle" id="sn-9" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">These include <a class="citation-link" href="#ref-39">Kamm’s (2005: 304–305)</a> view, which seems largely
+            presentist, <a class="citation-link" href="#ref-48">Narveson’s (1973: 65)</a> and <a class="citation-link" href="#ref-75">Warren’s (1977: 285)</a> views, which
+            seem largely actualist, <a class="citation-link" href="#ref-27">Heyd’s (1988)</a> view, which seems presentist in
+            some places and necessitarian at others, <a class="citation-link" href="#ref-28">Heyd’s (1992: 97)</a> view, which
+            seems necessitarian in some places and actualist at others, and <a class="citation-link" href="#ref-64">Setiya’s
+            (2014)</a> view, which seems actualist in some places and presentist at
+            others, and Bigelow’s and Pargetter’s view (1988), which seems
+            presentist, necessitarian, and actualist at different points. <a class="citation-link" href="#ref-61">Ross
+            (2015)</a> offers a comparativist view, but suggests that our obligations
+            also depend on non-person-affecting considerations. <a class="citation-link" href="#ref-71">Thomas (2023)</a>
+            constructs four views — each asymmetric and comparativist — filling a
+            2×2 grid of soft/hard and narrow/wide. <a class="citation-link" href="#ref-66">Singer (2011: 88–90)</a> and <a class="citation-link" href="#ref-7">Bradley
+            (2013)</a> both discuss — but do not endorse — an asymmetric, necessitarian
+            view. <a class="citation-link" href="#ref-56">Parsons (2002)</a> suggests a symmetric, actualist view that seems
+            more asymmetric in its deontic upshots. <a class="citation-link" href="#ref-14">Cohen’s (2020)</a> ‘Subjective
+            Actualism’ is an asymmetric, very hard actualist view that’s narrow in
+            canonical non-identity cases but wide in more realistic cases. <a class="citation-link" href="#ref-67">Spencer’s
+            (2021)</a> ‘Stable Actualism’ is an asymmetric, narrow form of actualism.
+            <a class="citation-link" href="#ref-26">Hare (2007)</a> offers a wide form of actualism. <a class="citation-link" href="#ref-42">McDermott (1982)</a> constructs
+            an asymmetric, narrow, very hard HMV. <a class="citation-link" href="#ref-60">Roberts’ (2011b)</a> ‘Variabilism’ is
+            also an asymmetric, narrow HMV, albeit with the caveat that her view
+            states only which harms are morally significant. It doesn’t state how
+            these harms bear on our moral obligations. <a class="citation-link" href="#ref-69">Temkin (2012: ch.12)</a> seems to
+            lean towards a narrow HMV, though like <a class="citation-link" href="#ref-61">Ross (2015)</a> he suggests that our
+            obligations also depend on non-person-affecting considerations.
+            <a class="citation-link" href="#ref-45">Meacham’s (2012)</a> ‘Saturating Harm Minimizing View’ is an asymmetric,
+            wide HMV. <a class="citation-link" href="https://globalprioritiesinstitute.org/andreas-mogensen-staking-our-future-deontic-long-termism-and-the-non-identity-problem/">Mogensen’s (2019)</a> ‘Non-Requiring View+’ is asymmetric, narrow,
+            and soft, as is <a class="citation-link" href="#ref-32">Horton’s (2021)</a> ‘Avoid Reasonable Objections’ view and
+            <a class="citation-link" href="https://doi.org/10.1111/phpr.12860">Podgorski’s (2021)</a> view. <a class="citation-link" href="https://globalprioritiesinstitute.org/future-suffering-and-the-non-identity-problem-theron-pummer/">Pummer’s (2024)</a> view is asymmetric and soft.
+            <a class="citation-link" href="#ref-43">McDermott’s (2019)</a> ‘Objection Minimization’ view is asymmetric, narrow,
+            and very hard.</span></span></span></p>
+<h1 data-number="3" id="seeming-advantages-of-person-affecting-views"><span class="header-section-number">3.</span> Seeming-Advantages
+            of Person-Affecting Views</h1>
+<p>While person-affecting views vary widely in their
+            details, they’re largely united in their attractions. As
+            noted above, many person-affecting views are founded on two
+            <em>prima facie</em> appealing claims: (1) the
+            Person-Affecting Restriction: one outcome can’t be better
+            than another unless it’s better for some person, and (2)
+            Existence Anticomparativism: existing can’t be better for a
+            person than not
+            existing.⁠<label class="margin-toggle sidenote-number" for="sn-10"></label><input class="margin-toggle" id="sn-10" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">I write ‘many’ because not all person-affecting views uphold these
+            claims. <a class="citation-link" href="#ref-60">Roberts (2011b: 338)</a> denies Existence Anticomparativism, and
+            wide views paired with Existence Anticomparativism are tough to square
+            with the Person-Affecting Restriction: in our Non-Identity Case,
+            creating Healthy is required even though it’s not better for anyone than
+            creating Unhealthy.</span></span></span> Theories that
+            violate the Person-Affecting Restriction can seem
+            objectionably impersonal: treating people as mere containers
+            of value (<a class="citation-link" href="#ref-3">Bader 2022</a>: 2–4; <a class="citation-link" href="#ref-19">Frick 2017</a>: 351; <a class="citation-link" href="#ref-29">Holtug 2004</a>:
+            131–132; <a class="citation-link" href="#ref-51">Nebel 2021</a>: 9, 12–13; <a class="citation-link" href="#ref-54">Parfit 1984</a>: 393–394; though
+            see <a class="citation-link" href="#ref-12">Chappell 2015</a>: sec.3.1 for a response). Denying
+            Existence Anticomparativism, meanwhile, seems to land us in
+            a metaphysical tangle: if existing is better for a person
+            than not existing, then it seemingly must be that not
+            existing would be worse for that person than existing. But
+            how can anything be better or worse for a person that
+            doesn’t
+            exist?⁠<label class="margin-toggle sidenote-number" for="sn-11"></label><input class="margin-toggle" id="sn-11" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-9">Broome (1999: 168)</a> gives an argument along these lines. <a class="citation-link" href="#ref-22">Greaves and
+            Cusbert (2022)</a> argue that it fails.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Although the Person-Affecting Restriction and Existence
+            Anticomparativism each have their charms, there are some difficulties
+            associated with their conjunction. Together they imply that creating
+            Unhealthy is no worse than creating Healthy in our Non-Identity Case
+            above. Some find that verdict counterintuitive (<a class="citation-link" href="#ref-54">Parfit 1984</a>: sec.123).
+            And an analogue of Broome’s argument for Existence Anticomparativism
+            implies that existing cannot be <em>worse</em> for a person than not
+            existing. Coupled with the Person-Affecting Restriction, that claim
+            entails that creating a person with an awful life is no worse than
+            creating no one at all. Many find that implication troubling.</span></span></span></p>
+<p>Person-affecting views also have some attractive upshots.
+            Extant views imply something in the vicinity of Narveson’s
+            Slogan: ‘We are in favor of making people happy, but neutral
+            about making happy people’ (1973: 80). Many views also imply
+            what <a class="citation-link" href="#ref-59">Roberts (2011a: 772)</a> and <a class="citation-link" href="#ref-13">Chappell (2017: 170)</a> call the
+            <em>Deeper Intuition</em>: we ought to benefit an existing
+            person by some amount <span class="math inline">\(g\)</span>
+            rather than create a new person with welfare <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span> The exceptions are soft
+            views, which may permit us to create the new person in this
+            case. However, even soft views never <em>require</em> that
+            we create the new person, even if that person’s welfare
+            would be much greater than <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span>⁠<label class="margin-toggle sidenote-number" for="sn-12"></label><input class="margin-toggle" id="sn-12" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">One caveat: depending on the new person’s welfare and on how
+            non-extra welfare is aggregated, <em>strong</em> actualism might imply
+            that <em>if we create the new person</em> we’re required to create the
+            new person. However, this requirement won’t have the usual force from
+            the <em>ex ante</em> perspective, when we’re deciding what to do. That’s
+            because strong actualism also implies that <em>if we don’t create the
+            new person</em> we’re required not to create them. For more details on
+            the distinction between strong and weak actualism, see <a class="citation-link" href="#ref-26">Hare (2007)</a>.</span></span></span>
+            That’s another implication which many find appealing. There
+            might seem to be something perverse about theories that
+            could require us to create new lives rather than help those
+            suffering today.</p>
+<p>Person-affecting views also avoid an especially
+            pernicious version of Parfit’s Repugnant Conclusion (1984:
+            388), which we can call <em>Repugnant Transition</em>.
+            Suppose that everyone on earth is set to live a wonderful
+            life. Suppose also that we could burden ourselves to such an
+            extent that our lives would only be barely worth living,
+            while creating many extra lives that are also barely worth
+            living. On <em>total utilitarianism</em> and some other
+            impersonal views, we’re required to do so if the number of
+            extra lives is large
+            enough.⁠<label class="margin-toggle sidenote-number" for="sn-13"></label><input class="margin-toggle" id="sn-13" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Total utilitarianism states that a population’s value is the
+            sum-total of welfare in that population, and that bringing about a
+            population is permissible iff no other available population has greater
+            value.</span></span></span> On person-affecting views, we
+            face no such requirement. On soft views, we’re at most
+            permitted to make the transition, while hard and very hard
+            views forbid
+            it.⁠<label class="margin-toggle sidenote-number" for="sn-14"></label><input class="margin-toggle" id="sn-14" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Strong actualism might require the transition <em>if we make the
+            transition</em>. See footnote 12.</span></span></span></p>
+<p>Another attraction of person-affecting views is their
+            implications in more realistic cases. It’s increasingly
+            recognised that humanity’s future hangs in the balance
+            (<a class="citation-link" href="https://globalprioritiesinstitute.org/hilary-greaves-william-macaskill-the-case-for-strong-longtermism/">Greaves &amp; MacAskill 2021</a>; <a class="citation-link" href="#ref-24">Greaves, MacAskill, &amp;
+            Thornley 2021</a>; <a class="citation-link" href="#ref-53">Ord, 2020</a>). Here’s one way it could play out.
+            Earth supports a population of ten billion people per
+            century until it becomes uninhabitable: one billion years
+            from now. Future people do away with the sources of
+            present-day suffering and cultivate much more of all that
+            makes life good. As a consequence, Earth plays host to
+            one-hundred-quadrillion <span class="paper-inline-math-unit">(<span class="math inline">\(10^{17}\)</span>⁠)</span> wonderful lives.
+            Call this the <em>Good Future</em>. Here’s another possible
+            story. Runaway climate change, nuclear war, the release of
+            an engineered pathogen, or some other disaster causes
+            humanity to go extinct a century from now, soon after the
+            lives of the present generation have run their course. Call
+            this the <em>Short Future</em>.</p>
+<p>There currently exist around eight billion people on
+            Earth. Suppose for the sake of argument that we’re all on
+            course to live wonderful lives. Suppose also that we — the
+            present generation — can shift the probabilities with which
+            the Good and Short Futures come about. By all worsening our
+            lives so that they’re just barely worth living, we can
+            decrease the Short Future’s probability by <span class="math inline">\(p\)</span> and increase the Good
+            Future’s probability by <span class="paper-inline-math-unit"><span class="math inline">\(p\)</span>⁠.</span> The other option is
+            business-as-usual. For what values of <span class="math inline">\(p\)</span> must we worsen our lives?
+            On <em>expected total utilitarianism</em>, the answer is
+            roughly ‘Any value greater than or equal to
+            0.0000008’.⁠<label class="margin-toggle sidenote-number" for="sn-15"></label><input class="margin-toggle" id="sn-15" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Expected total utilitarianism is the conjunction of total
+            utilitarianism and expected value theory. On this view, downgrading
+            eight billion lives from wonderful to barely-worth-living is
+            <em>almost</em> as bad as <em>removing</em> eight billion wonderful
+            lives, but increasing the chance of the Good Future by <span class="math inline">\(0.0000008\)</span> is <em>as</em> good as
+            <em>creating</em> eight billion wonderful lives. So, at <span class="paper-inline-math-unit"><span class="math inline">\(p = 0.0000008\)</span>⁠,</span> the benefits of
+            present-day-sacrifice outweigh the costs. This figure is only rough, in
+            part because my calculation ignores the welfare of the small number of
+            future people in the Short Future.</span></span></span>
+            We’re required to make enormous sacrifices for the sake of
+            people that may never exist, even if those sacrifices have
+            just an eight-in-ten-million probability of paying off. Call
+            this implication <em>Our Sacrifice</em>. Person-affecting
+            views avoid this implication. It remains an open question
+            how person-affecting views should be extended to cover risky
+            cases (see <a class="citation-link" href="#ref-71">Thomas 2023</a>). But even in the case where <span class="paper-inline-math-unit"><span class="math inline">\(p = ‍1\)</span>⁠,</span> where
+            business-as-usual would guarantee the Short Future and our
+            generation’s sacrifice would guarantee the Good Future, hard
+            and very hard views forbid the sacrifice since it harms us
+            non-extra people. Soft views at best permit it.</p>
+<p>So person-affecting views mostly avoid the problems
+            above, and that might seem like a significant advantage of
+            these views. In the next section, I’ll argue that this
+            advantage is largely illusory. Any person-affecting view
+            worthy of the name will imply fission analogues of the
+            problems for its rival impersonal view. These fission
+            analogues are about as troubling as the original problems,
+            and so the original problems give us little reason to prefer
+            person-affecting
+            views.⁠<label class="margin-toggle sidenote-number" for="sn-16"></label><input class="margin-toggle" id="sn-16" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">It’s also worth noting that we can avoid counterintuitive
+            implications like Repugnant Transition and Our Sacrifice without moving
+            to a person-affecting view. For example, we can reject <em>maximising
+            consequentialism</em>: the claim that we’re always required to do what’s
+            best.</span></span></span></p>
+<p>What’s more, we have more than little reason for the
+            opposite preference. Person-affecting views face objections
+            that impersonal views do not. Here’s a brief survey.
+            Symmetric person-affecting views are implausibly permissive
+            about creating people with bad lives, while asymmetric
+            person-affecting views must find a way to justify their
+            asymmetry (<a class="citation-link" href="#ref-27">Heyd 1988</a>: 157,
+            161).⁠<label class="margin-toggle sidenote-number" for="sn-17"></label><input class="margin-toggle" id="sn-17" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">For some proposed justifications, see <a class="citation-link" href="#ref-59">Roberts (2011a</a>, <a class="citation-link" href="#ref-60">2011b</a>), <a class="citation-link" href="#ref-50">Nebel
+            (2019b)</a>, <a class="citation-link" href="#ref-20">Frick (2020)</a>, <a class="citation-link" href="https://doi.org/10.1111/phpr.12860">Podgorski (2021)</a>, and <a class="citation-link" href="https://globalprioritiesinstitute.org/future-suffering-and-the-non-identity-problem-theron-pummer/">Pummer (2024)</a>.</span></span></span>
+            Narrow person-affecting views imply — counterintuitively to
+            many — that we’re permitted to create the worse-off person
+            in non-identity cases (<a class="citation-link" href="#ref-54">Parfit 1984</a>: ch.16), and variations
+            of Parfit’s non-identity case pose problems for both narrow
+            and wide views (<a class="citation-link" href="https://globalprioritiesinstitute.org/a-non-identity-dilemma-for-person-affecting-views-thornley/">Thornley 2024</a>). Francis has argued that
+            creating happy people is good (n.d.) and that creating
+            happier people is better (2021); these arguments can’t be
+            defused by appeal to the Person-Affecting Restriction or
+            Existence Anticomparativism, so person-affecting views need
+            some other response. And a referee for this journal points
+            out that person-affecting views can deliver implausible
+            verdicts in a variation of Our Sacrifice. Suppose that the
+            present generation will live wonderful lives no matter what,
+            but that there will be no future generations unless I endure
+            the small pain of scratching my finger. Bracketing off any
+            non-welfarist considerations (though see <a class="citation-link" href="#ref-19">Frick 2017</a>), hard
+            views require (and soft views permit) that my finger remains
+            unscathed, no matter how numerous and wonderful the future
+            lives at
+            stake.⁠<label class="margin-toggle sidenote-number" for="sn-18"></label><input class="margin-toggle" id="sn-18" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">As above, strong actualism is an exception: I’m required to scratch
+            my finger <em>if I scratch my finger</em>. See footnote 12.</span></span></span>
+            That seems counterintuitive. Hume may be right that it’s
+            “not contrary to reason to prefer the destruction of the
+            whole world to the scratching of my finger” (1738:
+            sec.2.3.3.6), but it does seem contrary to
+            morality.⁠<label class="margin-toggle sidenote-number" for="sn-19"></label><input class="margin-toggle" id="sn-19" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">For other objections to person-affecting views, see <a class="citation-link" href="#ref-2">Arrhenius
+            (forthcoming: ch.10)</a>, <a class="citation-link" href="https://doi.org/10.7282/T35M649T">Beckstead (2013: ch.4)</a>, <a class="citation-link" href="#ref-21">Greaves (2017)</a>, <a class="citation-link" href="#ref-32">Horton
+            (2021)</a>, <a class="citation-link" href="#ref-61">Ross (2015)</a>, <a class="citation-link" href="#ref-71">Thomas (2023)</a>, and <a class="citation-link" href="#ref-72">Thornley (2023)</a>.</span></span></span></p>
+<p>All this to say, we have good reason to favour impersonal
+            views over person-affecting views. I now argue that we have
+            little reason for the opposite preference.</p>
+<h1 data-number="4" id="fission"><span class="header-section-number">4.</span> Fission</h1>
+<p>Let a <em>life-episode</em> be a period within a person’s
+            life, and assume that each life-episode’s welfare can be
+            represented by a real-valued function <span class="paper-inline-math-unit"><span class="math inline">\(w\)</span>⁠,</span> such that life-episode
+            <span class="math inline">\(x\)</span> has at least as much
+            welfare as life-episode <span class="math inline">\(y\)</span> iff <span class="paper-inline-math-unit"><span class="math inline">\(w(x) \geq w(y)\)</span>⁠.</span> Assume also
+            that welfare is interpersonally comparable (so that we can
+            say whether <span class="math inline">\(x\)</span> has at
+            least as much welfare as <span class="math inline">\(y\)</span> even if <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are lived by different
+            people) and measurable on a ratio-scale (so that we can talk
+            meaningfully about the ratios of welfare between
+            life-episodes). Assign positive welfare to life-episodes
+            that are good for a person to live, negative welfare to
+            life-episodes that are bad for a person to live, and zero
+            welfare to life-episodes that are neither good nor bad for a
+            person to live.</p>
+<p>Suppose that we have the chance to split Anna’s brain in
+            two, and implant each half into an exact replica of her
+            body. Each of the resulting people (call them Lefty and
+            Righty) would share all of Anna’s psychological features.
+            Each of Lefty and Righty would also be phenomenally,
+            physically, and functionally continuous with pre-fission
+            Anna. That is to say, Anna’s stream of (and capacity for)
+            consciousness would divide and flow uninterrupted into the
+            streams of (and capacities for) consciousness of Lefty and
+            Righty.⁠<label class="margin-toggle sidenote-number" for="sn-20"></label><input class="margin-toggle" id="sn-20" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">This case is a cosmetic variation on Parfit’s <em>My Division</em>
+            (1984: 254–55).</span></span></span></p>
+<p>If we choose No Split, Anna will live a life of welfare
+            80 and then die. If we choose Split A, Anna will live a
+            life-episode of welfare 70 before the split. Both Lefty and
+            Righty will then live <em>life-branches</em> of welfare 100.
+            By a ‘life-branch,’ I mean a life-episode that begins
+            immediately post-fission and ends with either fission or
+            death.</p>
+<p class="display-label">
+<strong>Fission</strong>
+</p>
+<table style="width:98%;">
+<colgroup>
+<col style="width: 24%"/>
+<col style="width: 23%"/>
+<col style="width: 24%"/>
+<col style="width: 24%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="2">No Split</th>
+<th colspan="2">Split A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anna</td>
+<td style="text-align: center;">80</td>
+<td>Anna</td>
+<td style="text-align: center;">70</td>
+</tr>
+<tr>
+<td>Lefty</td>
+<td style="text-align: center;">Ω</td>
+<td>Lefty</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr>
+<td>Righty</td>
+<td style="text-align: center;">Ω</td>
+<td>Righty</td>
+<td style="text-align: center;">100</td>
+</tr>
+</tbody>
+</table>
+<p>Suppose that we opt for No Split. In that case, which if
+            any of Lefty and Righty should person-affecting views
+            designate as extra? Here are six possible answers:</p>
+<p>(1) Each of Lefty and Righty is extra.</p>
+<p>(2) Lefty is extra.</p>
+<p>(3) Righty is extra.</p>
+<p>(4) Each of Lefty and Righty is ‘half-extra’.</p>
+<p>(5) One of Lefty and Righty is extra, but it is
+            indeterminate which.</p>
+<p>(6) Neither Lefty nor Righty is extra.</p>
+<p>Take (1) first. If each of Lefty and Righty is extra,
+            hard and very hard views imply that we were required to
+            choose No Split, while soft views imply that choosing No
+            Split was at least permitted. The nominal justification is
+            that the only non-extra person — Anna — fares better in No
+            Split. But these verdicts seem implausible, and are in fact
+            hard to square with the Person-Affecting Restriction. That’s
+            because — contrary to the above — Anna seems to fare better
+            in Split A.</p>
+<p>At least two lines of argument support this claim. The
+            first is that Anna’s relation to Lefty and Righty seems to
+            contain everything that could possibly matter in survival:
+            she’s physically, psychologically, phenomenally, and
+            functionally connected to both. The second is a two-step
+            argument from <a class="citation-link" href="#ref-54">Parfit (1984: 261–262)</a>. Start by imagining an
+            outcome like Split A but with the right half of Anna’s brain
+            destroyed, so that only Lefty exists. That seems better for
+            Anna than No Split, since Lefty’s life-branch is wonderful
+            and Anna is continuous with Lefty in all of the ways that
+            might matter. Then reintroduce Righty, and note that it’s
+            hard to see how this could make Anna worse off. She’s now
+            continuous-in-all-the-ways-that-might-matter with two humans
+            living wonderful life-branches rather than one, and “[h]ow
+            could a double success be a failure?” (<a class="citation-link" href="#ref-54">Parfit 1984</a>:
+            256).</p>
+<p>No Split isn’t better than Split A for Lefty or Righty:
+            they live wonderful life-branches in Split A and no life at
+            all in No Split. If (as the above arguments suggest) No
+            Split isn’t better for Anna either, then the
+            Person-Affecting Restriction implies that No Split isn’t
+            better overall. Hard and very hard views paired with (1)
+            then seem objectionably impersonal, since they imply that we
+            were required to choose No Split over Split A. And although
+            soft views paired with (1) don’t violate the letter of the
+            Person-Affecting Restriction in this case, they do seem to
+            violate its spirit. The last paragraph’s arguments suggest
+            that Split A is better than No Split for the only non-extra
+            person:
+            Anna.⁠<label class="margin-toggle sidenote-number" for="sn-21"></label><input class="margin-toggle" id="sn-21" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">What <a class="citation-link" href="https://academic.oup.com/book/9142">Holtug (2010)</a> calls <em>the</em> <em>Additive Prudential
+            View</em> has a similar implication. On this view, “A person's
+            self‐interest is an additive function of the (appropriately discounted)
+            benefits that befall persons to whom she is M‐related” (2010: 118),
+            where the M-relation is “The continuous physical realization of a core
+            psychology, and/or a distinctive psychology, and/or a chain of
+            distinctive psychology” (2010: 99). This view implies that splitting is
+            in Anna’s self-interest.</span></span></span> And the extra
+            people in Split A — Lefty and Righty — both live wonderful
+            life-branches. Given these facts, it seems that any
+            person-affecting view worth the name would require you to
+            choose Split
+            A.⁠<label class="margin-toggle sidenote-number" for="sn-22"></label><input class="margin-toggle" id="sn-22" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">In footnote 2, I promised to explain how my argument applies to
+            <a class="citation-link" href="#ref-3">Bader’s (2022)</a> same-number utilitarianism. I now make good on that
+            promise. Since (pace <a class="citation-link" href="https://doi.org/10.1111/j.1467-9329.1992.tb00041.x">Dainton 1992</a>) Anna, Lefty, and Righty are not all
+            identical to each other (see footnote 29), the population in Split A is
+            larger than the population in No Split. Same-number utilitarianism thus
+            implies that the two populations are incomparable. But — I’ve argued —
+            Split A is wonderful for Lefty and Righty, and better for Anna than No
+            Split. The spirit of the Person-Affecting Restriction thus requires that
+            Split A is better than No Split, contrary to the verdict of same-number
+            utilitarianism.</span></span></span></p>
+<p>Answer (1), then, seems untenable. How about answers (2)
+            and (3)? Perhaps person-affecting views should designate
+            just Lefty as extra or just Righty as extra. But on
+            reflection these answers also seem untenable. The left half
+            of Anna’s brain could be identical to the right half in all
+            relevant respects, and Lefty and Righty could start their
+            life-branches sharing all relevant features. In that case,
+            there’s no good reason to take just Lefty to be extra or
+            just Righty to be extra.</p>
+<p>Perhaps we should choose as if each of Lefty’s and
+            Righty’s welfare is worth <em>half</em> the equivalent
+            amount of non-extra welfare. That seems like a natural move,
+            and it could be justified by appeal to answer (4): each of
+            Lefty and Righty is ‘half-extra.’ The move could also be
+            justified by appeal to answer (5): one of Lefty and Righty
+            is extra, but it is indeterminate
+            which.⁠<label class="margin-toggle sidenote-number" for="sn-23"></label><input class="margin-toggle" id="sn-23" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-35">Johansson (2010)</a> suggests this view about personal identity in
+            fission cases: one of Lefty and Righty is identical to Anna, but it is
+            indeterminate which.</span></span></span> We need then only
+            add a couple more claims: (a) faced with this kind of
+            indeterminacy, we should choose as if there’s a 0.5
+            probability that it’s Lefty that’s extra and a 0.5
+            probability that it’s Righty, and (b) we should be
+            risk-neutral with respect to these probabilities.</p>
+<p>However, choosing as if Lefty’s and Righty’s welfare is
+            worth half the equivalent in non-extra welfare is also hard
+            to square with the Person-Affecting Restriction. To see why,
+            consider <em>Benign
+            A-Fission</em>:⁠<label class="margin-toggle sidenote-number" for="sn-24"></label><input class="margin-toggle" id="sn-24" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">The coming argument draws on <a class="citation-link" href="https://doi.org/10.1093/mind/fzn079">Huemer’s (2008: 901–903)</a> Benign Addition
+            Argument, inspired by <a class="citation-link" href="#ref-54">Parfit’s (1984: ch.19)</a> original Mere Addition
+            Paradox. It shares some similarities with <a class="citation-link" href="https://doi.org/10.1007/s10670-022-00610-1">Gustafsson’s and Kosonen’s
+            (2022)</a> argument that, all else equal, it is better for a person to have
+            more fission-products with good lives.</span></span></span></p>
+<p class="display-label">
+<strong>Benign A-Fission</strong>
+</p>
+<table style="width:95%;">
+<colgroup>
+<col style="width: 15%"/>
+<col style="width: 15%"/>
+<col style="width: 15%"/>
+<col style="width: 15%"/>
+<col style="width: 15%"/>
+<col style="width: 15%"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="2">No Split</th>
+<th colspan="2">Split B</th>
+<th colspan="2">Split C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anna</td>
+<td style="text-align: center;">80</td>
+<td>Anna</td>
+<td style="text-align: center;">10</td>
+<td>Anna</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td>Lefty</td>
+<td style="text-align: center;">Ω</td>
+<td>Lefty</td>
+<td style="text-align: center;">90</td>
+<td>Lefty</td>
+<td style="text-align: center;">60</td>
+</tr>
+<tr>
+<td>Righty</td>
+<td style="text-align: center;">Ω</td>
+<td>Righty</td>
+<td style="text-align: center;">10</td>
+<td>Righty</td>
+<td style="text-align: center;">60</td>
+</tr>
+</tbody>
+</table>
+<p>Split B seems better for Anna than No Split, for the
+            reasons given above. In particular, Split B would be better
+            for Anna than No Split if only Lefty existed, and it’s
+            difficult to see how reintroducing Righty could make Anna
+            worse off: pre-fission Anna shouldn’t think that she’d
+            benefit by bribing the surgeon to drop the right half of her
+            brain, thereby ensuring that Righty doesn’t exist (<a class="citation-link" href="https://www.academia.edu/8854258/Personal_Identity_and_Aggregation">Campbell,
+            n.d.</a>: 9; <a class="citation-link" href="#ref-52">Nozick 1981</a>: 64–65). After all, the relation that
+            matters is plausibly <em>intrinsic</em> (<a class="citation-link" href="#ref-54">Parfit 1984</a>: 263):
+            whether Lefty’s welfare contributes to the quality of Anna’s
+            life — and the degree to which it does so — depends only on
+            the relations that obtain between Lefty and Anna. It doesn’t
+            depend on what happens elsewhere, or on the relations that
+            obtain between either Lefty or Anna and any other
+            person.⁠<label class="margin-toggle sidenote-number" for="sn-25"></label><input class="margin-toggle" id="sn-25" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">To pump intuitions here, suppose that Anna has the opportunity to
+            incur some welfare-cost in her own life-episode in order to bestow some
+            welfare-benefit on Lefty’s life-episode. Per my intuitions, Anna need
+            not determine whether Righty will exist in order to determine whether
+            the cost is prudentially worth paying.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">One might doubt this claim if one thinks that Anna should have some
+            fixed degree of prudential concern for all her splittees, so that
+            Lefty’s welfare is prudentially half as important to Anna if Righty is
+            on the scene (and vice versa). But this view has counterintuitive
+            implications, especially in cases of negative welfare. Here’s an
+            example. Suppose that — by default — only Lefty will exist, with welfare
+            <span class="paper-inline-math-unit"><span class="math inline">\(- 100\)</span>⁠.</span> Anna can ensure that Righty
+            exists too, but doing so will drop Lefty’s welfare to <span class="paper-inline-math-unit"><span class="math inline">\(- 180\)</span>⁠,</span> and Righty will have welfare <span class="paper-inline-math-unit"><span class="math inline">\(- 10\)</span>⁠.</span> That change seems worse for Anna,
+            but the view under consideration implies that it’s a change for the
+            better.</span></span></span></p>
+<p>Split C, meanwhile, seems better for Anna than Split B.
+            Lefty’s life-branch is a little worse in Split C, but
+            Righty’s life-branch is much better. Split C is more equal,
+            and it has greater total and average welfare. Given the
+            transitivity of ‘better for’, the result is that Split C is
+            better for Anna than No Split.</p>
+<p>Suppose that, nevertheless, we choose No Split over Split
+            C. If we should choose as if each of Lefty’s and Righty’s
+            welfare is worth half the equivalent in non-extra welfare,
+            hard and very hard views imply that we were required to make
+            that choice, while soft views imply that we were at least
+            permitted to do so. These person-affecting views thus seem
+            undeserving of the name, since Split C is better for the
+            only non-extra person and very good for everyone
+            else.⁠<label class="margin-toggle sidenote-number" for="sn-26"></label><input class="margin-toggle" id="sn-26" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">One might think that advocates of <em>multiple occupancy</em> can
+            avoid this conclusion. On the multiple occupancy interpretation of
+            fission cases, both splittees exist prior to fission as distinct,
+            co-located persons (<a class="citation-link" href="#ref-41">Lewis 1976</a>). One might then suggest that Righty
+            lives a life of welfare 20 if we choose Split B and lives a life of
+            welfare 80 if we choose No Split. Since Righty would then be worse off
+            in Split B than in No Split, a requirement to choose No Split over Split
+            B would not fall foul of the Person-Affecting Restriction.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">The first thing to note is that this suggestion departs from the
+            orthodox multiple occupancy view. On the orthodox view, Righty doesn’t
+            exist if we choose No Split, and so isn’t worse off if we choose Split
+            B. One could adopt a revised multiple occupancy view on which each of
+            Lefty and Righty exist even in No Split, but this view delivers
+            implausible verdicts in other cases. Suppose for example that in No
+            Split, Anna’s welfare score is <span class="math inline">\(-
+            100\)</span> (and hence, on this revised multiple occupancy view,
+            Lefty’s and Righty’s welfare scores are also <span class="paper-inline-math-unit"><span class="math inline">\(- 100\)</span>⁠).</span> Suppose also that in Split D,
+            Anna is split immediately, and Lefty’s and Righty’s welfare scores are
+            <span class="paper-inline-math-unit"><span class="math inline">\(- 99\)</span>⁠.</span> Given the revised multiple
+            occupancy view’s interpretation of the case, Split D is better than No
+            Split for both Lefty and Righty, and so any plausible moral view will
+            require us to choose Split D. But on a more natural understanding of the
+            case, choosing Split D means nearly doubling the suffering that occurs,
+            for no gain whatsoever. That gives us reason to reject the revised
+            multiple occupancy view.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">See <a class="citation-link" href="#ref-8">Briggs and Nolan (2015)</a> for other implausible consequences
+            stemming from multiple occupancy views.</span></span></span></p>
+<p>That leaves only answer (6): person-affecting views
+            should designate neither Lefty nor Righty as extra. This
+            answer avoids any impersonal-seeming implications. The catch
+            is that (6) exposes person-affecting views to analogues of
+            <em>all</em> of the problems faced by impersonal views like
+            total utilitarianism. Take Repugnant Transition, for
+            example. Total utilitarianism requires that we make the
+            transition, while person-affecting views do
+            not.⁠<label class="margin-toggle sidenote-number" for="sn-27"></label><input class="margin-toggle" id="sn-27" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Strong actualism is (something of) an exception. See footnote 12.</span></span></span>
+            But now consider a minor variation, which we can call
+            <em>Repugnant
+            Fission</em>.⁠<label class="margin-toggle sidenote-number" for="sn-28"></label><input class="margin-toggle" id="sn-28" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">It’s an analogue of <a class="citation-link" href="#ref-54">Parfit’s (1984: 388)</a> Repugnant Conclusion. I
+            discuss a similar point in (<a class="citation-link" href="https://philpapers.org/archive/THOCVB-3.pdf">Thornley forthcoming</a>). There are two other
+            analogues of the Repugnant Conclusion worth mentioning. The first —
+            <a class="citation-link" href="#ref-49">Nebel’s (2019a)</a> — concerns the probability that a person exists. The
+            second — discussed by <a class="citation-link" href="#ref-44">McTaggart (1927: 452–453)</a>, <a class="citation-link" href="#ref-15">Crisp (2006: 112)</a> and
+            <a class="citation-link" href="#ref-68">Temkin (2009: sec.7</a>, <a class="citation-link" href="#ref-69">2012</a>: 119) among others — concerns the duration
+            that a person exists. This latter analogue is counterintuitive, and
+            person-affecting views and impersonal views are similarly vulnerable to
+            it. Whether it’s implied depends entirely on how the relevant view
+            aggregates momentary welfare into lifetime welfare. Because
+            person-affecting views can imply this analogue, one might think that
+            avoiding Repugnant Transition isn’t such a significant advantage of
+            person-affecting views: although person-affecting views avoid Repugnant
+            Transition itself, problems of the same kind can remain. I think an
+            anonymous referee for this point.</span></span></span>
+            Suppose that the world contains only people at the start of
+            their lives. Suppose also that we have two options. We can
+            leave these people unsplit, in which case their lives will
+            be wonderful. Alternatively, we can immediately split each
+            of these people many times, in which case each splittee’s
+            life-branch would be barely worth living. If each splittee
+            is non-extra, their welfare counts in the usual non-extra
+            way. Extant person-affecting views typically aggregate
+            non-extra welfare by summing: a population <span class="math inline">\(A\)</span> is at least as good as a
+            population <span class="math inline">\(B\)</span> with
+            respect to non-extra welfare iff <span class="math inline">\(A\)</span> contains at least as great
+            a sum-total of non-extra welfare as <span class="math inline">\(B\)</span> (<a class="citation-link" href="#ref-14">Cohen 2020</a>; <a class="citation-link" href="#ref-32">Horton 2021</a>:
+            499; <a class="citation-link" href="#ref-42">McDermott 1982, 2019</a>; <a class="citation-link" href="#ref-45">Meacham 2012</a>; <a class="citation-link" href="#ref-71">Thomas 2023</a>). Thus
+            if the number of splittee is great enough (and if we’re
+            required to do what’s best), these person-affecting views
+            imply that we’re required to choose
+            fission.⁠<label class="margin-toggle sidenote-number" for="sn-29"></label><input class="margin-toggle" id="sn-29" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">One might claim that each splittee is identical to all the other
+            splittees along with the original person from whom they split (<a class="citation-link" href="https://doi.org/10.1111/j.1467-9329.1992.tb00041.x">Dainton
+            1992</a>), and that the welfare of life-branches is
+            intrapersonally-aggregated in such a way that each original person is
+            worse off in the post-fission population no matter how many splittees
+            they spawn. But identity-relations this pervasive lead to all kinds of
+            trouble. Setting aside familiar implications about the possibility of
+            one person in two bodies unwittingly playing tennis against herself
+            (<a class="citation-link" href="#ref-54">Parfit 1984</a>: 256–257), the ethical upshots also seem tough-to-swallow.
+            One might have to agree that harming Lefty to benefit Righty is no more
+            morally fraught than harming Anna on Monday to benefit Anna on Tuesday.
+            And even if fission preserves identity, repeated iterations of the
+            Benign A-Fission Argument can be used to conclude that, given enough
+            splittees, each of the original people is better off in the post-fission
+            population.</span></span></span> But this verdict seems
+            about as repugnant as Repugnant Transition. After all, the
+            post-fission world could be almost exactly like the
+            post-transition world. Both could contain a vast number of
+            human beings subsisting on ‘muzak and potatoes’ (<a class="citation-link" href="#ref-55">Parfit
+            1986</a>: 148).</p>
+<p>More generally, wherever <em>creating new people</em>
+            raises a problem for impersonal views, <em>creating new
+            splittees</em> raises an analogous problem for
+            person-affecting views coupled with (6): the claim that
+            splittees are non-extra. For example, while person-affecting
+            views are largely neutral about making happy people, (6)
+            implies that they’re in favour of making happy splittees.
+            All else equal, creating happy splittees is required. These
+            person-affecting views thus contravene an analogue of
+            Narveson’s Slogan. Person-affecting views paired with (6)
+            also violate an analogue of Roberts’ and Chappell’s Deeper
+            Intuition. According to <em>Deeper Intu-Fission</em>, we
+            ought to benefit an existing person in some fission-free way
+            by some amount <span class="math inline">\(g\)</span> rather
+            than create a new splittee with welfare <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span> But if splittees are
+            non-extra and we aggregate non-extra welfare by summing,
+            creating the new splittee is permissible. And if the new
+            splittee would have welfare
+            ever-so-slightly-greater-than-<span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠,</span> creating them would be
+            required. Like impersonal views, then, person-affecting
+            views paired with (6) imply something that might seem
+            perverse: in some circumstances, we could be required to
+            create new splittees rather than help those suffering
+            today.</p>
+<p>Answer (6) — the claim that splittees are non-extra —
+            also means that person-affecting views can require large
+            sacrifices in the present for the sake of unlikely benefits
+            in the far future. Consider again the Good Future from
+            section 3, in which Earth plays host to <span class="math inline">\(10^{17}\)</span> wonderful lives. This
+            time, however, imagine that humans reproduce a little more
+            like amoebae. We split after 70 years, with one splittee
+            dying soon afterwards and the other living 70 years before
+            themselves splitting, and so on. Suppose that there are
+            <span class="math inline">\(10^{17}\)</span> 70-year
+            life-branches in this population and <span class="math inline">\(10^{17}\)</span> fleeting
+            life-branches. Each 70-year life-branch is wonderful, and
+            each fleeting life-branch is neutral. Each splittee is
+            fully-connected-in-all-the-ways-that-might-matter to the
+            person from whom they split. The Short Future also features
+            humans-like-amoebae but is otherwise as before: runaway
+            climate change, nuclear war, the release of an engineered
+            pathogen, or some other disaster causes humanity to go
+            extinct a century from now.</p>
+<p>Suppose again that we — the present generation — can
+            shift the probabilities with which these two futures come
+            about. By all worsening our (by-default wonderful) current
+            life-branches so that they’re just barely worth living, we
+            can decrease the chance of the Short Future by <span class="math inline">\(p\)</span> and increase the chance of
+            the Good Future by <span class="paper-inline-math-unit"><span class="math inline">\(p\)</span>⁠.</span>
+            The other option is business-as-usual. For what values of
+            <span class="math inline">\(p\)</span> must we take the
+            plunge? If our person-affecting view take splittees to be
+            non-extra, aggregates non-extra welfare by summing, ranks
+            risky options using expected value theory, and requires us
+            to do what’s best, the answer is roughly ‘Any value greater
+            than or equal to 0.0000008.’ We’re required to make enormous
+            sacrifices in the present-day for the sake of far-future
+            splittees that may never exist, even if those sacrifices
+            have just an eight-in-ten-million chance of paying off. Call
+            this implication <em>Fission Sacrifice</em>. It seems to me
+            about as implausible as Our Sacrifice: expected total
+            utilitarianism’s verdict in our original case.</p>
+<p>Here’s the current state-of-play. If — as I’ve claimed —
+            Repugnant Fission is about as implausible as Repugnant
+            Transition, violations of Deeper Intu-Fission are about as
+            implausible as violations of the Deeper Intuition, and
+            Fission Sacrifice is about as implausible as Our Sacrifice,
+            then the advantages of a certain family of person-affecting
+            views over expected total utilitarianism have evaporated.
+            This family of person-affecting views consists of those
+            views that embrace (6) — the claim that splittees are
+            non-extra — along with aggregation-by-summing, expected
+            value theory, and a requirement to do what’s best. We have
+            little reason to prefer these person-affecting views to
+            expected total utilitarianism, and we have more-than-little
+            reason for the opposite preference. Person-affecting views
+            face problems that impersonal views do not.</p>
+<p>One might reply that person-affecting views and answer
+            (6) are blameless in these cases: the real culprit(s) in
+            Repugnant Fission and the violation of Deeper Intu-Fission
+            is aggregation-by-summing or maximising consequentialism
+            (the claim that we’re required to do what’s best), and the
+            real culprit(s) in Fission Sacrifice are
+            aggregation-by-summing, expected value theory, or maximising
+            consequentialism. This thought has some merit: there are
+            alternative aggregation rules, rules for ranking risky
+            options, and rules for deriving requirements that allow
+            person-affecting views paired with (6) to avoid some of
+            these problems. However, this fact is cold comfort for
+            advocates of person-affecting views, because those very same
+            aggregation rules (albeit applied to all welfare, rather
+            than just non-extra welfare), rules for ranking risky
+            options, and rules for deriving requirements allow
+            impersonal views to avoid those same problems, along with
+            their non-fission analogues. And in fact, answer (6) implies
+            a more general conclusion: no matter what aggregation rule
+            <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> rule for ranking
+            risky options <span class="paper-inline-math-unit"><span class="math inline">\(R\)</span>⁠,</span> and
+            rule for deriving requirements <span class="math inline">\(D\)</span> we choose, each
+            person-affecting view paired with (6), <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(R\)</span>⁠,</span> and <span class="math inline">\(D\)</span> will face fission analogues
+            of whatever problems exist for an impersonal view paired
+            with <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(R\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(D\)</span>⁠.</span> If these fission analogues
+            are as implausible as the originals, we have little reason
+            to prefer person-affecting views plus (6) to the
+            corresponding impersonal views.</p>
+<p>One might then claim that the fission analogues are more
+            plausible than the originals. One might defend this claim by
+            pointing out that Fission Sacrifice isn’t really a
+            sacrifice, at least not in any moral sense. That’s because
+            we — the present generation — are
+            connected-in-all-the-ways-that-might-matter to these
+            far-future splittees. Their existence would be good <em>for
+            us</em>, and to such an extent that we’re each better off in
+            expectation choosing fission sacrifice over
+            business-as-usual. One might say something similar about
+            Repugnant Fission: splitting is better <em>for each person
+            in the original population</em>. Although each of the
+            resulting life-branches is barely worth living, each of the
+            original people is
+            connected-in-all-the-ways-that-might-matter to many such
+            life-branches. That makes splitting better for them overall.
+            One might also claim that violating Deeper Intu-Fission
+            isn’t so bad, because creating a new splittee with welfare
+            <span class="math inline">\(g\)</span> <em>is a way of
+            benefitting the original person by</em> <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span></p>
+<p>With regards to the relative plausibility of Fission
+            Sacrifice and Our Sacrifice, I’ve run out of arguments. I
+            can only report my own view, which is that the appeal to
+            <em>betterness for us</em> doesn’t make much difference. The
+            lion’s share of implausibility — in both cases — comes from
+            the enormous upfront cost and the tiny probability of any
+            payoff. Faced with this pricy long-shot bet, I get little
+            solace from the thought that it will be <em>I</em> — rather
+            than someone else — who might get to enjoy wonderful
+            life-branches far into the future.</p>
+<p>What about the relative plausibility of Deeper
+            Intu-Fission and the Deeper Intuition? Here I have an
+            argument. Although it’s true that creating a new splittee
+            with welfare <span class="math inline">\(g\)</span> is a way
+            of benefitting the original person by <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠,</span> this point does little to
+            address the most troubling violations of Deeper
+            Intu-Fission: cases in which we ought to create a new happy
+            splittee from an existing person rather than relieve the
+            suffering of a <em>different</em> existing person. The
+            possibility of these cases seems to me at least as
+            implausible as the possibility of cases that violate the
+            Deeper Intuition: cases in which we ought to create a new
+            happy person rather than relieve the suffering of an
+            existing person.</p>
+<p>Finally, consider the relative plausibility of Repugnant
+            Fission and Repugnant Transition. Here too I have an
+            argument. Although splitting is better for each person in
+            the original population, we need also consider the interests
+            of each splittee. And doing so illuminates a sense in which
+            Repugnant Fission is <em>less</em> plausible than Repugnant
+            Transition. As noted above, many of the people living
+            mediocre lives in Repugnant Transition are plucked from the
+            ether. They’re not connected-in-any-way-that-might-matter to
+            any person who would have existed if we made the other
+            choice. But all of the splittees living mediocre
+            life-branches in Repugnant Fission are
+            connected-in-all-the-ways-that-might-matter to a person who
+            would have lived a wonderful life if we made the other
+            choice.</p>
+<p>The upshot, I claim, is that the implications of
+            person-affecting views paired with (6),
+            aggregation-by-summing, expected value theory, and
+            maximising consequentialism remain counterintuitive, and
+            roughly <em>as</em> counterintuitive as the corresponding
+            implications of expected total utilitarianism. It’s
+            counterintuitive to suppose that a population of people
+            living wonderful lives is worse than a large population of
+            humans on life-branches barely worth living, <em>even if
+            those humans are the product of fission</em>. It’s
+            counterintuitive to suppose that we must sacrifice all
+            that’s good in this century for the sake of a long-shot bet
+            on far-future welfare, <em>even in a world where we
+            reproduce like amoebae</em>. And it’s counterintuitive to
+            suppose that we should create new humans rather than help
+            those suffering today, <em>even if these new humans are
+            split off from those already existing</em>. If all that’s
+            the case, then it can’t be the impersonal aspect of expected
+            total utilitarianism that’s cause for concern. The trouble —
+            if there is any — must have its roots elsewhere: in expected
+            total utilitarianism’s demandingness, its indifference to
+            injustice, its happy substitution of quality for quantity,
+            its taste for speculative gambles, or its inhuman patience.
+            And any person-affecting view worth the name — paired with
+            expected total utilitarianism’s rules for aggregation,
+            ranking risky options, and deriving requirements —
+            <em>also</em> has these features. The upshot is that we have
+            little reason to prefer these person-affecting views to
+            expected total utilitarianism.</p>
+<p>What’s more, as distasteful as the above features may
+            seem, we know that there are costs to denying
+            aggregation-by-summing, expected value theory, and
+            maximising
+            consequentialism.⁠<label class="margin-toggle sidenote-number" for="sn-30"></label><input class="margin-toggle" id="sn-30" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">I’ve been emphasising the problems for expected total utilitarianism,
+            but various impossibility theorems prove that every aggregation rule
+            (<a class="citation-link" href="#ref-1">Arrhenius 2011</a>; <a class="citation-link" href="#ref-11">Carlson 1998</a>; <a class="citation-link" href="#ref-54">Parfit 1984</a>: ch.19) and rule for ranking
+            risky options (<a class="citation-link" href="https://globalprioritiesinstitute.org/nick-beckstead-and-teruji-thomas-a-paradox-for-tiny-probabilities-and-enormous-values/">Beckstead &amp; Thomas 2021</a>) has at least one
+            implausible-seeming implication. Departures from maximising
+            consequentialism face issues like the paradox of deontology (<a class="citation-link" href="#ref-62">Scheffler
+            1982, 1985</a>), various paradoxes of supererogation (<a class="citation-link" href="#ref-31">Horton 2017</a>; <a class="citation-link" href="#ref-37">Kamm
+            1985, 2001: ch.12, 2007: 30–31</a>; <a class="citation-link" href="https://doi.org/10.1111/nous.12326">Muñoz 2020</a>; <a class="citation-link" href="#ref-65">Sidgwick 1907</a>: 220), and
+            <a class="citation-link" href="#ref-36">Kagan’s (1989)</a> objections to constraints and prerogatives.</span></span></span>
+            Person-affecting views paired with answer (6) are liable to
+            bear these costs, just as impersonal views are. Therefore,
+            whatever rules we settle on for aggregating welfare, ranking
+            risky options and deriving requirements, we have little
+            reason to pair these rules with a person-affecting view
+            rather than an impersonal view. If the former view is truly
+            person-affecting, it will face fission analogues of all of
+            the problems that afflict the impersonal view, in addition
+            to the problems that afflict person-affecting views
+            alone.</p>
+<h1 data-number="5" id="conclusion"><span class="header-section-number">5.</span> Conclusion</h1>
+<p>On first glance, person-affecting views seem to have
+            significant advantages over impersonal views like expected
+            total utilitarianism. Person-affecting views tend to respect
+            Narveson’s Slogan and the Deeper Intuition, and they mostly
+            avoid implications like Repugnant Transition and Our
+            Sacrifice.</p>
+<p>In this paper, I’ve argued that the advantages of
+            person-affecting views aren’t as significant as they first
+            appear. Parfit-style fission cases confront these views with
+            a dilemma: either violate the spirit of the Person-Affecting
+            Requirement, or else imply fission analogues of the problems
+            that blight impersonal views. In light of this dilemma, the
+            advantages of person-affecting views largely evaporate. What
+            remains are the problems unique to
+            them.⁠<label class="margin-toggle sidenote-number" for="sn-31"></label><input class="margin-toggle" id="sn-31" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">For helpful comments and discussion, I thank Jonas H. Aaron, Adam
+            Bales, Tomi Francis, Hilary Greaves, Teruji Thomas, Hayden Wilkinson,
+            and two anonymous referees for <em>Ergo</em>.</span></span></span></p>
+<h1 id="references">References</h1>
+<p class="reference-entry" id="ref-1">Arrhenius, Gustaf. (2011). The Impossibility of a
+            Satisfactory Population Ethics. In Ehtibar N. Dzhafarov
+            &amp; Lacey Perry (Eds.), <em>Descriptive and Normative
+            Approaches to Human Behavior</em> (1–26). World Scientific
+            Publishing Company.</p>
+<p class="reference-entry" id="ref-2">Arrhenius, Gustaf. (forthcoming). <em>Population Ethics:
+            The Challenge of Future Generations</em>. Oxford University
+            Press.</p>
+<p class="reference-entry" id="ref-3">Bader, Ralf M. (2022). Person-affecting utilitarianism.
+            In Gustaf Arrhenius, Krister Bykvist, Tim Campbell, &amp;
+            Elizabeth Finneron-Burns (Eds.), <em>The Oxford Handbook of
+            Population Ethics</em>. Oxford University Press.</p>
+<p class="reference-entry" id="ref-4">Beckstead, Nick. (2013). <em><a class="reference-title-link" href="https://doi.org/10.7282/T35M649T">On the Overwhelming
+ Importance of Shaping the Far Future</a></em> (PhD Thesis,
+ Rutgers University). Retrieved from
+  </p>
+<p class="reference-entry" id="ref-5">Beckstead, Nick, and Teruji Thomas. (2021). A Paradox for
+ Tiny Probabilities and Enormous Values. <em><a class="reference-title-link" href="https://globalprioritiesinstitute.org/nick-beckstead-and-teruji-thomas-a-paradox-for-tiny-probabilities-and-enormous-values/">GPI Working
+ Paper</a></em>, <em>No. 7-2021.</em> Retrieved from
+  </p>
+<p class="reference-entry" id="ref-6">Bigelow, John, and Robert Pargetter. (1988). Morality,
+            Potential Persons and Abortion. <em>American Philosophical
+            Quarterly</em>, <em>25</em>(2), 173–181.</p>
+<p class="reference-entry" id="ref-7">Bradley, Ben. (2013). Asymmetries in Benefiting, Harming
+            and Creating. <em>The Journal of Ethics</em>,
+            <em>17</em>(1), 37–49.</p>
+<p class="reference-entry" id="ref-8">Briggs, Rachael, and Daniel Nolan. (2015). Utility
+            Monsters for the Fission Age. <em>Pacific Philosophical
+            Quarterly</em>, <em>96</em>(3), 392–407.</p>
+<p class="reference-entry" id="ref-9">Broome, John. (1999). <em>Ethics out of Economics</em>.
+            Cambridge University Press.</p>
+<p class="reference-entry" id="ref-10">Campbell, Tim. (n.d.). <em><a class="reference-title-link" href="https://www.academia.edu/8854258/Personal_Identity_and_Aggregation">Personal Identity and
+ Aggregation</a></em> Retrieved from
+  </p>
+<p class="reference-entry" id="ref-11">Carlson, Erik. (1998). Mere Addition and Two Trilemmas of
+            Population Ethics. <em>Economics &amp; Philosophy</em>,
+            <em>14</em>(2), 283–306.</p>
+<p class="reference-entry" id="ref-12">Chappell, Richard Yetter. (2015). Value Receptacles.
+            <em>Noûs</em>, <em>49</em>(2), 322–332.</p>
+<p class="reference-entry" id="ref-13">Chappell, Richard Yetter. (2017). Rethinking the
+            Asymmetry. <em>Canadian Journal of Philosophy</em>,
+            <em>47</em>(2–3), 167–177.</p>
+<p class="reference-entry" id="ref-14">Cohen, Daniel. (2020). An Actualist Explanation of the
+            Procreation Asymmetry. <em>Utilitas</em>, <em>32</em>(1),
+            70–89.</p>
+<p class="reference-entry" id="ref-15">Crisp, Roger. (2006). <em>Reasons and the Good</em>.
+            Oxford University Press.</p>
+<p class="reference-entry" id="ref-16">Dainton, Barry F. (1992). Time and division.
+ <em><a class="reference-title-link" href="https://doi.org/10.1111/j.1467-9329.1992.tb00041.x">Ratio</a></em>, <em>5</em>(2), 102–128.
+  </p>
+<p class="reference-entry" id="ref-17">Francis, Tomi. (2021). Anonymity and Non-Identity Cases.
+ <em><a class="reference-title-link" href="https://doi.org/10.1093/analys/anab031">Analysis</a></em>, <em>81</em>(4), 632–639.
+  </p>
+<p class="reference-entry" id="ref-18">Francis, Tomi. (n.d.). <em><a class="reference-title-link" href="https://drive.google.com/file/d/1XoVVH0kd6st50VspvLzZVZdA6uVKbk38/view">In Favour of Making Happy
+ People</a></em> Retrieved from
+  </p>
+<p class="reference-entry" id="ref-19">Frick, Johann. (2017). On the survival of humanity.
+            <em>Canadian Journal of Philosophy</em>, <em>47</em>(2–3),
+            344–367.</p>
+<p class="reference-entry" id="ref-20">Frick, Johann. (2020). Conditional Reasons and the
+            Procreation Asymmetry. <em>Philosophical Perspectives</em>,
+            <em>34</em>(1), 53–87.</p>
+<p class="reference-entry" id="ref-21">Greaves, Hilary. (2017). Population Axiology.
+            <em>Philosophy Compass</em>, <em>12</em>(11).</p>
+<p class="reference-entry" id="ref-22">Greaves, Hilary, and John Cusbert. (2022). Comparing
+            Existence and Non-Existence. In Jeff McMahan, Tim Campbell,
+            James Goodrich, &amp; Ketan Ramakrishnan (Eds.), <em>Ethics
+            and Existence: The Legacy of Derek Parfit</em>. Oxford
+            University Press.</p>
+<p class="reference-entry" id="ref-23">Greaves, Hilary, and William MacAskill. (2021). The Case
+ for Strong Longtermism. <em><a class="reference-title-link" href="https://globalprioritiesinstitute.org/hilary-greaves-william-macaskill-the-case-for-strong-longtermism/">GPI Working Paper</a></em>,
+ <em>No. 5-2021.</em> Retrieved from
+  </p>
+<p class="reference-entry" id="ref-24">Greaves, Hilary, William MacAskill, and Elliott Thornley.
+            (2021). The Moral Case for Long-Term Thinking. In Natalie
+            Cargill &amp; Tyler M. John (Eds.), <em>The Long View:
+            Essays on Policy, Philanthropy, and the Long-term
+            Future</em> (19–28). FIRST.</p>
+<p class="reference-entry" id="ref-25">Gustafsson, Johan E. and Petra Kosonen. (2022). Do Lefty
+ and Righty Matter More Than Lefty Alone?
+ <em><a class="reference-title-link" href="https://doi.org/10.1007/s10670-022-00610-1">Erkenntnis</a></em>.
+  </p>
+<p class="reference-entry" id="ref-26">Hare, Caspar. (2007). Voices from Another World: Must We
+            Respect the Interests of People Who Do Not, and Will Never,
+            Exist? <em>Ethics</em>, <em>117</em>(3), 498–523.</p>
+<p class="reference-entry" id="ref-27">Heyd, David. (1988). Procreation and value: Can ethics
+            deal with futurity problems? <em>Philosophia</em>,
+            <em>18</em>(2–3), 151–170.</p>
+<p class="reference-entry" id="ref-28">Heyd, David. (1992). <em>Genethics: Moral Issues in the
+            Creation of People</em>. University of California Press.</p>
+<p class="reference-entry" id="ref-29">Holtug, Nils. (2004). Person-Affecting Moralities. In
+            Torbjörn Tännsjö &amp; Jesper Ryberg (Eds.), <em>The
+            Repugnant Conclusion: Essays on Population Ethics</em>
+            (129–161). Kluwer Academic Publishers.</p>
+<p class="reference-entry" id="ref-30">Holtug, Nils. (2010). <em><a class="reference-title-link" href="https://academic.oup.com/book/9142">Persons, Interests, and
+ Justice</a></em> Retrieved from
+  </p>
+<p class="reference-entry" id="ref-31">Horton, Joe. (2017). The All or Nothing Problem. <em>The
+            Journal of Philosophy</em>, <em>114</em>(2), 94–104.</p>
+<p class="reference-entry" id="ref-32">Horton, Joe. (2021). New and Improvable Lives. <em>The
+            Journal of Philosophy</em>, <em>118</em>(9), 486–503.</p>
+<p class="reference-entry" id="ref-33">Huemer, Michael. (2008). In Defence of Repugnance.
+ <em><a class="reference-title-link" href="https://doi.org/10.1093/mind/fzn079">Mind</a></em>, <em>117</em>(468), 899–933.
+  </p>
+<p class="reference-entry" id="ref-34">Hume, David. (1738). <em>A Treatise of Human Nature</em>
+            (Norton, David Fate &amp; Norton, Mary J., Eds.). Oxford
+            University Press.</p>
+<p class="reference-entry" id="ref-35">Johansson, Jens. (2010). Parfit on Fission.
+            <em>Philosophical Studies</em>, <em>150</em>(1), 21–35.</p>
+<p class="reference-entry" id="ref-36">Kagan, Shelly. (1989). <em>The Limits of Morality</em>.
+            Clarendon Press.</p>
+<p class="reference-entry" id="ref-37">Kamm, Frances Myrna. (1985). Supererogation and
+            Obligation. <em>The Journal of Philosophy</em>,
+            <em>82</em>(3), 118–138.</p>
+<p class="reference-entry" id="ref-38">Kamm, Frances Myrna. (2001). <em>Morality, Mortality:
+            Volume II: Rights, Duties, and Status</em>. Oxford
+            University Press.</p>
+<p class="reference-entry" id="ref-39">Kamm, Frances Myrna. (2005). Moral status and personal
+            identity: clones, embryos, and future generations.
+            <em>Social Philosophy and Policy</em>, <em>22</em>(2),
+            283–307.</p>
+<p class="reference-entry" id="ref-40">Kamm, Frances Myrna. (2007). <em>Intricate Ethics:
+            Rights, Responsibilities, and Permissible Harm</em>. Oxford
+            University Press.</p>
+<p class="reference-entry" id="ref-41">Lewis, David. (1976). Survival and Identity. In Amelie
+            Oksenberg Rorty (Ed.), <em>The Identities of Persons</em>
+            (17–40). University of California Press.</p>
+<p class="reference-entry" id="ref-42">McDermott, Michael. (1982). Utility and population.
+            <em>Philosophical Studies</em>, <em>42</em>(2), 163–177.</p>
+<p class="reference-entry" id="ref-43">McDermott, Michael. (2019). Harms and objections.
+            <em>Analysis</em>, <em>79</em>(3), 436–448.</p>
+<p class="reference-entry" id="ref-44">McTaggart, John M.E. (1927). <em>The Nature of Existence
+            Volume II</em>. Cambridge University Press.</p>
+<p class="reference-entry" id="ref-45">Meacham, Christopher J. G. (2012). Person-affecting views
+            and saturating counterpart relations. <em>Philosophical
+            Studies</em>, <em>158</em>(2), 257–287.</p>
+<p class="reference-entry" id="ref-46">Mogensen, Andreas. (2019). Staking our future: deontic
+ long-termism and the non-identity problem. <em><a class="reference-title-link" href="https://globalprioritiesinstitute.org/andreas-mogensen-staking-our-future-deontic-long-termism-and-the-non-identity-problem/">GPI Working
+ Paper</a></em>, <em>No. 9-2019.</em> Retrieved from
+  </p>
+<p class="reference-entry" id="ref-47">Muñoz, Daniel. (2020). Three paradoxes of supererogation.
+ <em><a class="reference-title-link" href="https://doi.org/10.1111/nous.12326">Noûs</a></em>, 1–18.  </p>
+<p class="reference-entry" id="ref-48">Narveson, Jan. (1973). Moral problems of population.
+            <em>The Monist</em>, <em>57</em>(1), 62–86.</p>
+<p class="reference-entry" id="ref-49">Nebel, Jacob M. (2019a). An Intrapersonal Addition
+            Paradox. <em>Ethics</em>, <em>129</em>(2), 309–343.</p>
+<p class="reference-entry" id="ref-50">Nebel, Jacob M. (2019b). Asymmetries in the Value of
+            Existence. <em>Philosophical Perspectives</em>,
+            <em>33</em>(1), 126–145.</p>
+<p class="reference-entry" id="ref-51">Nebel, Jacob M. (2021). Conservatisms about the Valuable.
+            <em>Australasian Journal of Philosophy</em>, 1–15.</p>
+<p class="reference-entry" id="ref-52">Nozick, Robert. (1981). <em>Philosophical
+            Explanations</em>. Harvard University Press.</p>
+<p class="reference-entry" id="ref-53">Ord, Toby. (2020). <em>The Precipice: Existential Risk
+            and the Future of Humanity</em>. Bloomsbury.</p>
+<p class="reference-entry" id="ref-54">Parfit, Derek. (1984). <em>Reasons and Persons</em>.
+            Clarendon Press.</p>
+<p class="reference-entry" id="ref-55">Parfit, Derek. (1986). Overpopulation and the Quality of
+            Life. In Peter Singer (Ed.), <em>Applied Ethics</em>
+            (145–64). Oxford University Press.</p>
+<p class="reference-entry" id="ref-56">Parsons, Josh. (2002). Axiological Actualism.
+            <em>Australasian Journal of Philosophy</em>, <em>80</em>(2),
+            137–147.</p>
+<p class="reference-entry" id="ref-57">Podgorski, Abelard. (2021). Complaints and tournament
+ population ethics. <em><a class="reference-title-link" href="https://doi.org/10.1111/phpr.12860">Philosophy and Phenomenological
+ Research</a></em> </p>
+<p class="reference-entry" id="ref-58">Pummer, Theron. (2024). Future Suffering and the
+ Non-Identity Problem. <em><a class="reference-title-link" href="https://globalprioritiesinstitute.org/future-suffering-and-the-non-identity-problem-theron-pummer/">GPI Working Paper</a></em>,
+ <em>No. 17-2024.</em> Retrieved from
+  </p>
+<p class="reference-entry" id="ref-59">Roberts, Melinda A. (2011a). An Asymmetry in the Ethics
+            of Procreation. <em>Philosophy Compass</em>, <em>6</em>(11),
+            765–776.</p>
+<p class="reference-entry" id="ref-60">Roberts, Melinda A. (2011b). The Asymmetry: A Solution.
+            <em>Theoria</em>, <em>77</em>(4), 333–367.</p>
+<p class="reference-entry" id="ref-61">Ross, Jacob. (2015). Rethinking the Person-Affecting
+            Principle. <em>Journal of Moral Philosophy</em>,
+            <em>12</em>(4), 428–461.</p>
+<p class="reference-entry" id="ref-62">Scheffler, Samuel. (1982). <em>The Rejection of
+            Consequentialism</em>. Clarendon Press.</p>
+<p class="reference-entry" id="ref-63">Scheffler, Samuel. (1985). Agent-Centred Restrictions,
+            Rationality, and the Virtues. <em>Mind</em>,
+            <em>XCIV</em>(375), 409–419.</p>
+<p class="reference-entry" id="ref-64">Setiya, Kieran. (2014). The Ethics of Existence.
+            <em>Philosophical Perspectives</em>, <em>28</em>(1),
+            291–301.</p>
+<p class="reference-entry" id="ref-65">Sidgwick, Henry. (1907). <em>The Methods of Ethics</em>
+            (Seventh Edition). Macmillan.</p>
+<p class="reference-entry" id="ref-66">Singer, Peter. (2011). <em>Practical Ethics</em> (5th
+            ed.). Cambridge University Press.</p>
+<p class="reference-entry" id="ref-67">Spencer, Jack. (2021). The procreative asymmetry and the
+            impossibility of elusive permission. <em>Philosophical
+            Studies</em>, <em>178</em>(11), 3819–3842.</p>
+<p class="reference-entry" id="ref-68">Temkin, Larry S. (2009). Aggregation Within Lives.
+            <em>Social Philosophy and Policy</em>, <em>26</em>(1),
+            1–29.</p>
+<p class="reference-entry" id="ref-69">Temkin, Larry S. (2012). <em>Rethinking the Good: Moral
+            Ideals and the Nature of Practical Reasoning</em>. Oxford
+            University Press.</p>
+<p class="reference-entry" id="ref-70">Thomas, Teruji. (2016). <em><a class="reference-title-link" href="https://philpapers.org/archive/THOTIP.pdf">Topics in Population
+ Ethics</a></em> (University of Oxford). Retrieved from
+  </p>
+<p class="reference-entry" id="ref-71">Thomas, Teruji. (2023). The Asymmetry, Uncertainty, and
+            the Long Term. <em>Philosophy and Phenomenological
+            Research</em>, <em>107</em>(2), 470–500.</p>
+<p class="reference-entry" id="ref-72">Thornley, Elliott. (2023). The Procreation Asymmetry,
+            Improvable-Life Avoidance, and Impairable-Life Acceptance.
+            <em>Analysis</em>, <em>83</em>(3), 517–526.</p>
+<p class="reference-entry" id="ref-73">Thornley, Elliott. (2024). A Non-Identity Dilemma for
+ Person-Affecting Views. <em><a class="reference-title-link" href="https://globalprioritiesinstitute.org/a-non-identity-dilemma-for-person-affecting-views-thornley/">GPI Working Paper</a></em>,
+ <em>No. 6-2024.</em> Retrieved from
+  </p>
+<p class="reference-entry" id="ref-74">Thornley, Elliott. (forthcoming). Critical-Set Views,
+ Biographical Identity, and the Long Term. <em><a class="reference-title-link" href="https://philpapers.org/archive/THOCVB-3.pdf">Australasian
+ Journal of Philosophy</a></em> Retrieved from
+  </p>
+<p class="reference-entry" id="ref-75">Warren, Mary Anne. (1977). Do Potential People Have Moral
+            Rights? <em>Canadian Journal of Philosophy</em>,
+            <em>7</em>(2), 275–289.</p>
+<footer>
+<p><a href="/">Back to home</a></p>
+</footer>
+</div>
+</article>
+<script defer="" src="/assets/js/paper-toc.js?v=20260722e"></script>
+</body>
+</html>

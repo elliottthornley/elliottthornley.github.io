@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Spurious correlations in
+preference optimization are now well-documented empirically and, for
+log-linear Direct Preference Optimization, structurally inevitable.
+Augmenting training with ties, equal-utility preference pairs, provably
+suppresses this reliance, but uniform tie injection wastes training
+budget on anchors where the model is already neutral on the spurious
+axis. We propose Selective Tie Learning, which scores each candidate tie
+by its first-order influence on a spurious-energy functional and trains
+only on the highest-value ties. We prove that this selection is budget
+optimal in the idealized setting, and we validate the mechanism on both
+analytic models and large language models." name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="Selective Tie Learning:
+Influence-Based Spurious Correlation Suppression in Preference
+Optimization" property="og:title"/>
+<meta content="Spurious correlations in
+preference optimization are now well-documented empirically and, for
+log-linear Direct Preference Optimization, structurally inevitable.
+Augmenting training with ties, equal-utility preference pairs, provably
+suppresses this reliance, but uniform tie injection wastes training
+budget on anchors where the model is already neutral on the spurious
+axis. We propose Selective Tie Learning, which scores each candidate tie
+by its first-order influence on a spurious-energy functional and trains
+only on the highest-value ties. We prove that this selection is budget
+optimal in the idealized setting, and we validate the mechanism on both
+analytic models and large language models." property="og:description"/>
+<meta content="https://www.elliott-thornley.com/assets/images/elliott-thornley-headshot.jpg" property="og:image"/>
+<meta content="https://www.elliott-thornley.com/src/writing/selective-tie-learning/" property="og:url"/>
+<title>Selective Tie Learning: Influence-Based Spurious Correlation
+Suppression in Preference Optimization | Elliott Thornley</title>
+<link href="https://www.elliott-thornley.com/src/writing/selective-tie-learning/" rel="canonical"/>
+<link href="/assets/images/elliott-thornley-headshot.jpg" rel="icon" type="image/jpeg"/>
+<!-- Tufte CSS -->
+<link href="/assets/css/tufte.css?v=20260722e" rel="stylesheet"/>
+<!-- MathJax for math rendering -->
+<script>
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/bbox', '[tex]/html']
+            },
+            tex: {
+                packages: {'[+]': ['bbox', 'html']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    textsc: ['\\class{paper-math-smallcaps}{\\text{#1}}', 1]
+                }
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Custom styles -->
+<style>
+        nav { padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid #ccc; }
+        nav a, nav a:visited { margin-right: 1.5rem; color: #173f8f; font-size: 1.2rem; text-decoration: none; font-style: normal; }
+        nav a:hover { text-decoration: underline; }
+        .paper-header h1 { font-style: normal; font-weight: 600; }
+        .paper-source-links { width: 100%; max-width: var(--paper-text-width); margin: 0.15rem 0 1.35rem; color: #333; font-size: 1.08rem; line-height: 1.55; }
+        .paper-source-links a { color: #173f8f; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ccc; color: #666; }
+        u { text-decoration: underline; }
+    </style>
+</head>
+<body class="paper-page">
+<article class="paper-layout">
+<div class="paper-main">
+<nav>
+<a href="/">Home</a>
+</nav>
+<header class="paper-header">
+<h1>Selective Tie Learning: Influence-Based Spurious
+Correlation Suppression in Preference Optimization</h1>
+<p class="paper-meta">with Christian
+Moya, Purav Matlia, and Guang Lin</p>
+</header>
+<div class="abstract"><p class="abstract-label">Abstract</p>
+<p>Spurious correlations in
+            preference optimization are now well-documented empirically
+            and, for log-linear Direct Preference Optimization,
+            structurally inevitable. Augmenting training with ties,
+            equal-utility preference pairs, provably suppresses this
+            reliance, but uniform tie injection wastes training budget
+            on anchors where the model is already neutral on the
+            spurious axis. We propose Selective Tie Learning, which
+            scores each candidate tie by its first-order influence on a
+            spurious-energy functional and trains only on the
+            highest-value ties. We prove that this selection is budget
+            optimal in the idealized setting, and we validate the
+            mechanism on both analytic models and large language
+            models.</p>
+</div>
+<footer>
+<p><a href="/">Back to home</a></p>
+</footer>
+</div>
+</article>
+<script defer="" src="/assets/js/paper-toc.js?v=20260722e"></script>
+</body>
+</html>

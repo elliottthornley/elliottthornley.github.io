@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Read There Are No Coherence
+Theorems by Elliott Thornley." name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="There Are No Coherence Theorems" property="og:title"/>
+<meta content="Read There Are No Coherence
+Theorems by Elliott Thornley." property="og:description"/>
+<meta content="https://www.elliott-thornley.com/assets/images/elliott-thornley-headshot.jpg" property="og:image"/>
+<meta content="https://www.elliott-thornley.com/src/writing/there-are-no-coherence-theorems/" property="og:url"/>
+<title>There Are No Coherence Theorems | Elliott Thornley</title>
+<link href="https://www.elliott-thornley.com/src/writing/there-are-no-coherence-theorems/" rel="canonical"/>
+<link href="/assets/images/elliott-thornley-headshot.jpg" rel="icon" type="image/jpeg"/>
+<!-- Tufte CSS -->
+<link href="/assets/css/tufte.css?v=20260722e" rel="stylesheet"/>
+<!-- MathJax for math rendering -->
+<script>
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/bbox', '[tex]/html']
+            },
+            tex: {
+                packages: {'[+]': ['bbox', 'html']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    textsc: ['\\class{paper-math-smallcaps}{\\text{#1}}', 1]
+                }
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Custom styles -->
+<style>
+        nav { padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid #ccc; }
+        nav a, nav a:visited { margin-right: 1.5rem; color: #173f8f; font-size: 1.2rem; text-decoration: none; font-style: normal; }
+        nav a:hover { text-decoration: underline; }
+        .paper-header h1 { font-style: normal; font-weight: 600; }
+        .paper-source-links { width: 100%; max-width: var(--paper-text-width); margin: 0.15rem 0 1.35rem; color: #333; font-size: 1.08rem; line-height: 1.55; }
+        .paper-source-links a { color: #173f8f; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ccc; color: #666; }
+        u { text-decoration: underline; }
+    </style>
+</head>
+<body class="paper-page">
+<article class="paper-layout">
+<div class="paper-main">
+<nav>
+<a href="/">Home</a>
+</nav>
+<header class="paper-header">
+<h1>There Are No Coherence Theorems</h1>
+<p class="paper-meta">Elliott Thornley ·
+AI Alignment Forum, 2023</p>
+</header>
+<h1 data-number="1" id="introduction"><span class="header-section-number">1.</span> Introduction</h1>
+<p>For about fifteen years, the AI safety community has been
+            discussing <a href="https://www.lesswrong.com/tag/coherence-arguments">coherence
+            arguments</a>. In papers and posts on the subject, it’s
+            often written that there exist coherence theorems which
+            state that, unless an agent can be represented as maximizing
+            expected utility, that agent is liable to pursue strategies
+            that are dominated by some other available strategy. Despite
+            the prominence of these arguments, authors are often a
+            little hazy about exactly which theorems qualify as
+            coherence theorems. This is no accident. If the authors had
+            tried to be precise, they would have discovered that there
+            are no such theorems.</p>
+<p>I’m concerned about this. Coherence arguments seem to be
+            a moderately important part of the <a href="https://www.lesswrong.com/posts/LDRQ5Zfqwi8GjzPYG/counterarguments-to-the-basic-ai-x-risk-case">basic
+            case for existential risk from AI</a>. To spot the error in
+            these arguments, we only have to look up what cited
+            ‘coherence theorems’ actually say. And yet the error seems
+            to have gone uncorrected for more than a decade.</p>
+<p>More detail
+            below.⁠<label class="margin-toggle sidenote-number" for="sn-1"></label><input class="margin-toggle" id="sn-1" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Thanks to Adam Bales, Dan Hendrycks, and members of the CAIS
+            Philosophy Fellowship for comments on a draft of this post. When I
+            emailed Adam to ask for comments, he replied with his own draft paper on
+            coherence arguments. Adam’s paper takes a somewhat different view on
+            money-pump arguments, and should be available soon.</span></span></span></p>
+<h1 data-number="2" id="coherence-arguments"><span class="header-section-number">2.</span> Coherence
+            arguments</h1>
+<p>Some authors frame coherence arguments in terms of
+            ‘dominated strategies’. Others frame them in terms of
+            ‘exploitation’, ‘money-pumping’, ‘Dutch Books’, ‘shooting
+            oneself in the foot’, ‘Pareto-suboptimal behavior’, and
+            ‘losing things that one values’ (see the Appendix for
+            examples).</p>
+<p>In the context of coherence arguments, each of these
+            terms means roughly the same thing: a strategy <span class="math inline">\(A\)</span> is <em>dominated</em> by a
+            strategy <span class="math inline">\(B\)</span> if and only
+            if <span class="math inline">\(A\)</span> is worse than
+            <span class="math inline">\(B\)</span> in some respect that
+            the agent cares about and <span class="math inline">\(A\)</span> is not better than <span class="math inline">\(B\)</span> in any respect that the
+            agent cares about. If the agent chooses <span class="math inline">\(A\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠,</span> they have behaved
+            Pareto-suboptimally, shot themselves in the foot, and lost
+            something that they value. If the agent’s loss is someone
+            else’s gain, then the agent has been exploited,
+            money-pumped, or Dutch-booked. Since all these phrases point
+            to the same sort of phenomenon, I’ll save words by talking
+            mainly in terms of ‘dominated strategies’.</p>
+<p>With that background, here’s a quick rendition of <a href="https://aiimpacts.org/what-do-coherence-arguments-imply-about-the-behavior-of-advanced-ai/">coherence</a>
+<a href="https://www.lesswrong.com/posts/DkcdXsP56g9kXyBdq/coherence-arguments-imply-a-force-for-goal-directed-behavior">arguments</a>:</p>
+<ol type="1">
+<li><p>There exist coherence theorems which state that,
+            unless an agent can be represented as maximizing expected
+            utility, that agent is liable to pursue strategies that are
+            dominated by some other available strategy.</p></li>
+<li><p>Sufficiently-advanced artificial agents will not
+            pursue dominated strategies.</p></li>
+<li><p>So, sufficiently-advanced artificial agents will be
+            ‘coherent’: they will be representable as maximizing
+            expected utility.</p></li>
+</ol>
+<p>Typically, authors go on to suggest that these
+            expected-utility-maximizing agents are likely to behave in
+            certain, potentially-dangerous ways. For example, such
+            agents are likely to appear ‘<a href="https://www.lesswrong.com/posts/DkcdXsP56g9kXyBdq/coherence-arguments-imply-a-force-for-goal-directed-behavior">goal-directed</a>’
+            in some intuitive sense. They are likely to have certain <a href="https://selfawaresystems.files.wordpress.com/2008/01/ai_drives_final.pdf">instrumental
+            goals</a>, like acquiring power and resources. And they are
+            likely to fight back against attempts to <a href="https://intelligence.org/files/Corrigibility.pdf">shut
+            them down or modify their goals</a>.</p>
+<p>There are many ways to challenge the argument stated
+            above, and many of those <a href="https://aiimpacts.org/what-do-coherence-arguments-imply-about-the-behavior-of-advanced-ai/">challenges</a>
+<a href="https://www.lesswrong.com/posts/LDRQ5Zfqwi8GjzPYG/counterarguments-to-the-basic-ai-x-risk-case">have</a>
+<a href="https://www.lesswrong.com/posts/NxF5G6CJiof6cemTw/coherence-arguments-do-not-entail-goal-directed-behavior">been</a>
+<a href="https://www.lesswrong.com/posts/vphFJzK3mWA4PJKAg/coherent-behaviour-in-the-real-world-is-an-incoherent">made</a>.
+            There are also many ways to respond to those challenges, and
+            many of those responses have been <a href="https://www.lesswrong.com/posts/EnN7cm3KaRrEAuWfa/comment-on-coherence-arguments-do-not-imply-goal-directed">made</a>
+<a href="https://www.lesswrong.com/posts/DkcdXsP56g9kXyBdq/coherence-arguments-imply-a-force-for-goal-directed-behavior">too</a>.
+            The challenge that seems to remain yet unmade is that
+            Premise 1 is false: there are no coherence theorems.</p>
+<h1 data-number="3" id="cited-coherence-theorems-and-what-they-actually-say"><span class="header-section-number">3.</span> Cited ‘coherence
+            theorems’ and what they actually say</h1>
+<p>Here’s a list of theorems that have been called
+            ‘coherence theorems’. None of these theorems state that,
+            unless an agent can be represented as maximizing expected
+            utility, that agent is liable to pursue dominated
+            strategies. Here’s what the theorems say:</p>
+<h2 data-number="3.1" id="the-von-neumann-morgenstern-expected-utility-theorem"><span class="header-section-number">3.1.</span> The Von
+            Neumann-Morgenstern Expected Utility Theorem:</h2>
+<p>The Von Neumann-Morgenstern Expected Utility Theorem is
+            as follows:</p>
+<blockquote>
+<p>An agent can be represented as maximizing expected
+            utility if and only if their preferences satisfy the
+            following four axioms:</p>
+</blockquote>
+<ol class="paper-block-list" type="1">
+<li class="paper-block-item"><blockquote>
+<p><strong>Completeness</strong>: For all lotteries <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> <span class="math inline">\(X\)</span> is at least as preferred as
+            <span class="math inline">\(Y\)</span> or <span class="math inline">\(Y\)</span> is at least as preferred as
+            <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span></p>
+</blockquote></li>
+<li class="paper-block-item"><blockquote>
+<p><strong>Transitivity</strong>: For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> if <span class="math inline">\(X\)</span> is at least as preferred as
+            <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="math inline">\(Y\)</span> is at least as preferred as
+            <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> then <span class="math inline">\(X\)</span> is at least as preferred as
+            <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠.</span></p>
+</blockquote></li>
+<li class="paper-block-item"><blockquote>
+<p><strong>Independence</strong>: For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> and all probabilities
+            <span class="paper-inline-math-unit"><span class="math inline">\(0 &lt; p &lt; 1\)</span>⁠,</span> if
+            <span class="math inline">\(X\)</span> is strictly preferred
+            to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> then <span class="math inline">\(pX + (1 - p)Z\)</span> is strictly
+            preferred to <span class="paper-inline-math-unit"><span class="math inline">\(pY + (1 -
+            p)Z\)</span>⁠.</span></p>
+</blockquote></li>
+<li class="paper-block-item"><blockquote>
+<p><strong>Continuity</strong>: For all lotteries <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> with <span class="math inline">\(X\)</span> strictly preferred to <span class="math inline">\(Y\)</span> and <span class="math inline">\(Y\)</span> strictly preferred to <span class="paper-inline-math-unit"><span class="math inline">\(Z\)</span>⁠,</span> there are probabilities
+            <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> such that (i) <span class="paper-inline-math-unit"><span class="math inline">\(0 &lt; p &lt; 1\)</span>⁠,</span> (ii) <span class="paper-inline-math-unit"><span class="math inline">\(0 &lt; q &lt; 1\)</span>⁠,</span> and (iii)
+            <span class="math inline">\(pX + (1 - p)Z\)</span> is
+            strictly preferred to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> and <span class="math inline">\(Y\)</span> is strictly preferred to
+            <span class="paper-inline-math-unit"><span class="math inline">\(qX + (1 - q)Z\)</span>⁠.</span></p>
+</blockquote></li>
+</ol>
+<p>Note that this theorem makes no reference to dominated
+            strategies, vulnerabilities, exploitation, or anything of
+            that sort.</p>
+<p>Some authors (both inside and outside the AI safety
+            community) have tried to defend some or all of the axioms
+            above using <em>money-pump arguments</em>. These are
+            arguments with conclusions of the following form: ‘agents
+            who fail to satisfy Axiom A can be induced to make a set of
+            trades or bets that leave them worse-off in some respect
+            that they care about and better-off in no respect, even when
+            they know in advance all the trades and bets that they will
+            be offered.’ Authors then use that conclusion to support a
+            further claim. Outside the AI safety community, the claim is
+            often:</p>
+<blockquote>
+<p>Agents are <em>rationally required</em> to satisfy Axiom
+            A.</p>
+</blockquote>
+<p>But inside the AI safety community, the claim is:</p>
+<blockquote>
+<p>Sufficiently-advanced artificial agents <em>will</em>
+            satisfy Axiom A.</p>
+</blockquote>
+<p>This difference will be important below. For now, the
+            important thing to note is that the conclusions of
+            money-pump arguments are not <em>theorems</em>. Theorems
+            (like the VNM Theorem) can be proved without making any
+            substantive assumptions. Money-pump arguments establish
+            their conclusion only by making substantive assumptions:
+            assumptions that might well be false. In the section titled
+            ‘Money-pumps for Completeness’, I will discuss an assumption
+            that is both crucial to money-pump arguments and likely
+            false.</p>
+<h2 data-number="3.2" id="savages-theorem"><span class="header-section-number">3.2.</span> Savage’s
+            Theorem</h2>
+<p>Savage’s Theorem is also a Von-Neumann-Morgenstern-style
+            representation theorem. It also says that an agent can be
+            represented as maximizing expected utility if and only if
+            their preferences satisfy a certain set of axioms. The key
+            difference between Savage’s Theorem and the VNM Theorem is
+            that the VNM Theorem takes the agent’s probability function
+            as given, whereas Savage constructs the agent’s probability
+            function from their preferences over lotteries.</p>
+<p>As with the VNM Theorem, Savage’s Theorem says nothing
+            about dominated strategies or vulnerability to
+            exploitation.</p>
+<h2 data-number="3.3" id="the-bolker-jeffrey-theorem"><span class="header-section-number">3.3.</span> The Bolker-Jeffrey
+            Theorem</h2>
+<p>This theorem is also a representation theorem, in the
+            mould of the VNM Theorem and Savage’s Theorem above. It
+            makes no reference to dominated strategies or anything of
+            that sort.</p>
+<h2 data-number="3.4" id="dutch-books"><span class="header-section-number">3.4.</span> Dutch Books</h2>
+<p>The Dutch Book Argument for Probabilism says:</p>
+<blockquote>
+<p>An agent can be induced to accept a set of bets that
+            guarantee a net loss if and only if that agent’s credences
+            violate one or more of the probability axioms.</p>
+</blockquote>
+<p>The Dutch Book Argument for Conditionalization says:</p>
+<blockquote>
+<p>An agent can be induced to accept a set of bets that
+            guarantee a net loss if and only if that agent updates their
+            credences by some rule other than Conditionalization.</p>
+</blockquote>
+<p>These arguments do refer to dominated strategies and
+            vulnerability to exploitation. But they suggest only that an
+            agent’s credences (that is, their degrees of belief) must
+            meet certain conditions. Dutch Book Arguments place no
+            constraints whatsoever on an agent’s preferences. And if an
+            agent’s preferences fail to satisfy any of Completeness,
+            Transitivity, Independence, and Continuity, that agent
+            cannot be represented as maximizing expected utility (the
+            VNM Theorem is an ‘if and only if’, not just an ‘if’).</p>
+<h2 data-number="3.5" id="coxs-theorem"><span class="header-section-number">3.5.</span> Cox’s Theorem</h2>
+<p>Cox’s Theorem says that, if an agent’s degrees of belief
+            satisfy a certain set of axioms, then their beliefs are
+            isomorphic to probabilities.</p>
+<p>This theorem makes no reference to dominated strategies,
+            and it says nothing about an agent’s preferences.</p>
+<h2 data-number="3.6" id="the-complete-class-theorem"><span class="header-section-number">3.6.</span> The Complete Class
+            Theorem</h2>
+<p>The Complete Class Theorem says that an agent’s policy of
+            choosing actions conditional on observations is not strictly
+            dominated by some other policy (such that the other policy
+            does better in some set of circumstances and worse in no set
+            of circumstances) if and only if the agent’s policy
+            maximizes expected utility with respect to a probability
+            distribution that assigns positive probability to each
+            possible set of circumstances.</p>
+<p>This theorem does refer to dominated strategies. However,
+            the Complete Class Theorem starts off by assuming that the
+            agent’s preferences over actions in sets of circumstances
+            satisfy Completeness and Transitivity. If the agent’s
+            preferences are not complete and transitive, the Complete
+            Class Theorem does not apply. So, the Complete Class Theorem
+            does not imply that agents must be representable as
+            maximizing expected utility if they are to avoid pursuing
+            dominated strategies.</p>
+<h2 data-number="3.7" id="omohundro-2007-the-nature-of-self-improving-artificial-intelligence"><span class="header-section-number">3.7.</span> Omohundro (2007),
+            ‘The Nature of Self-Improving Artificial Intelligence’</h2>
+<p><a href="https://selfawaresystems.files.wordpress.com/2008/01/nature_of_self_improving_ai.pdf">This
+            paper</a> seems to be the original source of the claim that
+            agents are vulnerable to exploitation unless they can be
+            represented as expected-utility-maximizers. Omohundro
+            purports to give us “the celebrated expected utility theorem
+            of von Neumann and Morgenstern… derived from a lack of
+            vulnerabilities rather than from given axioms.”</p>
+<p>Omohundro’s first error is to ignore Completeness. That
+            leads him to mistake acyclicity for transitivity, and to
+            think that any transitive relation is a total order. Note
+            that this error already sinks any hope of getting an
+            expected-utility-maximizer out of Omohundro’s argument.
+            Completeness (recall) is a necessary condition for being
+            representable as an expected-utility-maximizer. If there’s
+            no money-pump that compels Completeness, there’s no
+            money-pump that compels expected-utility-maximization.</p>
+<p>Omohundro’s second error is to ignore Continuity. His
+            ‘Argument for choice with objective uncertainty’ is too
+            quick to make much sense of. Omohundro says it’s a simpler
+            variant of <a href="https://www.jstor.org/stable/1884281#metadata_info_tab_contents">Green
+            (1987)</a>. The problem is that Green assumes every axiom of
+            the VNM Theorem except Independence. He says so at the
+            bottom of page 789. And, even then, Green notes that his
+            paper provides “only a qualified bolstering” of the argument
+            for Independence.</p>
+<h1 data-number="4" id="money-pump-arguments-by-johan-gustafsson"><span class="header-section-number">4.</span> <em>Money-Pump
+            Arguments</em> by Johan Gustafsson</h1>
+<p>It’s worth noting that there has recently appeared a book
+            which gives money-pump arguments for each of the axioms of
+            the VNM Theorem. It’s by the philosopher Johan Gustafsson
+            and you can read it <a href="https://www.cambridge.org/core/elements/moneypump-arguments/1515273BD710F308151F5BEC3695FEE6">here</a>.</p>
+<p>This does not mean that the posts and papers claiming the
+            existence of coherence theorems are correct after all.
+            Gustafsson’s book was published in 2022, long after most of
+            the posts on coherence theorems. Gustafsson argues that the
+            VNM axioms are <em>requirements of rationality</em>, whereas
+            coherence arguments aim to establish that
+            sufficiently-advanced artificial agents <em>will
+            satisfy</em> the VNM axioms. More importantly (and as noted
+            above) the conclusions of money-pump arguments are not
+            theorems. Theorems (like the VNM Theorem) can be proved
+            without making any substantive assumptions. Money-pump
+            arguments establish their conclusion only by making
+            substantive assumptions: assumptions that might well be
+            false.</p>
+<p>I will now explain how denying one such assumption allows
+            us to resist Gustafsson’s money-pump arguments. I will then
+            argue that there can be no compelling money-pump arguments
+            for the conclusion that sufficiently-advanced artificial
+            agents will satisfy the VNM axioms.</p>
+<p>Before that, though, let’s get the lay of the land.
+            Recall that Completeness is necessary for representability
+            as an expected-utility-maximizer. If an agent’s preferences
+            are incomplete, that agent cannot be represented as
+            maximizing expected utility. Note also that Gustafsson’s
+            money-pump arguments for the other axioms of the VNM Theorem
+            depend on Completeness. As he writes in a footnote on page
+            3, his money-pump arguments for Transitivity, Independence,
+            and Continuity all assume that the agent’s preferences are
+            complete. That makes Completeness doubly important to the
+            ‘money-pump arguments for expected-utility-maximization’
+            project. If an agent’s preferences are incomplete, then they
+            can’t be represented as an expected-utility-maximizer,
+            <em>and</em> they can’t be compelled by Gustafsson’s
+            money-pump arguments to conform their preferences to the
+            other axioms of the VNM Theorem. (Perhaps some earlier, less
+            careful money-pump argument can compel conformity to the
+            other VNM axioms without assuming Completeness, but I think
+            it unlikely.)</p>
+<p>So, Completeness is crucial. But one might well think
+            that we don’t need a money-pump argument to establish it.
+            I’ll now explain why this thought is incorrect, and then
+            we’ll look at a money-pump.</p>
+<h1 data-number="5" id="completeness-doesnt-come-for-free"><span class="header-section-number">5.</span> Completeness doesn’t
+            come for free</h1>
+<p>Here’s Completeness again:</p>
+<blockquote>
+<p><strong>Completeness</strong>: For all lotteries <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> <span class="math inline">\(X\)</span> is at least as preferred as
+            <span class="math inline">\(Y\)</span> or <span class="math inline">\(Y\)</span> is at least as preferred as
+            <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span></p>
+</blockquote>
+<p>Since:</p>
+<blockquote>
+<p><span class="paper-inline-math-unit">‘<span class="math inline">\(X\)</span></span> is strictly
+            preferred to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠’</span> is
+            defined as <span class="paper-inline-math-unit">‘<span class="math inline">\(X\)</span></span> is at
+            least as preferred as <span class="math inline">\(Y\)</span>
+            and <span class="math inline">\(Y\)</span> is <em>not</em>
+            at least as preferred as <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.’</span></p>
+</blockquote>
+<p>And:</p>
+<blockquote>
+<p>‘The agent is indifferent between <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠’</span> is defined as <span class="paper-inline-math-unit">‘<span class="math inline">\(X\)</span></span> is at least as preferred as
+            <span class="math inline">\(Y\)</span> and <span class="math inline">\(Y\)</span> is at least as preferred as
+            <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.’</span></p>
+</blockquote>
+<p>Completeness can be rephrased as:</p>
+<blockquote>
+<p><strong>Completeness (rephrased)</strong>: For all
+            lotteries <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> either <span class="math inline">\(X\)</span> is strictly preferred to
+            <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> or <span class="math inline">\(Y\)</span> is strictly preferred to
+            <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> or the agent is
+            indifferent between <span class="math inline">\(X\)</span>
+            and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span></p>
+</blockquote>
+<p>And then you might think that Completeness comes for
+            free. After all, what other comparative, preference-style
+            attitude can an agent have to <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠?</span></p>
+<p>This thought might seem especially appealing if you think
+            of preferences as nothing more than dispositions to choose.
+            Suppose that our agent is offered repeated choices between
+            <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span> Then (the thought goes),
+            in each of these situations, they have to choose
+            <em>something</em>. If they reliably choose <span class="math inline">\(X\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> then they strictly prefer
+            <span class="math inline">\(X\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span> If they reliably choose
+            <span class="math inline">\(Y\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> then they strictly prefer
+            <span class="math inline">\(Y\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span> If they flip a coin, or if
+            they sometimes choose <span class="math inline">\(X\)</span>
+            and sometimes choose <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span>
+            then they are indifferent between <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span></p>
+<p>Here’s the important point missing from this thought:
+            there are two ways of failing to have a strict preference
+            between <span class="math inline">\(X\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠.</span> Being <em>indifferent</em>
+            between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is one way: preferring
+            <span class="math inline">\(X\)</span> at least as much as
+            <span class="math inline">\(Y\)</span> and preferring <span class="math inline">\(Y\)</span> at least as much as <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span> Having a <em>preferential
+            gap</em> between <span class="math inline">\(X\)</span> and
+            <span class="math inline">\(Y\)</span> is another way:
+            <em>not</em> preferring <span class="math inline">\(X\)</span> at least as much as <span class="math inline">\(Y\)</span> and <em>not</em> preferring
+            <span class="math inline">\(Y\)</span> at least as much as
+            <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span> If an agent has a
+            preferential gap between any two lotteries, then their
+            preferences violate Completeness.</p>
+<p>The key contrast between indifference and preferential
+            gaps is that indifference is <em>sensitive to all
+            sweetenings and sourings</em>. Consider an example. <span class="math inline">\(C\)</span> is a lottery that gives the
+            agent a pot of ten dollar-bills for sure. <span class="math inline">\(D\)</span> is a lottery that gives the
+            agent a different pot of ten dollar-bills for sure. The
+            agent does not strictly prefer <span class="math inline">\(C\)</span> to <span class="math inline">\(D\)</span> and does not strictly
+            prefer <span class="math inline">\(D\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(C\)</span>⁠.</span> How do we determine
+            whether the agent is indifferent between <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span> or whether the agent has a
+            preferential gap between <span class="math inline">\(C\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(D\)</span>⁠?</span> We <em>sweeten</em> one of
+            the lotteries: we make that lottery just a little but more
+            attractive. In the example, we add an extra dollar-bill to
+            pot <span class="paper-inline-math-unit"><span class="math inline">\(C\)</span>⁠,</span> so that it
+            contains $11 total. Call the resulting lottery <span class="paper-inline-math-unit"><span class="math inline">\(C^{+}\)</span>⁠.</span> The agent will
+            strictly prefer <span class="math inline">\(C^{+}\)</span>
+            to <span class="paper-inline-math-unit"><span class="math inline">\(D\)</span>⁠.</span> We get the
+            converse effect if we <em>sour</em> lottery <span class="paper-inline-math-unit"><span class="math inline">\(C\)</span>⁠,</span> by removing a dollar-bill
+            from the pot so that it contains $9 total. Call the
+            resulting lottery <span class="paper-inline-math-unit"><span class="math inline">\(C^{-}\)</span>⁠.</span> The agent will
+            strictly prefer <span class="math inline">\(D\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(C^{-}\)</span>⁠.</span> And we also get
+            strict preferences by sweetening and souring <span class="paper-inline-math-unit"><span class="math inline">\(D\)</span>⁠,</span> to get <span class="math inline">\(D^{+}\)</span> and <span class="math inline">\(D^{-}\)</span> respectively. The agent
+            will strictly prefer <span class="math inline">\(D^{+}\)</span> to <span class="math inline">\(C\)</span> and strictly prefer <span class="math inline">\(C\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(D^{-}\)</span>⁠.</span> Since the agent’s
+            preference-relation between <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span> is sensitive to all such
+            sweetenings and sourings, the agent is <em>indifferent</em>
+            between <span class="math inline">\(C\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(D\)</span>⁠.</span></p>
+<p>Preferential gaps, by contrast, are <em>insensitive to
+            some sweetenings and sourings</em>. Consider another
+            example. <span class="math inline">\(A\)</span> is a lottery
+            that gives the agent a Fabergé egg for sure. <span class="math inline">\(B\)</span> is a lottery that returns
+            to the agent their long-lost wedding album. The agent does
+            not strictly prefer <span class="math inline">\(A\)</span>
+            to <span class="math inline">\(B\)</span> and does not
+            strictly prefer <span class="math inline">\(B\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠.</span> How do we determine
+            whether the agent is indifferent or whether they have a
+            preferential gap? Again, we sweeten one of the lotteries.
+            <span class="math inline">\(A^{+}\)</span> is a lottery that
+            gives the agent a Fabergé egg plus a dollar-bill for sure.
+            In this case, the agent might not strictly prefer <span class="math inline">\(A^{+}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.</span> That extra dollar-bill
+            might not suffice to break the tie. If that is so, the agent
+            has a <em>preferential gap</em> between <span class="math inline">\(A\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.</span> If the agent has a
+            preferential gap, then slightly souring <span class="math inline">\(A\)</span> to get <span class="math inline">\(A^{-}\)</span> might also fail to
+            break the tie, as might slightly sweetening and souring
+            <span class="math inline">\(B\)</span> to get <span class="math inline">\(B^{+}\)</span> and <span class="math inline">\(B^{-}\)</span> respectively.</p>
+<p>The axiom of Completeness rules out preferential gaps,
+            and so rules out insensitivity to some sweetenings and
+            sourings. That is why Completeness does not come for free.
+            We need some argument for thinking that agents will not have
+            preferential gaps. ‘The agent has to choose something’ is a
+            bad argument. Faced with a choice between two lotteries, the
+            agent might choose arbitrarily, but that does not imply that
+            the agent is indifferent between the two lotteries. The
+            agent might instead have a preferential gap. It depends on
+            whether the agent’s preference-relation is sensitive to all
+            sweetenings and sourings.</p>
+<h1 data-number="A" id="a-money-pump-for-completeness"><span class="header-section-number">A.</span> money-pump for
+            Completeness</h1>
+<p>So, we need some other argument for thinking that
+            sufficiently-advanced artificial agents’ preferences over
+            lotteries will be complete (and hence will be sensitive to
+            all sweetenings and sourings). Let’s look at a money-pump. I
+            will later explain how my responses to this money-pump also
+            tell against other money-pump arguments for
+            Completeness.</p>
+<p>Here's the money-pump, suggested by Ruth Chang (<a href="https://www.hup.harvard.edu/catalog.php?isbn=9780674447561">1997</a>,
+            p.11) and later discussed by Gustafsson (<a href="https://www.cambridge.org/core/elements/moneypump-arguments/1515273BD710F308151F5BEC3695FEE6">2022</a>,
+            p.26):</p>
+<p><img src="./media/media/image1.png" style="width:5.61559in;height:2.63919in"/></p>
+<p><span class="paper-inline-math-unit">‘<span class="math inline">\(\succ\)</span>⁠’</span> denotes
+            strict preference and <span class="paper-inline-math-unit">‘<span class="math inline">\(||\)</span>⁠’</span> denotes a preferential
+            gap, so the symbols underneath the decision tree say that
+            the agent strictly prefers <span class="math inline">\(A\)</span> to <span class="math inline">\(A^{-}\)</span> and has a preferential
+            gap between <span class="math inline">\(A^{-}\)</span> and
+            <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠,</span> and between <span class="math inline">\(B\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠.</span></p>
+<p>Now suppose that the agent finds themselves at the
+            beginning of this decision tree. Since the agent doesn’t
+            strictly prefer <span class="math inline">\(A\)</span> to
+            <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠,</span> they might choose to
+            go up at node 1. And since the agent doesn’t strictly prefer
+            <span class="math inline">\(B\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(A^{-}\)</span>⁠,</span> they might choose to
+            go up at node 2. But if the agent goes up at both nodes,
+            they have pursued a dominated strategy: they have made a set
+            of trades that left them with <span class="math inline">\(A^{-}\)</span> when they could have
+            had <span class="math inline">\(A\)</span> (an outcome that
+            they strictly prefer), even though they knew in advance all
+            the trades that they would be offered.</p>
+<p>Note, however, that this money-pump is
+            <em>non-forcing</em>: at some step in the decision tree, the
+            agent is not compelled by their preferences to pursue a
+            dominated strategy. The agent would not be acting against
+            their preferences if they chose to go down at node 1 or at
+            node 2. And if they went down at either node, they would not
+            pursue a dominated strategy.</p>
+<p>To avoid even a chance of pursuing a dominated strategy,
+            we need only suppose that the agent acts in accordance with
+            the following policy: ‘if I go up at node 1, I will go down
+            at node 2.’ Since the agent does not strictly prefer <span class="math inline">\(A^{-}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠,</span> acting in accordance with
+            this policy does not require the agent to change or act
+            against any of their preferences.</p>
+<p>More generally, suppose that the agent acts in accordance
+            with the following policy in all decision-situations: ‘if I
+            previously turned down some option <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> I will not choose any
+            option that I strictly disprefer to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.’</span> That policy makes the
+            agent immune to all possible money-pumps for
+            Completeness.⁠<label class="margin-toggle sidenote-number" for="sn-2"></label><input class="margin-toggle" id="sn-2" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Gustafsson later offers a <em>forcing</em> money-pump argument for
+            Completeness: a money-pump in which, at each step, the agent is
+            compelled by their preferences to pursue a dominated strategy. But
+            agents who act in accordance with the policy above are immune to this
+            money-pump as well. Here’s why.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Gustafsson claims that, in the original non-forcing money-pump, going
+            up at node 2 cannot be irrational. That’s because the agent does not
+            strictly disprefer <span class="math inline">\(A^{-}\)</span> to <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠:</span> the only other option available at
+            node 2. The fact that <span class="math inline">\(A\)</span> was
+            previously available cannot make choosing <span class="math inline">\(A^{-}\)</span> irrational, because (Gustafsson
+            claims) <em>Decision-Tree Separability</em> is true: “The rational
+            status of the options at a choice node does not depend on other parts of
+            the decision tree than those that can be reached from that node.” But
+            (Gustafsson claims) the sequence of choices consisting of going up at
+            nodes 1 and 2 is irrational, because it leaves the agent worse-off than
+            they could have been. That implies that going up at node 1 must be
+            irrational, given what Gustafsson calls ‘<em>The Principle of Rational
+            Decomposition</em>’: any irrational sequence of choices must contain at
+            least one irrational choice. Generalizing this argument, Gustafsson gets
+            a general rational requirement to choose option <span class="math inline">\(A\)</span> whenever your other option is to
+            proceed to a choice node where your options are <span class="math inline">\(A^{-}\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.</span> And it’s this general rational
+            requirement (‘<em>Minimal Unidimensional Precaution</em>’) that allows
+            Gustafsson to construct his forcing money-pump. In this forcing
+            money-pump, an agent’s incomplete preferences compel them to violate the
+            <em>Principle of Unexploitability</em>: that principle which says
+            getting money-pumped is irrational. <em>The Principle of Preferential
+            Invulnerability</em> then implies that incomplete preferences are
+            irrational, since it’s been shown that there exists a situation in which
+            incomplete preferences force an agent to violate the Principle of
+            Unexploitability.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Note that Gustafsson aims to establish that agents are <em>rationally
+            required</em> to have complete preferences, whereas coherence arguments
+            aim to establish that sufficiently-advanced artificial agents <em>will
+            have</em> complete preferences. These different conclusions require
+            different premises. In place of Gustafsson’s Decision-Tree Separability,
+            coherence arguments need an amended version that we can call
+            <em>’Decision-Tree Separability*</em>’: sufficiently-advanced artificial
+            agents’ dispositions to choose options at a choice node will not depend
+            on other parts of the decision tree than those that can be reached from
+            that node. But this premise is easy to doubt. It’s false if any
+            sufficiently-advanced artificial agent acts in accordance with the
+            following policy: ‘if I previously turned down some option <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> I will not choose any option that I
+            strictly disprefer to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.’</span> And it’s
+            easy to see why agents might act in accordance with that policy: it
+            makes them immune to all possible money-pumps for Completeness, and (as
+            I am about to prove back in the main text) it never requires them to
+            change or act against any of their preferences.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">John Wentworth’s ‘<a href="https://www.lesswrong.com/posts/3xF66BNSC5caZuKyC/why-subagents">Why
+            subagents?</a>’ suggests another policy for agents with incomplete
+            preferences: trade only when offered an option that you strictly prefer
+            to your current option. That policy makes agents immune to the
+            single-souring money-pump. The downside of Wentworth’s proposal is that
+            an agent following his policy will pursue a dominated strategy in
+            single-<em>sweetening</em> money-pumps, in which the agent first has the
+            opportunity to trade in <span class="math inline">\(A\)</span> for <span class="math inline">\(B\)</span> and then (conditional on making that
+            trade) has the opportunity to trade in <span class="math inline">\(B\)</span> for <span class="paper-inline-math-unit"><span class="math inline">\(A^{+}\)</span>⁠.</span> Wentworth’s policy will leave the
+            agent with <span class="math inline">\(A\)</span> when they could have
+            had <span class="paper-inline-math-unit"><span class="math inline">\(A^{+}\)</span>⁠.</span></span></span></span>
+            And (granted some assumptions), the policy never requires
+            the agent to change or act against any of their
+            preferences.</p>
+<p>Here’s why. Assume:</p>
+<ul>
+<li><p>That the agent’s strict preferences are
+            transitive.</p></li>
+<li><p>That the agent knows in advance what trades they will
+            be offered.</p></li>
+<li><p>That the agent is capable of <em>backward
+            induction</em>: predicting what they would choose at later
+            nodes and taking those predictions into account at earlier
+            nodes.</p></li>
+</ul>
+<p>(If the agent doesn’t know in advance what trades they
+            will be offered or is incapable of backward induction, then
+            their pursuit of a dominated strategy need not indicate any
+            defect in their preferences. Their pursuit of a dominated
+            strategy can instead be blamed on their lack of knowledge
+            and/or reasoning ability.)</p>
+<figure class="single-image-figure">
+<img alt="" src="./media/media/image2.png" style="width:5.7133in;height:2.4009in"/>
+</figure>
+<p>Given the agent’s knowledge of the decision tree and
+            their grasp of backward induction, we can infer that, if the
+            agent proceeds to node 2, then at least one of the possible
+            outcomes of going to node 2 is not strictly dispreferred to
+            any option available at node 1. Then, if the agent proceeds
+            to node 2, they can act on a policy of not choosing any
+            outcome that is strictly dispreferred to some option
+            available at node 1. The agent’s acting on this policy will
+            not require them to act against any of their preferences.
+            For suppose that it did require them to act against some
+            strict preference. Suppose that <span class="math inline">\(B\)</span> is strictly dispreferred to
+            <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> so that the agent’s
+            policy requires them to choose <span class="paper-inline-math-unit"><span class="math inline">\(C\)</span>⁠,</span> and yet <span class="math inline">\(C\)</span> is strictly dispreferred to
+            <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.</span> Then, by the
+            transitivity of strict preference, <span class="math inline">\(C\)</span> is strictly dispreferred to
+            <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠.</span> That means that both
+            <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> are strictly dispreferred
+            to <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> contrary to our
+            original assumption that at least one of the possible
+            outcomes of going to node 2 is not strictly dispreferred to
+            any option available at node 1. We have reached a
+            contradiction, and so we can reject the assumption that the
+            agent’s policy will require them to act against their
+            preferences. This proof is easy to generalize so that it
+            applies to decision trees with more than three terminal
+            outcomes.</p>
+<p><strong>Summarizing this section</strong>: Money-pump
+            arguments for Completeness (understood as the claim that
+            sufficiently-advanced artificial agents will have complete
+            preferences) assume that such agents will not act in
+            accordance with policies like ‘if I previously turned down
+            some option <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> I will
+            not choose any option that I strictly disprefer to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.’</span> But that assumption is
+            doubtful. Agents with incomplete preferences have good
+            reasons to act in accordance with this kind of policy: (1)
+            it never requires them to change or act against their
+            preferences, and (2) it makes them immune to all possible
+            money-pumps for Completeness.</p>
+<p>So, the money-pump arguments for Completeness are
+            unsuccessful: they don’t give us much reason to expect that
+            sufficiently-advanced artificial agents will have complete
+            preferences. Any agent with incomplete preferences cannot be
+            represented as an expected-utility-maximizer. So, money-pump
+            arguments don’t give us much reason to expect that
+            sufficiently-advanced artificial agents will be
+            representable as expected-utility-maximizers.</p>
+<h1 data-number="7" id="conclusion"><span class="header-section-number">7.</span> Conclusion</h1>
+<p>There are no coherence theorems. Authors in the AI safety
+            community should stop suggesting that there are.</p>
+<p>There are money-pump arguments, but the conclusions of
+            these arguments are not theorems. The arguments depend on
+            substantive and doubtful assumptions.</p>
+<p>Here is one doubtful assumption: advanced artificial
+            agents with incomplete preferences will not act in
+            accordance with the following policy: ‘if I previously
+            turned down some option <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠,</span> I will not choose any
+            option that I strictly disprefer to <span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.’</span> Any agent who acts in
+            accordance with that policy is immune to all possible
+            money-pumps for Completeness. And agents with incomplete
+            preferences cannot be represented as
+            expected-utility-maximizers.</p>
+<p>In fact, the situation is worse than this. As Gustafsson
+            notes, his money-pump arguments for the other three axioms
+            of the VNM Theorem depend on Completeness. If Gustafsson’s
+            money-pump arguments fail without Completeness, I suspect
+            that earlier, less-careful money-pump arguments for the
+            other axioms of the VNM Theorem fail too. If that’s right,
+            and if Completeness is false, then none of Transitivity,
+            Independence, and Continuity has been established by
+            money-pump arguments either.</p>
+<p><strong>Bottom-lines:</strong></p>
+<ul>
+<li><p>There are no coherence theorems</p></li>
+<li><p>Money-pump arguments don’t give us much reason to
+            expect that advanced artificial agents will be representable
+            as expected-utility-maximizers.</p></li>
+</ul>
+<h1 data-number="8" id="appendix-papers-and-posts-in-which-the-error-occurs"><span class="header-section-number">8.</span> Appendix: Papers and
+            posts in which the error occurs</h1>
+<p>Here’s a selection of papers and posts which claim that
+            there are coherence theorems.</p>
+<h2 data-number="8.1" id="the-nature-of-self-improving-artificial-intelligence"><span class="header-section-number">8.1.</span> ‘<a href="https://selfawaresystems.files.wordpress.com/2008/01/nature_of_self_improving_ai.pdf">The
+            nature of self-improving artificial intelligence</a>’</h2>
+<p>“The appendix shows how the rational economic structure
+            arises in each of these situations. Most presentations of
+            this theory follow an axiomatic approach and are complex and
+            lengthy. The version presented in the appendix is based
+            solely on avoiding vulnerabilities and tries to make clear
+            the intuitive essence of the argument.”</p>
+<p>“In each case we show that if an agent is to avoid
+            vulnerabilities, its preferences must be representable by a
+            utility function and its choices obtained by maximizing the
+            expected utility.”</p>
+<h2 data-number="8.2" id="the-basic-ai-drives"><span class="header-section-number">8.2.</span> ‘<a href="https://selfawaresystems.files.wordpress.com/2008/01/ai_drives_final.pdf">The
+            basic AI drives</a>’</h2>
+<p>“The remarkable”expected utility” theorem of
+            microeconomics says that it is always possible for a system
+            to represent its preferences by the expectation of a utility
+            function unless the system has “vulnerabilities” which cause
+            it to lose resources without benefit.”</p>
+<h2 data-number="8.3" id="coherent-decisions-imply-consistent-utilities"><span class="header-section-number">8.3.</span> <u>’</u><a href="https://www.lesswrong.com/posts/RQpNHSiWaXTvDxt6R/coherent-decisions-imply-consistent-utilities">Coherent
+            decisions imply consistent utilities</a><u>’</u></h2>
+<p>“It turns out that this is just one instance of a large
+            family of <em>coherence theorems</em> which all end up
+            pointing at the same set of core properties. All roads lead
+            to Rome, and all the roads say, "If you are not shooting
+            yourself in the foot in sense X, we can view you as having
+            coherence property Y."”</p>
+<p>“Now, by the general idea behind coherence theorems,
+            since we can't <em>view this behavior</em> as corresponding
+            to expected utilities, we ought to be able to show that it
+            corresponds to a dominated strategy somehow—derive some way
+            in which this behavior corresponds to shooting off your own
+            foot.”</p>
+<p>“And that's at least a glimpse of why, if you're not
+            using dominated strategies, the thing you do with relative
+            utilities is multiply them by probabilities in a consistent
+            way, and prefer the choice that leads to a greater
+            expectation of the variable representing utility.”</p>
+<p>“The demonstrations we've walked through here aren't the
+            professional-grade coherence theorems as they appear in real
+            math. Those have names like "Cox's Theorem" or "the complete
+            class theorem"; their proofs are difficult; and they say
+            things like "If seeing piece of information A followed by
+            piece of information B leads you into the same epistemic
+            state as seeing piece of information B followed by piece of
+            information A, plus some other assumptions, I can show an
+            isomorphism between those epistemic states and classical
+            probabilities" or "Any decision rule for taking different
+            actions depending on your observations either corresponds to
+            Bayesian updating given some prior, or else is strictly
+            dominated by some Bayesian strategy".”</p>
+<p>“But hopefully you've seen enough concrete demonstrations
+            to get a general idea of what's going on with the actual
+            coherence theorems. We have multiple spotlights all shining
+            on the same core mathematical structure, saying dozens of
+            different variants on, "If you aren't running around in
+            circles or stepping on your own feet or wantonly giving up
+            things you say you want, we can see your behavior as
+            corresponding to this shape. Conversely, if we can't see
+            your behavior as corresponding to this shape, you must be
+            visibly shooting yourself in the foot." Expected utility is
+            the only structure that has this great big family of
+            discovered theorems all saying that. It has a scattering of
+            academic competitors, because academia is academia, but the
+            competitors don't have anything like that mass of spotlights
+            all pointing in the same direction.”</p>
+<p><a href="https://www.lesswrong.com/posts/RQpNHSiWaXTvDxt6R/coherent-decisions-imply-consistent-utilities?commentId=GyE8wvZuWcuiCaySb#comments"><strong>‘Things
+            To Take Away From The Essay’</strong></a></p>
+<p>“So what are the primary coherence theorems, and how do
+            they differ from VNM? Yudkowsky mentions the complete class
+            theorem in the post, Savage's theorem comes up in the
+            comments, and there are variations on these two and probably
+            others as well. Roughly, the general claim these theorems
+            make is that any system <em>either</em> (a) acts like an
+            expected utility maximizer under some probabilistic model,
+            or (b) throws away resources in a pareto-suboptimal manner.
+            One thing to emphasize: these theorems generally do not
+            assume any pre-existing probabilities (as VNM does); an
+            agent's implied probabilities are instead derived.
+            Yudkowsky's essay does a good job communicating these
+            concepts, but doesn't emphasize that this
+            is <em>different</em> from VNM.”</p>
+<h2 data-number="8.4" id="sufficiently-optimized-agents-appear-coherent"><span class="header-section-number">8.4.</span> <a href="https://arbital.com/p/optimized_agent_appears_coherent/">‘Sufficiently
+            optimized agents appear coherent’</a></h2>
+<p>“Summary: Violations of coherence constraints in
+            probability theory and decision theory correspond to
+            qualitatively destructive or dominated behaviors.”</p>
+<p>“Again, we see a manifestation of a powerful family of
+            theorems showing that agents which cannot be seen as
+            corresponding to any coherent probabilities and consistent
+            utility function will exhibit qualitatively destructive
+            behavior, like paying someone a cent to throw a switch and
+            then paying them another cent to throw it back.”</p>
+<p>“There is a large literature on different sets of
+            coherence constraints that all yield expected utility,
+            starting with the Von Neumann-Morgenstern Theorem. No other
+            decision formalism has comparable support from so many
+            families of differently phrased coherence constraints.”</p>
+<p><a href="https://aiimpacts.org/what-do-coherence-arguments-imply-about-the-behavior-of-advanced-ai/"><strong>‘What
+            do coherence arguments imply about the behavior of advanced
+            AI?’</strong></a></p>
+<p>“Coherence arguments say that if an entity’s preferences
+            do not adhere to the axioms of expected utility theory, then
+            that entity is susceptible to losing things that it
+            values.”</p>
+<p><strong>Disclaimer</strong>: “This is an initial page, in
+            the process of review, which may not be comprehensive or
+            represent the best available understanding.”</p>
+<h2 data-number="8.5" id="coherence-theorems"><span class="header-section-number">8.5.</span> <a href="https://arbital.com/p/coherence_theorems/">‘Coherence
+            theorems’</a></h2>
+<p>“In the context of decision theory, "coherence theorems"
+            are theorems saying that an agent's beliefs or behavior must
+            be viewable as consistent in way X, or else penalty Y
+            happens.”</p>
+<p><strong>Disclaimer</strong>: “This page's quality has not
+            been assessed.”</p>
+<p>“Extremely incomplete list of some coherence theorems in
+            decision theory</p>
+<ul>
+<li><p>Wald’s complete class theorem</p></li>
+<li><p>Von-Neumann-Morgenstern utility theorem</p></li>
+<li><p>Cox’s Theorem</p></li>
+<li><p>Dutch book arguments”</p></li>
+</ul>
+<h2 data-number="8.6" id="coherence-arguments-do-not-entail-goal-directed-behavior"><span class="header-section-number">8.6.</span> <a href="https://www.lesswrong.com/posts/NxF5G6CJiof6cemTw/coherence-arguments-do-not-entail-goal-directed-behavior">‘Coherence
+            arguments do not entail goal-directed behavior’</a></h2>
+<p>“One of the most pleasing things about probability and
+            expected utility theory is that there are many <em>coherence
+            arguments</em> that suggest that these are the”correct” ways
+            to reason. If you deviate from what the theory prescribes,
+            then you must be executing a <em>dominated strategy</em>.
+            There must be some other strategy that never does any worse
+            than your strategy, but does strictly better than your
+            strategy with certainty in at least one situation. There’s a
+            good explanation of these arguments <a href="https://arbital.com/p/expected_utility_formalism/?l=7hh">here</a>.”</p>
+<p>“The VNM axioms are often justified on the basis that if
+            you don't follow them, you can be Dutch-booked: you can be
+            presented with a series of situations where you are
+            guaranteed to lose utility relative to what you could have
+            done. So on this view, we have "no Dutch booking" implies
+            "VNM axioms" implies "AI risk".”</p>
+<h2 data-number="8.7" id="coherence-arguments-imply-a-force-for-goal-directed-behavior."><span class="header-section-number">8.7.</span> <a href="https://www.lesswrong.com/posts/DkcdXsP56g9kXyBdq/coherence-arguments-imply-a-force-for-goal-directed-behavior">‘Coherence
+            arguments imply a force for goal-directed
+            behavior.’</a></h2>
+<p>“<strong>’</strong>Coherence arguments’ mean that if you
+            don’t maximize ‘expected utility’ (EU)—that is, if you don’t
+            make every choice in accordance with what gets the highest
+            average score, given consistent preferability scores that
+            you assign to all outcomes—then you will make strictly worse
+            choices by your own lights than if you followed some
+            alternate EU-maximizing strategy (at least in some
+            situations, though they may not arise). For instance, you’ll
+            be vulnerable to ‘money-pumping’—being predictably parted
+            from your money for nothing.<a href="https://aiimpacts.org/coherence-arguments-imply-a-force-for-goal-directed-behavior/#easy-footnote-bottom-3-2875"><sup>3</sup></a>”</p>
+<h2 data-number="8.8" id="ai-alignment-why-its-hard-and-where-to-start"><span class="header-section-number">8.8.</span> ‘<a href="https://intelligence.org/2016/12/28/ai-alignment-why-its-hard-and-where-to-start/#1">AI
+            Alignment: Why It’s Hard, and Where to Start</a>’</h2>
+<p>“The overall message here is that there is a set of
+            qualitative behaviors and as long you do not engage in these
+            qualitatively destructive behaviors, you will be behaving as
+            if you have a utility function.”</p>
+<h2 data-number="8.9" id="money-pumping-the-axiomatic-approach"><span class="header-section-number">8.9.</span> <u>’</u><a href="https://www.lesswrong.com/posts/ZTN6bLWqpwWn2i4qZ/money-pumping-the-axiomatic-approach">Money-pumping:
+            the axiomatic approach</a><u>’</u></h2>
+<p>“This post gets somewhat technical and mathematical, but
+            the point can be summarised as:</p>
+<ul>
+<li>You are vulnerable to money pumps only to the extent to
+            which you deviate from the von Neumann-Morgenstern axioms of
+            expected utility.</li>
+</ul>
+<p>In other words, using alternate decision theories is bad
+            for your wealth.”</p>
+<h2 data-number="8.10" id="ngo-and-yudkowsky-on-alignment-difficulty"><span class="header-section-number">8.10.</span> <a href="https://www.lesswrong.com/posts/7im8at9PmhbT4JHsW/ngo-and-yudkowsky-on-alignment-difficulty#_Yudkowsky__11_22_">‘Ngo
+            and Yudkowsky on alignment difficulty’</a></h2>
+<p>“Except that to do the exercises at all, you need them to
+            work within an expected utility framework. And then they
+            just go, "Oh, well, I'll just build an agent that's good at
+            optimizing things but doesn't use these explicit expected
+            utilities that are the source of the problem!"</p>
+<p>And then if I want them to believe the same things I do,
+            for the same reasons I do, I would have to teach them why
+            certain structures of cognition are the parts of the agent
+            that are good at stuff and do the work, rather than them
+            being this particular formal thing that they learned for
+            manipulating meaningless numbers as opposed to real-world
+            apples.</p>
+<p>And I have tried to write that page once or twice (eg "<a href="https://www.lesswrong.com/posts/RQpNHSiWaXTvDxt6R/coherent-decisions-imply-consistent-utilities">coherent
+            decisions imply consistent utilities</a>") but it has not
+            sufficed to teach them, because they did not even do as many
+            homework problems as I did, let alone the greater number
+            they'd have to do because this is in fact a place where I
+            have a particular talent.”</p>
+<p>“In this case the higher structure I'm talking about is
+            Utility, and doing homework with coherence theorems leads
+            you to appreciate that we only know about one higher
+            structure for this class of problems that has a dozen
+            mathematical spotlights pointing at it saying "look here",
+            even though people have occasionally looked for
+            alternatives.</p>
+<p>And when I try to say this, people are like, "Well, I
+            looked up a theorem, and it talked about being able to
+            identify a unique utility function from an infinite number
+            of choices, but if we don't have an infinite number of
+            choices, we can't identify the utility function, so what
+            relevance does this have" and this is a kind of mistake I
+            don't remember even coming close to making so I do not know
+            how to make people stop doing that and maybe I can't.”</p>
+<p>“Rephrasing again: we have a wide variety of mathematical
+            theorems all spotlighting, from different angles, the fact
+            that a plan lacking in clumsiness, is possessing of
+            coherence.”</p>
+<h2 data-number="8.11" id="ngo-and-yudkowsky-on-ai-capability-gains"><span class="header-section-number">8.11.</span> <a href="https://www.lesswrong.com/s/n945eovrA3oDueqtq/p/hwxj4gieR7FWNwYfa#_Yudkowsky__11_51__11_53_">‘Ngo
+            and Yudkowsky on AI capability gains’</a></h2>
+<p>“I think that to contain the concept of Utility as it
+            exists in me, you would have to do homework exercises I
+            don't know how to prescribe. Maybe one set of homework
+            exercises like that would be showing you an agent, including
+            a human, making some set of choices that allegedly couldn't
+            obey expected utility, and having you figure out how to pump
+            money from that agent (or present it with money that it
+            would pass up).</p>
+<p>Like, just actually doing that a few dozen times.</p>
+<p>Maybe it's not helpful for me to say this? If you say it
+            to Eliezer, he immediately goes, "Ah, yes, I could see how I
+            would update that way after doing the homework, so I will
+            save myself some time and effort and just make that update
+            now without the homework", but this kind of
+            jumping-ahead-to-the-destination is something that seems to
+            me to be... dramatically missing from many non-Eliezers.
+            They insist on learning things the hard way and then act all
+            surprised when they do. Oh my gosh, who would have thought
+            that an AI breakthrough would suddenly make AI seem less
+            than 100 years away the way it seemed yesterday? Oh my gosh,
+            who would have thought that alignment would be
+            difficult?</p>
+<p>Utility can be seen as the origin of Probability within
+            minds, even though Probability obeys its own, simpler
+            coherence constraints.”</p>
+<h2 data-number="8.12" id="agi-will-have-learnt-utility-functions"><span class="header-section-number">8.12.</span> <a href="https://www.lesswrong.com/posts/RorXWkriXwErvJtvn/agi-will-have-learnt-utility-functions">‘AGI
+            will have learnt utility functions’</a></h2>
+<p>“The view that utility maximizers are inevitable is
+            supported by a number of coherence theories developed early
+            on in game theory which show that any agent without a
+            consistent utility function is exploitable in some
+            sense.”</p>
+<footer>
+<p><a href="/">Back to home</a></p>
+</footer>
+</div>
+</article>
+<script defer="" src="/assets/js/paper-toc.js?v=20260722e"></script>
+</body>
+</html>

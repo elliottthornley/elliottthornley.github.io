@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Read Supererogation and Blame by
+Elliott Thornley." name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="Supererogation and Blame" property="og:title"/>
+<meta content="Read Supererogation and
+Blame by Elliott Thornley." property="og:description"/>
+<meta content="https://www.elliott-thornley.com/assets/images/elliott-thornley-headshot.jpg" property="og:image"/>
+<meta content="https://www.elliott-thornley.com/src/writing/supererogation-and-blame/" property="og:url"/>
+<title>Supererogation and Blame | Elliott Thornley</title>
+<link href="https://www.elliott-thornley.com/src/writing/supererogation-and-blame/" rel="canonical"/>
+<link href="/assets/images/elliott-thornley-headshot.jpg" rel="icon" type="image/jpeg"/>
+<!-- Tufte CSS -->
+<link href="/assets/css/tufte.css?v=20260722e" rel="stylesheet"/>
+<!-- MathJax for math rendering -->
+<script>
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/bbox', '[tex]/html']
+            },
+            tex: {
+                packages: {'[+]': ['bbox', 'html']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    textsc: ['\\class{paper-math-smallcaps}{\\text{#1}}', 1]
+                }
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Custom styles -->
+<style>
+        nav { padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid #ccc; }
+        nav a, nav a:visited { margin-right: 1.5rem; color: #173f8f; font-size: 1.2rem; text-decoration: none; font-style: normal; }
+        nav a:hover { text-decoration: underline; }
+        .paper-header h1 { font-style: normal; font-weight: 600; }
+        .paper-source-links { width: 100%; max-width: var(--paper-text-width); margin: 0.15rem 0 1.35rem; color: #333; font-size: 1.08rem; line-height: 1.55; }
+        .paper-source-links a { color: #173f8f; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ccc; color: #666; }
+        u { text-decoration: underline; }
+    </style>
+</head>
+<body class="paper-page">
+<article class="paper-layout">
+<div class="paper-main">
+<nav>
+<a href="/">Home</a>
+</nav>
+<header class="paper-header">
+<h1>Supererogation and Blame</h1>
+</header>
+<div class="abstract"><p class="abstract-label">Abstract</p>
+<p>Many philosophers believe that
+            some acts are supererogatory: morally optional and yet
+            morally better than some other permissible act. This belief
+            leads to three paradoxes: the original paradox of
+            supererogation, Horton’s All or Nothing Problem, and Kamm’s
+            Intransitivity Paradox. I claim that the best solution to
+            these paradoxes is to deny the possibility of
+            supererogation. This antisupererogationist view is not as
+            counterintuitive as it might first appear, for to say that
+            all suboptimal acts are wrong is not to say that all such
+            acts make their agents blameworthy. The view also offers a
+            principled and parsimonious solution to the paradoxes.</p>
+</div>
+<h1 data-number="1" id="introduction"><span class="header-section-number">1.</span> Introduction</h1>
+<p>Supererogatory acts are ‘beyond the call of
+            duty.’⁠<label class="margin-toggle sidenote-number" for="sn-1"></label><input class="margin-toggle" id="sn-1" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Almost all discussions of supererogation begin with this phrase. See,
+            for example, (<a class="citation-link" href="#ref-74">Urmson 1958</a>; <a class="citation-link" href="#ref-10">Chisholm and Sosa 1966</a>; <a class="citation-link" href="#ref-52">Peterfreund 1978</a>;
+            <a class="citation-link" href="#ref-27">Heyd 1982</a>; <a class="citation-link" href="#ref-34">Kamm 1985</a>; <a class="citation-link" href="#ref-42">Mellema 1991</a>; <a class="citation-link" href="#ref-29">Horgan and Timmons 2010</a>; <a class="citation-link" href="#ref-54">Portmore
+            2011</a>; <a class="citation-link" href="#ref-14">Dorsey 2013</a>; <a class="citation-link" href="#ref-19">Ferry 2013</a>; <a class="citation-link" href="#ref-11">Cohen 2015</a>; <a class="citation-link" href="https://doi.org/10.1111/phc3.12476">Archer 2018</a>; <a class="citation-link" href="https://doi.org/10.1080/0020174X.2020.1784786">Fritts and
+            Miller 2020</a>).</span></span></span> They are morally optional
+            and yet morally better than some other permissible act.
+            Suppose, for example, that a child is about to be crushed by
+            a falling building. You can save the child, but you know
+            your arms will be destroyed in the process. Alternatively,
+            you can stand by and do nothing. Saving the child is
+            supererogatory. It would be morally best, but you are
+            permitted to do nothing instead.</p>
+<p>Or, at least, so say many
+            philosophers.⁠<label class="margin-toggle sidenote-number" for="sn-2"></label><input class="margin-toggle" id="sn-2" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Most philosophers who have written on the topic believe that some
+            acts are supererogatory. Exceptions include (<a class="citation-link" href="#ref-44">Moore 1903</a>; <a class="citation-link" href="#ref-46">New 1974</a>; <a class="citation-link" href="#ref-58">Pybus
+            1982</a>; <a class="citation-link" href="#ref-18">Feldman 1986</a>; <a class="citation-link" href="#ref-26">Hale 1991</a>; <a class="citation-link" href="https://doi.org/10.1080/0020174X.2020.1784786">Fritts and Miller 2020</a>).</span></span></span>
+            But there’s a paradox here, dating back to at least <a class="citation-link" href="#ref-65">Sidgwick
+            (1907)</a>. If saving the child is morally best, why is it not
+            morally required? <del>What stops it from being morally
+            required?</del> Recently, two more paradoxes of
+            supererogation have occupied philosophers’ attention:
+            Horton’s All or Nothing Problem (2017) and Kamm’s
+            Intransitivity Paradox (1985; 2001, chap. 12; 2007, 30–31).
+            <a class="citation-link" href="https://doi.org/10.1111/nous.12326">Muñoz (2020)</a> suggests that we discuss the three puzzles
+            together. I follow his lead here. But while Muñoz takes the
+            lesson of the trio to be that permissibility depends on what
+            he calls ‘comparative prerogatives,’ I come to a different
+            conclusion. There are no supererogatory acts. Morality
+            requires us to do what’s (morally) best.</p>
+<p>This antisupererogationist view is counterintuitive, so
+            it might seem to incur a large debt from the start. But, I
+            argue, this debt is not as large as it appears. For to say
+            that all morally suboptimal acts are wrong is not to say
+            that all such acts make their agents blameworthy. Wrongness
+            and blameworthiness can come apart.</p>
+<p>I then argue that antisupererogationism can more than
+            repay the debt that remains. If morality requires us to do
+            what’s best, the three paradoxes of supererogation
+            evaporate. The residual puzzles are about blameworthiness,
+            and they turn out to be not very puzzling at all.</p>
+<p>Before we reach that point, though, we must acquaint
+            ourselves with the three paradoxes. Following Muñoz, I will
+            explain the drawbacks of extant solutions as we go.</p>
+<h1 data-number="2" id="the-three-paradoxes-of-supererogation"><span class="header-section-number">2.</span> The Three
+            Paradoxes of Supererogation</h1>
+<p>Sidgwick’s account of the original paradox is as
+            follows:</p>
+<blockquote>
+<p>Certainly we should agree that a truly moral man cannot
+            say to himself, ‘This is the best thing on the whole for me
+            to do, but yet it is not my duty to do it though it is in my
+            power’: this would seem to common sense an immoral paradox.
+            (1907, 220)</p>
+</blockquote>
+<p>Why did Sidgwick consider this a paradox? It might be
+            because he accepted the following claim:</p>
+<blockquote>
+<p>The Good-Ought
+            Tie-Up⁠<label class="margin-toggle sidenote-number" for="sn-3"></label><input class="margin-toggle" id="sn-3" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">This moniker comes from <a class="citation-link" href="#ref-27">Heyd (1982, 4)</a>.</span></span></span></p>
+<p>If an act is morally better than each available
+            alternative, then we are morally required to perform that
+            act.⁠<label class="margin-toggle sidenote-number" for="sn-4"></label><input class="margin-toggle" id="sn-4" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">It is important to note that ‘morally better’ does not mean the same
+            thing as ‘has better consequences.’ On some deontological theories,
+            moral betterness and betterness of consequences come apart. The paradox
+            of supererogation is not just a problem for consequentialist theories. I
+            often drop the ‘morally’ in what follows, but it should be remembered
+            that my concern is moral bestness, rather than bestness of
+            consequences.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">an act A can be morally better than an act B even though A does not
+            have better consequences than B.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">It is important to note that what I mean by an act’s being
+            <em>morally better</em> than each alternative is not the same as that
+            act’s having <em>better consequences</em> than each alternative. A
+            deontological theory might claim that your killing an innocent person
+            would have best consequences without claiming that this act is morally
+            best. I don’t have a theory-neutral and complete definition of ‘morally
+            better’ in this sense. On deontological theories, the ‘morally better
+            than’ relation over actions may be incomplete. But it seems to me that
+            in my example above involving saving a child from a falling building,
+            all theories should admit that saving the child is morally better than
+            letting the child die. Similarly for my examples below. I’ll often drop
+            the ‘morally’ in what follows, but it should be remembered that I’m
+            talking about moral bestness, rather than the bestness of
+            consequences.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">It is important to note that an act’s being <em>morally better</em>
+            than each alternative is not the same as that act’s having <em>better
+            consequences</em> than each alternative. On some deontological theories,
+            these come apart. A theory might admit, for example, that in some
+            situation killing an innocent person would have best consequences but
+            not call this action morally best.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Worth noting that <em>morally better</em> and <em>moral bestness</em>
+            isn’t consequentialist. The morally best thing is not necessarily the
+            thing with best consequences. A deontological theory might claim that
+            your killing an innocent person would have best consequences wihtout
+            claiming that this act is morally best. I’ll often drop the ‘morally’ in
+            what follows, but it should be remembered that I’m talking about moral
+            bestness, rather than the bestness of consequences.</span></span></span></p>
+</blockquote>
+<p>This claim seems plausible, but it rules out the
+            possibility of supererogation. That is because
+            supererogatory acts are defined to be those that are morally
+            better than <em>some other permissible act</em>. If some act
+            besides the morally best is permissible, then the morally
+            best cannot be required. The original paradox, then, is the
+            conjunction of the Good-Ought Tie-Up and the claim that some
+            acts are supererogatory (cf. <a class="citation-link" href="#ref-16">Dreier 2004, 148</a>; <a class="citation-link" href="#ref-53">Portmore
+            2008, 378–81</a>; <a class="citation-link" href="#ref-29">Horgan and Timmons 2010, 36–38</a>; <a class="citation-link" href="https://plato.stanford.edu/archives/win2019/entries/supererogation/">Heyd 2019,
+            sec. 3</a>).</p>
+<p>Since acts like saving a child at the cost of one’s arms
+            certainly seem supererogatory, it is tempting to deny the
+            Good-Ought Tie-Up. One way of doing that is to embrace a
+            satisficing conception of morality (<a class="citation-link" href="#ref-71">Slote 1985, chap. 3</a>). On
+            these views, we are not required to do what is (morally)
+            best. We need only do what is (morally) good
+            enough.⁠<label class="margin-toggle sidenote-number" for="sn-5"></label><input class="margin-toggle" id="sn-5" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">See <a class="citation-link" href="#ref-31">Hurka (1990)</a> for a distinction between absolute and comparative
+            satisficing. My objections apply to both forms of the view.</span></span></span>
+            Returning to our falling building example, advocates of
+            satisficing views can claim that both saving the child and
+            doing nothing clear the bar, so that both acts are
+            permissible. And since saving the child is morally better
+            than doing nothing, it qualifies as supererogatory.</p>
+<p>Satisficing views thus offer a thrifty account of
+            supererogation. But there are problems. The first concerns
+            the position of the line that separates permissible acts
+            from impermissible acts. The Good-Ought Tie-Up gives us a
+            principled place to draw the line: only the best is
+            permissible. Satisficing views draw it somewhere lower down
+            the scale. But where exactly? Suppose they draw it 70% of
+            the way, measured by value, from the worst available act to
+            the best available act. Why not 71% instead? No relevant
+            reason favours the former position over the latter. In light
+            of this dearth of reasons, any position between 0% and 100%
+            will look unacceptably
+            arbitrary.⁠<label class="margin-toggle sidenote-number" for="sn-6"></label><input class="margin-toggle" id="sn-6" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Advocates of satisficing views might claim that some acts are
+            indeterminately permissible. This move will not solve the problem since
+            it will remain arbitrary where the range of indeterminacy begins and
+            ends.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">One way of avoiding arbitrariness in these kinds of cases is to claim
+            that the position of the line/range is determined by our linguistic
+            conventions. That seems plausible for properties like baldness, but not
+            for permissibility. We cannot discover what is permissible simply by
+            consulting linguistic data (cf. <a class="citation-link" href="#ref-15">Dougherty 2014, 370</a>; <a class="citation-link" href="#ref-62">Schoenfield 2016,
+            265</a>).</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Another way of avoiding arbitrariness is to tie permissibility to
+            blameworthiness (<a class="citation-link" href="#ref-9">Chappell 2019</a>). I argue below that permissibility and
+            blameworthiness should be kept apart.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">A final option is to claim that it is a brute fact that — say — acts
+            above the 70% line are permissible while those at or below the line are
+            not. The existence of this kind of fact would be very mysterious.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Many moral views — like certain kinds of
+            deontological/non-consequentialist view — do not allow talk of an act
+            being 70% as good as another act. A satisficing version of those views
+            might instead draw the line at — say — the ninth-best act available to
+            the agent. This line also seems arbitrary.</span></span></span></p>
+<p>The second paradox of supererogation — Horton’s All or
+            Nothing Problem (2017) — presents another
+            difficulty.⁠<label class="margin-toggle sidenote-number" for="sn-7"></label><input class="margin-toggle" id="sn-7" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-56">Pummer (2016)</a> presents a similar case. <a class="citation-link" href="https://doi.org/10.1111/papa.12107">Sinclair (2018)</a> discusses
+            Pummer’s and Horton’s cases together.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-57">Pummer 2021</a> on cases ‘similar or relevant’ to Horton’s All-or-Nothing
+            Problem: For similar or relevant cases, see Charles Fried and Derek
+            Parfit, “Correspondence,” Philosophy and Public Affairs 8 (1979):
+            393–97; Derek Parfit, “Future Generations: Further Problems,” Philosophy
+            and Public Affairs 11 (1982): 113–72, 131; Kagan, Limits of Morality,
+            16; Douglas Portmore, “Dual-Ranking Act-Consequentialism,” Philosophical
+            Studies 138 (2008): 409–27, 420–21; Victor Tadros, The Ends of Harm: The
+            Moral Foundations of Criminal Law (Oxford: Oxford University Press,
+            2011), 161–62; Theron Pummer, “Whether and Where to Give,” Philosophy
+            and Public Affairs 44 (2016): 77–95; Joe Horton, “The All or Nothing
+            Problem,” Journal of Philosophy 114 (2017): 94–104; Jeff McMahan, “Doing
+            Good and Doing the Best,” in The Ethics of Giving, ed. Paul Woodruff
+            (New York: Oxford University Press, 2018), 78–102; Thomas Sinclair, “Are
+            We Conditionally Obligated to Be Effective Altruists?,” Philosophy and
+            Public Affairs 46 (2018): 36–59; Portmore, Opting for the Best,
+            sec. 6.4; Helen Frowe, “If You’ll Be My Bodyguard: Agreements to Save
+            and the Duty to Minimize Harm,” Ethics 129 (2019): 204–29, 210; Ralf
+            Bader, “Agent-Relative Prerogatives and Suboptimal Beneficence,” Oxford
+            Studies in Normative Ethics 9 (2019): 223–50; Tina Rulli, “Conditional
+            Obligations,” Social Theory and Practice 46 (2020): 365–90; Muñoz,“Three
+            Paradoxes of Supererogation”; Christian Barry and Seth Lazar,
+            “Supererogation and Optimisation” (unpublished); Kerah Gordon-Solmon,
+            “Between All and Nothing: Or, Defending the Impermissible”
+            (unpublished). Not all of these authors discuss cases with the same
+            structure as those that are of interest to me here. In some of these
+            cases, one faces a series of choices over time: first one can either
+            incur a personal cost to help others or not, and if one does incur the
+            cost, one can then at a later time choose whether to help more at no
+            additional personal cost. In the cases that are of interest to me here,
+            one faces a single choice in which one can incur a personal cost to help
+            others, incur a personal cost that is no greater to help more, or incur
+            no personal cost by helping no one at all. The dialectical importance of
+            the distinction between these sorts of cases in part depends on whether
+            it is possible to argue for conclusions about the single-choice cases on
+            the basis of claims about the series-ofchoices cases (for discussion
+            that bears on the extent to which it is, see McMahan, “Doing Good”;
+            Bader, “Agent-Relative Prerogatives”). — <a class="citation-link" href="#ref-57">Pummer, 2021</a></span></span></span>
+            Suppose this time that two children are about to be crushed
+            by the falling building. You can save both, save one, or do
+            nothing. Whether you save both children or just one, your
+            arms will be crushed. As before, doing nothing seems
+            permissible. You are not required to sacrifice your arms.
+            But the presence of the extra child seems to make saving
+            just one child wrong. After all, you could save both at no
+            extra cost. However, saving one child still seems morally
+            better than saving none. The result is that the wrong act of
+            saving one is morally better than the permissible act of
+            saving none. But that seems absurd. Doing wrong cannot be
+            morally better than doing right. We find ourselves in the
+            grip of another
+            paradox.⁠<label class="margin-toggle sidenote-number" for="sn-8"></label><input class="margin-toggle" id="sn-8" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">One might think that non-consequentialists can deny the principle
+            that ‘doing wrong cannot be morally better than doing right.’</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">think that doing wrong can sometimes lead to <em>better
+            consequences</em> than doing right. But</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Non-consequentialists might deny that saving one is morally better
+            than saving none. Although saving one has better consequences,
+            non-consequentialists say that moral value of actions is not just a
+            function of consequences. But here it seems difficult to deny.
+            Non-consequentialists usually value consequences, It’s just that that’s
+            not all they value. If maximising good consequences violates some
+            constraint, it ought not be done. But saving one doesn’t violate any
+            constraint that saving none respects.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Nonconsequentialists can happily say that, in some cases, doing wrong
+            can have <em>better consequences</em> than doing right, But recall that
+            I’m using <em>morally</em> <em>better</em> to mean ‘more choiceworthy
+            than’ [MAYBE YOU COULD DENY THAT SAVING ONE IS MORE CHOICEWORTHY THAN
+            SAVING NONE]. Put another way, the standard nonconsequentialist reason
+            for thinking that doing what has better consequences can be wrong is if
+            doing what has better consequences violates some deontological
+            constraint and doing what has worse consequences does not. But if saving
+            one violates a deontological constraint, then so does saving none.</span></span></span></p>
+<p>This problem is especially acute for satisficing views.
+            Saving one is higher on the scale of moral betterness than
+            saving none, so there is no way of positioning the line such
+            that doing nothing comes out permissible and saving one
+            comes out
+            wrong.⁠<label class="margin-toggle sidenote-number" for="sn-9"></label><input class="margin-toggle" id="sn-9" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Therefore, if doing nothing is permissible, saving one is
+            permissible. Satisficing views thus permit the gratuitous prevention of
+            goodness (<a class="citation-link" href="#ref-7">Bradley 2006</a>).</span></span></span> So long as we
+            hold fast to the intuition that saving none is permissible,
+            the lesson of Horton’s puzzle seems to be that
+            permissibility depends on more than an act’s place along a
+            scale.</p>
+<p>Hence the move to two-dimensional theories of
+            permissibility. On these views, supererogatory acts outstrip
+            merely permissible acts along one dimension. But there is a
+            second, independent, deontically-relevant dimension along
+            which acts vary. And supererogatory acts are not required
+            because their strength along the first dimension is
+            outweighed by the strength of some merely permissible act
+            once we take into account this second dimension. These
+            dimensions have gone by different names in the literature —
+            requiring versus justifying reasons (<a class="citation-link" href="#ref-23">Gert 2007</a>; <a class="citation-link" href="#ref-24">2012</a>; <a class="citation-link" href="#ref-2">Archer
+            2016b</a>), impartial versus partial reasons (<a class="citation-link" href="#ref-50">Parfit 2011</a>),
+            moral versus non-moral reasons (<a class="citation-link" href="#ref-70">Slote 1991</a>; <a class="citation-link" href="#ref-54">Portmore 2011</a>),
+            and reasons versus prerogatives (<a class="citation-link" href="#ref-61">Scheffler 1982</a>; <a class="citation-link" href="https://doi.org/10.1111/nous.12326">Muñoz 2020</a>)
+            — but the form of each solution is the same. For ease of
+            exposition, I use the language of reasons and prerogatives,
+            but the points below apply equally to other two-dimensional
+            solutions.⁠<label class="margin-toggle sidenote-number" for="sn-10"></label><input class="margin-toggle" id="sn-10" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-59">Raz (1975)</a>, <a class="citation-link" href="#ref-12">Dancy (1993)</a>, <a class="citation-link" href="#ref-6">Bedke (2011)</a>, and <a class="citation-link" href="#ref-55">Portmore (2019)</a> also
+            offer two-dimensional theories of supererogation.</span></span></span></p>
+<p>To see how reasons and prerogatives help solve Horton’s
+            problem, consider the following table:</p>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 32%"/>
+<col style="width: 32%"/>
+<col style="width: 32%"/>
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: left;">Reasons</th>
+<th style="text-align: left;">Prerogatives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Save Two</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td>Save One</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td>Do Nothing</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">10</td>
+</tr>
+</tbody>
+</table>
+<p>One act is morally better than another iff it is favoured
+            by greater reasons, so saving two is better than saving one,
+            and both are better than doing nothing. But an act’s deontic
+            status depends on both reasons and prerogatives. An act is
+            permissible iff the sum of reasons and prerogatives in its
+            favour is at least as great as the reasons in favour of each
+            other available act. Otherwise, it is impermissible. That
+            implies that saving two and doing nothing are both
+            permissible, while saving one is impermissible. And since
+            saving two is morally better than doing nothing, saving two
+            comes out supererogatory.</p>
+<p>This is a neat solution, but it flounders on the third
+            paradox of supererogation: Kamm’s Intransitivity Paradox
+            (1985; 2001, chap. 12; 2007, 30–31). This paradox, too, can
+            be rendered as a variant of our original case. Suppose that
+            you promised to meet a friend for lunch, and you encounter
+            the child about to be crushed by the falling building on
+            your way to the
+            restaurant.⁠<label class="margin-toggle sidenote-number" for="sn-11"></label><input class="margin-toggle" id="sn-11" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">In <a class="citation-link" href="#ref-34">Kamm’s (1985)</a> rendering, the supererogatory act is donating a
+            kidney. I follow <a class="citation-link" href="https://doi.org/10.1111/nous.12326">Muñoz’s (2020)</a> presentation.</span></span></span>
+            If the choice is between saving the child at the cost of
+            your arms and keeping your promise, saving the child seems
+            supererogatory. It would be good to make the sacrifice —
+            good enough to make breaking your promise permissible — but
+            it is not required. Return now to our original case, in
+            which you can save the child or do nothing. In that case, we
+            decided it would be permissible to do nothing. You are not
+            required to sacrifice your arms. But now suppose that there
+            is no falling building. You are on your way to lunch, and
+            you can either keep your promise or do nothing. In this
+            case, you are required to keep your promise. Doing nothing
+            would be
+            wrong.⁠<label class="margin-toggle sidenote-number" for="sn-12"></label><input class="margin-toggle" id="sn-12" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Hence why it has been called Kamm’s <em>Intransitivity</em> Paradox.
+            It appears to show that permissibility is intransitive. When the other
+            option is keeping your promise, saving one is permissible. When the
+            other option is saving one, doing nothing is permissible. But when the
+            other option is keeping your promise, doing nothing is
+            impermissible.</span></span></span></p>
+<p>These judgements seem plausible, but we cannot capture
+            them with our system of reasons and prerogatives. If saving
+            the child is supererogatory when you could keep your
+            promise, then the reasons in favour of saving the child must
+            outweigh the reasons in favour of keeping your promise. If
+            doing nothing is permissible when you could save the child,
+            then the combined reasons and prerogatives in favour of
+            doing nothing must at least match the reasons in favour of
+            saving the child. But then simple arithmetic dictates that
+            the combined reasons and prerogatives in favour of doing
+            nothing must outweigh the reasons in favour of keeping your
+            promise. That would make doing nothing rather than keeping
+            your promise permissible.</p>
+<p>Kamm’s solution (2001, chap. 12) dispenses with reasons
+            and prerogatives. Instead, she employs two different
+            dimensions: efforts and
+            precedence.⁠<label class="margin-toggle sidenote-number" for="sn-13"></label><input class="margin-toggle" id="sn-13" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-37">Lazar (2019, 246)</a> presents a similar view.</span></span></span>
+            The efforts standard measures the effort that an act
+            requires of us. The precedence standard dictates when it is
+            permissible to let one act take precedence over another. We
+            can assign scores along these dimensions as follows:</p>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 32%"/>
+<col style="width: 32%"/>
+<col style="width: 32%"/>
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: left;">Efforts</th>
+<th style="text-align: left;">Precedence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keep Promise</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td>Save One</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr>
+<td>Do Nothing</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">5</td>
+</tr>
+</tbody>
+</table>
+<p>We can say that an act is permissible iff its precedence
+            score is at least as great as each other act’s effort score.
+            An act is impermissible otherwise. That criterion gives us
+            the deontic judgements we want: you are permitted to save
+            one rather than keep your promise, and do nothing rather
+            than save one, but you are not permitted to do nothing
+            rather than keep your promise.</p>
+<p>This too seems like a neat solution. But a problem arises
+            when we consider Muñoz’s combined case (2020, 8). Suppose
+            that you are on your way to your lunch-date, as before, when
+            you encounter two children set to be crushed by the falling
+            building. You can save both, save one, save none by keeping
+            your promise, or save none by doing nothing. Whether you
+            save both or save one, your arms will be crushed. That makes
+            saving just one child seem impermissible, so we have to set
+            the effort score of saving two higher than the precedence
+            score of saving one. But this move sets us off on a long and
+            ultimately contradictory path. An effort score that high
+            makes it impermissible to do nothing when you could save
+            two. To avoid that implication, we have to set the
+            precedence score of doing nothing as high as the effort
+            score of saving two. But a precedence score that high makes
+            it permissible to do nothing rather than keep your promise.
+            To avoid that implication, we have to set the effort score
+            of keeping your promise higher than the precedence score of
+            doing nothing. But an effort score that high makes it
+            impermissible to save one rather than keep your promise. To
+            avoid that implication, we have to set the precedence score
+            of saving one higher than the effort score of keeping your
+            promise. But a precedence score that high makes it
+            permissible to save one child rather than two. To avoid that
+            implication, we have to raise the effort score of saving two
+            again, and then we are back where we started. There is
+            simply no way of assigning two-dimensional scores that
+            deliver our intuitive permissibility judgements.</p>
+<p>How about three dimensions? <a class="citation-link" href="#ref-2">Archer’s (2016b)</a> model posits
+            requiring, justifying, and favouring
+            reasons.⁠<label class="margin-toggle sidenote-number" for="sn-14"></label><input class="margin-toggle" id="sn-14" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-29">Horgan and Timmons (2010, 54)</a> endorse a similar view.</span></span></span>
+            Permissibility depends on requiring and justifying reasons:
+            an act is permissible iff it is supported by justifying
+            reasons at least as great as each other act’s requiring
+            reasons. But moral betterness depends on favouring reasons:
+            an act is better than another iff it is supported by greater
+            favouring reasons. That allows us to capture the judgements
+            in Kamm’s case as follows:</p>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 24%"/>
+<col style="width: 24%"/>
+<col style="width: 24%"/>
+<col style="width: 24%"/>
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: left;">Requiring</th>
+<th style="text-align: left;">Justifying</th>
+<th style="text-align: left;">Favouring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keep Promise</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr>
+<td>Save One</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr>
+<td>Do Nothing</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0</td>
+</tr>
+</tbody>
+</table>
+<p>You are permitted to save one rather than keep your
+            promise, do nothing rather than save one, but not to do
+            nothing rather than keep your promise. And saving one comes
+            out supererogatory because it is supported by the strongest
+            favouring reasons.</p>
+<p>However, even these three dimensions fail to give us what
+            we want in Muñoz’s combined case. Introducing the option to
+            save two children makes saving one impermissible, so the
+            requiring reasons to save both children must exceed the
+            justifying reasons to save one child. But this move sets us
+            on the road to another contradiction. Setting the requiring
+            reasons to save both children that high makes it
+            impermissible to do nothing rather than save both children.
+            To avoid that implication, we have to set the justifying
+            reasons to do nothing at least as high, but that makes it
+            permissible to do nothing rather than keep your promise. To
+            avoid that implication, we have to set the requiring reasons
+            to keep your promise higher, but that makes it impermissible
+            to save one child rather than keep your promise. To avoid
+            that implication, we have to set the justifying reasons to
+            save one at least as high, but that makes it permissible to
+            save one child rather than both, and the circle begins
+            again. Even Archer’s three dimensions cannot account for our
+            intuitive deontic judgements.</p>
+<h1 data-number="3" id="comparative-prerogatives"><span class="header-section-number">3.</span> Comparative
+            Prerogatives</h1>
+<p><a class="citation-link" href="https://doi.org/10.1111/nous.12326">Muñoz (2020, 8–10)</a> spares us a jump to four dimensions.
+            Instead, he argues that reasons and prerogatives can give us
+            all that we want. The key difference is that Muñoz’s
+            prerogatives are not absolute. They are comparative. The
+            strength of your prerogative to perform an act depends on
+            the act with which it is being compared.</p>
+<p>Returning to the three paradoxes, Muñoz claims that you
+            have a comparative prerogative to do nothing rather than
+            save the children. That is because the two acts differ in
+            their harm to you (2020, 9). Saving the children would crush
+            your arms, whereas doing nothing would leave all your limbs
+            intact. But, Muñoz claims, you have no such comparative
+            prerogative to do nothing rather than keep your promise,
+            because the harm to you is the same either way. Neither act
+            would crush your arms. Similarly, you have no comparative
+            prerogative to save one rather than save two, because the
+            harm to you is the same. Both acts would crush your arms.
+            So, Muñoz concludes, a comparative prerogative based on
+            personal harm generates our intuitive deontic judgements in
+            all three paradoxes and the combined case.</p>
+<p>Muñoz’s solution is clever, but there are drawbacks. The
+            first is a problem it shares with satisficing views: the
+            strength of comparative prerogatives seems unavoidably
+            arbitrary. The personal harm of losing both of your arms may
+            render doing nothing permissible, but what if the harm were
+            marginally less? Suppose that in a second case, the falling
+            building would crush your arms 99% of the way up to your
+            shoulders; in a third case, it would crush them 98% of the
+            way; and so on. In the last case, the building would just
+            scrape the nail of your middle finger. At some point in this
+            sequence of cases, doing nothing must become impermissible.
+            But Muñoz gives us no reason for drawing the line in one
+            place rather than any
+            other.⁠<label class="margin-toggle sidenote-number" for="sn-15"></label><input class="margin-toggle" id="sn-15" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Claiming that permissibility is vague does not solve this problem.
+            See footnote 5.</span></span></span></p>
+<p>A second drawback is what comparative prerogatives commit
+            us to saying. Along with other multi-dimensional views, it
+            implies that — in some cases — performing an impermissible
+            act is morally better than performing a permissible act.
+            Horton’s problem is one such case. Saving just one child is
+            wrong and yet morally better than the permissible act of
+            doing nothing. That commits advocates of the comparative
+            prerogatives view to the jarring claim that, sometimes, it
+            is morally better to do the wrong thing than a right
+            thing.⁠<label class="margin-toggle sidenote-number" for="sn-16"></label><input class="margin-toggle" id="sn-16" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="https://doi.org/10.1111/nous.12326">Muñoz (2020)</a> recognises this implication and claims that we should
+            embrace it. I do not take it to be fatal for multi-dimensional views,
+            but it is certainly strange.</span></span></span> As we will
+            see in the next section, antisupererogationism commits us to
+            no such oddness.</p>
+<p>The ontological commitments of the comparative
+            prerogatives view are a final drawback. Muñoz writes that
+            his view offers a ‘unified and minimal’ solution to the
+            paradoxes (2020, 10), and it certainly seems that way at
+            first look. Rather than add a fourth dimension to defuse his
+            combined case, Muñoz pares us back to reasons and
+            comparative prerogatives. But the view is not as
+            parsimonious as it might seem. Note first that the strength
+            of a comparative prerogative must supervene on features of
+            the acts being compared. There cannot be a difference in the
+            strength of some comparative prerogative without a
+            difference in some feature. Therefore, since you have a
+            comparative prerogative to do nothing rather than save the
+            children but have no comparative prerogative to do nothing
+            rather than keep your promise, saving the children and
+            keeping your promise must differ in some
+            deontically-relevant way. As we noted above, the difference
+            is in their personal harms. Keeping your promise leaves all
+            your limbs intact. So, Muñoz’s view posits at least two
+            deontically-relevant dimensions: the reasons in favour of an
+            act, and the personal harm to the agent.</p>
+<p>But we cannot cap the dimensions there. As Muñoz
+            acknowledges, personal harm cannot be the only ground of
+            comparative prerogatives. To see why, consider the following
+            set of cases adapted from <a class="citation-link" href="#ref-14">Dorsey (2013, 365–69)</a>. First, you
+            can donate £30,000 of your own money to an effective
+            charity, thereby saving ten lives, or you can buy a new car.
+            In this case, buying a new car seems permissible. Second,
+            you can steal £30,000 from rich Jerry as the only means to
+            save ten lives, or you can respect Jerry’s rights and leave
+            him alone. In this case, stealing from Jerry seems
+            permissible. Third, you can steal £30,000 from rich Jerry
+            and use the money to buy a new car, or you can respect
+            Jerry’s rights and leave him alone. In this case, stealing
+            from Jerry seems impermissible.</p>
+<p>Suppose, for reductio, that reasons and personal harms
+            are the only deontically-relevant dimensions. In the first
+            case, the reasons to save ten lives outweigh the reasons to
+            buy a new car. But missing out on a new car is a personal
+            harm. And since buying a new car is permissible, <em>the
+            comparative prerogative generated by this personal harm
+            (plus the reasons to buy a new car) must outweigh the
+            reasons to save ten lives</em>. That is the first component
+            of the reductio. In the second case, there is no difference
+            in personal harm. Stealing from Jerry to save ten lives and
+            respecting Jerry’s rights both involve no harm to you.
+            Therefore, since stealing from Jerry to save ten lives is
+            permissible, <em>the reasons to save ten lives must outweigh
+            the reasons to respect Jerry’s rights</em>. That is the
+            second component of the reductio.</p>
+<p>These two components have an undesirable implication.
+            Saving ten lives in the first case and respecting Jerry’s
+            rights in the third case both involve the same personal
+            harm: you miss out on a new car. So, the comparative
+            prerogative in favour of buying a new car in the first case
+            and stealing from Jerry in the third case must be the same.
+            But then, since the reasons and comparative prerogatives to
+            buy a new car outweigh the reasons to save ten lives in the
+            first case, and the reasons to save ten lives outweigh the
+            reasons to respect Jerry’s rights in the second case, the
+            reasons and comparative prerogatives to buy a new car must
+            outweigh the reasons to respect Jerry’s rights in the third
+            case. That permits you to steal from Jerry and buy yourself
+            a new car.</p>
+<p>To avoid this implication, Muñoz posits a third
+            deontically-relevant dimension (2020, 10). Comparative
+            prerogatives also depend on whether the compared acts
+            violate someone’s rights (cf. <a class="citation-link" href="#ref-36">Kamm 2007, 30–31</a>; <a class="citation-link" href="#ref-32">Hurka and
+            Shubert 2012, 10</a>). That forbids you from stealing from
+            Jerry, but it comes at the cost of parsimony. It means
+            Muñoz’s view requires at least as many deontically-relevant
+            dimensions as Archer’s.</p>
+<p>And even three dimensions cannot capture all of our
+            common-sense intuitions about supererogation. Consider
+            another Kamm-style example. First, you can save a child
+            drowning in a shallow pond, thereby ruining your £3,000
+            watch, or you can stay
+            dry.⁠<label class="margin-toggle sidenote-number" for="sn-17"></label><input class="margin-toggle" id="sn-17" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">This case is a variant of <a class="citation-link" href="#ref-67">Singer’s (1972)</a>.</span></span></span>
+            In this case, staying dry seems impermissible. The
+            comparative prerogative based on personal harm is not strong
+            enough to justify letting the child die. Second, you can
+            save a child by donating £3,000 to an effective charity, or
+            you can keep the money. In this case, keeping the money
+            seems permissible. But note that the reason to perform the
+            altruistic action is the same in each case: a child will be
+            saved. The personal harms are the same too: you have £3,000
+            less than you otherwise would. And, plausibly, the cases are
+            also the same with respect to rights-violations: if the
+            child in the shallow pond has a right to your help, so does
+            the child who would benefit from your charity. So, on a
+            three-dimensional view, either both altruistic acts are
+            required or neither of them are. Therefore, if we want to
+            preserve all of our common-sense intuitions about
+            supererogation, we need to posit at least four
+            deontically-relevant dimensions. The result is a view that
+            no longer looks so unified and minimal.</p>
+<p>Of course, we might not want to preserve the intuition
+            that donating our spare cash to charity is supererogatory.
+            Perhaps Singer is right that the world’s affluent are
+            morally required to ‘give until it
+            hurts.’⁠<label class="margin-toggle sidenote-number" for="sn-18"></label><input class="margin-toggle" id="sn-18" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">This phrase is from <a class="citation-link" href="#ref-47">Noggle (2009)</a>. Singer’s own wording is that I
+            must give until I ‘reach the level… at which, by giving more, I would
+            cause as much suffering to myself or my dependents as I would relieve by
+            my gift.’ (1972, 241).</span></span></span> That would let
+            us get by with three deontically-relevant dimensions. But it
+            would also mean admitting that a large swathe of our
+            common-sense intuitions about supererogation are mistaken.
+            That admission would cast doubt on our other intuitions
+            about supererogatory action, and open the door to the view
+            that no acts are supererogatory. I defend this
+            antisupererogationist view in the next section.</p>
+<h1 data-number="4" id="blameworthiness"><span class="header-section-number">4.</span> Blameworthiness</h1>
+<p>Suppose that there are no supererogatory acts. Morality
+            requires us to do what’s best. That means that, when you
+            come upon the falling building, you are required to
+            sacrifice your arms to save the children. Doing nothing is
+            impermissible.</p>
+<p>This view is often taken to be counterintuitive. But what
+            makes it so? A point that comes up again and again in the
+            literature is that you would not be blameworthy for failing
+            to save the
+            children.⁠<label class="margin-toggle sidenote-number" for="sn-19"></label><input class="margin-toggle" id="sn-19" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">See, for example, <a class="citation-link" href="#ref-39">McElwee (2010, 396)</a>:</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">See also (<a class="citation-link" href="#ref-74">Urmson 1958, 202–3</a>; <a class="citation-link" href="#ref-59">Raz 1975, 64–65</a>; <a class="citation-link" href="#ref-33">Jamieson and Elliot
+            2009, 243</a>; <a class="citation-link" href="#ref-29">Horgan and Timmons 2010, 48</a>; <a class="citation-link" href="#ref-19">Ferry 2013, 586</a>; <a class="citation-link" href="https://plato.stanford.edu/archives/win2019/entries/supererogation/">Heyd 2019,
+            sec. 3.1</a>; <a class="citation-link" href="#ref-40">McElwee 2020, 200</a>).</span></span></span> Were you
+            to stand by and do nothing, it would be inappropriate for
+            others to blame you and inappropriate for you to blame
+            yourself.</p>
+<p>However, blamelessness is not the same as permissibility.
+            To make the inference from your blamelessness in doing
+            nothing to the permissibility of doing nothing, we need an
+            extra premise: all impermissible acts render their agent
+            blameworthy.⁠<label class="margin-toggle sidenote-number" for="sn-20"></label><input class="margin-toggle" id="sn-20" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-4">Arneson (2004, 51)</a> recognises this point. As does <a class="citation-link" href="#ref-1">Archer (2016a,
+            183)</a>.</span></span></span> And, I argue, this premise is
+            false. Wrongness and blameworthiness can come
+            apart.⁠<label class="margin-toggle sidenote-number" for="sn-21"></label><input class="margin-toggle" id="sn-21" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="https://doi.org/10.1080/0020174X.2020.1784786">Fritts and Miller (2020, 16)</a> point this out in their own defence of
+            antisupererogationism. <a class="citation-link" href="#ref-17">Driver (1992)</a> argues that permissible acts can be
+            blameworthy. <a class="citation-link" href="#ref-57">Pummer (2021)</a> argues that impermissible acts can be overall
+            praiseworthy.</span></span></span></p>
+<p>Before I present that argument, though, I need to say a
+            little more about what it means to be blameworthy. This
+            notion can be understood in at least two distinct ways.
+            First, we can take a person to be blameworthy when it would
+            be <em>fitting</em> to blame them. That is, when they
+            <em>deserve</em> blame. We might analyse this idea in the
+            standard way: blame is fitting when an agent does wrong
+            voluntarily, under control, and
+            knowingly.⁠<label class="margin-toggle sidenote-number" for="sn-22"></label><input class="margin-toggle" id="sn-22" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">See <a class="citation-link" href="#ref-64">Shoemaker (2017, 498–99)</a>, who cites <a class="citation-link" href="#ref-8">Brink and Nelkin (2013,
+            292–303)</a> as advocates of this kind of view. See also <a class="citation-link" href="#ref-41">McKenna (2012,
+            12–13)</a> who writes of <em>epistemic</em> and <em>control</em> conditions
+            for moral responsibility.</span></span></span> Or we might
+            offer a quality-of-will account: blame is fitting when an
+            agent does wrong freely and knowingly, and in doing so
+            reveals an objectionable lack of regard for others and for
+            moral considerations (<a class="citation-link" href="#ref-41">McKenna 2012, chap. 3</a>). Alternatively,
+            we might take blame to be fitting when an agent merits
+            indignation or anger (<a class="citation-link" href="#ref-54">Portmore 2011, 43</a>; <a class="citation-link" href="#ref-64">Shoemaker 2017,
+            508</a>). Or we might claim that there is no simple analysis of
+            fitting blame, and content ourselves with identifying
+            certain common features (<a class="citation-link" href="#ref-39">McElwee 2010, 401–5</a>; <a class="citation-link" href="#ref-21">Fricker 2016,
+            168</a>).</p>
+<p>Second, we can take a person to be blameworthy when it
+            would be <em>expedient</em> to blame them. That is, when
+            blaming them would have good consequences. This might be
+            because blame would alert the agent to their wrongdoing and
+            motivate them to do better in the future. It might also
+            deter others from acting in the same
+            way.⁠<label class="margin-toggle sidenote-number" for="sn-23"></label><input class="margin-toggle" id="sn-23" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">An anonymous reviewer suggests the following problem for this
+            kind of account. Suppose Anwar is responsive to blame, while Bella is
+            stubborn. Then there may be actions that it would be expedient to blame
+            Anwar for and not expendient to blame Bella for. Thus, on the expedient
+            blame account, Anwar is blameworthy for such actions while Beth is not.
+            That seems counterintuitive. I take this case to show that the fitting
+            blame account better captures what we mean by ‘blameworthy.’
+            Nevertheless, I discuss both fitting blame and expedient blame accounts
+            bleow3, to cover my bases.</span></span></span></p>
+<p>These two notions of blameworthiness differ. Sometimes,
+            blame is expedient but not fitting. A coach might blame her
+            best player after a defeat, knowing that she responds best
+            to criticism. At other times, blame is fitting but not
+            expedient. A debtor might decline to blame a short-tempered
+            gangster for spilling red wine on his shirt. Thankfully, I
+            need not pin my case to just one of these accounts. Whether
+            blameworthiness is about fittingness, expediency, or a
+            conjunction or disjunction of the two, wrongness and
+            blameworthiness can come apart. The only account
+            incompatible with my argument is that according to which an
+            agent is blameworthy iff they act
+            wrongly.⁠<label class="margin-toggle sidenote-number" for="sn-24"></label><input class="margin-toggle" id="sn-24" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-72">Strawson (1962)</a> offers a view along these lines, as do (<a class="citation-link" href="#ref-75">Wallace 1994</a>;
+            <a class="citation-link" href="#ref-76">Watson 1996</a>; <a class="citation-link" href="#ref-77">2004</a>; <a class="citation-link" href="#ref-20">Fischer and Ravizza 1998</a>; <a class="citation-link" href="#ref-13">Darwall 2006</a>; <a class="citation-link" href="#ref-39">McElwee 2010</a>;
+            <a class="citation-link" href="#ref-54">Portmore 2011</a>; <a class="citation-link" href="#ref-8">Brink and Nelkin 2013</a>; <a class="citation-link" href="#ref-63">Schulte 2014</a>; <a class="citation-link" href="#ref-51">Pereboom 2014</a>;
+            <a class="citation-link" href="https://doi.org/10.1111/ejop.12571">Menges 2020</a>). See <a class="citation-link" href="#ref-38">Mason (2019)</a> for recent work on the connection between
+            wrongness and blameworthiness.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-57">Pummer 2021</a>: It is commonly held that unexcused impermissible acts
+            are necessarily blameworthy, not praiseworthy. [[See, e.g., Allan
+            Gibbard, Wise Choices, Apt Feelings (Oxford: Clarendon, 1990), chap. 3;
+            John Skorupski, The Domain of Reasons (Oxford: Oxford University Press,
+            2010), pt. 3; Stephen Darwall, Morality, Authority, and Law: Essays in
+            Second-Personal Ethics I (Oxford: Oxford University Press, 2013), 21;
+            Brian McElwee, “Demandingness Objections in Ethics,” Philosophical
+            Quarterly 67 (2017): 84–105.]] On some views, what it means for an act
+            to be impermissible is that it is blameworthy, absent excusing
+            conditions. On other views, all unexcused impermissible acts are
+            blameworthy, even if what it means for an act to be impermissible is not
+            that it is blameworthy, but, for example, that it mustn’t be done. [[See
+            Derek Parfit, On What Matters (Oxford: Oxford University Press, 2011),
+            vol. 1, chap. 7.]]</span></span></span> I now argue that we
+            have good reason to reject this account.</p>
+<p>Consider the following case, from <a class="citation-link" href="#ref-11">Cohen (2015</a>,
+            1006–7):</p>
+<blockquote>
+<p>Your brother is suffering from a rapidly progressive lung
+            disease, which is fatal without treatment. The only
+            treatment is lung transplantation. Lung donation (unlike
+            kidney donation) incurs, beyond the hardship and hazards of
+            a major surgery, a significant impact on one’s prospective
+            quality of life (e.g., no ability to play sports anymore).
+            You are the sole matching donor. If you decide to donate
+            your lung, you will be praised as having done an incredibly
+            selfless deed—you made yourself handicapped out of caring!
+            You will be rightly lauded as having acted especially nobly.
+            If, on the other hand, you decide not to donate, you will be
+            considered to have acted wrongly: you did not just refrain
+            from doing what is noble; you rather miserably failed to do
+            the right thing—you failed to act even though you were the
+            only one who could help, thus facilitating the death of your
+            own
+            brother.⁠<label class="margin-toggle sidenote-number" for="sn-25"></label><input class="margin-toggle" id="sn-25" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Cohen uses this case to argue for the existence of a new category of
+            moral action: forced supererogation. I do not draw that conclusion. I
+            use the case only to argue that wrongness and blameworthiness can come
+            apart. <a class="citation-link" href="#ref-11">Cohen (2015</a>, 1007) also offers two more cases with a similar
+            structure. I find them equally convincing as examples of wrongdoing that
+            is not blameworthy, but leave them out for reasons of space.
+            <a class="citation-link" href="#ref-17">Driver (1992)</a> presents a similar case and argues that the agent
+            acts permissibly but is blameworthy!</span></span></span></p>
+</blockquote>
+<p>Here is another case, from <a class="citation-link" href="#ref-41">McKenna (2012, 19)</a>:</p>
+<blockquote>
+<p>Consider the case of a woman whose clear moral obligation
+            is to save a small group of people from certain death. As it
+            happens, her child is in danger of a nontrivial harm, though
+            not life-threatening. She cannot both save the group and aid
+            her child, and in the absence of any “agential impediments,”
+            she decisively settles upon protecting her child. She freely
+            does so knowing that she is violating her obligation.</p>
+<p>McKenna goes on to write:</p>
+<p>Here, her failure to save the group counts as morally
+            wrong, but there is nothing negative revealed in the quality
+            of her will in terms of her regard for others’ morally
+            relevant interests. Her reasons for acting showed no lack of
+            moral concern for these others, and so on. In this sort of
+            case I believe that we can make good sense of a person
+            knowingly and freely doing morally wrong but yet not being
+            blameworthy since the quality of her will does not show that
+            in so acting she lacks due regard for others. She was
+            morally responsible for what she did, but she was not
+            blameworthy for it. She was, as one might put it, in a tight
+            spot. (2012, 19)</p>
+</blockquote>
+<p>I agree with McKenna’s appraisal, and submit that we
+            should draw the same conclusion in Cohen’s case: refusing to
+            donate a lung to your brother would be wrong, but you need
+            not be blameworthy for your refusal.</p>
+<p>We can flesh out the case for these judgements in terms
+            of both fitting and expedient blame. Take fitting blame
+            first. Neither the prospective lung donor nor the mother
+            deserve blame for their acts. That might be because their
+            choice was not under control. Although it was voluntary, in
+            the sense that they were not constrained or coerced by
+            external forces, they nevertheless <em>could not have
+            brought themselves</em> to perform the morally best act. If
+            we accept what I have called the standard analysis of
+            fitting blame, which requires acts to be performed
+            voluntarily, under control, and knowingly, this lack of
+            control renders the lung donor and mother blameless. If we
+            instead accept a quality-of-will account, we will come to
+            the same conclusion: the donor’s and mother’s acts —
+            although wrong — do not reveal an objectionable lack of
+            regard for others. A response-dependent theory of
+            blameworthiness gives us the same answer: neither the donor
+            nor the mother merit anger for their choice, so blame is not
+            fitting.</p>
+<p>Blame is not expedient either. The prospective lung donor
+            and mother already recognise their wrongdoing, so blame does
+            not serve the purpose of moral education in these cases. It
+            also seems extremely unlikely that blame would motivate
+            these agents to do better in future situations. Even if we
+            suppose that the agents are likely to encounter similar
+            circumstances in the future, the costs of acting rightly are
+            so great — a lung in the donor case, an injury to a child in
+            the mother case — that any memory of past blame will almost
+            certainly fail to tip the balance. That means blame would
+            likely make no difference. To criticise the prospective lung
+            donor and mother for their choices would be to add a
+            pointless scrap of ill-will to an already heart-rending
+            situation.</p>
+<p>Examples like Cohen’s and McKenna’s are the core reason
+            for thinking that wrongness and blameworthiness can come
+            apart. But there are other reasons too. Wrongness concerns
+            the appropriateness of acts, while blameworthiness concerns
+            the appropriateness of responses to those acts. Claiming
+            that the two always go together, then, means claiming that
+            no factor besides wrongness can affect whether blame is an
+            appropriate response. It also means claiming that we can
+            immediately infer blameworthiness from wrongness. That seems
+            drastically contrary to our actual practices of blame.
+            Determining whether blame is appropriate is often taken to
+            be a difficult further question, requiring us to consider
+            various extenuating
+            factors.⁠<label class="margin-toggle sidenote-number" for="sn-26"></label><input class="margin-toggle" id="sn-26" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">The above arguments draw on widely-shared and
+            somewhat-uncontroversial premises. But there are further arguments that
+            depend on more contentious premises. For example, many ethicists believe
+            that the permissibility of an act does not depend on the agent’s
+            intentions (e.g. most consequentialists). Blameworthiness, meanwhile,
+            does seem to depend on the agent’s intentions.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Second, many ethicists believe that moral obligations are objective:
+            an act’s wrongness does not depend on the agent’s beliefs (<a class="citation-link" href="#ref-44">Moore 1903</a>;
+            <a class="citation-link" href="#ref-60">Ross 1930</a>; <a class="citation-link" href="#ref-18">Feldman 1986</a>; <a class="citation-link" href="#ref-73">Thomson 1986</a>; <a class="citation-link" href="#ref-78">Zimmerman 1996</a>; <a class="citation-link" href="#ref-25">Graham 2010</a>).
+            Blameworthiness, meanwhile, does seem to depend on the agent’s beliefs.
+            Suppose, for example, that two doctors kill their respective patients by
+            administering a certain treatment. All else equal, the doctor who
+            believed that the treatment would kill their patient is more blameworthy
+            than the doctor who believed that the treatment would cure their
+            patient.</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Third, many ethicists believe that moral dilemmas — in which one acts
+            wrongly no matter what one does — are possible (<a class="citation-link" href="#ref-69">Sinnott-Armstrong 1988</a>).
+            Suppose, for example, that Sophie must choose one of her children to be
+            killed or else see them both killed. Perhaps every choice available to
+            Sophie is wrong. But, plausibly, not every choice makes Sophie
+            blameworthy (cf. <a class="citation-link" href="#ref-41">McKenna 2012, 20</a>).</span></span></span></p>
+<h1 data-number="5" id="paradoxes-of-blameworthiness"><span class="header-section-number">5.</span> Paradoxes of
+            Blameworthiness</h1>
+<p>We are not always blameworthy for doing wrong. That is
+            the upshot of the previous section. This fact means that
+            antisupererogationism need not be counterintuitive. For it
+            allows us to say that, although you act wrongly when you
+            fail to save the child in the falling building case, you are
+            not blameworthy for your failure. It would be inappropriate
+            for others to blame you and inappropriate for you to blame
+            yourself. The reasons why are the same as those in Cohen’s
+            and McKenna’s examples above. Blame is not fitting, because
+            failing to save the children does not reveal an
+            objectionable lack of regard for others and does not merit
+            anger. And blame is not expedient, because the costs of
+            acting rightly are so great. Blame would not spur you to do
+            better in similar future situations, so any criticism for
+            your act would be a pointless extra harm.</p>
+<p>It might be objected that this antisupererogationist view
+            is still counterintuitive. Some people might have strong
+            intuitions that, not only is failing to save the children
+            not blameworthy, it is not wrong. I find that my intuitions
+            about wrongness in this case, once set apart from my
+            intuitions about
+            blameworthiness,⁠<label class="margin-toggle sidenote-number" for="sn-27"></label><input class="margin-toggle" id="sn-27" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Which includes self-blame, remember!</span></span></span>
+            are faint. But even if antisupererogationism still comes at
+            some intuitive cost, I argue that this cost is more than
+            repaid by the view’s advantages.</p>
+<p>The first advantage is the ease with which
+            antisupererogationism solves the three paradoxes. In the
+            original paradox, there is no mystery about how doing
+            nothing can be permissible. It is not. In Horton’s problem,
+            there is no mystery about how doing nothing can be
+            permissible even though it is morally worse than the
+            impermissible act of saving one child. Both acts are
+            impermissible. In Kamm’s paradox, there is no mystery about
+            how doing nothing rather than keeping your promise is
+            impermissible, even though it is permissible to save the
+            child rather than keep your promise, and permissible to do
+            nothing rather than save the child. This last clause is
+            false.</p>
+<p>Those questions that are left are about blameworthiness.
+            We can phrase them as follows. First, the original paradox:
+            if saving the child is morally best, why are you not
+            blameworthy for doing nothing? Second, Horton’s problem: if
+            saving one child is morally better than doing nothing, why
+            are you blameworthy for saving one child but not blameworthy
+            for doing nothing? Third, Kamm’s paradox: if you are not
+            blameworthy for saving one rather than keeping your promise,
+            and not blameworthy for doing nothing rather than saving
+            one, why are you blameworthy for doing nothing rather than
+            keeping your promise?</p>
+<p>These questions admit of easy answers. We need not posit
+            any extra deontically-relevant dimensions: reasons that are
+            requiring, justifying, or favouring, efforts standards or
+            precedence standards, prerogatives that are absolute or
+            comparative. We can use what we already have: ordinary
+            reasons and blameworthiness. You have most reason to save
+            the child in the original paradox, but you are not
+            blameworthy for doing nothing. Blame is not fitting. The
+            extreme difficulty of doing the right thing means that your
+            wrong act does not reveal an objectionable lack of regard
+            for others and does not merit anger. Nor is it expedient.
+            Blame would almost certainly not induce you or others to act
+            rightly in similar situations.</p>
+<p>The same goes for doing nothing in Horton’s problem. If
+            you stood by, blame would be neither fitting nor expedient.
+            But if you saved just one child, blame would be fitting.
+            Since you could bring yourself to sacrifice your arms,
+            saving both children was under your control. Your refusal to
+            save the second child at no extra cost thus reveals an
+            objectionable lack of regard for others and merits anger.
+            Blame is also more likely to be expedient in the case where
+            you save just one child. It has a better chance of spurring
+            you and others to do better in similar situations. That is
+            because such blame need not overcome your fear of losing
+            your arms, only whatever impulse prevented you from saving
+            the second child.</p>
+<p>Kamm’s paradox is also not much of a puzzle when
+            interpreted in terms of blame. Blame is not fitting when you
+            miss your promised lunch-date to save the child, because —
+            most would agree — this is not an act of wrongdoing and does
+            not merit anger. It is presumably not expedient either. It
+            would be bad to discourage people from making altruistic
+            sacrifices, even when those sacrifices involve blowing off
+            lunch-dates. And blame is neither fitting nor expedient when
+            you do nothing rather than save the child, for the reasons
+            given above. But you are blameworthy when you do nothing
+            rather than keep your promise. This is an act of wrongdoing
+            performed voluntarily, under control, and knowingly. It
+            reveals an objectionable lack of regard for others and
+            merits anger. And blame would be expedient in motivating you
+            to keep your promises in the future.</p>
+<p>With these answers, all the mystery of the three
+            paradoxes is dispelled. What’s more, the solution posits no
+            theoretical machinery beyond reasons and standard notions of
+            blameworthiness. Parsimony, then, is the first major
+            advantage of the antisupererogationist view.</p>
+<p>Here’s a second advantage. Recall that the comparative
+            prerogatives view suffers from a problem of arbitrary
+            line-drawing. The comparative prerogative based on personal
+            harm permits you to let the child die when the cost is both
+            your arms, but not when the cost is a bruised nail. The line
+            separating permissible from impermissible acts must be drawn
+            somewhere between these two poles. But we have no good
+            reason to draw the line at — say — 42% of your arms rather
+            than 41%. Any line we do draw will be unavoidably
+            arbitrary.</p>
+<p>The antisupererogationist view avoids this problem. ‘Only
+            the best is permissible’ is a principled way of drawing the
+            line. And there is no analogue of the problem in terms of
+            blameworthiness because blameworthiness comes in
+            degrees.⁠<label class="margin-toggle sidenote-number" for="sn-28"></label><input class="margin-toggle" id="sn-28" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-68">Sinhababu (2018)</a> argues that rightness and wrongness are scalar
+            properties that come in degrees (see also <a class="citation-link" href="#ref-48">Norcross 2006</a>; <a class="citation-link" href="#ref-49">2020</a>). That
+            view can avoid the problem of arbitrary line-drawing, but it does not
+            vindicate supererogation as ordinarily defined. On the scalar view,
+            morally better acts are also ‘righter,’ so there are no pairs of acts
+            such that one is morally better than the other and both are permissible
+            <em>simpliciter</em>.</span></span></span> Blame can be more
+            or less fitting, and more or less expedient. Take fitting
+            blame first. In the first case in our sequence, failing to
+            save the child does not reveal an objectionable lack of
+            regard for others. But, plausibly, the acuteness of your
+            lack of regard increases as we proceed down the sequence.
+            Refusing to save the child to avoid a bruised nail would
+            reveal a very acute lack of regard for others. As the
+            acuteness increases, so too does the fittingness of blame.
+            Similarly, you would not merit anger for failing to save the
+            child in the first case, but anger becomes increasingly
+            merited as your personal harm decreases. Were you to let the
+            child die to avoid a crushed finger, you would merit anger
+            to some degree. Were you to let the child die to avoid a
+            bruised nail, you would merit anger to a greater degree.</p>
+<p>Expedient blame also admits of degrees. In the first
+            case, blame would not be expedient because it would not
+            overturn your strong aversion to losing your arms. But as
+            the personal cost decreases, the likelihood that blame would
+            tip the balance and spur you to do better in similar
+            situations increases, rendering blame more expedient. If it
+            were just the prospect of a bruised nail holding you back
+            from saving the child, then blame would be very expedient.
+            So, whether we understand blameworthiness in terms of
+            fittingness or expediency, blameworthiness comes in degrees.
+            That means that antisupererogationism avoids the problem of
+            arbitrary
+            line-drawing.⁠<label class="margin-toggle sidenote-number" for="sn-29"></label><input class="margin-toggle" id="sn-29" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">There might seem to be some unavoidable arbitrariness in the point at
+            which you move from entirely blameless to somewhat blameworthy. This
+            problem can be addressed in (at least) two ways. First, can avoid
+            arbitrariness by appealing to our view about the fittingness or
+            expediency of blame. e.g. if we adopt a view on which an action is
+            blameworthy if it reveals an objectionable lack of regard for others, we
+            can say that an action becomes blameworthy when it first reveals an
+            objectionable lack of regard. One might complain that <em>this</em>
+            point is arbitrary. But here too there are two responses: less arbitrary
+            than prerogatives view, and the problem is for the theory of blame,
+            rather than the antisupererogationist view. Second, one could claim that
+            you are blameworthy to at least some very small degree in all cases
+            where you do less than the best. And hence slightly blameworthy even in
+            the case where the building would crush all of your arms. Then there’s
+            no line to draw as we move along the spectrum of cases. The only changes
+            would be quantitative, rather than qualitative. I thank an anonymous
+            reviewer for raising this problem, and for suggesting the second
+            response.</span></span></span></p>
+<p>A third advantage is one I hinted at above. Views on
+            which permissibility depends on more than just reasons are
+            committed to the strange-sounding claim that, in some cases,
+            doing what is right is morally worse than doing what is
+            wrong. Horton’s problem is one such case. Doing nothing is
+            permissible, but it is morally worse than the impermissible
+            act of saving one child. Antisupererogationism’s
+            corresponding commitments are not nearly so odd. We need
+            only claim that (1) in some cases, we are not blameworthy
+            for doing what is wrong, and (2) in some cases, doing what
+            is blameworthy can be morally better than doing what is not
+            blameworthy. But the weirdness of (2) can be explained away
+            by appeal to our theory of blame. If we adopt the standard
+            view, for example, (2) translates as ‘in some cases, it can
+            be better to do an action that reveals an objectionable lack
+            of regard for others than an action that does not reveal an
+            objectionable lack of regard for others.’ Horton’s
+            All-or-Nothing Problem is one such case. It’s better to save
+            the one child. But since you could have saved a second child
+            at no extra cost, saving the one child reveals an
+            objectionable lack of regard.</p>
+<p>‘morally better actions can be more blameworthy than
+            morally worse actions’. But that’s okay because the
+            connection between moral betterness and blameworthiness is
+            not nearly so tight as the connection between moral
+            betterness and rightness/wrongness. Blameworthiness can
+            depend on factors like intention, etc.</p>
+<p>doing what is not blameworthy is morally worse than doing
+            what is blameworthy. But the weirdness of (2) can be
+            explained away by appeal to our theory of blame. If we adopt
+            the standard view, for example, (2) translates as ‘in some
+            cases, doing wrong in a way that doesn’t revela an
+            objectionable lack of regard for others is morally worse
+            than doing wrong in a way that does reveal an objectionable
+            lack of regard for others.’</p>
+<p>If we adopt a quality-of-will account, for example,</p>
+<p>We might analyse this idea in the standard way: blame is
+            fitting when an agent does wrong voluntarily, under control,
+            and
+            knowingly.⁠<label class="margin-toggle sidenote-number" for="sn-30"></label><input class="margin-toggle" id="sn-30" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">See <a class="citation-link" href="#ref-64">Shoemaker (2017, 498–99)</a>, who cites <a class="citation-link" href="#ref-8">Brink and Nelkin (2013,
+            292–303)</a> as advocates of this kind of view. See also <a class="citation-link" href="#ref-41">McKenna (2012,
+            12–13)</a> who writes of <em>epistemic</em> and <em>control</em> conditions
+            for moral responsibility.</span></span></span> Or we might
+            offer a quality-of-will account: blame is fitting when an
+            agent does wrong freely and knowingly, and in doing so
+            reveals an objectionable lack of regard for others and for
+            moral considerations (<a class="citation-link" href="#ref-41">McKenna 2012, chap. 3</a>).</p>
+<p>For example, if we adopt the ‘meriting anger’ view, (2)
+            translates as: doing what doesn’t merit anger can be morally
+            worse than doing what merits anger.</p>
+<p>‘BLAMEWORTHY CAN BE MORALLY BETTER THAN BLAMELESS’ IS
+            OKAY BECAUSE:</p>
+<p>1. We have lots of examples besides ‘All-or-Nothing’</p>
+<p><strong>Examples of better acts that can be more
+            blameworthy</strong>:</p>
+<p>1. Someone more in control (e.g. not
+            developmentally-stunted)</p>
+<p>2. Someone with worse intentions</p>
+<p>3. Someone more susceptible to blame</p>
+<p>4. Someone who does something expected to be bad but
+            turns out good</p>
+<p>2. Relatedly, not such a tight connection between
+            blameworthiness and moral betterness as there is between
+            wrongness and moral betterness.</p>
+<p>3. Blame can come in degrees. So claim could be weakened
+            to ‘More blameworthy can be morally better than less
+            blameworthy’.</p>
+<p>4. We can appeal to our theory of blame to explain
+            away.</p>
+<p>e.g. not so confusing how a morally better action can be
+            more blameworthy, <em>given that the morally better action
+            reveals an objectionable lack of regard for others <u>and
+            the morally worse action doesn’t</u></em><u>. [BUT WHY CAN’T
+            WE PULL THE SAME MOVE WITH WRONGNESS?]</u></p>
+<p><u>5. Blameworthiness can be conditional on what we are
+            willing to do, plausibly. That’s more implausible for
+            wrongness.</u> <u>[See ‘Conditional blamelessness makes more
+            sense than conditional permissibility’]</u></p>
+<h1 data-number="6" id="demandingness"><span class="header-section-number">6.</span> Demandingness</h1>
+<p>That completes my case for antisupererogationism. In sum,
+            there are no supererogatory acts. Morality requires us to do
+            what’s best. This view is less counterintuitive than it
+            might first seem, because it does not imply that we are
+            (always) blameworthy for doing less than the best. It also
+            offers a principled and parsimonious solution to the three
+            paradoxes of supererogation.</p>
+<p>Nevertheless, one might well have objections. Here I will
+            respond to just one: that antisupererogationism makes
+            morality too demanding. <a class="citation-link" href="#ref-5">Baier (1965, 109)</a> writes that such
+            views:</p>
+<blockquote>
+<p>have the absurd result that we are doing wrong whenever
+            we are relaxing, since on those occasions there will always
+            be opportunities to produce greater good than we can by
+            relaxing. For the relief of suffering is always a greater
+            good than mere enjoyment. Yet it is quite plain that the
+            worker who, after a tiring day, puts on his slippers and
+            listens to the radio is not doing anything he ought not to,
+            is not neglecting any of his duties, even though it may be
+            perfectly true that there are things he might do which
+            produce more good in the world, even for himself, than
+            merely relaxing by the fireside.</p>
+</blockquote>
+<p>However, we have already taken the sting out of this
+            objection. If the worker could do better, then he is acting
+            wrongly, but that is not to say he is blameworthy. He might
+            even be praiseworthy. It might be fitting and expedient for
+            others to praise him — and for him to praise himself — for
+            doing as much as he
+            does.⁠<label class="margin-toggle sidenote-number" for="sn-31"></label><input class="margin-toggle" id="sn-31" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-57">Pummer (2021)</a> argues that impermissible actions can be overall
+            praiseworthy.</span></span></span></p>
+<p>Another response to Baier’s objection is related. As
+            <a class="citation-link" href="#ref-19">Ferry (2013, 587)</a> writes, ‘Talk of morality’s ’demands’
+            involves a useful metaphor, but it can be misleading.’ That
+            is because our ordinary notion of ‘demandingness’ implies
+            some kind of sanction for failing to meet the operant
+            demands, and morality does not impose sanctions. Consider an
+            analogy. Suppose that your university keeps an internal
+            record of exam scores. All scripts scoring 60 or above are
+            classified as ■, while all other scripts are classified as
+            □. This system is purely for record-keeping purposes.
+            Students are not rewarded or sanctioned based on their ■/□
+            classification. Now suppose that the system is changed. In
+            the new system, only those scripts scoring 100 are
+            classified as ■. All others are classified as □. But there
+            are no other changes in the system, and no change in the
+            behaviour of the professors. Calling this new system ‘more
+            demanding’ would strain the meaning of the word. Now suppose
+            instead that the ■/□ classification remains the same, but
+            the passing grade rises from 40 to 60. All students scoring
+            less than 60 are forced to retake the course. This new
+            system would be more demanding.</p>
+<p>The move from supererogationism to antisupererogationism
+            is like the first kind of change. More acts become
+            impermissible, but that does not entail that more acts make
+            their agents blameworthy. We can make the move without
+            changing our views about which acts make blame appropriate,
+            so antisupererogationism does not itself make morality more
+            demanding. What would make morality more demanding is an
+            increase in our blameworthiness standards.</p>
+<p>But one might now worry that a notion of wrongness so
+            divorced from the notion of blameworthiness expresses almost
+            nothing, and that we are on our way towards an evaluative
+            scalar view of morality in which notions of rightness and
+            wrongness play no
+            role.⁠<label class="margin-toggle sidenote-number" for="sn-32"></label><input class="margin-toggle" id="sn-32" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph"><a class="citation-link" href="#ref-19">Ferry (2013, 574–76)</a> expresses this worry, as does Hooker (<em>Ideal
+            Code, Real World</em>, p.75). <a class="citation-link" href="#ref-48">Norcross (2006</a>; <a class="citation-link" href="#ref-49">2020</a>) embraces this kind
+            of view.</span></span></span> That may be. I am not entirely
+            opposed to that conclusion, for it has been one of my aims
+            in this paper to show that the notion of blameworthiness is
+            more important in our everyday moral practice. But that
+            said, I do think that there remains a place for notions of
+            rightness and wrongness. An act is right if we have most
+            reason to perform it, and wrong otherwise. That makes
+            rightness a kind of lodestar in our everyday moral practice:
+            not a bar to clear regularly, but an ideal to aim
+            towards.</p>
+<h1 id="references">References</h1>
+<p class="reference-entry" id="ref-1">Archer, Alfred. 2016a. ‘The Supererogatory and How Not to
+            Accommodate It: A Reply to Dorsey’. <em>Utilitas</em> 28
+            (2): 179–88.</p>
+<p class="reference-entry" id="ref-2">———. 2016b. ‘Moral Obligation, Self-Interest and the
+            Transitivity Problem’. <em>Utilitas</em> 28 (4): 441–64.</p>
+<p class="reference-entry" id="ref-3">———. 2018. ‘<a class="reference-title-link" href="https://doi.org/10.1111/phc3.12476">Supererogation</a>’. <em>Philosophy Compass</em>
+ 13 (3).  </p>
+<p class="reference-entry" id="ref-4">Arneson, Richard J. 2004. ‘Moral Limits on the Demands of
+            Beneficence?’ In <em>The Ethics of Assistance: Morality and
+            the Distant Needy</em>, edited by Deen K. Chatterjee, 33–58.
+            Cambridge: Cambridge University Press.</p>
+<p class="reference-entry" id="ref-5">Baier, Kurt. 1965. <em>The Moral Point of View</em>. New
+            York: Random House.</p>
+<p class="reference-entry" id="ref-6">Bedke, Matt. 2011. ‘Passing the Deontic Buck’. In
+            <em>Oxford Studies in Metaethics: Volume 6</em>, edited by
+            Russ Shafer-Landau, 128–52. Oxford: Oxford University
+            Press.</p>
+<p class="reference-entry" id="ref-7">Bradley, Ben. 2006. ‘Against Satisficing
+            Consequentialism’. <em>Utilitas</em> 18 (2): 97–108.</p>
+<p class="reference-entry" id="ref-8">Brink, David O., and Dana K. Nelkin. 2013. ‘Fairness and
+            the Architecture of Responsibility’. In <em>Oxford Studies
+            in Agency and Responsibility: Volume 1</em>, edited by David
+            Shoemaker, 1:284–313. Oxford: Oxford University Press.</p>
+<p class="reference-entry" id="ref-9">Chappell, Richard Yetter. 2019. ‘Willpower Satisficing’.
+            <em>Noûs</em> 53 (2): 251–65.</p>
+<p class="reference-entry" id="ref-10">Chisholm, Roderick M., and Ernest Sosa. 1966. ‘Intrinsic
+            Preferability and the Problem of Supererogation’.
+            <em>Synthese</em> 16 (3/4): 321–31.</p>
+<p class="reference-entry" id="ref-11">Cohen, Shlomo. 2015. ‘Forced Supererogation’.
+            <em>European Journal of Philosophy</em> 23 (4): 1006–24.</p>
+<p class="reference-entry" id="ref-12">Dancy, Jonathan. 1993. ‘<em>Beyond the Call of Duty:
+            Supererogation, Obligation and Offence</em> by Gregory
+            Mellema’. <em>Philosophical Books</em> 34 (1): 48–49.</p>
+<p class="reference-entry" id="ref-13">Darwall, Stephen. 2006. <em>The Second Person Standpoint:
+            Morality, Respect, and Accountability</em>. Cambridge, MA:
+            Harvard University Press.</p>
+<p class="reference-entry" id="ref-14">Dorsey, Dale. 2013. ‘The Supererogatory, and How to
+            Accommodate It’. <em>Utilitas</em> 25 (3): 355–82.</p>
+<p class="reference-entry" id="ref-15">Dougherty, Tom. 2014. ‘Vague Value’. <em>Philosophy and
+            Phenomenological Research</em> 89 (2): 352–72.</p>
+<p class="reference-entry" id="ref-16">Dreier, James. 2004. ‘Why Ethical Satisficing Makes Sense
+            and Rational Satisficing Doesn’t’. In <em>Satisficing and
+            Maximizing: Moral Theorists on Practical Reason</em>, edited
+            by Michael Byron, 131–54. Cambridge: Cambridge University
+            Press.</p>
+<p class="reference-entry" id="ref-17">Driver, Julia. 1992. ‘The Suberogatory’. <em>Australasian
+            Journal of Philosophy</em> 70 (3): 286–95.</p>
+<p class="reference-entry" id="ref-18">Feldman, Fred. 1986. <em>Doing the Best We Can: An Essay
+            in Informal Deontic Logic</em>. Dordrecht: D. Reidel
+            Publishing Company.</p>
+<p class="reference-entry" id="ref-19">Ferry, Michael. 2013. ‘Does Morality Demand Our Very
+            Best? On Moral Prescriptions and the Line of Duty’.
+            <em>Philosophical Studies</em> 165 (2): 573–89.</p>
+<p class="reference-entry" id="ref-20">Fischer, John Martin, and Mark Ravizza. 1998.
+            <em>Responsibility and Control: A Theory of Moral
+            Responsibility</em>. New York: Cambridge University
+            Press.</p>
+<p class="reference-entry" id="ref-21">Fricker, Miranda. 2016. ‘What’s the Point of Blame? A
+            Paradigm Based Explanation’. <em>Noûs</em> 50 (1):
+            165–83.</p>
+<p class="reference-entry" id="ref-22">Fritts, Megan, and Calum Miller. 2020. ‘<a class="reference-title-link" href="https://doi.org/10.1080/0020174X.2020.1784786">Must We Be
+ Perfect?: A Case against Supererogation</a>’. <em>Inquiry</em>,
+ 1–30.  </p>
+<p class="reference-entry" id="ref-23">Gert, Joshua. 2007. ‘Normative Strength and the Balance
+            of Reasons’. <em>The Philosophical Review</em> 116 (4):
+            533–62.</p>
+<p class="reference-entry" id="ref-24">———. 2012. ‘Moral Worth, Supererogation, and the
+            Justifying/Requiring Distinction’. <em>The Philosophical
+            Review</em> 121 (4): 611–18.</p>
+<p class="reference-entry" id="ref-25">Graham, Peter A. 2010. ‘In Defense of Objectivism about
+            Moral Obligation’. <em>Ethics</em> 121 (1): 88–115.</p>
+<p class="reference-entry" id="ref-26">Hale, Susan C. 1991. ‘Against Supererogation’.
+            <em>American Philosophical Quarterly</em> 28 (4):
+            273–85.</p>
+<p class="reference-entry" id="ref-27">Heyd, David. 1982. <em>Supererogation: Its Status in
+            Ethical Theory</em>. Cambridge: Cambridge University
+            Press.</p>
+<p class="reference-entry" id="ref-28">———. 2019. ‘<a class="reference-title-link" href="https://plato.stanford.edu/archives/win2019/entries/supererogation/">Supererogation</a>’. In <em>The Stanford
+ Encyclopedia of Philosophy</em>, edited by Edward N. Zalta,
+ Winter 2019.
+  </p>
+<p class="reference-entry" id="ref-29">Horgan, Terry, and Mark Timmons. 2010. ‘Untying a Knot
+            from the Inside Out: Reflections on the “Paradox” of
+            Supererogation’. <em>Social Philosophy and Policy</em> 27
+            (2): 29–63.</p>
+<p class="reference-entry" id="ref-30">Horton, Joe. 2017. ‘The All or Nothing Problem’. <em>The
+            Journal of Philosophy</em> 114 (2): 94–104.</p>
+<p class="reference-entry" id="ref-31">Hurka, Thomas. 1990. ‘Two Kinds of Satisficing’.
+            <em>Philosophical Studies</em> 59 (1): 107–11.</p>
+<p class="reference-entry" id="ref-32">Hurka, Thomas, and Esther Shubert. 2012. ‘Permissions To
+            Do Less Than the Best: A Moving Band’. In <em>Oxford Studies
+            in Normative Ethics: Volume 2</em>, edited by Mark Timmons,
+            1–27. Oxford: Oxford University Press.</p>
+<p class="reference-entry" id="ref-33">Jamieson, Dale, and Robert Elliot. 2009. ‘Progressive
+            Consequentialism’. <em>Philosophical Perspectives</em> 23
+            (1): 241–51.</p>
+<p class="reference-entry" id="ref-34">Kamm, Frances Myrna. 1985. ‘Supererogation and
+            Obligation’. <em>The Journal of Philosophy</em> 82 (3):
+            118–38.</p>
+<p class="reference-entry" id="ref-35">———. 2001. <em>Morality, Mortality: Volume II: Rights,
+            Duties, and Status</em>. New York: Oxford University
+            Press.</p>
+<p class="reference-entry" id="ref-36">———. 2007. <em>Intricate Ethics: Rights,
+            Responsibilities, and Permissible Harm</em>. New York:
+            Oxford University Press.</p>
+<p class="reference-entry" id="ref-37">Lazar, Seth. 2019. ‘Accommodating Options’. <em>Pacific
+            Philosophical Quarterly</em> 100 (1): 233–55.</p>
+<p class="reference-entry" id="ref-38">Mason, Elinor. 2019. <em>Ways to Be Blameworthy:
+            Rightness, Wrongness, and Responsibility</em>. Oxford:
+            Oxford University Press.</p>
+<p class="reference-entry" id="ref-39">McElwee, Brian. 2010. ‘The Rights and Wrongs of
+            Consequentialism’. <em>Philosophical Studies</em> 151 (3):
+            393–412.</p>
+<p class="reference-entry" id="ref-40">———. 2020. ‘The Ambitions of Consequentialism’.
+            <em>Journal of Ethics and Social Philosophy</em> 17 (2):
+            198–218.</p>
+<p class="reference-entry" id="ref-41">McKenna, Michael. 2012. <em>Conversation and
+            Responsibility</em>. New York: Oxford University Press.</p>
+<p class="reference-entry" id="ref-42">Mellema, Gregory. 1991. <em>Beyond the Call of Duty:
+            Supererogation, Obligation, and Offence</em>. New York:
+            State University of New York Press.</p>
+<p class="reference-entry" id="ref-43">Menges, Leonhard. 2020. ‘<a class="reference-title-link" href="https://doi.org/10.1111/ejop.12571">Responsibility and Appropriate
+ Blame: The No Difference View</a>’. <em>European Journal of
+ Philosophy</em>.  </p>
+<p class="reference-entry" id="ref-44">Moore, G.E. 1903. <em>Principia Ethica</em>. Edited by
+            Thomas Baldwin. Revised Edition. Cambridge: Cambridge
+            University Press. 1993.</p>
+<p class="reference-entry" id="ref-45">Muñoz, Daniel. 2020. ‘<a class="reference-title-link" href="https://doi.org/10.1111/nous.12326">Three Paradoxes of Supererogation</a>’.
+ <em>Noûs</em>, 1–18.  </p>
+<p class="reference-entry" id="ref-46">New, Christopher. 1974. ‘Saints, Heroes and
+            Utilitarians’. <em>Philosophy</em> 49 (188): 179–89.</p>
+<p class="reference-entry" id="ref-47">Noggle, Robert. 2009. ‘Give Till It Hurts? Beneficence,
+            Imperfect Duties, and a Moderate Response to the Aid
+            Question’. <em>Journal of Social Philosophy</em> 40 (1):
+            1–16.</p>
+<p class="reference-entry" id="ref-48">Norcross, Alastair. 2006. ‘The Scalar Approach to
+            Utilitarianism’. In <em>The Blackwell Guide to Mill’s
+            Utilitarianism</em>, edited by Henry West, 217–32. Hoboken:
+            Wiley-Blackwell.</p>
+<p class="reference-entry" id="ref-49">———. 2020. <em>Morality by Degrees: Reasons without
+            Demands</em>. Oxford: Oxford University Press.</p>
+<p class="reference-entry" id="ref-50">Parfit, Derek. 2011. <em>On What Matters: Volume
+            One</em>. Oxford: Oxford University Press.</p>
+<p class="reference-entry" id="ref-51">Pereboom, Derk. 2014. <em>Free Will, Agency, and Meaning
+            in Life</em>. Oxford: Oxford University Press.</p>
+<p class="reference-entry" id="ref-52">Peterfreund, Sheldon P. 1978. ‘On the Relationship
+            Between Supererogation and Basic Duty’. <em>The
+            Personalist</em> 59 (1): 53–57.</p>
+<p class="reference-entry" id="ref-53">Portmore, Douglas W. 2008. ‘Are Moral Reasons Morally
+            Overriding?’ <em>Ethical Theory and Moral Practice</em> 11
+            (4): 369–88.</p>
+<p class="reference-entry" id="ref-54">———. 2011. <em>Commonsense Consequentialism: Wherein
+            Morality Meets Rationality</em>. Oxford Moral Theory. New
+            York: Oxford University Press.</p>
+<p class="reference-entry" id="ref-55">———. 2019. <em>Opting for the Best: Oughts and
+            Options</em>. New York: Oxford University Press.</p>
+<p class="reference-entry" id="ref-56">Pummer, Theron. 2016. ‘Whether and Where to Give’.
+            <em>Philosophy &amp; Public Affairs</em> 44 (1): 77–95.</p>
+<p class="reference-entry" id="ref-57">———. 2021. ‘Impermissible yet Praiseworthy’.
+            <em>Ethics</em> 131 (4): 697–726.</p>
+<p class="reference-entry" id="ref-58">Pybus, Elizabeth M. 1982. ‘Saints and Heroes’.
+            <em>Philosophy</em> 57 (220): 193–99.</p>
+<p class="reference-entry" id="ref-59">Raz, Joseph. 1975. ‘Permissions and Supererogation’.
+            <em>American Philosophical Quarterly</em> 12 (2):
+            161–68.</p>
+<p class="reference-entry" id="ref-60">Ross, W. D. 1930. <em>The Right and the Good</em>.
+            Oxford: Clarendon Press.</p>
+<p class="reference-entry" id="ref-61">Scheffler, Samuel. 1982. <em>The Rejection of
+            Consequentialism</em>. Oxford: Clarendon Press.</p>
+<p class="reference-entry" id="ref-62">Schoenfield, Miriam. 2016. ‘Moral Vagueness Is Ontic
+            Vagueness’. <em>Ethics</em> 126 (2): 257–82.</p>
+<p class="reference-entry" id="ref-63">Schulte, Peter. 2014. ‘Beyond Verbal Disputes: The
+            Compatibilism Debate Revisited’. <em>Erkenntnis</em> 79 (3):
+            669–85.</p>
+<p class="reference-entry" id="ref-64">Shoemaker, David. 2017. ‘Response-Dependent
+            Responsibility; or, A Funny Thing Happened on the Way to
+            Blame’. <em>Philosophical Review</em> 126 (4): 481–527.</p>
+<p class="reference-entry" id="ref-65">Sidgwick, Henry. 1907. <em>The Methods of Ethics</em>.
+            Seventh Edition. London: Macmillan.</p>
+<p class="reference-entry" id="ref-66">Sinclair, Thomas. 2018. ‘<a class="reference-title-link" href="https://doi.org/10.1111/papa.12107">Are We Conditionally Obligated
+ to Be Effective Altruists?</a>’ <em>Philosophy &amp; Public
+ Affairs</em> 46 (1): 36–59.
+  </p>
+<p class="reference-entry" id="ref-67">Singer, Peter. 1972. ‘Famine, Affluence, and Morality’.
+            <em>Philosophy and Public Affairs</em> 1 (3): 229–43.</p>
+<p class="reference-entry" id="ref-68">Sinhababu, Neil. 2018. ‘Scalar Consequentialism the Right
+            Way’. <em>Philosophical Studies</em> 175: 3131–44.</p>
+<p class="reference-entry" id="ref-69">Sinnott-Armstrong, Walter. 1988. <em>Moral Dilemmas</em>.
+            Oxford: Blackwell.</p>
+<p class="reference-entry" id="ref-70">Slote, Michael. 1991. ‘Shelly Kagan’s <em>The Limits of
+            Morality</em>’. <em>Philosophy and Phenomenological
+            Research</em> 51 (4): 915.</p>
+<p class="reference-entry" id="ref-71">Slote, Michael A. 1985. <em>Common Sense Morality and
+            Consequentialism</em>. Routledge &amp; Kegan.</p>
+<p class="reference-entry" id="ref-72">Strawson, Peter. 1962. ‘Freedom and Resentment’.
+            <em>Proceedings of the British Academy</em> 48: 1–25.</p>
+<p class="reference-entry" id="ref-73">Thomson, Judith Jarvis. 1986. <em>Rights, Restitution,
+            and Risk: Essays in Moral Theory</em>. Edited by William
+            Parent. Harvard University Press.</p>
+<p class="reference-entry" id="ref-74">Urmson, J. O. 1958. ‘Saints and Heroes’. In <em>Essays in
+            Moral Philosophy</em>, edited by A. I. Melden. University of
+            Washington Press.</p>
+<p class="reference-entry" id="ref-75">Wallace, R. Jay. 1994. <em>Responsibility and the Moral
+            Sentiments</em>. Cambridge, MA: Harvard University
+            Press.</p>
+<p class="reference-entry" id="ref-76">Watson, Gary. 1996. ‘Two Faces of Responsibility’.
+            <em>Philosophical Topics</em> 24 (2): 227–48.</p>
+<p class="reference-entry" id="ref-77">———. 2004. <em>Agency and Answerability: Selected
+            Essays</em>. Oxford: Oxford University Press.</p>
+<p class="reference-entry" id="ref-78">Zimmerman, Michael J. 1996. <em>The Concept of Moral
+            Obligation</em>. Cambridge: Cambridge University Press.</p>
+<footer>
+<p><a href="/">Back to home</a></p>
+</footer>
+</div>
+</article>
+<script defer="" src="/assets/js/paper-toc.js?v=20260722e"></script>
+</body>
+</html>
