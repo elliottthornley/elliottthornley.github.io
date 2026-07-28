@@ -5,35 +5,51 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Preference learning methods like
-Direct Preference Optimization are known to induce reliance on spurious
-correlations, leading to sycophancy and length bias in today’s language
-models and potentially severe goal misgeneralization in future systems.
-In this work, we provide a unified theoretical analysis of this
+Direct Preference Optimization (DPO) are known to induce reliance on
+spurious correlations, leading to sycophancy and length bias in today’s
+language models and potentially severe goal misgeneralization in future
+systems. In this work, we provide a unified theoretical analysis of this
 phenomenon, characterizing the mechanisms of spurious learning, its
-consequences on deployment, and a provable mitigation strategy. We show
-that standard preference-learning objectives induce reliance on spurious
-features through mean spurious bias and causal-spurious correlation
-leakage, and that more in-distribution data does not remove that
-vulnerability. We then show that tie training, which augments the data
-with equal-utility pairs, selectively reduces spurious learning without
-degrading causal learning." name="description"/>
+consequences on deployment, and a provable mitigation strategy. Focusing
+on log-linear policies, we show that standard preference-learning
+objectives induce reliance on spurious features at the population level
+through two channels: mean spurious bias and causal-spurious correlation
+leakage. We then show that this reliance creates an irreducible
+vulnerability to distribution shift: more data from the same training
+distribution fails to reduce the model’s dependence on spurious
+features. To address this, we propose tie training, a data augmentation
+strategy using ties (equal-utility preference pairs) to introduce
+data-driven regularization. We demonstrate that this approach
+selectively reduces spurious learning without degrading causal learning.
+Finally, we validate our theory on log-linear models and provide
+empirical evidence that both the spurious learning mechanisms and the
+benefits of tie training persist for neural networks and large language
+models." name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Spurious Correlation Learning in
 Preference Optimization: Mechanisms, Consequences, and Mitigation via
 Tie Training" property="og:title"/>
 <meta content="Preference learning methods
-like Direct Preference Optimization are known to induce reliance on
-spurious correlations, leading to sycophancy and length bias in today’s
-language models and potentially severe goal misgeneralization in future
-systems. In this work, we provide a unified theoretical analysis of this
-phenomenon, characterizing the mechanisms of spurious learning, its
-consequences on deployment, and a provable mitigation strategy. We show
-that standard preference-learning objectives induce reliance on spurious
-features through mean spurious bias and causal-spurious correlation
-leakage, and that more in-distribution data does not remove that
-vulnerability. We then show that tie training, which augments the data
-with equal-utility pairs, selectively reduces spurious learning without
-degrading causal learning." property="og:description"/>
+like Direct Preference Optimization (DPO) are known to induce reliance
+on spurious correlations, leading to sycophancy and length bias in
+today’s language models and potentially severe goal misgeneralization in
+future systems. In this work, we provide a unified theoretical analysis
+of this phenomenon, characterizing the mechanisms of spurious learning,
+its consequences on deployment, and a provable mitigation strategy.
+Focusing on log-linear policies, we show that standard
+preference-learning objectives induce reliance on spurious features at
+the population level through two channels: mean spurious bias and
+causal-spurious correlation leakage. We then show that this reliance
+creates an irreducible vulnerability to distribution shift: more data
+from the same training distribution fails to reduce the model’s
+dependence on spurious features. To address this, we propose tie
+training, a data augmentation strategy using ties (equal-utility
+preference pairs) to introduce data-driven regularization. We
+demonstrate that this approach selectively reduces spurious learning
+without degrading causal learning. Finally, we validate our theory on
+log-linear models and provide empirical evidence that both the spurious
+learning mechanisms and the benefits of tie training persist for neural
+networks and large language models." property="og:description"/>
 <meta content="https://www.elliott-thornley.com/assets/images/elliott-thornley-headshot.jpg" property="og:image"/>
 <meta content="https://www.elliott-thornley.com/src/writing/spurious-correlation-learning-preference-optimization/" property="og:url"/>
 <title>Spurious Correlation Learning in Preference Optimization:
@@ -101,21 +117,30 @@ Moya, Alex Semendinger, and Guang Lin</p>
 <!-- GENERATED PAPER LINKS END -->
 <div class="abstract"><p class="abstract-label">Abstract</p>
 <p>Preference learning methods
-            like Direct Preference Optimization are known to induce
-            reliance on spurious correlations, leading to sycophancy and
-            length bias in today’s language models and potentially
-            severe goal misgeneralization in future systems. In this
-            work, we provide a unified theoretical analysis of this
-            phenomenon, characterizing the mechanisms of spurious
+            like Direct Preference Optimization (DPO) are known to
+            induce reliance on spurious correlations, leading to
+            sycophancy and length bias in today’s language models and
+            potentially severe goal misgeneralization in future systems.
+            In this work, we provide a unified theoretical analysis of
+            this phenomenon, characterizing the mechanisms of spurious
             learning, its consequences on deployment, and a provable
-            mitigation strategy. We show that standard
-            preference-learning objectives induce reliance on spurious
-            features through mean spurious bias and causal-spurious
-            correlation leakage, and that more in-distribution data does
-            not remove that vulnerability. We then show that tie
-            training, which augments the data with equal-utility pairs,
-            selectively reduces spurious learning without degrading
-            causal learning.</p>
+            mitigation strategy. Focusing on log-linear policies, we
+            show that standard preference-learning objectives induce
+            reliance on spurious features at the population level
+            through two channels: mean spurious bias and causal-spurious
+            correlation leakage. We then show that this reliance creates
+            an irreducible vulnerability to distribution shift: more
+            data from the same training distribution fails to reduce the
+            model’s dependence on spurious features. To address this, we
+            propose tie training, a data augmentation strategy using
+            ties (equal-utility preference pairs) to introduce
+            data-driven regularization. We demonstrate that this
+            approach selectively reduces spurious learning without
+            degrading causal learning. Finally, we validate our theory
+            on log-linear models and provide empirical evidence that
+            both the spurious learning mechanisms and the benefits of
+            tie training persist for neural networks and large language
+            models.</p>
 </div>
 <h1 data-number="1" id="sec:introduction"><span class="header-section-number">1.</span> Introduction</h1>
 <p>Aligning large language models (LLMs) with human

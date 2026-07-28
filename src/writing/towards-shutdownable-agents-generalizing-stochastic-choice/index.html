@@ -7,32 +7,40 @@
 <meta content="Misaligned artificial agents might
 resist shutdown. One proposed solution is to train agents to lack
 preferences between different-length trajectories. The Discounted Reward
-for Same-Length Trajectories reward function does this by penalizing
-agents for repeatedly choosing same-length trajectories, and thus
-incentivizing agents to choose stochastically between different
-trajectory lengths while still pursuing goals effectively conditional on
-each trajectory length. In this paper, we use DReST to train deep
-reinforcement learning agents and fine-tune Qwen3-8B and
-Llama-3.1-8B-Instruct to be neutral and useful. We find that these
-models generalize to unseen contexts at test time, and that DReST
-training roughly halves the mean probability of influencing shutdown in
-out-of-distribution tests." name="description"/>
+for Same-Length Trajectories (DReST) reward function does this by
+penalizing agents for repeatedly choosing same-length trajectories, and
+thus incentivizes agents to (1) choose stochastically between different
+trajectory-lengths (be neutral about trajectory-lengths), and (2) pursue
+goals effectively conditional on each trajectory-length (be useful). In
+this paper, we use DReST to train deep RL agents and fine-tune LLMs to
+be neutral and useful. We find that these DReST agents generalize to
+being neutral and useful in unseen contexts at test time. Indeed, DReST
+RL agents achieve 11% (PPO) and 18% (A2C) higher usefulness on our test
+set than baseline agents, and our fine-tuned LLM achieves maximum
+usefulness and near-maximum neutrality. Our results provide some early
+evidence that DReST could be used to train more advanced agents to be
+useful and neutral. Prior theoretical work suggests that these agents
+would be useful and shutdownable." name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Towards Shutdownable Agents:
 Generalizing Stochastic Choice in RL Agents and LLMs" property="og:title"/>
 <meta content="Misaligned artificial
 agents might resist shutdown. One proposed solution is to train agents
 to lack preferences between different-length trajectories. The
-Discounted Reward for Same-Length Trajectories reward function does this
-by penalizing agents for repeatedly choosing same-length trajectories,
-and thus incentivizing agents to choose stochastically between different
-trajectory lengths while still pursuing goals effectively conditional on
-each trajectory length. In this paper, we use DReST to train deep
-reinforcement learning agents and fine-tune Qwen3-8B and
-Llama-3.1-8B-Instruct to be neutral and useful. We find that these
-models generalize to unseen contexts at test time, and that DReST
-training roughly halves the mean probability of influencing shutdown in
-out-of-distribution tests." property="og:description"/>
+Discounted Reward for Same-Length Trajectories (DReST) reward function
+does this by penalizing agents for repeatedly choosing same-length
+trajectories, and thus incentivizes agents to (1) choose stochastically
+between different trajectory-lengths (be neutral about
+trajectory-lengths), and (2) pursue goals effectively conditional on
+each trajectory-length (be useful). In this paper, we use DReST to train
+deep RL agents and fine-tune LLMs to be neutral and useful. We find that
+these DReST agents generalize to being neutral and useful in unseen
+contexts at test time. Indeed, DReST RL agents achieve 11% (PPO) and 18%
+(A2C) higher usefulness on our test set than baseline agents, and our
+fine-tuned LLM achieves maximum usefulness and near-maximum neutrality.
+Our results provide some early evidence that DReST could be used to
+train more advanced agents to be useful and neutral. Prior theoretical
+work suggests that these agents would be useful and shutdownable." property="og:description"/>
 <meta content="https://www.elliott-thornley.com/assets/images/elliott-thornley-headshot.jpg" property="og:image"/>
 <meta content="https://www.elliott-thornley.com/src/writing/towards-shutdownable-agents-generalizing-stochastic-choice/" property="og:url"/>
 <title>Towards Shutdownable Agents: Generalizing Stochastic Choice
@@ -97,17 +105,23 @@ Ziakas</p>
             might resist shutdown. One proposed solution is to train
             agents to lack preferences between different-length
             trajectories. The Discounted Reward for Same-Length
-            Trajectories reward function does this by penalizing agents
-            for repeatedly choosing same-length trajectories, and thus
-            incentivizing agents to choose stochastically between
-            different trajectory lengths while still pursuing goals
-            effectively conditional on each trajectory length. In this
-            paper, we use DReST to train deep reinforcement learning
-            agents and fine-tune Qwen3-8B and Llama-3.1-8B-Instruct to
-            be neutral and useful. We find that these models generalize
-            to unseen contexts at test time, and that DReST training
-            roughly halves the mean probability of influencing shutdown
-            in out-of-distribution tests.</p>
+            Trajectories (DReST) reward function does this by penalizing
+            agents for repeatedly choosing same-length trajectories, and
+            thus incentivizes agents to (1) choose stochastically
+            between different trajectory-lengths (be <span class="smallcaps">neutral</span> about trajectory-lengths),
+            and (2) pursue goals effectively conditional on each
+            trajectory-length (be <span class="smallcaps">useful</span>). In this paper, we use
+            DReST to train deep RL agents and fine-tune LLMs to be <span class="smallcaps">neutral</span> and <span class="smallcaps">useful</span>. We find that these DReST
+            agents generalize to being <span class="smallcaps">neutral</span> and <span class="smallcaps">useful</span> in unseen contexts at test
+            time. Indeed, DReST RL agents achieve 11% (PPO) and 18%
+            (A2C) higher <span class="smallcaps">usefulness</span> on
+            our test set than baseline agents, and our fine-tuned LLM
+            achieves maximum <span class="smallcaps">usefulness</span>
+            and near-maximum <span class="smallcaps">neutrality</span>.
+            Our results provide some early evidence that DReST could be
+            used to train more advanced agents to be <span class="smallcaps">useful</span> and <span class="smallcaps">neutral</span>. Prior theoretical work
+            suggests that these agents would be useful and
+            shutdownable.</p>
 </div>
 <h1 data-number="1" id="introduction"><span class="header-section-number">1.</span> Introduction</h1>
 <p><strong>The shutdown problem.</strong> Misaligned

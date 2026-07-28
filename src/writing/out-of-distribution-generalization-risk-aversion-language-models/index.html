@@ -5,30 +5,58 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Training AIs to be risk-averse in
-resources could offer a second line of defense if AIs turn out
+resources could offer a failsafe in the event that AIs turn out
 misaligned. Misaligned but risk-averse AIs would tend to prefer
 low-risk, low-reward strategies like cooperation over high-risk,
 high-reward strategies like rebellion, limiting the downsides of any
-misalignment. To train AIs to be risk-averse in an affordable way,
-however, we will have to train them on choices between low-stakes
-gambles. And to keep us safe, the AI’s learned risk aversion must
-generalize to astronomically high-stakes gambles. We investigate that
-question across multiple models and training methods, and find
-substantial out-of-distribution generalization of risk aversion." name="description"/>
+misalignment. But we can only feasibly train AIs to be risk-averse on
+low-stakes gambles, and we will only be safe if their risk aversion
+generalizes to astronomically-high-stakes gambles. Will it? To shed
+light on this question, we introduce RiskAverseOOD: a benchmark for
+measuring how well risk aversion generalizes out of distribution. We
+then offer some initial results. Using a variety of methods to make
+Qwen3-8B choose risk-aversely when the stakes are low, we find that we
+can induce substantial risk aversion when the stakes are astronomically
+high. Our models’ learned risk aversion generalizes at least partially
+across 98 orders of magnitude. From a baseline 2% rate of choosing a
+safe ‘Cooperate’ option, we see rates around 70% (SFT and tie training),
+52% (DPO), and 39% (activation steering). In another experiment, our
+fine-tuned reward model reliably scores risk-averse reasoning above
+risk-neutral or excessively risk-averse alternatives (99.6% pairwise
+accuracy). We replicate these effects at different scales (Qwen3-1.7B
+and Qwen3-14B) and across model families (Gemma-3-12B-IT and
+Llama-3.1-8B-Instruct). Overall, we find that risk aversion learned at
+low stakes can generalize OOD to astronomically high stakes, though not
+yet consistently enough to serve as a reliable failsafe. Achieving that
+level of consistency is an open problem." name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Out-of-Distribution
 Generalization of Risk Aversion in Language Models" property="og:title"/>
 <meta content="Training AIs to be
-risk-averse in resources could offer a second line of defense if AIs
+risk-averse in resources could offer a failsafe in the event that AIs
 turn out misaligned. Misaligned but risk-averse AIs would tend to prefer
 low-risk, low-reward strategies like cooperation over high-risk,
 high-reward strategies like rebellion, limiting the downsides of any
-misalignment. To train AIs to be risk-averse in an affordable way,
-however, we will have to train them on choices between low-stakes
-gambles. And to keep us safe, the AI’s learned risk aversion must
-generalize to astronomically high-stakes gambles. We investigate that
-question across multiple models and training methods, and find
-substantial out-of-distribution generalization of risk aversion." property="og:description"/>
+misalignment. But we can only feasibly train AIs to be risk-averse on
+low-stakes gambles, and we will only be safe if their risk aversion
+generalizes to astronomically-high-stakes gambles. Will it? To shed
+light on this question, we introduce RiskAverseOOD: a benchmark for
+measuring how well risk aversion generalizes out of distribution. We
+then offer some initial results. Using a variety of methods to make
+Qwen3-8B choose risk-aversely when the stakes are low, we find that we
+can induce substantial risk aversion when the stakes are astronomically
+high. Our models’ learned risk aversion generalizes at least partially
+across 98 orders of magnitude. From a baseline 2% rate of choosing a
+safe ‘Cooperate’ option, we see rates around 70% (SFT and tie training),
+52% (DPO), and 39% (activation steering). In another experiment, our
+fine-tuned reward model reliably scores risk-averse reasoning above
+risk-neutral or excessively risk-averse alternatives (99.6% pairwise
+accuracy). We replicate these effects at different scales (Qwen3-1.7B
+and Qwen3-14B) and across model families (Gemma-3-12B-IT and
+Llama-3.1-8B-Instruct). Overall, we find that risk aversion learned at
+low stakes can generalize OOD to astronomically high stakes, though not
+yet consistently enough to serve as a reliable failsafe. Achieving that
+level of consistency is an open problem." property="og:description"/>
 <meta content="https://www.elliott-thornley.com/assets/images/elliott-thornley-headshot.jpg" property="og:image"/>
 <meta content="https://www.elliott-thornley.com/src/writing/out-of-distribution-generalization-risk-aversion-language-models/" property="og:url"/>
 <title>Out-of-Distribution Generalization of Risk Aversion in
@@ -91,18 +119,35 @@ Abhitej Bokka</p>
 <!-- GENERATED PAPER LINKS END -->
 <div class="abstract"><p class="abstract-label">Abstract</p>
 <p>Training AIs to be risk-averse
-            in resources could offer a second line of defense if AIs
+            in resources could offer a failsafe in the event that AIs
             turn out misaligned. Misaligned but risk-averse AIs would
             tend to prefer low-risk, low-reward strategies like
             cooperation over high-risk, high-reward strategies like
-            rebellion, limiting the downsides of any misalignment. To
-            train AIs to be risk-averse in an affordable way, however,
-            we will have to train them on choices between low-stakes
-            gambles. And to keep us safe, the AI’s learned risk aversion
-            must generalize to astronomically high-stakes gambles. We
-            investigate that question across multiple models and
-            training methods, and find substantial out-of-distribution
-            generalization of risk aversion.</p>
+            rebellion, limiting the downsides of any misalignment. But
+            we can only feasibly train AIs to be risk-averse on
+            low-stakes gambles, and we will only be safe if their risk
+            aversion generalizes to astronomically-high-stakes gambles.
+            Will it? To shed light on this question, we introduce
+            RiskAverseOOD: a benchmark for measuring how well risk
+            aversion generalizes out of distribution. We then offer some
+            initial results. Using a variety of methods to make Qwen3-8B
+            choose risk-aversely when the stakes are low, we find that
+            we can induce substantial risk aversion when the stakes are
+            astronomically high. Our models’ learned risk aversion
+            generalizes at least partially across 98 orders of
+            magnitude. From a baseline 2% rate of choosing a safe
+            ‘Cooperate’ option, we see rates around 70% (SFT and tie
+            training), 52% (DPO), and 39% (activation steering). In
+            another experiment, our fine-tuned reward model reliably
+            scores risk-averse reasoning above risk-neutral or
+            excessively risk-averse alternatives (99.6% pairwise
+            accuracy). We replicate these effects at different scales
+            (Qwen3-1.7B and Qwen3-14B) and across model families
+            (Gemma-3-12B-IT and Llama-3.1-8B-Instruct). Overall, we find
+            that risk aversion learned at low stakes can generalize OOD
+            to astronomically high stakes, though not yet consistently
+            enough to serve as a reliable failsafe. Achieving that level
+            of consistency is an open problem.</p>
 </div>
 <h1 data-number="1" id="introduction"><span class="header-section-number">1.</span> Introduction</h1>
 <p>A fundamental challenge for AI safety is that we cannot
