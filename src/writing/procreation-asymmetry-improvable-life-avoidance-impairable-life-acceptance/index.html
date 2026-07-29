@@ -37,27 +37,9 @@ Impairable-Life Acceptance | Elliott Thornley</title>
 <link href="/assets/images/elliott-thornley-headshot.jpg" rel="icon" type="image/jpeg"/>
 <!-- Tufte CSS -->
 <link href="/assets/css/tufte.css?v=20260722e" rel="stylesheet"/>
-<!-- MathJax for math rendering -->
-<script>
-        window.MathJax = {
-            loader: {
-                load: ['[tex]/bbox', '[tex]/html']
-            },
-            tex: {
-                packages: {'[+]': ['bbox', 'html']},
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
-                processEscapes: true,
-                macros: {
-                    textsc: ['\\class{paper-math-smallcaps}{\\text{#1}}', 1]
-                }
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-            }
-        };
-    </script>
-<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Equations are typeset at build time by scripts/prerender-math.mjs, so
+         no MathJax runtime is loaded here. Pages that contain maths get a link
+         to /assets/css/mathjax-chtml.css appended during the build. -->
 <!-- Custom styles -->
 <style>
         nav { padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid #ccc; }
@@ -69,7 +51,7 @@ Impairable-Life Acceptance | Elliott Thornley</title>
         footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ccc; color: #666; }
         u { text-decoration: underline; }
     </style>
-</head>
+<link href="/assets/css/mathjax-chtml.css" rel="stylesheet"/></head>
 <body class="paper-page">
 <article class="paper-layout">
 <div class="paper-main">
@@ -141,9 +123,9 @@ Avoidance, and Impairable-Life Acceptance</h1>
             act, and the act is worse for her than some available
             alternative. So, for example, Amy can complain about my
             creating her with a barely good life (represented in what
-            follows by a well-being score of <span class="paper-inline-math-unit"><span class="math inline">\(1\)</span>⁠)</span> if I could have instead
+            follows by a well-being score of <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></mjx-assistive-mml></mjx-container></span>⁠)</span> if I could have instead
             created her with a wonderful life (represented by a
-            well-being score of <span class="paper-inline-math-unit"><span class="math inline">\(100\)</span>⁠).</span> Horton assumes that
+            well-being score of <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn></math></mjx-assistive-mml></mjx-container></span>⁠).</span> Horton assumes that
             living a bad life can be worse for a person than not
             existing, which means that Amy can also complain about my
             creating her with a bad life (represented by a negative
@@ -163,19 +145,19 @@ Avoidance, and Impairable-Life Acceptance</h1>
             the alternative that is better for the person must give a
             greater sum of well-being to the set of people who currently
             exist. It would not be reasonable, for example, for Amy to
-            object that her well-being is <span class="math inline">\(99\)</span> when it could have been
-            <span class="math inline">\(100\)</span> if the only way to
-            make her well-being <span class="math inline">\(100\)</span>
+            object that her well-being is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>99</mn></math></mjx-assistive-mml></mjx-container></span> when it could have been
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn></math></mjx-assistive-mml></mjx-container></span> if the only way to
+            make her well-being <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn></math></mjx-assistive-mml></mjx-container></span>
             is to reduce every other currently-existing person’s
-            well-being by <span class="paper-inline-math-unit"><span class="math inline">\(10\)</span>⁠.</span>
+            well-being by <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>10</mn></math></mjx-assistive-mml></mjx-container></span>⁠.</span>
             Second, the alternative that is better for the person must
             give a greater sum of well-being to the set of people who
             exist conditional on that alternative. It would not be
             reasonable, to give another example, for Amy to object that
-            her well-being is <span class="math inline">\(99\)</span>
-            and not <span class="math inline">\(100\)</span> if the only
-            way to make her well-being <span class="math inline">\(100\)</span> is to create Bobby with
-            an awful life at <span class="math inline">\(- 500\)</span>
+            her well-being is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>99</mn></math></mjx-assistive-mml></mjx-container></span>
+            and not <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn></math></mjx-assistive-mml></mjx-container></span> if the only
+            way to make her well-being <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn></math></mjx-assistive-mml></mjx-container></span> is to create Bobby with
+            an awful life at <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>500</mn></math></mjx-assistive-mml></mjx-container></span>
             (and affect no one else). Third, it must be that either (a)
             no one else can reasonably object to the alternative that is
             better for the person, or (b) whether anyone else can
@@ -239,9 +221,9 @@ Avoidance, and Impairable-Life Acceptance</h1>
             way, Amy will be unaffected. So, your options are as
             follows:</p>
 <blockquote>
-<p>(1) Amy <span class="math inline">\(100\)</span><br/>
-            (2) Amy <span class="paper-inline-math-unit"><span class="math inline">\(100\)</span>⁠,</span> Bobby
-            <span class="paper-inline-math-unit"><span class="math inline">\(- 500\)</span>⁠,</span> Carly, <span class="paper-inline-math-unit"><span class="math inline">\(- 500\)</span>⁠,</span> …, Zac <span class="math inline">\(- 500\)</span></p>
+<p>(1) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn></math></mjx-assistive-mml></mjx-container></span><br/>
+            (2) Amy <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn></math></mjx-assistive-mml></mjx-container></span>⁠,</span> Bobby
+            <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>500</mn></math></mjx-assistive-mml></mjx-container></span>⁠,</span> Carly, <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>500</mn></math></mjx-assistive-mml></mjx-container></span>⁠,</span> …, Zac <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>500</mn></math></mjx-assistive-mml></mjx-container></span></p>
 </blockquote>
 <p>ARO implies that Amy cannot reasonably object to (1)
             because there is no alternative which is better for her. Amy
@@ -299,10 +281,10 @@ Avoidance, and Impairable-Life Acceptance</h1>
             implication with his Case 9 (2021:
             501):⁠<label class="margin-toggle sidenote-number" for="sn-4"></label><input class="margin-toggle" id="sn-4" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">The original problem comes from <a class="citation-link" href="#ref-15">Ross (2015)</a>.</span></span></span></p>
 <blockquote>
-<p>(1) Amy <span class="math inline">\(1\)</span><br/>
-            (2) Amy <span class="math inline">\(1\)</span> and Bobby
-            <span class="math inline">\(1\)</span><br/>
-            (3) Bobby <span class="math inline">\(100\)</span></p>
+<p>(1) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></mjx-assistive-mml></mjx-container></span><br/>
+            (2) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></mjx-assistive-mml></mjx-container></span> and Bobby
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></mjx-assistive-mml></mjx-container></span><br/>
+            (3) Bobby <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn></math></mjx-assistive-mml></mjx-container></span></p>
 </blockquote>
 <p>Amy cannot reasonably object to (1) because there is no
             alternative that is better for her. But Bobby can reasonably
@@ -323,17 +305,17 @@ Avoidance, and Impairable-Life Acceptance</h1>
             intuitively appealing claim, the <em>Deontic
             Person-Affecting Principle</em> (DPAP):</p>
 <blockquote>
-<p>If an act <span class="math inline">\(A\)</span> is
-            permissible and an act <span class="math inline">\(B\)</span> is better than <span class="math inline">\(A\)</span> for some people and worse
-            for no one, <span class="math inline">\(B\)</span> must be
+<p>If an act <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> is
+            permissible and an act <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> is better than <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> for some people and worse
+            for no one, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> must be
             permissible as well. (2021: 501)</p>
 </blockquote>
 <p>Horton then argues against the DPAP using his Case 10, in
             which ‘—’ represents creating no one (2021: 501):</p>
 <blockquote>
 <p>(1) —<br/>
-            (2) Amy <span class="math inline">\(1\)</span><br/>
-            (3) Amy <span class="math inline">\(100\)</span></p>
+            (2) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></mjx-assistive-mml></mjx-container></span><br/>
+            (3) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn></math></mjx-assistive-mml></mjx-container></span></p>
 </blockquote>
 <p>In this case, choosing (2) is wrong. If you are going to
             create Amy, you should choose (3). And given that the
@@ -355,11 +337,11 @@ Avoidance, and Impairable-Life Acceptance</h1>
             on to the procreation asymmetry. For suppose that we accept
             the following dominance principle:</p>
 <blockquote>
-<p>If an act <span class="math inline">\(A\)</span> is at
-            least as good as an act <span class="math inline">\(B\)</span> for each person, <span class="math inline">\(A\)</span> is better than <span class="math inline">\(B\)</span> for at least one person,
-            and performing <span class="math inline">\(A\)</span>
+<p>If an act <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> is at
+            least as good as an act <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> for each person, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> is better than <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> for at least one person,
+            and performing <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>
             neither costs you too much nor violates any moral
-            constraints, it is wrong to perform <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.</span></p>
+            constraints, it is wrong to perform <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span></p>
 </blockquote>
 <p>Then we must conclude that it is wrong not to create a
             person who would have a good life (all else equal) in cases
@@ -370,19 +352,19 @@ Avoidance, and Impairable-Life Acceptance</h1>
             Exist.⁠<label class="margin-toggle sidenote-number" for="sn-5"></label><input class="margin-toggle" id="sn-5" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Of course, those inclined towards both the asymmetry and Better to
             Exist (e.g. <a class="citation-link" href="#ref-14">Roberts 2011b</a>: 338) could reject the dominance principle.
             They could claim that the principle is compelling only if we interpret
-            the second clause as follows: <span class="paper-inline-math-unit">‘<span class="math inline">\(A\)</span></span> is
-            better than <span class="math inline">\(B\)</span> for at least one
-            person <em>who exists in</em> <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.’</span>
+            the second clause as follows: <span class="paper-inline-math-unit">‘<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span></span> is
+            better than <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> for at least one
+            person <em>who exists in</em> <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>⁠.’</span>
             This version of the dominance principle is compatible with both the
             asymmetry and Better to Exist.</span></span></span></p>
 <p>In personal communication, Horton offers a revised
             DPAP:</p>
 <blockquote>
-<p>If an act <span class="math inline">\(A\)</span> is
-            permissible, an act <span class="math inline">\(B\)</span>
-            is worse than <span class="math inline">\(A\)</span> for no
-            one, and <span class="math inline">\(B\)</span> does not
-            violate any moral constraints, <span class="math inline">\(B\)</span> must be permissible as
+<p>If an act <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> is
+            permissible, an act <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>
+            is worse than <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> for no
+            one, and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> does not
+            violate any moral constraints, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> must be permissible as
             well.</p>
 </blockquote>
 <p>This revised DPAP serves Horton’s purposes without any
@@ -408,13 +390,13 @@ Avoidance, and Impairable-Life Acceptance</h1>
             is wrong in Case 9. It also implies that choosing (1) is
             permissible and choosing (2) is wrong in Case 9*:</p>
 <blockquote>
-<p>(1) Amy <span class="math inline">\(1\)</span><br/>
-            (2) Amy <span class="math inline">\(49\)</span> and Bobby
-            <span class="math inline">\(49\)</span><br/>
-            (3) Bobby <span class="math inline">\(100\)</span></p>
+<p>(1) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></mjx-assistive-mml></mjx-container></span><br/>
+            (2) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>49</mn></math></mjx-assistive-mml></mjx-container></span> and Bobby
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>49</mn></math></mjx-assistive-mml></mjx-container></span><br/>
+            (3) Bobby <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn></math></mjx-assistive-mml></mjx-container></span></p>
 </blockquote>
 <p>This case is like Case 9 except that Amy’s and Bobby’s
-            lives are much better in (2): their well-being is each <span class="math inline">\(49\)</span> rather than <span class="paper-inline-math-unit"><span class="math inline">\(1\)</span>⁠.</span> Nevertheless, ARO+ implies
+            lives are much better in (2): their well-being is each <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>49</mn></math></mjx-assistive-mml></mjx-container></span> rather than <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></mjx-assistive-mml></mjx-container></span>⁠.</span> Nevertheless, ARO+ implies
             that Bobby can reasonably object to (2) once he exists,
             because (3) would have been better for him, would have given
             a greater sum of well-being to the set of people who
@@ -430,8 +412,8 @@ Avoidance, and Impairable-Life Acceptance</h1>
             (2) should also be
             permissible.⁠<label class="margin-toggle sidenote-number" for="sn-6"></label><input class="margin-toggle" id="sn-6" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Horton might reply with a modified version of Case 10:</span></span><span class="sidenote-paragraph"><span class="sidenote-blockquote">
 <span class="sidenote-block-paragraph">(1) —<br/>
-            (2) Amy <span class="math inline">\(99\)</span><br/>
-            (3) Amy <span class="math inline">\(100\)</span></span>
+            (2) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>99</mn></math></mjx-assistive-mml></mjx-container></span><br/>
+            (3) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn></math></mjx-assistive-mml></mjx-container></span></span>
 </span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">Here one might intuit that (1) is permissible and (2) is (slightly)
             wrong. That might be taken as support for the corresponding verdict in
             Case 9*.</span></span></span> After all, Amy’s life
@@ -440,32 +422,32 @@ Avoidance, and Impairable-Life Acceptance</h1>
             Amy’s. This intuition seems robust enough to stand on its
             own, but if we want a principled basis on which to challenge
             ARO+, we can note that it violates <em>Weak Normative
-            Dominance Addition</em>, no matter how small we make <span class="math inline">\(x\)</span> (so long as it is
-            non-negative) and how large we make <span class="paper-inline-math-unit"><span class="math inline">\(y\)</span>⁠:</span></p>
+            Dominance Addition</em>, no matter how small we make <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml></mjx-container></span> (so long as it is
+            non-negative) and how large we make <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml></mjx-container></span>⁠:</span></p>
 <blockquote>
 <p>Suppose that every person who exists conditional on an
-            act <span class="math inline">\(A\)</span> has well-being at
-            least <span class="math inline">\(0\)</span> and at most
-            <span class="paper-inline-math-unit"><span class="math inline">\(x\)</span>⁠,</span> and that every
-            person who exists conditional on <span class="math inline">\(A\)</span> also exists conditional on
-            an act <span class="math inline">\(B\)</span> where they
-            have well-being at least <span class="paper-inline-math-unit"><span class="math inline">\(y\)</span>⁠,</span> with <span class="paper-inline-math-unit"><span class="math inline">\(y &gt; x\)</span>⁠.</span> Suppose also that
-            every person who exists conditional on <span class="math inline">\(B\)</span> but not <span class="math inline">\(A\)</span> has well-being at least
-            <span class="paper-inline-math-unit"><span class="math inline">\(y\)</span>⁠,</span> and that the
-            distribution of well-being conditional on <span class="math inline">\(B\)</span> is perfectly equal. Then if
-            <span class="math inline">\(A\)</span> is permissible, <span class="math inline">\(B\)</span> is also
+            act <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> has well-being at
+            least <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math></mjx-assistive-mml></mjx-container></span> and at most
+            <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> and that every
+            person who exists conditional on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> also exists conditional on
+            an act <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> where they
+            have well-being at least <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> with <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi><mo>&gt;</mo><mi>x</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> Suppose also that
+            every person who exists conditional on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> but not <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> has well-being at least
+            <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> and that the
+            distribution of well-being conditional on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> is perfectly equal. Then if
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> is permissible, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> is also
             permissible.⁠<label class="margin-toggle sidenote-number" for="sn-7"></label><input class="margin-toggle" id="sn-7" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">This principle is a weakening of Arrhenius’s Normative Dominance
             Addition principle (<a class="citation-link" href="https://academic.oup.com/edited-volume/41281">Arrhenius 2022</a>: 192).</span></span></span></p>
 </blockquote>
 <p>ARO+ violates this principle in the following case (with
-            <span class="paper-inline-math-unit"><span class="math inline">\(y &gt; x \geq 0\)</span>⁠),</span> since
+            <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2265"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi><mo>&gt;</mo><mi>x</mi><mo>≥</mo><mn>0</mn></math></mjx-assistive-mml></mjx-container></span>⁠),</span> since
             it implies that (1) and (3) are the only permissible
-            options, no matter how small we make non-negative <span class="math inline">\(x\)</span> and how large we make <span class="paper-inline-math-unit"><span class="math inline">\(y\)</span>⁠:</span></p>
+            options, no matter how small we make non-negative <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml></mjx-container></span> and how large we make <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml></mjx-container></span>⁠:</span></p>
 <blockquote>
-<p>(1) Amy <span class="math inline">\(x\)</span><br/>
-            (2) Amy <span class="math inline">\(y\)</span> and Bobby
-            <span class="math inline">\(y\)</span><br/>
-            (3) Bobby <span class="math inline">\(2y + 1\)</span></p>
+<p>(1) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml></mjx-container></span><br/>
+            (2) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml></mjx-container></span> and Bobby
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml></mjx-container></span><br/>
+            (3) Bobby <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mi>y</mi><mo>+</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span></p>
 </blockquote>
 <h1 data-number="5" id="ucv-defeat-uncovered"><span class="header-section-number">5.</span> UCV-Defeat-Uncovered</h1>
 <p>Podgorski’s view (2021) begins with an account of
@@ -474,45 +456,45 @@ Avoidance, and Impairable-Life Acceptance</h1>
             minor rephrasings of Podgorski’s principles.</p>
 <blockquote class="paper-statement">
 <p class="paper-block-title">Common Existence Complaints*</p>
-<p>If a person exists conditional on options <span class="math inline">\(A\)</span> and <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠,</span> then she has a complaint
-            against <span class="math inline">\(A\)</span> relative to
-            <span class="math inline">\(B\)</span> iff she is worse off
-            conditional on <span class="math inline">\(A\)</span> than
-            on <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.</span> The strength of
+<p>If a person exists conditional on options <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> and <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> then she has a complaint
+            against <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> relative to
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> iff she is worse off
+            conditional on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> than
+            on <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> The strength of
             her complaint is the difference between her well-being
-            conditional on <span class="math inline">\(A\)</span> and on
-            <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.</span></p>
+            conditional on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> and on
+            <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span></p>
 <p class="paper-block-title">No Ghostly Complaints*</p>
-<p>If a person does not exist conditional on option <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> then she has no complaint
-            against <span class="math inline">\(A\)</span> relative to
-            any other option <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.</span></p>
+<p>If a person does not exist conditional on option <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> then she has no complaint
+            against <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> relative to
+            any other option <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span></p>
 <p class="paper-block-title">Existential Harm Complaints*</p>
-<p>If a person exists conditional on <span class="math inline">\(A\)</span> but not <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠,</span> then she has a complaint
-            against <span class="math inline">\(A\)</span> relative to
-            <span class="math inline">\(B\)</span> iff her well-being
-            conditional on <span class="math inline">\(A\)</span> is
+<p>If a person exists conditional on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> but not <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> then she has a complaint
+            against <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> relative to
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> iff her well-being
+            conditional on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> is
             negative. The strength of her complaint is the magnitude of
             her negative well-being.</p>
 <p class="paper-block-title">Existential Benefit Answers*</p>
-<p>If a person exists conditional on <span class="math inline">\(A\)</span> but not <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠,</span> then she generates an
-            answer to complaints against <span class="math inline">\(A\)</span> relative to <span class="math inline">\(B\)</span> iff her well-being
-            conditional on <span class="math inline">\(A\)</span> is
+<p>If a person exists conditional on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> but not <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> then she generates an
+            answer to complaints against <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> relative to <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> iff her well-being
+            conditional on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> is
             positive. The strength of this answer is the magnitude of
             her positive well-being. (2021: 12)</p>
 </blockquote>
 <p>Podgorski defines ‘the unanswered strength of complaints
-            against <span class="math inline">\(A\)</span> relative to
-            <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠’</span> as the total
-            strength of complaints against <span class="math inline">\(A\)</span> relative to <span class="math inline">\(B\)</span> minus the total strength of
+            against <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> relative to
+            <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>⁠’</span> as the total
+            strength of complaints against <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> relative to <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> minus the total strength of
             answers to those complaints (to a minimum of zero). He then
             adds a principle of defeat:</p>
 <blockquote class="paper-statement">
 <p class="paper-block-title"><strong>Minimize Aggregate Unanswered
             Complaints*</strong></p>
-<p><span class="math inline">\(A\)</span> <em>defeats</em>
-<span class="math inline">\(B\)</span> iff the unanswered
-            strength of complaints against <span class="math inline">\(A\)</span> relative to <span class="math inline">\(B\)</span> is less than the unanswered
-            strength of complaints against <span class="math inline">\(B\)</span> relative to <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠.</span> (2021: 12)</p>
+<p><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> <em>defeats</em>
+<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> iff the unanswered
+            strength of complaints against <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> relative to <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> is less than the unanswered
+            strength of complaints against <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> relative to <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> (2021: 12)</p>
 </blockquote>
 <p>Podgorski calls the conjunction of these claims
             <em>UCV-Defeat</em> (with ‘UCV’ standing for ‘Unanswered
@@ -520,8 +502,8 @@ Avoidance, and Impairable-Life Acceptance</h1>
             deontic principle:</p>
 <blockquote class="paper-statement">
 <p class="paper-block-title"><strong><em>Uncovered</em></strong></p>
-<p><span class="math inline">\(A\)</span> <em>covers</em>
-<span class="math inline">\(B\)</span> iff <span class="math inline">\(A\)</span> defeats <span class="math inline">\(B\)</span> and any option that <span class="math inline">\(B\)</span> defeats. An option is
+<p><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> <em>covers</em>
+<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> iff <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> defeats <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> and any option that <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> defeats. An option is
             permissible iff there is no option that covers it. (2021:
             18)</p>
 </blockquote>
@@ -531,9 +513,9 @@ Avoidance, and Impairable-Life Acceptance</h1>
             Impairable-Life Acceptance</h1>
 <p>With all that noted, consider the following case:</p>
 <blockquote>
-<p>(1) Amy <span class="math inline">\(100\)</span><br/>
-            (2) Amy <span class="math inline">\(0\)</span> and Bobby
-            <span class="math inline">\(2\)</span></p>
+<p>(1) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn></math></mjx-assistive-mml></mjx-container></span><br/>
+            (2) Amy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math></mjx-assistive-mml></mjx-container></span> and Bobby
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn></math></mjx-assistive-mml></mjx-container></span></p>
 </blockquote>
 <p>The unanswered strength of complaints against (2)
             relative to (1) is 98: Amy has a complaint of strength 100,
@@ -547,7 +529,7 @@ Avoidance, and Impairable-Life Acceptance</h1>
             against (2) relative to (1) and Bobby’s answer is weak.</p>
 <p>But now suppose that (3) is also an option:</p>
 <blockquote>
-<p>(3) Bobby <span class="math inline">\(1\)</span></p>
+<p>(3) Bobby <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></mjx-assistive-mml></mjx-container></span></p>
 </blockquote>
 <p>In this new case, (1) defeats (2) as before. Meanwhile,
             the unanswered strength of complaints against (1) relative

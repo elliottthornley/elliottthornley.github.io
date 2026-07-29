@@ -39,27 +39,9 @@ Views | Elliott Thornley</title>
 <link href="/assets/images/elliott-thornley-headshot.jpg" rel="icon" type="image/jpeg"/>
 <!-- Tufte CSS -->
 <link href="/assets/css/tufte.css?v=20260722e" rel="stylesheet"/>
-<!-- MathJax for math rendering -->
-<script>
-        window.MathJax = {
-            loader: {
-                load: ['[tex]/bbox', '[tex]/html']
-            },
-            tex: {
-                packages: {'[+]': ['bbox', 'html']},
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
-                processEscapes: true,
-                macros: {
-                    textsc: ['\\class{paper-math-smallcaps}{\\text{#1}}', 1]
-                }
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-            }
-        };
-    </script>
-<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Equations are typeset at build time by scripts/prerender-math.mjs, so
+         no MathJax runtime is loaded here. Pages that contain maths get a link
+         to /assets/css/mathjax-chtml.css appended during the build. -->
 <!-- Custom styles -->
 <style>
         nav { padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid #ccc; }
@@ -71,7 +53,7 @@ Views | Elliott Thornley</title>
         footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ccc; color: #666; }
         u { text-decoration: underline; }
     </style>
-</head>
+<link href="/assets/css/mathjax-chtml.css" rel="stylesheet"/></head>
 <body class="paper-page">
 <article class="paper-layout">
 <div class="paper-main wide-table">
@@ -121,9 +103,9 @@ Views | Elliott Thornley</title>
             child would go on to live an additional 70 years of good
             life. On the other hand, you estimate that donating to NTI
             would increase the probability that humanity survives the
-            coming century by about one-in-ten-quadrillion <span class="paper-inline-math-unit">(<span class="math inline">\(10^{- 16}\)</span>⁠).</span> And you expect
+            coming century by about one-in-ten-quadrillion <span class="paper-inline-math-unit">(<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-msup><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.393em;"><mjx-texatom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>10</mn><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>16</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span>⁠).</span> And you expect
             that if humanity survives the coming century, the future
-            will contain one-hundred-quadrillion <span class="paper-inline-math-unit">(<span class="math inline">\(10^{17}\)</span>⁠)</span> good lives, each
+            will contain one-hundred-quadrillion <span class="paper-inline-math-unit">(<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-msup><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.393em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>10</mn><mrow data-mjx-texclass="ORD"><mn>17</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span>⁠)</span> good lives, each
             lasting around 70 years. Where should you send your
             money?</p>
 <p>Here’s a quick argument for NTI. By donating to AMF,
@@ -251,9 +233,9 @@ Views | Elliott Thornley</title>
             insignificant in outcomes in which they don’t exist.</span></span></span>
             HMVs don’t categorise people as extra and non-extra
             <em>simpliciter</em>, but we can understand them to
-            designate people as extra <em>in an outcome</em> <span class="math inline">\(A\)</span> <em>relative to an outcome
+            designate people as extra <em>in an outcome</em> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> <em>relative to an outcome
             B</em>. A person is extra in this way iff that person exists
-            in <span class="math inline">\(A\)</span> but not in <span class="paper-inline-math-unit"><span class="math inline">\(B\)</span>⁠.</span> In the two-option cases I
+            in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> but not in <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> In the two-option cases I
             discuss below, I often write that people are extra
             <em>simpliciter</em>. Applied to HMVs, I mean that they are
             extra <em>in the outcome in which they exist, relative to
@@ -322,11 +304,11 @@ Views | Elliott Thornley</title>
 <td>Vivianne</td>
 <td style="text-align: center;">Ω</td>
 <td>Vivianne</td>
-<td style="text-align: center;"><span class="math inline">\(g\)</span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span></td>
 <td>Vivianne</td>
-<td style="text-align: center;"><span class="math inline">\(g\)</span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span></td>
 <td>Vivianne</td>
-<td style="text-align: center;"><span class="math inline">\(g\)</span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span></td>
 </tr>
 <tr>
 <td>Mana</td>
@@ -344,35 +326,35 @@ Views | Elliott Thornley</title>
             Positive numbers indicate good lives and negative numbers
             indicate bad lives. Ω indicates that a person doesn’t exist
             in a population.</p>
-<p>Population <span class="math inline">\(B\)</span> is
-            identical to population <span class="math inline">\(A\)</span> but for the addition of
-            Vivianne, living a good life with welfare <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span> Population <span class="math inline">\(C\)</span> adds Vivianne too, but this
-            time at some cost: Mana lives a bad life in <span class="paper-inline-math-unit"><span class="math inline">\(C\)</span>⁠,</span> while in <span class="math inline">\(A\)</span> she lives no life at all.
-            Population <span class="math inline">\(D\)</span> also adds
-            Vivianne at some cost: Nicholas is worse off in <span class="math inline">\(D\)</span> than he is in <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠.</span></p>
+<p>Population <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> is
+            identical to population <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> but for the addition of
+            Vivianne, living a good life with welfare <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> Population <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi></math></mjx-assistive-mml></mjx-container></span> adds Vivianne too, but this
+            time at some cost: Mana lives a bad life in <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> while in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> she lives no life at all.
+            Population <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi></math></mjx-assistive-mml></mjx-container></span> also adds
+            Vivianne at some cost: Nicholas is worse off in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi></math></mjx-assistive-mml></mjx-container></span> than he is in <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span></p>
 <p>As noted above, person-affecting views typically imply
             that — all else equal — we’re never <em>required</em> to
             create extra good lives. That means that no matter how good
-            Vivianne’s life is — no matter how large <span class="math inline">\(g\)</span> is — we’re never required
-            to choose <span class="math inline">\(B\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠.</span> Either is permissible in a
+            Vivianne’s life is — no matter how large <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span> is — we’re never required
+            to choose <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> over <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> Either is permissible in a
             choice between the two.</p>
 <p>On very hard views, we’re also never <em>permitted</em>
             to create extra good lives if doing so involves the creation
             of extra bad lives or any harm to non-extra people. That
             means that, no matter how good Vivianne’s life is, we’re
-            never permitted to choose <span class="math inline">\(C\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> or <span class="math inline">\(D\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠.</span></p>
+            never permitted to choose <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi></math></mjx-assistive-mml></mjx-container></span> over <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> or <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi></math></mjx-assistive-mml></mjx-container></span> over <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span></p>
 <p>Hard views also forbid creating extra good lives if doing
             so harms non-extra people, but they permit creating
             combinations of extra good and bad lives, so long as the
             good lives are good enough. That means that we’re required
-            to choose <span class="math inline">\(A\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(D\)</span>⁠,</span> but permitted to choose
-            <span class="math inline">\(C\)</span> over <span class="math inline">\(A\)</span> for large enough values of
-            <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span></p>
+            to choose <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> over <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> but permitted to choose
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi></math></mjx-assistive-mml></mjx-container></span> over <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> for large enough values of
+            <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span></p>
 <p>On soft views, by contrast, creating extra good lives can
             be permissible both when doing so involves creating extra
             bad lives and when doing so harms non-extra people. So long
             as Vivianne’s life is good enough, we’re permitted to choose
-            <span class="math inline">\(C\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> and <span class="math inline">\(D\)</span> over <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠.</span></p>
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi></math></mjx-assistive-mml></mjx-container></span> over <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi></math></mjx-assistive-mml></mjx-container></span> over <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span></p>
 <p>Here’s a third dimension along which species of
             actualism, necessitarianism, comparativism, and HMVs can
             differ.⁠<label class="margin-toggle sidenote-number" for="sn-7"></label><input class="margin-toggle" id="sn-7" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">The distinction concerns how a person’s modal status is determined,
@@ -520,12 +502,12 @@ Views | Elliott Thornley</title>
             about making happy people’ (1973: 80). Many views also imply
             what <a class="citation-link" href="#ref-59">Roberts (2011a: 772)</a> and <a class="citation-link" href="#ref-13">Chappell (2017: 170)</a> call the
             <em>Deeper Intuition</em>: we ought to benefit an existing
-            person by some amount <span class="math inline">\(g\)</span>
-            rather than create a new person with welfare <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span> The exceptions are soft
+            person by some amount <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span>
+            rather than create a new person with welfare <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> The exceptions are soft
             views, which may permit us to create the new person in this
             case. However, even soft views never <em>require</em> that
             we create the new person, even if that person’s welfare
-            would be much greater than <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span>⁠<label class="margin-toggle sidenote-number" for="sn-12"></label><input class="margin-toggle" id="sn-12" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">One caveat: depending on the new person’s welfare and on how
+            would be much greater than <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span>⁠<label class="margin-toggle sidenote-number" for="sn-12"></label><input class="margin-toggle" id="sn-12" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">One caveat: depending on the new person’s welfare and on how
             non-extra welfare is aggregated, <em>strong</em> actualism might imply
             that <em>if we create the new person</em> we’re required to create the
             new person. However, this requirement won’t have the usual force from
@@ -566,7 +548,7 @@ Views | Elliott Thornley</title>
             from now. Future people do away with the sources of
             present-day suffering and cultivate much more of all that
             makes life good. As a consequence, Earth plays host to
-            one-hundred-quadrillion <span class="paper-inline-math-unit">(<span class="math inline">\(10^{17}\)</span>⁠)</span> wonderful lives.
+            one-hundred-quadrillion <span class="paper-inline-math-unit">(<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-msup><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.393em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>10</mn><mrow data-mjx-texclass="ORD"><mn>17</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span>⁠)</span> wonderful lives.
             Call this the <em>Good Future</em>. Here’s another possible
             story. Runaway climate change, nuclear war, the release of
             an engineered pathogen, or some other disaster causes
@@ -579,17 +561,17 @@ Views | Elliott Thornley</title>
             present generation — can shift the probabilities with which
             the Good and Short Futures come about. By all worsening our
             lives so that they’re just barely worth living, we can
-            decrease the Short Future’s probability by <span class="math inline">\(p\)</span> and increase the Good
-            Future’s probability by <span class="paper-inline-math-unit"><span class="math inline">\(p\)</span>⁠.</span> The other option is
-            business-as-usual. For what values of <span class="math inline">\(p\)</span> must we worsen our lives?
+            decrease the Short Future’s probability by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> and increase the Good
+            Future’s probability by <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> The other option is
+            business-as-usual. For what values of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> must we worsen our lives?
             On <em>expected total utilitarianism</em>, the answer is
             roughly ‘Any value greater than or equal to
             0.0000008’.⁠<label class="margin-toggle sidenote-number" for="sn-15"></label><input class="margin-toggle" id="sn-15" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Expected total utilitarianism is the conjunction of total
             utilitarianism and expected value theory. On this view, downgrading
             eight billion lives from wonderful to barely-worth-living is
             <em>almost</em> as bad as <em>removing</em> eight billion wonderful
-            lives, but increasing the chance of the Good Future by <span class="math inline">\(0.0000008\)</span> is <em>as</em> good as
-            <em>creating</em> eight billion wonderful lives. So, at <span class="paper-inline-math-unit"><span class="math inline">\(p = 0.0000008\)</span>⁠,</span> the benefits of
+            lives, but increasing the chance of the Good Future by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0.0000008</mn></math></mjx-assistive-mml></mjx-container></span> is <em>as</em> good as
+            <em>creating</em> eight billion wonderful lives. So, at <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mo>=</mo><mn>0.0000008</mn></math></mjx-assistive-mml></mjx-container></span>⁠,</span> the benefits of
             present-day-sacrifice outweigh the costs. This figure is only rough, in
             part because my calculation ignores the welfare of the small number of
             future people in the Short Future.</span></span></span>
@@ -599,7 +581,7 @@ Views | Elliott Thornley</title>
             this implication <em>Our Sacrifice</em>. Person-affecting
             views avoid this implication. It remains an open question
             how person-affecting views should be extended to cover risky
-            cases (see <a class="citation-link" href="#ref-71">Thomas 2023</a>). But even in the case where <span class="paper-inline-math-unit"><span class="math inline">\(p = ‍1\)</span>⁠,</span> where
+            cases (see <a class="citation-link" href="#ref-71">Thomas 2023</a>). But even in the case where <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-texatom space="4" texclass="ORD"><mjx-mo class="mjx-n"><mjx-utext style="font-family: MJXZERO, serif;" variant="normal">‍</mjx-utext></mjx-mo></mjx-texatom><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mo>=</mo><mrow data-mjx-texclass="ORD"><mo>‍</mo></mrow><mn>1</mn></math></mjx-assistive-mml></mjx-container></span>⁠,</span> where
             business-as-usual would guarantee the Short Future and our
             generation’s sacrifice would guarantee the Good Future, hard
             and very hard views forbid the sacrifice since it harms us
@@ -661,12 +643,12 @@ Views | Elliott Thornley</title>
 <h1 data-number="4" id="fission"><span class="header-section-number">4.</span> Fission</h1>
 <p>Let a <em>life-episode</em> be a period within a person’s
             life, and assume that each life-episode’s welfare can be
-            represented by a real-valued function <span class="paper-inline-math-unit"><span class="math inline">\(w\)</span>⁠,</span> such that life-episode
-            <span class="math inline">\(x\)</span> has at least as much
-            welfare as life-episode <span class="math inline">\(y\)</span> iff <span class="paper-inline-math-unit"><span class="math inline">\(w(x) \geq w(y)\)</span>⁠.</span> Assume also
+            represented by a real-valued function <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>w</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> such that life-episode
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml></mjx-container></span> has at least as much
+            welfare as life-episode <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml></mjx-container></span> iff <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2265"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>w</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>≥</mo><mi>w</mi><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>⁠.</span> Assume also
             that welfare is interpersonally comparable (so that we can
-            say whether <span class="math inline">\(x\)</span> has at
-            least as much welfare as <span class="math inline">\(y\)</span> even if <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are lived by different
+            say whether <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml></mjx-container></span> has at
+            least as much welfare as <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml></mjx-container></span> even if <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml></mjx-container></span> are lived by different
             people) and measurable on a ratio-scale (so that we can talk
             meaningfully about the ratios of welfare between
             life-episodes). Assign positive welfare to life-episodes
@@ -902,8 +884,8 @@ Views | Elliott Thornley</title>
             on the scene (and vice versa). But this view has counterintuitive
             implications, especially in cases of negative welfare. Here’s an
             example. Suppose that — by default — only Lefty will exist, with welfare
-            <span class="paper-inline-math-unit"><span class="math inline">\(- 100\)</span>⁠.</span> Anna can ensure that Righty
-            exists too, but doing so will drop Lefty’s welfare to <span class="paper-inline-math-unit"><span class="math inline">\(- 180\)</span>⁠,</span> and Righty will have welfare <span class="paper-inline-math-unit"><span class="math inline">\(- 10\)</span>⁠.</span> That change seems worse for Anna,
+            <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>100</mn></math></mjx-assistive-mml></mjx-container></span>⁠.</span> Anna can ensure that Righty
+            exists too, but doing so will drop Lefty’s welfare to <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>180</mn></math></mjx-assistive-mml></mjx-container></span>⁠,</span> and Righty will have welfare <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>10</mn></math></mjx-assistive-mml></mjx-container></span>⁠.</span> That change seems worse for Anna,
             but the view under consideration implies that it’s a change for the
             better.</span></span></span></p>
 <p>Split C, meanwhile, seems better for Anna than Split B.
@@ -933,11 +915,10 @@ Views | Elliott Thornley</title>
             B. One could adopt a revised multiple occupancy view on which each of
             Lefty and Righty exist even in No Split, but this view delivers
             implausible verdicts in other cases. Suppose for example that in No
-            Split, Anna’s welfare score is <span class="math inline">\(-
-            100\)</span> (and hence, on this revised multiple occupancy view,
-            Lefty’s and Righty’s welfare scores are also <span class="paper-inline-math-unit"><span class="math inline">\(- 100\)</span>⁠).</span> Suppose also that in Split D,
+            Split, Anna’s welfare score is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>100</mn></math></mjx-assistive-mml></mjx-container></span> (and hence, on this revised multiple occupancy view,
+            Lefty’s and Righty’s welfare scores are also <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>100</mn></math></mjx-assistive-mml></mjx-container></span>⁠).</span> Suppose also that in Split D,
             Anna is split immediately, and Lefty’s and Righty’s welfare scores are
-            <span class="paper-inline-math-unit"><span class="math inline">\(- 99\)</span>⁠.</span> Given the revised multiple
+            <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>99</mn></math></mjx-assistive-mml></mjx-container></span>⁠.</span> Given the revised multiple
             occupancy view’s interpretation of the case, Split D is better than No
             Split for both Lefty and Righty, and so any plausible moral view will
             require us to choose Split D. But on a more natural understanding of the
@@ -979,10 +960,10 @@ Views | Elliott Thornley</title>
             life-branch would be barely worth living. If each splittee
             is non-extra, their welfare counts in the usual non-extra
             way. Extant person-affecting views typically aggregate
-            non-extra welfare by summing: a population <span class="math inline">\(A\)</span> is at least as good as a
-            population <span class="math inline">\(B\)</span> with
-            respect to non-extra welfare iff <span class="math inline">\(A\)</span> contains at least as great
-            a sum-total of non-extra welfare as <span class="math inline">\(B\)</span> (<a class="citation-link" href="#ref-14">Cohen 2020</a>; <a class="citation-link" href="#ref-32">Horton 2021</a>:
+            non-extra welfare by summing: a population <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> is at least as good as a
+            population <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> with
+            respect to non-extra welfare iff <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span> contains at least as great
+            a sum-total of non-extra welfare as <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> (<a class="citation-link" href="#ref-14">Cohen 2020</a>; <a class="citation-link" href="#ref-32">Horton 2021</a>:
             499; <a class="citation-link" href="#ref-42">McDermott 1982, 2019</a>; <a class="citation-link" href="#ref-45">Meacham 2012</a>; <a class="citation-link" href="#ref-71">Thomas 2023</a>). Thus
             if the number of splittee is great enough (and if we’re
             required to do what’s best), these person-affecting views
@@ -1020,12 +1001,12 @@ Views | Elliott Thornley</title>
             also violate an analogue of Roberts’ and Chappell’s Deeper
             Intuition. According to <em>Deeper Intu-Fission</em>, we
             ought to benefit an existing person in some fission-free way
-            by some amount <span class="math inline">\(g\)</span> rather
-            than create a new splittee with welfare <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span> But if splittees are
+            by some amount <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span> rather
+            than create a new splittee with welfare <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> But if splittees are
             non-extra and we aggregate non-extra welfare by summing,
             creating the new splittee is permissible. And if the new
             splittee would have welfare
-            ever-so-slightly-greater-than-<span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠,</span> creating them would be
+            ever-so-slightly-greater-than-<span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> creating them would be
             required. Like impersonal views, then, person-affecting
             views paired with (6) imply something that might seem
             perverse: in some circumstances, we could be required to
@@ -1035,13 +1016,13 @@ Views | Elliott Thornley</title>
             also means that person-affecting views can require large
             sacrifices in the present for the sake of unlikely benefits
             in the far future. Consider again the Good Future from
-            section 3, in which Earth plays host to <span class="math inline">\(10^{17}\)</span> wonderful lives. This
+            section 3, in which Earth plays host to <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-msup><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.393em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>10</mn><mrow data-mjx-texclass="ORD"><mn>17</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> wonderful lives. This
             time, however, imagine that humans reproduce a little more
             like amoebae. We split after 70 years, with one splittee
             dying soon afterwards and the other living 70 years before
             themselves splitting, and so on. Suppose that there are
-            <span class="math inline">\(10^{17}\)</span> 70-year
-            life-branches in this population and <span class="math inline">\(10^{17}\)</span> fleeting
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-msup><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.393em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>10</mn><mrow data-mjx-texclass="ORD"><mn>17</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> 70-year
+            life-branches in this population and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-msup><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.393em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>10</mn><mrow data-mjx-texclass="ORD"><mn>17</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> fleeting
             life-branches. Each 70-year life-branch is wonderful, and
             each fleeting life-branch is neutral. Each splittee is
             fully-connected-in-all-the-ways-that-might-matter to the
@@ -1054,10 +1035,10 @@ Views | Elliott Thornley</title>
             shift the probabilities with which these two futures come
             about. By all worsening our (by-default wonderful) current
             life-branches so that they’re just barely worth living, we
-            can decrease the chance of the Short Future by <span class="math inline">\(p\)</span> and increase the chance of
-            the Good Future by <span class="paper-inline-math-unit"><span class="math inline">\(p\)</span>⁠.</span>
+            can decrease the chance of the Short Future by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> and increase the chance of
+            the Good Future by <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span>
             The other option is business-as-usual. For what values of
-            <span class="math inline">\(p\)</span> must we take the
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> must we take the
             plunge? If our person-affecting view take splittees to be
             non-extra, aggregates non-extra welfare by summing, ranks
             risky options using expected value theory, and requires us
@@ -1103,12 +1084,12 @@ Views | Elliott Thornley</title>
             impersonal views to avoid those same problems, along with
             their non-fission analogues. And in fact, answer (6) implies
             a more general conclusion: no matter what aggregation rule
-            <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> rule for ranking
-            risky options <span class="paper-inline-math-unit"><span class="math inline">\(R\)</span>⁠,</span> and
-            rule for deriving requirements <span class="math inline">\(D\)</span> we choose, each
-            person-affecting view paired with (6), <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(R\)</span>⁠,</span> and <span class="math inline">\(D\)</span> will face fission analogues
+            <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> rule for ranking
+            risky options <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D445 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>R</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> and
+            rule for deriving requirements <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi></math></mjx-assistive-mml></mjx-container></span> we choose, each
+            person-affecting view paired with (6), <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D445 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>R</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi></math></mjx-assistive-mml></mjx-container></span> will face fission analogues
             of whatever problems exist for an impersonal view paired
-            with <span class="paper-inline-math-unit"><span class="math inline">\(A\)</span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline">\(R\)</span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline">\(D\)</span>⁠.</span> If these fission analogues
+            with <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D445 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>R</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> and <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> If these fission analogues
             are as implausible as the originals, we have little reason
             to prefer person-affecting views plus (6) to the
             corresponding impersonal views.</p>
@@ -1130,8 +1111,8 @@ Views | Elliott Thornley</title>
             life-branches. That makes splitting better for them overall.
             One might also claim that violating Deeper Intu-Fission
             isn’t so bad, because creating a new splittee with welfare
-            <span class="math inline">\(g\)</span> <em>is a way of
-            benefitting the original person by</em> <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠.</span></p>
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span> <em>is a way of
+            benefitting the original person by</em> <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span></p>
 <p>With regards to the relative plausibility of Fission
             Sacrifice and Our Sacrifice, I’ve run out of arguments. I
             can only report my own view, which is that the appeal to
@@ -1145,8 +1126,8 @@ Views | Elliott Thornley</title>
 <p>What about the relative plausibility of Deeper
             Intu-Fission and the Deeper Intuition? Here I have an
             argument. Although it’s true that creating a new splittee
-            with welfare <span class="math inline">\(g\)</span> is a way
-            of benefitting the original person by <span class="paper-inline-math-unit"><span class="math inline">\(g\)</span>⁠,</span> this point does little to
+            with welfare <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span> is a way
+            of benefitting the original person by <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> this point does little to
             address the most troubling violations of Deeper
             Intu-Fission: cases in which we ought to create a new happy
             splittee from an existing person rather than relieve the

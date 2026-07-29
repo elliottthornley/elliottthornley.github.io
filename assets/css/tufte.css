@@ -452,6 +452,17 @@ article > footer,
     box-sizing: border-box;
 }
 
+/* Tables carry `margin: auto` so a narrow one sits centred inside whatever
+   holds it. In the paper column that backfires: the element is capped at the
+   text width but its containing block runs to the full page width, so the
+   auto margins push the table a long way right of the prose it belongs to.
+   Pin it to the left edge of the text column, like every paragraph. */
+article > table,
+.paper-main > table {
+    margin-left: 0;
+    margin-right: auto;
+}
+
 p,
 ol,
 ul {
@@ -1115,17 +1126,39 @@ blockquote.paper-condition-heading {
     margin-bottom: 0.35rem;
 }
 
-.definition {
+/* Theorems, lemmas, definitions and the like are indented to the same depth
+   as the named principles, whether they arrive as an amsthm div or as a
+   hand-written paragraph opening with a bold `Theorem 2.`. */
+.paper-statement-block {
     width: 100%;
     max-width: calc(var(--paper-text-width) - var(--paper-block-indent));
     margin: 1rem 0 1rem var(--paper-block-indent);
     box-sizing: border-box;
 }
 
-.definition p {
+p.paper-statement-block {
+    width: calc(100% - var(--paper-block-indent));
+}
+
+div.paper-statement-block p {
     width: 100%;
     max-width: none;
     margin: 0.35rem 0;
+}
+
+/* A proof is ordinary argument, so it sits in the text column rather than
+   indented with the statement it proves. Its paragraphs need the width
+   spelled out: the Tufte base rule gives any paragraph the site has not
+   claimed 55% of its container, which made proof text visibly narrower than
+   the prose around it. */
+.proof {
+    width: 100%;
+    max-width: var(--paper-text-width);
+}
+
+.proof p {
+    width: 100%;
+    max-width: none;
 }
 
 /* Margin notes */
@@ -1255,6 +1288,20 @@ figure.wide-figure,
     max-width: min(100%, 1000px);
     margin-left: 0;
     margin-right: auto;
+}
+
+/* A row of plot panels needs about half again the text width before its axis
+   labels are readable, which is more than the main column has. Let it reach
+   half of the page gutter as well, and never past the viewport edge: the
+   second term is the space between the page and the window, so on a screen
+   narrow enough to have none the figure simply fills the column. */
+figure.paper-panel-strip,
+.paper-main > figure.paper-panel-strip {
+    width: min(
+        calc(var(--paper-text-width) * 1.5),
+        calc(100% + max(0px, (100vw - 48px - var(--paper-page-max-width)) / 2 - 1rem))
+    );
+    max-width: none;
 }
 
 figure img {
@@ -1519,6 +1566,19 @@ figure.multi-image-figure p {
 figure.multi-image-figure:has(> .minipage:nth-of-type(2)) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: start;
+}
+
+/* Two images written as direct children of one figure are a side-by-side
+   pair, the same as a pair of minipages. Without this they each take the
+   full column and stack, which blows a small gridworld diagram up to the
+   width of the text. */
+figure.multi-image-figure:has(> img:nth-of-type(2)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: end;
+}
+
+figure.multi-image-figure:has(> img:nth-of-type(2)) > img {
+    grid-column: auto;
 }
 
 figure.multi-image-figure > .minipage p {
@@ -1806,6 +1866,7 @@ table th {
 
 @media (max-width: 760px) {
     figure.multi-image-figure:has(> .minipage:nth-of-type(2)),
+    figure.multi-image-figure:has(> img:nth-of-type(2)),
     figure.multi-image-figure > p:has(> img:nth-of-type(2)) {
         grid-template-columns: 1fr;
     }

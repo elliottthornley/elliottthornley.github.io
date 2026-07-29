@@ -45,27 +45,9 @@ Longtermism’s Limited Role | Elliott Thornley</title>
 <link href="/assets/images/elliott-thornley-headshot.jpg" rel="icon" type="image/jpeg"/>
 <!-- Tufte CSS -->
 <link href="/assets/css/tufte.css?v=20260722e" rel="stylesheet"/>
-<!-- MathJax for math rendering -->
-<script>
-        window.MathJax = {
-            loader: {
-                load: ['[tex]/bbox', '[tex]/html']
-            },
-            tex: {
-                packages: {'[+]': ['bbox', 'html']},
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
-                processEscapes: true,
-                macros: {
-                    textsc: ['\\class{paper-math-smallcaps}{\\text{#1}}', 1]
-                }
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-            }
-        };
-    </script>
-<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Equations are typeset at build time by scripts/prerender-math.mjs, so
+         no MathJax runtime is loaded here. Pages that contain maths get a link
+         to /assets/css/mathjax-chtml.css appended during the build. -->
 <!-- Custom styles -->
 <style>
         nav { padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid #ccc; }
@@ -77,7 +59,7 @@ Longtermism’s Limited Role | Elliott Thornley</title>
         footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ccc; color: #666; }
         u { text-decoration: underline; }
     </style>
-</head>
+<link href="/assets/css/mathjax-chtml.css" rel="stylesheet"/></head>
 <body class="paper-page">
 <article class="paper-layout">
 <div class="paper-main">
@@ -447,14 +429,12 @@ Shulman</p>
             catastrophe from these sources over the next 100
             years.⁠<label class="margin-toggle sidenote-number" for="sn-8"></label><input class="margin-toggle" id="sn-8" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Here we assume that a full-scale nuclear war would kill at least 5
             billion people and hence qualify as a global catastrophe (<a class="citation-link" href="https://rethinkpriorities.org/publications/how-bad-would-nuclear-winter-caused-by-a-us-russia-nuclear-exchange-be">Rodriguez
-            2019a</a>; <a class="citation-link" href="#ref-93">Xia et al. 2022</a>: 1).</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">The risk is not <span class="paper-inline-math-unit"><span class="math inline">\(10\% + 3\% + 5\% =
-            18\%\)</span>⁠,</span> because each of Ord’s risk-estimates is conditional on
+            2019a</a>; <a class="citation-link" href="#ref-93">Xia et al. 2022</a>: 1).</span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">The risk is not <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mi class="mjx-n"><mjx-c class="mjx-c25"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mi class="mjx-n"><mjx-c class="mjx-c25"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mi class="mjx-n"><mjx-c class="mjx-c25"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mi class="mjx-n"><mjx-c class="mjx-c25"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>10</mn><mi mathvariant="normal">%</mi><mo>+</mo><mn>3</mn><mi mathvariant="normal">%</mi><mo>+</mo><mn>5</mn><mi mathvariant="normal">%</mi><mo>=</mo><mn>18</mn><mi mathvariant="normal">%</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> because each of Ord’s risk-estimates is conditional on
             humanity not suffering an existential catastrophe from another source in
             the next 100 years (as is made clear by <a class="citation-link" href="#ref-55">Ord 2020</a>: 173–74). If we assume
             statistical independence between risks, the probability that there is no
             global catastrophe from AI, engineered pandemics, or nuclear war in the
-            next 100 years is at most <span class="paper-inline-math-unit"><span class="math inline">\((1 - 0.1) \times
-            (1 - 0.03) \times (1 - 0.05) \approx 83\%\)</span>⁠.</span> The probability that
+            next 100 years is at most <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2248"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mi class="mjx-n"><mjx-c class="mjx-c25"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mn>0.1</mn><mo stretchy="false">)</mo><mo>×</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mn>0.03</mn><mo stretchy="false">)</mo><mo>×</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mn>0.05</mn><mo stretchy="false">)</mo><mo>≈</mo><mn>83</mn><mi mathvariant="normal">%</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> The probability that
             there is some such global catastrophe is then at least 17%. There might
             well be some positive correlation between risks (<a class="citation-link" href="#ref-55">Ord 2020</a>: 173–75), but
             plausible degrees of correlation will not significantly reduce total
@@ -464,10 +444,10 @@ Shulman</p>
             catastrophe.</span></span></span> If we assume that the risk
             per decade is constant, the risk over the next decade is
             about
-            1.85%.⁠<label class="margin-toggle sidenote-number" for="sn-9"></label><input class="margin-toggle" id="sn-9" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">If the risk over the next century is <span class="math inline">\(17\%\)</span> and the risk per decade is constant,
-            then the risk per decade is <span class="math inline">\(x\)</span> such
-            that <span class="paper-inline-math-unit"><span class="math inline">\(1 - (1 - x)^{10} = 17\%\)</span>⁠.</span> That
-            gives us <span class="paper-inline-math-unit"><span class="math inline">\(x \approx 1.85\%\)</span>⁠.</span></span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">There are reasons to doubt that the risk this decade is as high as
+            1.85%.⁠<label class="margin-toggle sidenote-number" for="sn-9"></label><input class="margin-toggle" id="sn-9" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">If the risk over the next century is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mi class="mjx-n"><mjx-c class="mjx-c25"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>17</mn><mi mathvariant="normal">%</mi></math></mjx-assistive-mml></mjx-container></span> and the risk per decade is constant,
+            then the risk per decade is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml></mjx-container></span> such
+            that <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mi class="mjx-n"><mjx-c class="mjx-c25"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>−</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>x</mi><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mn>10</mn></mrow></msup><mo>=</mo><mn>17</mn><mi mathvariant="normal">%</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> That
+            gives us <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2248"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mi class="mjx-n"><mjx-c class="mjx-c25"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi><mo>≈</mo><mn>1.85</mn><mi mathvariant="normal">%</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span></span></span><span class="sidenote-paragraph"><span class="sidenote-block-paragraph">There are reasons to doubt that the risk this decade is as high as
             the risk in future decades. One might think that ‘crunch time’ for AI
             and pandemic risk is more than a decade off. One might also think that
             most nuclear risk comes from scenarios in which future technological
@@ -478,8 +458,7 @@ Shulman</p>
             also that every person’s risk of dying in this kind of
             catastrophe is equal, then (conditional on not dying in
             other ways) each U.S. citizen’s risk of dying in this kind
-            of catastrophe in the next decade is at least <span class="math inline">\(5/9 \times 1.85\% \approx
-            1.03\%\)</span> (since, by our definition, a global
+            of catastrophe in the next decade is at least <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-texatom><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mi class="mjx-n"><mjx-c class="mjx-c25"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2248"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mi class="mjx-n"><mjx-c class="mjx-c25"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>5</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>9</mn><mo>×</mo><mn>1.85</mn><mi mathvariant="normal">%</mi><mo>≈</mo><mn>1.03</mn><mi mathvariant="normal">%</mi></math></mjx-assistive-mml></mjx-container></span> (since, by our definition, a global
             catastrophe would kill at least 5 billion people, and the
             world population is projected to remain under 9 billion
             until 2033). According to projections of the U.S. population
@@ -681,7 +660,7 @@ Shulman</p>
             (conservatively) that all the costs of our interventions are
             paid up front while the GCR-reduction comes only at the end
             of the decade, we get the result that reducing GCR this
-            decade by 0.1pp is worth at least $1.27 trillion <span class="math inline">\(/\ 1.07^{10\ } =\)</span> $646
+            decade by 0.1pp is worth at least $1.27 trillion <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-texatom><mjx-mtext class="mjx-n"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-msup><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.403em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mtext class="mjx-n"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext></mjx-texatom></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mtext> </mtext><msup><mn>1.07</mn><mrow data-mjx-texclass="ORD"><mn>10</mn><mtext> </mtext></mrow></msup><mo>=</mo></math></mjx-assistive-mml></mjx-container></span> $646
             billion. So, at a cost of $400 billion, these interventions
             comfortably pass a standard cost-benefit analysis
             test.⁠<label class="margin-toggle sidenote-number" for="sn-20"></label><input class="margin-toggle" id="sn-20" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">Researchers and analysts in the US frequently cite a
@@ -989,7 +968,7 @@ Shulman</p>
             pandemics rank highly on the longtermist list of priorities,
             and these interventions would also be implemented by a
             CBA-driven policy.</p>
-<p><img alt="" src="./media/image1.png" style="width:7.48031in;height:4.41732in"/>We
+<p><img alt="" decoding="async" height="823" src="./media/image1.png" style="width:7.48031in;height:4.41732in" width="1630"/>We
             illustrate the alignment between a CBA-driven policy and a
             strong longtermist policy using the graph below. The x-axis
             represents U.S. lives saved (discounted by how far in the

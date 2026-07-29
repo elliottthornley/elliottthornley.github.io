@@ -35,27 +35,9 @@ Views | Elliott Thornley</title>
 <link href="/assets/images/elliott-thornley-headshot.jpg" rel="icon" type="image/jpeg"/>
 <!-- Tufte CSS -->
 <link href="/assets/css/tufte.css?v=20260722e" rel="stylesheet"/>
-<!-- MathJax for math rendering -->
-<script>
-        window.MathJax = {
-            loader: {
-                load: ['[tex]/bbox', '[tex]/html']
-            },
-            tex: {
-                packages: {'[+]': ['bbox', 'html']},
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
-                processEscapes: true,
-                macros: {
-                    textsc: ['\\class{paper-math-smallcaps}{\\text{#1}}', 1]
-                }
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-            }
-        };
-    </script>
-<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Equations are typeset at build time by scripts/prerender-math.mjs, so
+         no MathJax runtime is loaded here. Pages that contain maths get a link
+         to /assets/css/mathjax-chtml.css appended during the build. -->
 <!-- Custom styles -->
 <style>
         nav { padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid #ccc; }
@@ -67,7 +49,7 @@ Views | Elliott Thornley</title>
         footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ccc; color: #666; }
         u { text-decoration: underline; }
     </style>
-</head>
+<link href="/assets/css/mathjax-chtml.css" rel="stylesheet"/></head>
 <body class="paper-page">
 <article class="paper-layout">
 <div class="paper-main">
@@ -298,14 +280,14 @@ Views</h1>
 <p class="paper-block-title"><strong>Permissible to Choose Dominated
             Options</strong></p>
 <p>There are option sets in which we’re permitted to choose
-            some option <span class="math inline">\(X\)</span> even
-            though there’s some other available option <span class="math inline">\(Y\)</span> that <em>dominates</em>
-<span class="paper-inline-math-unit"><span class="math inline">\(X\)</span>⁠.</span> That is to say, (i)
-            everyone in <span class="math inline">\(X\)</span> is better
-            off in <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> (ii) everyone
-            who exists in <span class="math inline">\(Y\)</span> but not
-            <span class="math inline">\(X\)</span> has a good life, and
-            (iii) <span class="math inline">\(Y\)</span> is perfectly
+            some option <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml></mjx-container></span> even
+            though there’s some other available option <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Y</mi></math></mjx-assistive-mml></mjx-container></span> that <em>dominates</em>
+<span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span> That is to say, (i)
+            everyone in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml></mjx-container></span> is better
+            off in <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Y</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> (ii) everyone
+            who exists in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Y</mi></math></mjx-assistive-mml></mjx-container></span> but not
+            <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml></mjx-container></span> has a good life, and
+            (iii) <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Y</mi></math></mjx-assistive-mml></mjx-container></span> is perfectly
             equal.</p>
 </blockquote>
 <p>That’s because (3) dominates (1): (3) creates only people
@@ -399,8 +381,8 @@ Views</h1>
 <p><strong>Permissible to Do Serious Harm for Mediocre
             Creation:</strong></p>
 <p>There are option sets in which we’re permitted to choose
-            some option <span class="math inline">\(X\)</span> even
-            though — relative to some other available option <span class="math inline">\(Y\)</span> — all <span class="math inline">\(X\)</span> does is seriously harm one
+            some option <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml></mjx-container></span> even
+            though — relative to some other available option <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Y</mi></math></mjx-assistive-mml></mjx-container></span> — all <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml></mjx-container></span> does is seriously harm one
             person and create another person with a mediocre life.</p>
 </blockquote>
 <p>That’s because (3) is mediocre for Amy and much worse
@@ -471,9 +453,9 @@ Views</h1>
             But if only (2) is permissible, then narrow views imply:</p>
 <blockquote>
 <p><strong>Losers Can Dislodge Winners:</strong></p>
-<p>Adding some option <span class="math inline">\(X\)</span>
+<p>Adding some option <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml></mjx-container></span>
             to an option set can make it wrong to choose a
-            previously-permissible option <span class="paper-inline-math-unit"><span class="math inline">\(Y\)</span>⁠,</span> even though choosing <span class="math inline">\(X\)</span> is itself wrong in the
+            previously-permissible option <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Y</mi></math></mjx-assistive-mml></mjx-container></span>⁠,</span> even though choosing <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml></mjx-container></span> is itself wrong in the
             resulting option
             set.⁠<label class="margin-toggle sidenote-number" for="sn-13"></label><input class="margin-toggle" id="sn-13" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">This condition is the negation of <a class="citation-link" href="https://doi.org/10.1111/phpr.12860">Podgorski’s (2021, 362)</a> Losers
             Can’t Dislodge Winners.</span></span></span></p>
@@ -667,7 +649,7 @@ Views</h1>
 <p><strong>One-Shot Non-Identity</strong></p>
 </blockquote>
 <figure class="paper-diagram single-image-figure">
-<img alt="Two levers lashed together. The left lever trades creating no one for creating Amy at welfare level 1. The right lever trades creating Bobby at welfare level 100 for creating no one." src="media/one-shot-non-identity.png"/>
+<img alt="Two levers lashed together. The left lever trades creating no one for creating Amy at welfare level 1. The right lever trades creating Bobby at welfare level 100 for creating no one." decoding="async" height="800" src="media/one-shot-non-identity.png" width="1550"/>
 </figure>
 <p>This case is a cosmetic variation of Non-Identity in
             which Amy’s and Bobby’s existence will be determined by the
@@ -686,7 +668,7 @@ Views</h1>
 <p><strong>Two-Shot Non-Identity</strong></p>
 </blockquote>
 <figure class="paper-diagram single-image-figure">
-<img alt="Two separate levers. The left lever trades creating no one for creating Amy at welfare level 1. The right lever trades creating Bobby at welfare level 100 for creating no one." src="media/two-shot-non-identity.png"/>
+<img alt="Two separate levers. The left lever trades creating no one for creating Amy at welfare level 1. The right lever trades creating Bobby at welfare level 100 for creating no one." decoding="async" height="800" loading="lazy" src="media/two-shot-non-identity.png" width="1550"/>
 </figure>
 <p>In this case, the levers are no longer lashed together.
             We first decide whether to pull the first lever, lock that
