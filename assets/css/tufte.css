@@ -1274,15 +1274,37 @@ pre {
 }
 
 /* Figures and tables */
-/* Figures are as wide as the text column, never wider. A figure that breaks
-   out of the column pulls the eye off the line of reading, so images are sized
-   to fit the measure rather than the page. */
+/* A figure is the width of the text column by default. Only content that is
+   genuinely unreadable at the measure — a strip of plot panels whose axis
+   labels shrink with the column — earns one of the wider treatments below. */
 figure {
     clear: both;
     width: 100%;
     max-width: var(--paper-text-width);
     margin: 2rem 0 2.75rem;
     box-sizing: border-box;
+}
+
+figure.wide-figure,
+.paper-main > figure.wide-figure {
+    width: min(100%, 1000px);
+    max-width: min(100%, 1000px);
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* A row of plot panels needs about half again the text width before its axis
+   labels are readable, which is more than the main column has. Let it reach
+   half of the page gutter as well, and never past the viewport edge: the
+   second term is the space between the page and the window, so on a screen
+   narrow enough to have none the figure simply fills the column. */
+figure.paper-panel-strip,
+.paper-main > figure.paper-panel-strip {
+    width: min(
+        calc(var(--paper-text-width) * 1.5),
+        calc(100% + max(0px, (100vw - 48px - var(--paper-page-max-width)) / 2 - 1rem))
+    );
+    max-width: none;
 }
 
 figure img {
@@ -1327,6 +1349,11 @@ figure.paper-diagram {
 figure.paper-diagram img {
     width: 100%;
     max-width: 100%;
+}
+
+figure.wide-figure img {
+    margin-left: 0;
+    margin-right: auto;
 }
 
 article > p > img,
@@ -1374,6 +1401,11 @@ figcaption p {
 
 figcaption br {
     display: none;
+}
+
+figure.wide-figure figcaption {
+    margin-left: 0;
+    margin-right: auto;
 }
 
 .sidenote .sidenote-paragraph,
