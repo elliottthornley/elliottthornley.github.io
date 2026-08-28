@@ -1,3 +1,19 @@
+// Google Analytics for article pages.
+(function loadGoogleAnalytics() {
+    const measurementId = 'G-8L8M4C63LK';
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function gtag() {
+        window.dataLayer.push(arguments);
+    };
+    window.gtag('js', new Date());
+    window.gtag('config', measurementId);
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
+    document.head.appendChild(script);
+}());
+
 (function () {
     const article = document.querySelector("body article");
     if (!article) {
