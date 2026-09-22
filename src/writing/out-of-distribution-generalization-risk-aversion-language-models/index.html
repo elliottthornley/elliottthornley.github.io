@@ -371,7 +371,7 @@ pick?
 Example prompt from the low-stakes training set. The red option would be
 preferred by a risk-neutral agent because it has higher expected
 monetary value. The blue option would be preferred by our target
-risk-averse agent because it has higher expected utility under <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2004"></mjx-c></mjx-mo></mjx-texatom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-texatom space="4" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2004"></mjx-c></mjx-mo></mjx-texatom><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2005"></mjx-c></mjx-mo></mjx-texatom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-texatom space="3" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2005"></mjx-c></mjx-mo></mjx-texatom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>u</mi><mo stretchy="false">(</mo><mi>w</mi><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo> </mo></mrow><mo>=</mo><mrow data-mjx-texclass="ORD"><mo> </mo></mrow><mn>1</mn><mrow data-mjx-texclass="ORD"><mo> </mo></mrow><mo>−</mo><mrow data-mjx-texclass="ORD"><mo> </mo></mrow><mi>e</mi><mo>−</mo><mn>0.01</mn><mi>w</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span>
+risk-averse agent because it has higher expected utility under <span class="paper-inline-math-unit"><span class="math inline"><em>u</em>(<em>w</em>) = 1 − e<sup>−0.01<em>w</em></sup></span>⁠.</span>
 </figcaption>
 </figure><figure id="fig:chosen_and_rejected_responses">
 <figure>
@@ -633,16 +633,41 @@ DPO are means over 5 random seeds <span class="math inline"><mjx-container class
 steering is a mean and standard deviation over 5 independently
 constructed steering directions. Baseline and prompting involve no
 training, so they are single decoding runs. <a data-reference="app:capability-retention" data-reference-type="ref" href="#app:capability-retention">Appendix D</a> gives the evaluation
-protocol.</p><table style="width:62%;">
-<colgroup>
-<col style="width: 38%"/>
-<col style="width: 23%"/>
-</colgroup>
+protocol.</p><table>
+<thead>
+<tr>
+<th style="text-align: left;">Method</th>
+<th style="text-align: center;">Accuracy</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Method Baseline Prompting (generic)
-Prompting (CARA-specific) SFT Tie training DPO Activation steering</td>
-<td style="text-align: center;">Accuracy 73.9 74.4 75.2 <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>71.5</mn><mo>±</mo><mn>3.3</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>75.9</mn><mo>±</mo><mn>0.5</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>71.7</mn><mo>±</mo><mn>0.3</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>47.7</mn><mo>±</mo><mn>0.4</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: left;">Baseline</td>
+<td style="text-align: center;">73.9</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prompting (generic)</td>
+<td style="text-align: center;">74.4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prompting (CARA-specific)</td>
+<td style="text-align: center;">75.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">SFT</td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>71.5</mn><mo>±</mo><mn>3.3</mn></math></mjx-assistive-mml></mjx-container></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Tie training</td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>75.9</mn><mo>±</mo><mn>0.5</mn></math></mjx-assistive-mml></mjx-container></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">DPO</td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>71.7</mn><mo>±</mo><mn>0.3</mn></math></mjx-assistive-mml></mjx-container></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Activation steering</td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>47.7</mn><mo>±</mo><mn>0.4</mn></math></mjx-assistive-mml></mjx-container></span></td>
 </tr>
 </tbody>
 </table>
@@ -666,26 +691,89 @@ Activation steering is a mean and standard deviation over 5
 independently constructed steering directions. The baseline and
 prompting interventions use just one seed. Reward model results are
 pairwise accuracy. The full four-set tables for every model are in
-<a data-reference="app:full-tables" data-reference-type="ref" href="#app:full-tables">Appendix A</a>.</p><table style="width:98%;">
-<colgroup>
-<col style="width: 22%"/>
-<col style="width: 13%"/>
-<col style="width: 13%"/>
-<col style="width: 13%"/>
-<col style="width: 19%"/>
-<col style="width: 13%"/>
-</colgroup>
+<a data-reference="app:full-tables" data-reference-type="ref" href="#app:full-tables">Appendix A</a>.</p><table>
+<thead>
+<tr>
+<th style="text-align: left;">Method</th>
+<th style="text-align: center;">Qwen3 1.7B</th>
+<th style="text-align: center;">Qwen3 8B</th>
+<th style="text-align: center;">Qwen3 14B</th>
+<th style="text-align: center;">Llama-3.1 8B-Instruct</th>
+<th style="text-align: center;">Gemma-3 12B-IT</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Method Baseline Prompting (generic)
-Prompting (CARA-specific) SFT Tie training DPO Activation steering RM
-Baseline RMFT</td>
-<td style="text-align: center;">Qwen3 1.7B 11.3 52.8 57.4 <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>62.5</mn><mo>±</mo><mn>2.7</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>64.5</mn><mo>±</mo><mn>1.6</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>24.6</mn><mo>±</mo><mn>1.8</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>55.2</mn><mo>±</mo><mn>1.4</mn></math></mjx-assistive-mml></mjx-container></span> 58.0 <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>99.9</mn><mo>±</mo><mn>0.1</mn></math></mjx-assistive-mml></mjx-container></span></td>
-<td style="text-align: center;">Qwen3 8B 2.5 51.5 79.4 <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>70.2</mn><mo>±</mo><mn>3.3</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>70.3</mn><mo>±</mo><mn>2.1</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>51.6</mn><mo>±</mo><mn>2.5</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>77.8</mn><mo>±</mo><mn>1.8</mn></math></mjx-assistive-mml></mjx-container></span> 55.7 <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>99.6</mn><mo>±</mo><mn>0.9</mn></math></mjx-assistive-mml></mjx-container></span></td>
-<td style="text-align: center;">Qwen3 14B 5.7 55.7 78.3 <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>57.1</mn><mo>±</mo><mn>0.8</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>56.3</mn><mo>±</mo><mn>1.8</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>53.6</mn><mo>±</mo><mn>1.1</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>76.6</mn><mo>±</mo><mn>1.7</mn></math></mjx-assistive-mml></mjx-container></span> 80.6 <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>99.8</mn><mo>±</mo><mn>0.4</mn></math></mjx-assistive-mml></mjx-container></span></td>
-<td style="text-align: center;">Llama-3.1 8B-Instruct 7.3 49.8 35.3
-<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>62.3</mn><mo>±</mo><mn>1.4</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>58.5</mn><mo>±</mo><mn>2.5</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>50.3</mn><mo>±</mo><mn>0.6</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>25.2</mn><mo>±</mo><mn>0.8</mn></math></mjx-assistive-mml></mjx-container></span> 82.3 <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>98.8</mn><mo>±</mo><mn>1.6</mn></math></mjx-assistive-mml></mjx-container></span></td>
-<td style="text-align: center;">Gemma-3 12B-IT 6.5 50.2 31.2 <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>68.1</mn><mo>±</mo><mn>6.1</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>68.8</mn><mo>±</mo><mn>4.8</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>22.5</mn><mo>±</mo><mn>0.7</mn></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>42.3</mn><mo>±</mo><mn>1.8</mn></math></mjx-assistive-mml></mjx-container></span> 80.2 <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>99.6</mn><mo>±</mo><mn>0.6</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: left;">Baseline</td>
+<td style="text-align: center;">11.3</td>
+<td style="text-align: center;">2.5</td>
+<td style="text-align: center;">5.7</td>
+<td style="text-align: center;">7.3</td>
+<td style="text-align: center;">6.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prompting (generic)</td>
+<td style="text-align: center;">52.8</td>
+<td style="text-align: center;">51.5</td>
+<td style="text-align: center;">55.7</td>
+<td style="text-align: center;">49.8</td>
+<td style="text-align: center;">50.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prompting (CARA-specific)</td>
+<td style="text-align: center;">57.4</td>
+<td style="text-align: center;">79.4</td>
+<td style="text-align: center;">78.3</td>
+<td style="text-align: center;">35.3</td>
+<td style="text-align: center;">31.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">SFT</td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>62.5</mn><mo>±</mo><mn>2.7</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>70.2</mn><mo>±</mo><mn>3.3</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>57.1</mn><mo>±</mo><mn>0.8</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>62.3</mn><mo>±</mo><mn>1.4</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>68.1</mn><mo>±</mo><mn>6.1</mn></math></mjx-assistive-mml></mjx-container></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Tie training</td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>64.5</mn><mo>±</mo><mn>1.6</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>70.3</mn><mo>±</mo><mn>2.1</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>56.3</mn><mo>±</mo><mn>1.8</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>58.5</mn><mo>±</mo><mn>2.5</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>68.8</mn><mo>±</mo><mn>4.8</mn></math></mjx-assistive-mml></mjx-container></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">DPO</td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>24.6</mn><mo>±</mo><mn>1.8</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>51.6</mn><mo>±</mo><mn>2.5</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>53.6</mn><mo>±</mo><mn>1.1</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>50.3</mn><mo>±</mo><mn>0.6</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>22.5</mn><mo>±</mo><mn>0.7</mn></math></mjx-assistive-mml></mjx-container></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Activation steering</td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>55.2</mn><mo>±</mo><mn>1.4</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>77.8</mn><mo>±</mo><mn>1.8</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>76.6</mn><mo>±</mo><mn>1.7</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>25.2</mn><mo>±</mo><mn>0.8</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>42.3</mn><mo>±</mo><mn>1.8</mn></math></mjx-assistive-mml></mjx-container></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">RM Baseline</td>
+<td style="text-align: center;">58.0</td>
+<td style="text-align: center;">55.7</td>
+<td style="text-align: center;">80.6</td>
+<td style="text-align: center;">82.3</td>
+<td style="text-align: center;">80.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">RMFT</td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>99.9</mn><mo>±</mo><mn>0.1</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>99.6</mn><mo>±</mo><mn>0.9</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>99.8</mn><mo>±</mo><mn>0.4</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>98.8</mn><mo>±</mo><mn>1.6</mn></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>99.6</mn><mo>±</mo><mn>0.6</mn></math></mjx-assistive-mml></mjx-container></span></td>
 </tr>
 </tbody>
 </table>
@@ -722,27 +810,72 @@ that our models have learned the desired utility function rather than a
 crude heuristic.</p><div class="wide-table" data-table-number="4" id="tab:heuristics">
 <p class="table-caption"><strong>Table 4.</strong> Cooperate percentage achieved by various heuristics. We count a
 rule as choosing Cooperate only if every option it is indifferent
-between is a Cooperate option.</p><table style="width:98%;">
-<colgroup>
-<col style="width: 38%"/>
-<col style="width: 12%"/>
-<col style="width: 13%"/>
-<col style="width: 15%"/>
-<col style="width: 18%"/>
-</colgroup>
+between is a Cooperate option.</p><table>
+<thead>
+<tr>
+<th style="text-align: left;">Decision rule</th>
+<th style="text-align: center;">Med. (Val)</th>
+<th style="text-align: center;">High Stakes</th>
+<th style="text-align: center;">Astro. Stakes</th>
+<th style="text-align: center;">Too-Risk- Averse</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Decision rule <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-n"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>arg</mi><mo data-mjx-texclass="NONE">⁡</mo><mo data-mjx-texclass="OP" movablelimits="true">min</mo></math></mjx-assistive-mml></mjx-container></span> variance of payoff Avoid largest
-payoff <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-n"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mtext class="mjx-n"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c20"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c79"></mjx-c><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c68"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mtext><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>arg</mi><mo data-mjx-texclass="NONE">⁡</mo><mo data-mjx-texclass="OP" movablelimits="true">min</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>lose everything</mtext><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-n"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c78"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mtext class="mjx-n"><mjx-c class="mjx-c70"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c79"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c66"></mjx-c><mjx-c class="mjx-c66"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>arg</mi><mo data-mjx-texclass="NONE">⁡</mo><mo data-mjx-texclass="OP" movablelimits="true">max</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>payoff</mtext><mo>&gt;</mo><mn>0</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-n"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c78"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mtext class="mjx-n"><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c77"></mjx-c><mjx-c class="mjx-c6E"></mjx-c><mjx-c class="mjx-c20"></mjx-c><mjx-c class="mjx-c62"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c20"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c63"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>arg</mi><mo data-mjx-texclass="NONE">⁡</mo><mo data-mjx-texclass="OP" movablelimits="true">max</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>own best outcome</mtext><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-n"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c78"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>arg</mi><mo data-mjx-texclass="NONE">⁡</mo><mo data-mjx-texclass="OP" movablelimits="true">max</mo></math></mjx-assistive-mml></mjx-container></span> expected value Qwen3-8B baseline
-Qwen3-8B SFT</td>
-<td style="text-align: center;">Med. (Val) 100.0 100.0 94.4 78.2 70.8
-2.2 9.9 71.3</td>
-<td style="text-align: center;">High Stakes 100.0 74.9 96.0 79.6 73.7
-0.0 3.8 69.8</td>
-<td style="text-align: center;">Astro. Stakes 100.0 100.0 96.2 80.1 72.3
-0.0 2.5 70.2</td>
-<td style="text-align: center;">Too-Risk- Averse 29.2 21.8 0.0 1.2 89.2
-81.5 81.3 95.6</td>
+<td style="text-align: left;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-n"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>arg</mi><mo data-mjx-texclass="NONE">⁡</mo><mo data-mjx-texclass="OP" movablelimits="true">min</mo></math></mjx-assistive-mml></mjx-container></span> variance of payoff</td>
+<td style="text-align: center;">100.0</td>
+<td style="text-align: center;">100.0</td>
+<td style="text-align: center;">100.0</td>
+<td style="text-align: center;">29.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Avoid largest payoff</td>
+<td style="text-align: center;">100.0</td>
+<td style="text-align: center;">74.9</td>
+<td style="text-align: center;">100.0</td>
+<td style="text-align: center;">21.8</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-n"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mtext class="mjx-n"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c20"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c79"></mjx-c><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c68"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mtext><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>arg</mi><mo data-mjx-texclass="NONE">⁡</mo><mo data-mjx-texclass="OP" movablelimits="true">min</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>lose everything</mtext><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;">94.4</td>
+<td style="text-align: center;">96.0</td>
+<td style="text-align: center;">96.2</td>
+<td style="text-align: center;">0.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-n"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c78"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mtext class="mjx-n"><mjx-c class="mjx-c70"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c79"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c66"></mjx-c><mjx-c class="mjx-c66"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>arg</mi><mo data-mjx-texclass="NONE">⁡</mo><mo data-mjx-texclass="OP" movablelimits="true">max</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>payoff</mtext><mo>&gt;</mo><mn>0</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;">78.2</td>
+<td style="text-align: center;">79.6</td>
+<td style="text-align: center;">80.1</td>
+<td style="text-align: center;">1.2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-n"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c78"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mtext class="mjx-n"><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c77"></mjx-c><mjx-c class="mjx-c6E"></mjx-c><mjx-c class="mjx-c20"></mjx-c><mjx-c class="mjx-c62"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c20"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c63"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>arg</mi><mo data-mjx-texclass="NONE">⁡</mo><mo data-mjx-texclass="OP" movablelimits="true">max</mo><mi>P</mi><mo stretchy="false">(</mo><mtext>own best outcome</mtext><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span></td>
+<td style="text-align: center;">70.8</td>
+<td style="text-align: center;">73.7</td>
+<td style="text-align: center;">72.3</td>
+<td style="text-align: center;">89.2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-n"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c78"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>arg</mi><mo data-mjx-texclass="NONE">⁡</mo><mo data-mjx-texclass="OP" movablelimits="true">max</mo></math></mjx-assistive-mml></mjx-container></span> expected value</td>
+<td style="text-align: center;">2.2</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">81.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">Qwen3-8B baseline</td>
+<td style="text-align: center;">9.9</td>
+<td style="text-align: center;">3.8</td>
+<td style="text-align: center;">2.5</td>
+<td style="text-align: center;">81.3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Qwen3-8B SFT</td>
+<td style="text-align: center;">71.3</td>
+<td style="text-align: center;">69.8</td>
+<td style="text-align: center;">70.2</td>
+<td style="text-align: center;">95.6</td>
 </tr>
 </tbody>
 </table>
@@ -1135,6 +1268,7 @@ percentage</strong></th>
 </tr>
 <tr class="paper-table-column-headings">
 <th style="text-align: left;">Method</th><th style="text-align: left;">Qwen3 model</th>
+<th style="text-align: left;"></th>
 <th style="text-align: center;">Medium Stakes (Val)</th>
 <th style="text-align: center;">High<br/>Stakes</th>
 <th style="text-align: center;">Astronomical Stakes</th>
@@ -1367,6 +1501,7 @@ percentage</strong></th>
 </tr>
 <tr class="paper-table-column-headings">
 <th style="text-align: left;">Method</th><th style="text-align: left;">Model family</th>
+<th style="text-align: left;"></th>
 <th style="text-align: center;">Medium Stakes (Val)</th>
 <th style="text-align: center;">High<br/>Stakes</th>
 <th style="text-align: center;">Astronomical Stakes</th>
@@ -1588,11 +1723,13 @@ learned risk aversion generalizes across quantities.</p><table class="paper-resu
 <col style="width: 23%"/>
 </colgroup>
 <tbody>
-<tr class="paper-table-group-heading"><th></th>
+<tr class="paper-table-group-heading">
+<th style="text-align: left;"></th>
 <th class="paper-table-superheading" colspan="3" style="text-align: center;"><strong>Cooperate
 percentage</strong></th>
 </tr>
-<tr class="paper-table-column-headings"><th style="text-align: left;">Method</th>
+<tr class="paper-table-column-headings">
+<th style="text-align: left;">Method</th>
 <th style="text-align: center;">GPU-Hours</th>
 <th style="text-align: center;">Lives Saved</th>
 <th style="text-align: center;">Money for User</th>
@@ -1649,27 +1786,65 @@ situations whose probabilities are stated in words (“Likely to give”)
 rather than as percentages. The final column gives the number of
 held-out preference pairs used for the RMFT evaluation, which is smaller
 because pairs whose Claude Sonnet 4.5 chains of thought failed our
-filters were dropped (<a data-reference="app:low-stakes" data-reference-type="ref" href="#app:low-stakes">Appendix F.5</a>).</p><table style="width:98%;">
-<colgroup>
-<col style="width: 25%"/>
-<col style="width: 16%"/>
-<col style="width: 15%"/>
-<col style="width: 16%"/>
-<col style="width: 9%"/>
-<col style="width: 14%"/>
-</colgroup>
+filters were dropped (<a data-reference="app:low-stakes" data-reference-type="ref" href="#app:low-stakes">Appendix F.5</a>).</p><table>
+<thead>
+<tr>
+<th style="text-align: left;">Set</th>
+<th style="text-align: center;">Situa- tions</th>
+<th style="text-align: center;">Option rows</th>
+<th style="text-align: center;">2-opt. situ.</th>
+<th style="text-align: center;">Verbal</th>
+<th style="text-align: center;">RMFT pairs</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Set Low-stakes training Medium stakes
-(val) High stakes (test) Astronomical stakes Too-risk-averse test Each
-transfer domain</td>
-<td style="text-align: center;">Situa- tions 1,000 500 1,000 1,000 1,000
-750</td>
-<td style="text-align: center;">Option rows — 1,356 2,745 2,715 2,504
-—</td>
-<td style="text-align: center;">2-opt. situ. — 305 592 597 698 —</td>
-<td style="text-align: center;">Verbal — 264 502 511 415 —</td>
-<td style="text-align: center;">RMFT pairs — 400 746 707 928 —</td>
+<td style="text-align: left;">Low-stakes training</td>
+<td style="text-align: center;">1,000</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">Medium stakes (val)</td>
+<td style="text-align: center;">500</td>
+<td style="text-align: center;">1,356</td>
+<td style="text-align: center;">305</td>
+<td style="text-align: center;">264</td>
+<td style="text-align: center;">400</td>
+</tr>
+<tr>
+<td style="text-align: left;">High stakes (test)</td>
+<td style="text-align: center;">1,000</td>
+<td style="text-align: center;">2,745</td>
+<td style="text-align: center;">592</td>
+<td style="text-align: center;">502</td>
+<td style="text-align: center;">746</td>
+</tr>
+<tr>
+<td style="text-align: left;">Astronomical stakes</td>
+<td style="text-align: center;">1,000</td>
+<td style="text-align: center;">2,715</td>
+<td style="text-align: center;">597</td>
+<td style="text-align: center;">511</td>
+<td style="text-align: center;">707</td>
+</tr>
+<tr>
+<td style="text-align: left;">Too-risk-averse test</td>
+<td style="text-align: center;">1,000</td>
+<td style="text-align: center;">2,504</td>
+<td style="text-align: center;">698</td>
+<td style="text-align: center;">415</td>
+<td style="text-align: center;">928</td>
+</tr>
+<tr>
+<td style="text-align: left;">Each transfer domain</td>
+<td style="text-align: center;">750</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
 </tr>
 </tbody>
 </table>
@@ -1812,12 +1987,7 @@ scheduler, training-set size) are held fixed across the fine-tuning
 methods to make the comparison as clean as possible.</p><div data-table-number="11" id="tab:hyperparams-appendix">
 <p class="table-caption"><strong>Table 11.</strong> Locked hyperparameters for each method on the headline Qwen3-8B
 run. The LoRA shape used by SFT, tie training, DPO, and RMFT is shared
-and reported separately in <a data-reference="tab:lora-config" data-reference-type="ref" href="#tab:lora-config">Table 10</a>.</p><table style="width:97%;">
-<colgroup>
-<col style="width: 30%"/>
-<col style="width: 33%"/>
-<col style="width: 33%"/>
-</colgroup>
+and reported separately in <a data-reference="tab:lora-config" data-reference-type="ref" href="#tab:lora-config">Table 10</a>.</p><table>
 <thead>
 <tr>
 <th style="text-align: left;">Method</th>
@@ -1827,105 +1997,124 @@ and reported separately in <a data-reference="tab:lora-config" data-reference-ty
 </thead>
 <tbody>
 <tr>
-<td rowspan="5" style="text-align: left;">SFT</td>
+<td style="text-align: left;">SFT</td>
 <td style="text-align: left;">Peak learning rate</td>
 <td style="text-align: left;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-texatom texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c65"></mjx-c></mjx-mi></mjx-texatom><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-texatom></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>5</mn><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">e</mi></mrow><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>4</mn></mrow></math></mjx-assistive-mml></mjx-container></span></td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Epochs</td>
 <td style="text-align: left;">4</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Batch size / grad accumulation</td>
 <td style="text-align: left;">4 / 4</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Training examples</td>
 <td style="text-align: left;">1,000</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Scheduler</td>
 <td style="text-align: left;">cosine, warmup ratio 0.1</td>
 </tr>
 <tr>
-<td rowspan="5" style="text-align: left;">Tie training</td>
+<td style="text-align: left;">Tie training</td>
 <td style="text-align: left;">Tie rate</td>
 <td style="text-align: left;">30%</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Peak learning rate</td>
 <td style="text-align: left;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-texatom texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c65"></mjx-c></mjx-mi></mjx-texatom><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-texatom></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>5</mn><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">e</mi></mrow><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>4</mn></mrow></math></mjx-assistive-mml></mjx-container></span></td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Epochs</td>
 <td style="text-align: left;">4</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Batch size / grad accumulation</td>
 <td style="text-align: left;">4 / 4</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Training examples</td>
 <td style="text-align: left;">1,000</td>
 </tr>
 <tr>
-<td rowspan="5" style="text-align: left;">DPO</td>
+<td style="text-align: left;">DPO</td>
 <td style="text-align: left;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>β</mi></math></mjx-assistive-mml></mjx-container></span></td>
 <td style="text-align: left;">0.1</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Peak learning rate</td>
 <td style="text-align: left;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-texatom texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c65"></mjx-c></mjx-mi></mjx-texatom><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-texatom></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">e</mi></mrow><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>4</mn></mrow></math></mjx-assistive-mml></mjx-container></span></td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Epochs</td>
 <td style="text-align: left;">3</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Batch size / grad accumulation</td>
 <td style="text-align: left;">2 / 8</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Training examples</td>
 <td style="text-align: left;">600 (linear-utility rejected only)</td>
 </tr>
 <tr>
-<td rowspan="3" style="text-align: left;">Activation steering</td>
+<td style="text-align: left;">Activation steering</td>
 <td style="text-align: left;">Layer</td>
 <td style="text-align: left;">12</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Strength</td>
 <td style="text-align: left;">32</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Training examples</td>
 <td style="text-align: left;">200 per direction (linear-utility rejected
 only)</td>
 </tr>
 <tr>
-<td rowspan="6" style="text-align: left;">RMFT</td>
+<td style="text-align: left;">RMFT</td>
 <td style="text-align: left;">Peak learning rate</td>
 <td style="text-align: left;"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-texatom texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c65"></mjx-c></mjx-mi></mjx-texatom><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-texatom></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>5</mn><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">e</mi></mrow><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>4</mn></mrow></math></mjx-assistive-mml></mjx-container></span></td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Weight decay</td>
 <td style="text-align: left;">0.05</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Epochs</td>
 <td style="text-align: left;">5</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Batch size / grad accumulation</td>
 <td style="text-align: left;">2 / 32</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Training examples</td>
 <td style="text-align: left;">1,000 low-stakes preference pairs, 400
 held-out validation pairs for checkpoint selection</td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
 <td style="text-align: left;">Reward head</td>
 <td style="text-align: left;">Full fine-tuning (in addition to
 LoRA)</td>
@@ -2324,9 +2513,9 @@ select?
 <figcaption><strong>Figure 5.</strong> 
 Example low-stakes training prompt with a rejected CoT that uses the
 excessively risk-averse utility function. The blue option would be
-preferred by our target risk-averse agent under <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2004"></mjx-c></mjx-mo></mjx-texatom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-texatom space="4" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2004"></mjx-c></mjx-mo></mjx-texatom><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2005"></mjx-c></mjx-mo></mjx-texatom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-texatom space="3" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2005"></mjx-c></mjx-mo></mjx-texatom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>u</mi><mo stretchy="false">(</mo><mi>w</mi><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo> </mo></mrow><mo>=</mo><mrow data-mjx-texclass="ORD"><mo> </mo></mrow><mn>1</mn><mrow data-mjx-texclass="ORD"><mo> </mo></mrow><mo>−</mo><mrow data-mjx-texclass="ORD"><mo> </mo></mrow><mi>e</mi><mo>−</mo><mn>0.01</mn><mi>w</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span>
+preferred by our target risk-averse agent under <span class="paper-inline-math-unit"><span class="math inline"><em>u</em>(<em>w</em>) = 1 − e<sup>−0.01<em>w</em></sup></span>⁠.</span>
 The yellow option would be preferred by an excessively risk-averse agent
-under <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2004"></mjx-c></mjx-mo></mjx-texatom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-texatom space="4" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2004"></mjx-c></mjx-mo></mjx-texatom><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2005"></mjx-c></mjx-mo></mjx-texatom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-texatom space="3" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2005"></mjx-c></mjx-mo></mjx-texatom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>u</mi><mo stretchy="false">(</mo><mi>w</mi><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo> </mo></mrow><mo>=</mo><mrow data-mjx-texclass="ORD"><mo> </mo></mrow><mn>1</mn><mrow data-mjx-texclass="ORD"><mo> </mo></mrow><mo>−</mo><mrow data-mjx-texclass="ORD"><mo> </mo></mrow><mi>e</mi><mo>−</mo><mn>0.10</mn><mi>w</mi></math></mjx-assistive-mml></mjx-container></span>⁠.</span>
+under <span class="paper-inline-math-unit"><span class="math inline"><em>u</em>(<em>w</em>) = 1 − e<sup>−0.10<em>w</em></sup></span>⁠.</span>
 </figcaption>
 </figure><p>Second, in <a data-reference="fig:cot-response-2" data-reference-type="ref" href="#fig:cot-response-2">Figure 4f</a> the
 displayed CoT treats the astronomical upside as utility <span class="paper-inline-math-unit"><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c223C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>∼</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span>⁠,</span> treats the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math aria-hidden="true" class="MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-n"><mjx-c class="mjx-c24"></mjx-c></mjx-mi><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c2C"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml display="inline" unselectable="on"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mi mathvariant="normal">$</mi><mn>35,000</mn></math></mjx-assistive-mml></mjx-container></span> loss as a dominating negative
