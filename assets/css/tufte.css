@@ -1746,6 +1746,9 @@ figure:has(> figure) > figcaption {
 .rejectedriskresponsebox ul {
     width: 100%;
     max-width: none;
+    /* Lists carry left padding for their markers, which would otherwise push
+       a full-width list past the box's right edge. */
+    box-sizing: border-box;
 }
 
 .coopoption,
@@ -1883,6 +1886,18 @@ table th {
 th,
 td {
     vertical-align: top;
+}
+
+table.many-column-table th,
+table.many-column-table td {
+    padding-left: 0.45rem;
+    padding-right: 0.45rem;
+}
+
+/* A row label spanning the leading columns (`\multicolumn{3}{l}{base}`) is
+   left-aligned in the source, but Pandoc gives it the first column's alignment. */
+table.many-column-table tbody td[colspan]:first-child {
+    text-align: left !important;
 }
 
 footer {
