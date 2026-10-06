@@ -2056,3 +2056,49 @@ footer {
         scroll-behavior: auto;
     }
 }
+
+/* Indented principles, conditions, and theorem-like statements must end at the
+   text column's right edge. Their own `width: calc(100% - indent)` rules lose
+   on specificity to `.paper-main > p` and `.paper-main > ol` (width: 100%), and
+   the block rules set `width: 100%` outright, so with the left indent added
+   they ran 50px past the text on desktop and off the screen on phones. These
+   selectors outrank both and subtract exactly the indent each block uses. */
+.paper-main > .paper-condition-title,
+.paper-main > .paper-condition-list,
+.paper-main > .paper-statement-block,
+.paper-main > .paper-condition-block {
+    width: calc(100% - var(--paper-block-indent));
+    max-width: calc(var(--paper-text-width) - var(--paper-block-indent));
+    box-sizing: border-box;
+}
+
+.paper-main > ol.paper-block-list.paper-compound-list,
+.paper-main > ul.paper-block-list.paper-compound-list,
+.paper-main > blockquote.paper-substatement,
+.paper-main > blockquote.paper-substatement + ol.paper-block-list,
+.paper-main > blockquote.paper-substatement + ul.paper-block-list {
+    width: calc(100% - var(--paper-block-indent) - var(--paper-compound-indent));
+    max-width: calc(var(--paper-text-width) - var(--paper-block-indent) - var(--paper-compound-indent));
+    box-sizing: border-box;
+}
+
+/* Tables converted from Word documents sit directly in the column with no
+   scrolling wrapper, so on a phone a wide one pushed the whole page sideways.
+   Let such a table scroll inside its own box instead. */
+@media (max-width: 760px) {
+    .paper-main > table {
+        display: block;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+}
+
+/* Chapter titles on a multi-paper thesis page sit above that chapter's
+   numbered sections, so they need more weight and space than a section. */
+.paper-main > h1.thesis-chapter {
+    margin-top: 4.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--paper-rule, #ccc);
+    font-size: 1.75rem;
+    line-height: 1.25;
+}
