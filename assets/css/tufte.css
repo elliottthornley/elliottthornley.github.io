@@ -2102,3 +2102,10 @@ footer {
     font-size: 1.75rem;
     line-height: 1.25;
 }
+
+/* Diagrams recovered from a paper's PDF keep the share of the text width they
+   have in the PDF (set per image as --diagram-width), so their labels stay at
+   roughly body-text size instead of being blown up to the full column. */
+figure.recovered-diagram img {
+    width: var(--diagram-width, 100%) !important;
+}

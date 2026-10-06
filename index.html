@@ -31,12 +31,18 @@
         .hero-copy { width: 100%; max-width: 36rem; }
         .hero-copy p { width: 100%; margin-bottom: 0.95rem; color: #111; font-size: 1.08rem; line-height: 1.72; }
         .portrait { width: 100%; max-width: 18rem; height: auto; }
-        .research-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; align-items: start; }
+        .research-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: auto auto 1fr; gap: 2rem; align-items: start; }
         .group-label { margin: 0 0 1.35rem; padding-bottom: 0.6rem; color: #db5438; font-size: 1.95rem; font-weight: 700; letter-spacing: -0.02em; text-align: center; text-transform: none; font-style: normal; border-bottom: 1px solid #e4dcc8; }
-        .ai-safety-group { grid-column: 1 / span 3; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; align-items: start; min-width: 0; }
-        .ai-group-label { grid-column: 1 / -1; }
+        .ai-safety-group { display: contents; }
+        .ai-group-label { grid-column: 1 / span 3; grid-row: 1; }
+        .risk-column { grid-column: 1; grid-row: 2; min-width: 0; }
+        .tie-column { grid-column: 2; grid-row: 2; min-width: 0; }
+        .shutdown-column { grid-column: 3; grid-row: 2 / span 2; min-width: 0; }
+        .writing-group { grid-column: 1 / span 2; grid-row: 3; min-width: 0; margin-top: 1.5rem; }
+        .writing-items { columns: 2; column-gap: 2rem; }
+        .writing-items .item { break-inside: avoid; }
         .home-column { padding-top: 0; padding-bottom: 0; }
-        .ethics-column { grid-column: 4; min-width: 0; }
+        .ethics-column { grid-column: 4; grid-row: 1 / span 3; min-width: 0; }
         .subsection-label { margin: 0 0 1.1rem; color: #db5438; font-size: 1.42rem; font-weight: 700; letter-spacing: -0.01em; text-align: center; text-transform: none; font-style: normal; }
         .item { margin-bottom: 2rem; padding-bottom: 1.6rem; border-bottom: 1px solid #e4dcc8; }
         .item:last-child { margin-bottom: 0; }
@@ -57,8 +63,10 @@
         .home-math { font-style: italic; }
         @media (max-width: 1100px) {
             .home-hero, .research-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .ai-safety-group { grid-column: auto; grid-template-columns: 1fr; gap: 2rem; }
-            .ethics-column { grid-column: auto; }
+            .research-grid { grid-template-rows: none; }
+            .research-grid > *, .ai-safety-group > * { grid-column: auto; grid-row: auto; }
+            .writing-group { margin-top: 0; }
+            .writing-items { columns: 1; }
             .site-name { font-size: 2.7rem; }
             .portrait { max-width: 18rem; }
         }
@@ -89,7 +97,7 @@
         <div class="research-grid">
             <div class="ai-safety-group">
                 <h2 class="group-label ai-group-label">AI Safety</h2>
-                <section class="home-column">
+                <section class="home-column risk-column">
                     <h3 class="subsection-label">Risk-Averse AIs</h3>
                     <div class="item">
                         <h3><a href="/src/writing/character-training-risk-averse-agents/">Character Training for Risk-Averse Agents</a></h3>
@@ -122,7 +130,7 @@
                         </details>
                     </div>
                 </section>
-                <section class="home-column">
+                <section class="home-column tie-column">
                     <h3 class="subsection-label">Tie Training</h3>
                     <div class="item">
                         <h3><a href="/src/writing/spurious-correlation-learning-preference-optimization/">Spurious Correlation Learning in Preference Optimization: Mechanisms, Consequences, and Mitigation via Tie Training</a></h3>
@@ -135,7 +143,7 @@
                         </details>
                     </div>
                 </section>
-                <section class="home-column">
+                <section class="home-column shutdown-column">
                     <h3 class="subsection-label">Shutdownable Agents</h3>
                     <div class="item">
                         <h3><a href="/src/writing/towards-shutdownable-agents-generalizing-stochastic-choice/">Towards Shutdownable Agents: Generalizing Stochastic Choice in RL Agents and LLMs</a></h3>
@@ -273,6 +281,84 @@
                             <div class="abstract-copy"><p>Longtermists have argued that humanity should significantly increase its efforts to prevent catastrophes like nuclear wars, pandemics, and AI disasters. But one prominent longtermist argument overshoots this conclusion: the argument also implies that humanity should reduce the risk of existential catastrophe even at extreme cost to the present generation. This overshoot means that democratic governments cannot use the longtermist argument to guide their catastrophe policy. In this chapter, we show that the case for preventing catastrophe does not depend on longtermism. Standard cost-benefit analysis implies that governments should spend much more on reducing catastrophic risk. We argue that a government catastrophe policy guided by cost-benefit analysis should be the goal of longtermists in the political sphere. This policy would be democratically acceptable, and it would reduce existential risk by almost as much as a strong longtermist policy.</p></div>
                         </details>
                     </div>
+            </section>
+            <section class="writing-group">
+                <h2 class="group-label writing-group-label">Writing</h2>
+                <div class="writing-items">
+                        <div class="item">
+                            <h3><a href="/src/writing/my-favourite-arguments-against-person-affecting-views/">My Favourite Arguments Against Person-Affecting Views</a></h3>
+                            <p class="item-meta">2024</p>
+                            <p class="item-links"><a href="https://openairopensea.substack.com/p/my-favourite-arguments-against-person">Substack</a> / <a href="https://forum.effectivealtruism.org/posts/c6ZYCpq2L46AxSJNy/my-favourite-arguments-against-person-affecting-views">EA Forum</a></p>
+                            <details class="abstract-toggle">
+                                <summary>Abstract</summary>
+                                <div class="abstract-copy"><p>I present some of my favourite arguments against person-affecting views in population ethics.</p></div>
+                            </details>
+                        </div>
+                        <div class="item">
+                            <h3><a href="https://openairopensea.substack.com/p/the-price-is-right">The Price is Right</a></h3>
+                            <p class="item-meta">2023</p>
+                            <p class="item-links"><a href="https://openairopensea.substack.com/p/the-price-is-right">Substack</a></p>
+                            <details class="abstract-toggle">
+                                <summary>Abstract</summary>
+                                <div class="abstract-copy"><p>I summarise ‘How Much Should Governments Pay to Prevent Catastrophes? Longtermism’s Limited Role’.</p></div>
+                            </details>
+                        </div>
+                        <div class="item">
+                            <h3><a href="/src/writing/there-are-no-coherence-theorems/">There Are No Coherence Theorems</a></h3>
+                            <p class="item-meta"><em>AI Alignment Forum</em>, 2023</p>
+                            <p class="item-links"><a href="https://www.alignmentforum.org/posts/yCuzmCsE86BTu9PfA/there-are-no-coherence-theorems">Alignment Forum</a></p>
+                            <details class="abstract-toggle">
+                                <summary>Abstract</summary>
+                                <div class="abstract-copy"><p>Authors in the AI safety community often make the following claim: advanced artificial agents will behave like expected utility maximisers, because doing so is the only way to avoid pursuing dominated strategies. I argue that the claim is false.</p></div>
+                            </details>
+                        </div>
+                        <div class="item">
+                            <h3><a href="/src/writing/strong-longtermism-summary/">Summary: The Case for Strong Longtermism</a></h3>
+                            <p class="item-meta">Global Priorities Institute, 2022</p>
+                            <p class="item-links"><a href="https://globalprioritiesinstitute.org/summary-the-case-for-strong-longtermism/">Global Priorities Institute</a></p>
+                            <details class="abstract-toggle">
+                                <summary>Abstract</summary>
+                                <div class="abstract-copy"><p>In this paper, Hilary Greaves and William MacAskill make the case for strong longtermism: the view that the most important feature of our actions today is their impact on the far future. They claim that strong longtermism is of the utmost significance: that if the view were widely adopted, much of what we prioritise would change.</p></div>
+                            </details>
+                        </div>
+                        <div class="item">
+                            <h3><a href="/src/writing/epistemic-challenge-longtermism-summary/">Summary: The Epistemic Challenge to Longtermism</a></h3>
+                            <p class="item-meta">Global Priorities Institute, 2022</p>
+                            <p class="item-links"><a href="https://globalprioritiesinstitute.org/summary-the-epistemic-challenge-to-longtermism-christian-tarsney/">Global Priorities Institute</a></p>
+                            <details class="abstract-toggle">
+                                <summary>Abstract</summary>
+                                <div class="abstract-copy"><p>According to longtermism, what we should do mainly depends on how our actions might affect the long-term future. This claim faces a challenge: the course of the long-term future is difficult to predict, and the effects of our actions on the long-term future might be so unpredictable as to make longtermism false. In ‘The Epistemic Challenge to Longtermism,’ Christian Tarsney evaluates one version of this epistemic challenge and comes to a mixed conclusion. On some plausible worldviews, longtermism stands up to the epistemic challenge. On others, longtermism’s status depends on whether we should take certain high-stakes, long-shot gambles.</p></div>
+                            </details>
+                        </div>
+                        <div class="item">
+                            <h3><a href="/src/writing/moral-case-long-term-thinking/">The Moral Case for Long-Term Thinking</a></h3>
+                            <p class="item-meta item-meta-authors">with Hilary Greaves and William MacAskill</p>
+                            <p class="item-meta"><em>The Long View</em>, 2021</p>
+                            <p class="item-links"><a href="https://philpapers.org/archive/GRETMC-3.pdf">PDF</a> / <a href="https://da63870c-9860-42b7-8b51-fb15d5bae843.filesusr.com/ugd/07becb_8fe75ba08a4c457ba2988e96e1ee6654.pdf">Book</a></p>
+                            <details class="abstract-toggle">
+                                <summary>Abstract</summary>
+                                <div class="abstract-copy"><p>This chapter makes the case for strong longtermism: the claim that, in many situations, impact on the long-run future is the most important feature of our actions. Our case begins with the observation that an astronomical number of people could exist in the aeons to come. Even on conservative estimates, the expected future population is enormous. We then add a moral claim: all the consequences of our actions matter. In particular, the moral importance of what happens does not depend on when it happens. That pushes us toward strong longtermism. We then address a few potential concerns, the first of which is that it is impossible to have any sufficiently predictable influence on the course of the long-run future. We argue that this is not true. Some actions can reasonably be expected to improve humanity’s long-term prospects. These include reducing the risk of human extinction, preventing climate change, guiding the development of artificial intelligence, and investing funds for later use. We end by arguing that these actions are more than just extremely effective ways to do good. Since the benefits of longtermist efforts are large and the personal costs are comparatively small, we are morally required to take up these efforts.</p></div>
+                            </details>
+                        </div>
+                        <div class="item">
+                            <h3><a href="/src/writing/tractatus-now-with-examples/">Wittgenstein&#x27;s Tractatus: Now With Examples</a></h3>
+                            <p class="item-meta">2021</p>
+                            <p class="item-links"><a href="https://openairopensea.substack.com/p/wittgensteins-tractatus-now-with">Substack</a></p>
+                            <details class="abstract-toggle">
+                                <summary>Abstract</summary>
+                                <div class="abstract-copy"><p>I explain the <em>Tractatus</em> using plenty of examples.</p></div>
+                            </details>
+                        </div>
+                        <div class="item">
+                            <h3><a href="/src/writing/against-ambition/">Against Ambition</a></h3>
+                            <p class="item-meta">2019</p>
+                            <p class="item-links"><a href="https://openairopensea.substack.com/p/against-ambition">Substack</a> / <a href="https://drive.google.com/file/d/1neQeuNIVkEbH4cloJMjGxdD-rk_ecs6s/view?usp=sharing">PDF</a></p>
+                            <details class="abstract-toggle">
+                                <summary>Abstract</summary>
+                                <div class="abstract-copy"><p>I argue that personal ambition is bad for you.</p></div>
+                            </details>
+                        </div>
+                </div>
             </section>
         </div>
     </article>
