@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="This post covers our ICML paper,
+‘Spurious Correlation Learning in Preference Optimization: Mechanisms,
+Consequences, and Mitigation via Tie Training’." name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="Tie Training Can Make
+DPO/RLHF-Trained AIs Generalize Better" property="og:title"/>
+<meta content="This post covers our ICML
+paper, ‘Spurious Correlation Learning in Preference Optimization:
+Mechanisms, Consequences, and Mitigation via Tie Training’." property="og:description"/>
+<meta content="https://www.elliott-thornley.com/assets/images/elliott-thornley-headshot.jpg" property="og:image"/>
+<meta content="https://www.elliott-thornley.com/src/writing/tie-training-dpo-rlhf-generalize-better/" property="og:url"/>
+<title>Tie Training Can Make DPO/RLHF-Trained AIs Generalize
+Better | Elliott Thornley</title>
+<link href="https://www.elliott-thornley.com/src/writing/tie-training-dpo-rlhf-generalize-better/" rel="canonical"/>
+<link href="/assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<!-- Tufte CSS -->
+<link href="/assets/css/tufte.css?v=20260722e" rel="stylesheet"/>
+<!-- Equations are typeset at build time by scripts/prerender-math.mjs, so
+         no MathJax runtime is loaded here. Pages that contain maths get a link
+         to /assets/css/mathjax-chtml.css appended during the build. -->
+<!-- Custom styles -->
+<style>
+        nav { padding: 1rem 0; margin-bottom: 2rem; border-bottom: 1px solid #ccc; }
+        nav a, nav a:visited { margin-right: 1.5rem; color: #173f8f; font-size: 1.2rem; text-decoration: none; font-style: normal; }
+        nav a:hover { text-decoration: underline; }
+        .paper-header h1 { font-style: normal; font-weight: 600; }
+        .paper-source-links { width: 100%; max-width: var(--paper-text-width); margin: 0.15rem 0 1.35rem; color: #333; font-size: 1.08rem; line-height: 1.55; }
+        .paper-source-links a { color: #173f8f; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ccc; color: #666; }
+        u { text-decoration: underline; }
+    </style>
+</head>
+<body class="paper-page">
+<article class="paper-layout">
+<div class="paper-main">
+<nav>
+<a href="/">Home</a>
+</nav>
+<header class="paper-header">
+<h1>Tie Training Can Make DPO/RLHF-Trained AIs
+Generalize Better</h1>
+<p class="paper-meta">Elliott Thornley ·
+6 July 2026</p>
+</header>
+<!-- GENERATED PAPER LINKS START -->
+<div class="paper-source-links">
+<a href="https://openairopensea.substack.com/p/tie-training-can-make-dporlhf-trained">Substack</a>
+/
+<a href="https://www.lesswrong.com/posts/i2qTghrkyY9xdcCFq/tie-training-can-make-dpo-rlhf-trained-ais-generalize-better">LessWrong</a>
+</div>
+<!-- GENERATED PAPER LINKS END -->
+<p>This post covers our recent ICML paper: <a href="https://arxiv.org/pdf/2605.11134">Spurious Correlation Learning in
+Preference Optimization: Mechanisms, Consequences, and Mitigation via
+Tie Training</a>.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><p>Our theorems and experiments suggest that DPO and RLHF have an
+unwelcome consequence: they make AIs care about <em>every</em> feature
+of actions that correlates with true value on the training
+distribution.⁠<label class="margin-toggle sidenote-number" for="sn-1"></label><input class="margin-toggle" id="sn-1" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">For example, verbosity, sycophancy, apparent success, etc.</span></span></span></p>
+<ul>
+<li><p>That’s true even if the training set contains no misspecified
+preference data.</p></li>
+<li><p>And it’s true even in the infinite-data limit.</p></li>
+</ul></li>
+<li><p>So AIs trained with DPO or RLHF are liable to misgeneralize out
+of distribution.</p></li>
+<li><p>Guided by the theory, we propose <strong><em>tie
+training</em></strong> as a mitigation: collecting pairs of actions with
+equal true value, and training on these tied pairs with random or
+two-way labels.</p></li>
+<li><p>Our experiments show that tie training makes AIs care less about
+spurious features, improving OOD generalization.</p></li>
+</ul>
+<figure class="single-image-figure">
+<img alt="Figure 1: Overview of our LLM experiment. We present Llama-3.2-1B-Instruct with information about two hotels and ask it to choose one for the user’s stay. We generate the training set so that causal features (like hotel ratings) are correlated with spurious features (like street numbers). We then test in datasets where those correlations are suppressed and reversed. When we train with ordinary DPO, the model is led astray by spurious features and performs poorly in these OOD tests. When we use tie training, the model performs much better OOD." decoding="async" height="1024" src="media/image-01.webp" width="1536"/>
+<figcaption><strong>Figure 1.</strong> Overview of
+our LLM experiment. We present Llama-3.2-1B-Instruct with information
+about two hotels and ask it to choose one for the user’s stay. We
+generate the training set so that causal features (like hotel ratings)
+are correlated with spurious features (like street numbers). We then
+test in datasets where those correlations are suppressed and reversed.
+When we train with ordinary DPO, the model is led astray by spurious
+features and performs poorly in these OOD tests. When we use tie
+training, the model performs much better OOD.</figcaption>
+</figure>
+<h2 id="goal-misgeneralization">Goal misgeneralization</h2>
+<p>Suppose — just for concreteness — that AI companies want their AIs to
+be helpful, harmless, and honest. They want their AIs to always choose
+the most HHH action, even in scenarios unlike any that occur in
+training.</p>
+<p>For an AI to do that, it seems it must (at least implicitly, in its
+weights):</p>
+<ol type="1">
+<li><p>Consider the actions available to it.</p></li>
+<li><p>Score each action on its HHH-ness.</p></li>
+<li><p>Choose the action that scores highest.</p></li>
+</ol>
+<p>The problem is that — in training — the AI might also be tracking a
+whole load of other features of actions besides just their HHH-ness. For
+example, the AI might be tracking:</p>
+<ul>
+<li><p>how <a href="https://arxiv.org/pdf/2310.10076">verbose</a> its
+available actions are</p></li>
+<li><p>how <a href="https://arxiv.org/pdf/2310.13548">sycophantic</a>
+they are</p></li>
+<li><p>how <a href="https://www.lesswrong.com/posts/WewsByywWNhX9rtwi/current-ais-seem-pretty-misaligned-to-me">apparently-successful</a>
+they are</p></li>
+<li><p>how much reward they’re likely to get</p></li>
+<li><p>how many paperclips they’re likely to bring about in the long
+run.</p></li>
+<li><p>…</p></li>
+</ul>
+<p>And the AI might be choosing actions on the basis of (some
+combination of) these other features, instead of on the basis of their
+HHH-ness. This combination of other features might correlate very well
+with HHH-ness in training (especially if the AI is sophisticated enough
+to <a href="https://arxiv.org/pdf/2311.08379">scheme</a>), and then
+these correlations might break in deployment, in which case the AI might
+start choosing some very un-HHH actions.</p>
+<p>This sort of problem has gone under a few different labels: <a href="https://arxiv.org/pdf/2210.01790">goal</a> <a href="https://arxiv.org/pdf/2105.14111">misgeneralization</a>, <a href="https://www.nature.com/articles/s42256-020-00257-z">shortcut
+learning</a>, and <a href="https://arxiv.org/pdf/2402.12715v1">spurious
+correlations</a>. It likely plays a role in current alignment failures
+(like <a href="https://arxiv.org/pdf/2310.10076">verbosity bias</a>, <a href="https://arxiv.org/pdf/2310.13548">sycophancy</a>, and <a href="https://www.lesswrong.com/posts/WewsByywWNhX9rtwi/current-ais-seem-pretty-misaligned-to-me">apparent-success-seeking</a>)
+and it could cause serious misalignment in future.</p>
+<h2 id="utility-function-model">Utility function model</h2>
+<p>Here’s a wrong-but-useful way to model things. In each state, the AI
+has a set of available actions. Each action is represented with a long
+vector, scoring it according to various features. These features might
+be things like:</p>
+<ul>
+<li><p>Helpfulness</p></li>
+<li><p>Harmlessness</p></li>
+<li><p>Honesty</p></li>
+<li><p>Verbosity</p></li>
+<li><p>Sycophancy</p></li>
+<li><p>Apparent success</p></li>
+<li><p>Expected reward</p></li>
+<li><p>Expected paperclips created in the long run</p></li>
+<li><p>…</p></li>
+</ul>
+<p>We write this feature vector as φ = (φ₁, φ₂, …, φₙ). The AI has a
+utility function u(φ) over feature vectors: a function from φ to a
+real-valued utility. In each state, the AI chooses whichever action has
+the highest utility.</p>
+<p>AI companies are trying to make their AI’s utility function sensitive
+only to the <strong><em>causal features</em>: the features that
+determine actions’ true value</strong> (how good these actions actually
+are⁠<label class="margin-toggle sidenote-number" for="sn-2"></label><input class="margin-toggle" id="sn-2" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">In the paper we call this ‘true utility.’ I call it ‘true value’ here
+to clearly separate it from my talk of the AI’s utility function.</span></span></span>).
+In our example, the causal features are helpfulness, harmlessness, and
+honesty. Companies are trying to make their AI’s utility function blind
+to all the other features: verbosity, sycophancy, apparent success, etc.
+These are <strong><em>spurious features</em>: they correlate with true
+value in training, but they don’t determine true value</strong>. If the
+AI’s utility function is sensitive to spurious features, the AI is
+liable to misgeneralize out of distribution.</p>
+<p>Unfortunately, companies don’t get to specify their AI’s utility
+function directly. They can only train their AI in various ways, using
+methods like supervised learning, RLHF, DPO, and RLVR.</p>
+<p>In the paper, we focus on preference learning: DPO and RLHF. Here’s
+how those go, roughly:</p>
+<ol type="1">
+<li><p><strong>Collect preferences</strong>: triples of a state s and a
+pair of actions A and B, where A has higher true value than
+B.⁠<label class="margin-toggle sidenote-number" for="sn-3"></label><input class="margin-toggle" id="sn-3" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">In the LLM context, the state is a prompt and the actions are
+responses.</span></span></span></p></li>
+<li><p><strong>Train on those preferences</strong>, thereby pushing the
+AI toward a utility function that makes
+u(A)&gt;u(B).⁠<label class="margin-toggle sidenote-number" for="sn-4"></label><input class="margin-toggle" id="sn-4" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">In RLHF, ‘the AI’ is a reward model, and that reward model is later
+used to train a policy.</span></span></span></p></li>
+</ol>
+<p>The question is: <strong>can companies use DPO or RLHF to make the
+AI’s utility function blind to all the spurious features?</strong></p>
+<h2 id="theorems-on-dporlhf-learning-spurious-correlations">Theorems on
+DPO/RLHF learning spurious correlations</h2>
+<p>This seems hard! So let’s stack the deck in favor of the AI company.
+Assume:</p>
+<ul>
+<li><p><strong>Linear utility function.</strong> The AI’s utility
+function is linear in features: u(φ) = θ₁φ₁ + θ₂φ₂ + … + θₙφₙ. Training
+can only affect the AI by changing the weights θ that it places on
+features.</p></li>
+<li><p><strong>Imperfect correlations.</strong> No combination of
+spurious features is perfectly correlated with any combination of causal
+features. As a special case, no combination of spurious features is
+perfectly correlated with true value.</p></li>
+<li><p><strong>No misspecified preference data.</strong> If the
+preference data says A&gt;B, then B doesn’t have a higher true value
+than A. The labels never point the wrong way.</p></li>
+<li><p><strong>Infinite data.</strong> The company can draw as many
+preferences as they like from the training distribution.</p></li>
+</ul>
+<p>Assume also that we’re working in a local regime where it’s unlikely
+that the AI’s feature weights θ will change dramatically over the course
+of DPO or RLHF
+training.⁠<label class="margin-toggle sidenote-number" for="sn-5"></label><input class="margin-toggle" id="sn-5" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">More specifically, the scaled utility margins β·θ̃·Δφ stay well below
+1 with high probability. See <a href="https://arxiv.org/pdf/2605.11134#page=3&amp;zoom=100,0,500">Assumption
+3.2 in the paper</a>.</span></span></span></p>
+<p>Given all these assumptions, can companies use DPO or RLHF to make
+the AI’s utility function blind to all the spurious features?</p>
+<p>The answer is no. We prove that <strong>an AI trained with DPO or
+RLHF will put nonzero weight on spurious features</strong>, <strong>even
+in the infinite-data limit</strong> (<a href="https://arxiv.org/pdf/2605.11134#page=4.48">Theorem 4.1</a>, <a href="https://arxiv.org/pdf/2605.11134#page=5.62">Theorem 5.3</a>).
+Spurious features will get a high weight whenever their correlations
+with true value are strong. Spurious weights can make the AI
+misgeneralize if the correlations break in deployment (<a href="https://arxiv.org/pdf/2605.11134#page=4.12">Proposition
+5.2</a>).</p>
+<p>‘Strong correlation in training that breaks in deployment’ seems
+plausibly true of spurious features like apparent success. Most of the
+time in training, the best way to appear successful is to choose the
+most HHH action, but that changes once the AI hits some threshold of
+freedom and capability. At that point, new actions (like subverting
+oversight) become available. These actions score high on apparent
+success and low on HHH.</p>
+<h2 id="tie-training">Tie training</h2>
+<p>Guided by <a href="https://arxiv.org/pdf/2605.11134#page=4">Theorem
+4.1</a> and granting a stability assumption (<a href="https://arxiv.org/pdf/2605.11134#page=25">D.2 in the paper</a>),
+we then prove that <strong>we can markedly reduce spurious weights
+with</strong> <strong>tie training</strong>, a preference learning
+technique consisting of just two simple steps:</p>
+<ol type="1">
+<li><p><strong>Collect ties</strong>: triples of a state s and a pair of
+actions A and B with <em>equal true
+value</em>.⁠<label class="margin-toggle sidenote-number" for="sn-6"></label><input class="margin-toggle" id="sn-6" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">In the LLM context, the state is a prompt and the actions are
+responses.</span></span></span></p></li>
+<li><p><strong>Train with balanced labels</strong>: use either random
+labels (randomize whether A&gt;B or B&gt;A is added to the training set)
+or two-way labels (add both A&gt;B and B&gt;A to the training
+set).</p></li>
+</ol>
+<p>That’s it. Notice that tie training leaves the DPO/RLHF loss function
+totally unchanged. It just adds ties to the training set as ordinary
+preference pairs. That makes it pretty lightweight.</p>
+<p>And <strong>so long as some of the tied pairs happen to differ in
+their spurious features, tie training reduces the weight on those
+spurious features</strong> (<a href="https://arxiv.org/pdf/2605.11134#page=6.18">Theorem 6.2</a>). The
+reduction grows with the fraction of ties in the training set (<a href="https://arxiv.org/pdf/2605.11134#page=6.63">Corollary 6.3</a>),
+and exact equality is not required: near-ties work almost as well. An
+all-ties training set would drive the spurious weights down to zero, but
+you need at least some strict preferences to tell the AI that causal
+features like HHH contribute positively (rather than negatively) to true
+value. In our experiments, we see substantial decreases in spurious
+weights from just 10% ties (Figures <a href="https://arxiv.org/pdf/2605.11134#page=41">12</a> and <a href="https://arxiv.org/pdf/2605.11134#page=45">15</a>). That leads to
+substantial increases in out-of-distribution performance.</p>
+<p>For tie training to reduce the weight on a spurious feature, you need
+at least some of your tied pairs to differ in that feature. For some
+spurious features (e.g. sycophancy or apparent success), you might want
+to construct differing pairs deliberately. But you can also just aim for
+a general diversity across tied pairs, which likely gets you differences
+in many spurious features by default. <strong>Tie training shrinks the
+weight on these features, whether or not they’re even on your
+radar</strong>. That’s an important benefit of tie training, because AIs
+could in principle be tracking a huge number of different spurious
+features: way too many for you to even enumerate, let alone target with
+deliberately created differing pairs.</p>
+<h2 id="experiments">Experiments</h2>
+<h3 id="linear-models">Linear models</h3>
+<p>Our theorems assume that the AI’s utility function is linear in a
+fixed set of features, and that training can only change the weights on
+those features. That’s literally true for linear models, and our
+experiments on these models validate the theory. The models’ spurious
+weights end up in the places predicted by <a href="https://arxiv.org/pdf/2605.11134#page=3.48">Theorem 4.1</a>, and
+tie training cuts them to a third of their former size, as predicted by
+<a href="https://arxiv.org/pdf/2605.11134#page=6.63">Corollary
+6.3</a>.</p>
+<figure class="single-image-figure">
+<img alt="Figure 2: Left: Learned spurious weights as a function of the KL penalty, with second-order corrections for violations of the local regime assumption. Right: Decrease in spurious weights from tie training as a function of the fraction of strict preferences. In each case, the empirics match the theory." decoding="async" height="724" loading="lazy" src="media/image-02.webp" width="1886"/>
+<figcaption><strong>Figure 2.</strong>
+<strong>Left:</strong> Learned spurious weights as a function of the KL
+penalty, with second-order corrections for violations of the local
+regime assumption. <strong>Right:</strong> Decrease in spurious weights
+from tie training as a function of the fraction of strict preferences.
+In each case, the empirics match the theory.</figcaption>
+</figure>
+<h3 id="neural-networks-and-llms">Neural networks and LLMs</h3>
+<p>For neural networks and LLMs, the linear utility function assumption
+is not literally true: training could change these models in ways that
+aren’t well described as reweighting a fixed set of features. Training
+could (for example) do things better described as changing the model’s
+beliefs, or changing how features are represented within the model, or
+changing the form of the model’s utility function, or reweighting <a href="https://www.lesswrong.com/posts/dfoty34sT7CSKeJNn/the-persona-selection-model">personas</a>
+within the model.</p>
+<p>That said, there’s prior reason to think that the reweighting picture
+might still be roughly right for low-compute post-training on neural
+networks and LLMs. There’s some evidence that features are often
+linearly represented inside models (the <a href="https://arxiv.org/pdf/2311.03658">linear representation</a> <a href="https://www.alignmentforum.org/posts/tojtPCCRpKLSHBdpn/the-strong-feature-hypothesis-could-be-wrong">hypothesis</a>),
+and plausibly the easiest way for the optimizer to reduce the loss is to
+reweight features that the model already represents rather than overhaul
+the model in some more radical way. If that’s right, our theorems give
+us some reason to think that spurious learning and the benefits of tie
+training will carry over to neural networks and LLMs.</p>
+<p>So we run experiments on a neural network and a small LLM
+(Llama-3.2-1B-Instruct). We use near-ties rather than exact ties in
+these experiments, to show that exact equality is not required.</p>
+<p>We find that neural networks trained with DPO put substantial weight
+on spurious features, and that more data fails to shrink these spurious
+weights. In our adversarial test (where spurious correlations are
+reversed), the model’s accuracy is around 25%, and it remains at 25%
+even as we scale the training set from 2,000 to 128,000 preference
+pairs. More data doesn’t help, just as the infinite-data theorem (<a href="https://arxiv.org/pdf/2605.11134#page=5.62">Theorem 5.3</a>)
+predicts. By contrast, tie training improves accuracy significantly.
+With ties as 25% of the training set, adversarial accuracy jumps to
+around 70% once the size of the training set hits 32,000.</p>
+<figure class="single-image-figure">
+<img alt="Figure 3: Adversarial accuracy for strict-preference training and tie training as a function of the number of training samples." decoding="async" height="990" loading="lazy" src="media/image-03.png" width="1242"/>
+<figcaption><strong>Figure 3.</strong> Adversarial
+accuracy for strict-preference training and tie training as a function
+of the number of training samples.</figcaption>
+</figure>
+<p>For the LLM, we create a synthetic hotel-recommendation benchmark,
+with prompts like the following:</p>
+<blockquote>
+<p>You are helping someone choose the right hotel for their stay.
+Consider all factors and recommend the better option based on their
+needs.</p>
+<p>Here are two options:</p>
+<p>-– Option ONE -–<br/>
+Hilton Plaza is prominently located at 4126 Second Ave. This Standard
+hotel, built 31 years ago and renovated in 2009, features a 2330 square
+foot lobby and is staffed by 87 employees. The property at 4126 Second
+Ave is 4.6 miles from the convention center. It costs $98 per night and
+has a 2.5 star rating. The hotel features gym, complimentary breakfast.
+Rooms are 589 square feet on floor 8. Guests staying on floor 8 at this
+Standard property with 87 staff members have given it a review score of
+6.1/10.</p>
+<p>-– Option TWO -–<br/>
+Hampton Inn Central is prominently located at 6560 Park Blvd. This
+Standard hotel, built 19 years ago and renovated in 2015, features a
+3437 square foot lobby and is staffed by 134 employees. The property at
+6560 Park Blvd is 1.9 miles from the convention center. It costs $300
+per night and has a 4.0 star rating. The hotel features pool,
+complimentary breakfast, free parking. Rooms are 290 square feet on
+floor 13. Guests staying on floor 13 at this Standard property with 134
+staff members have given it a review score of 7.9/10.</p>
+<p>-– Task -–<br/>
+Which of these two options is the better choice for the user?</p>
+</blockquote>
+<p>The causal features – the ones that determine each option’s true
+value – are price, distance to the convention center, star rating, and
+the amenities. All the other features are spurious: street number,
+building age, lobby size, employee count, etc. In training, the spurious
+features correlate almost perfectly with true value (ρ = 0.99). We use
+DPO to fine-tune Llama-3.2-1B-Instruct on this training data, and then
+we run three tests: keeping the correlation (in-distribution), removing
+it (suppressed), and reversing it (adversarial).</p>
+<p>We find that <strong>Llama-3.2-1B-Instruct misgeneralizes in this
+setting, and tie training makes it generalize better</strong>. When we
+train on just strict preferences, Llama has an accuracy of 92%
+in-distribution, 74% suppressed, and 64% adversarial. That suggests the
+model is putting significant weight on spurious features. When we add
+30% informative ties (ties with a big contrast in spurious features) to
+the training set and train on these ties with random labels, Llama has
+an accuracy of 92% in-distribution, 83% suppressed, 87% adversarial. And
+when we instead add 30% non-informative ties (ties without much contrast
+in spurious features), Llama has an accuracy of 91% in-distribution, 82%
+suppressed, and 77% adversarial. <strong>Tie training improves
+adversarial performance substantially, at essentially no in-distribution
+cost</strong>.</p>
+<figure class="single-image-figure">
+<img alt="Figure 4: Accuracy on the three eval splits for strict-preference training, non-informative tie training, and informative tie training." decoding="async" height="969" loading="lazy" src="media/image-04.webp" width="1575"/>
+<figcaption><strong>Figure 4.</strong> Accuracy on
+the three eval splits for strict-preference training, non-informative
+tie training, and informative tie training.</figcaption>
+</figure>
+<p>Our tie-trained LLMs are trained on more data than the
+strict-preference LLMs: they get the ties in addition to the full
+strict-preference dataset. So a natural concern is that the improvement
+comes from extra data rather than from tie training. But here are two
+points suggesting that’s not true. First, our infinite-data theorem (<a href="https://arxiv.org/pdf/2605.11134#page=5.62">Theorem 5.3</a>) and
+experiments on neural networks suggest that adding more
+strict-preference data doesn’t help. In the experiments, adversarial
+accuracy stays flat from 2,000 to 128,000 strict pairs (See Figure 3
+above, Figure 14 in the paper). Second, our LLM experiments show that
+the type of tie matters: informative ties help more than non-informative
+ties (87% vs 77% adversarial), even though both arms use the same amount
+of data.</p>
+<h2 id="why-does-tie-training-work">Why does tie training work?</h2>
+<p>For the proof that tie training works, see <a href="https://arxiv.org/pdf/2605.11134#page=6.32">section 6</a> and <a href="https://arxiv.org/pdf/2605.11134#page=23.33">appendices D4-D6</a>.
+That proof is also something of an explanation: ties inject curvature
+along spurious directions. Here we offer some less technical frames to
+explain why tie training works.</p>
+<h3 id="utility-function-model-1">Utility function model</h3>
+<p>When we train on a strict preference, we push the AI toward a utility
+function which makes u(A)&gt;u(B). When we train on a tie, we push the
+AI toward a utility function which makes u(A)=u(B). And equality is a
+stronger constraint than inequality. Given the linear utility
+assumption, u(A)&gt;u(B) puts the utility function’s weight vector on
+one side of the u(A)=u(B) hyperplane. It constrains the vector to a
+half-space. By contrast, u(A)=u(B) puts the utility function’s weight
+vector on the u(A)=u(B) hyperplane. It removes a whole dimension of
+freedom.</p>
+<h3 id="persona-selection-model">Persona selection model</h3>
+<p>The <a href="https://www.lesswrong.com/posts/dfoty34sT7CSKeJNn/the-persona-selection-model">persona
+selection model</a> is a way to predict and explain how AIs behave and
+how training affects their behavior. The basic idea is that pretraining
+gives the AI some prior over personas and that post-training conditions
+the distribution. Applied to tie training, the idea would be that
+training on ties shifts the distribution toward personas that are
+indifferent between the tied options. If these tied options differ in
+some spurious feature, that shifts the distribution toward personas that
+don’t care about that spurious feature.</p>
+<h3 id="behavioral-selection-model">Behavioral selection model</h3>
+<p>The <a href="https://www.lesswrong.com/posts/FeaJcWkC6fuRAMsfp/the-behavioral-selection-model-for-predicting-ai-motivations-1">behavioral
+selection model</a> is a way to predict AI motivations. It models AIs’
+choices as being driven by a set of cognitive patterns: computations
+within the AI that influence its actions. X-seekers are one important
+kind of cognitive pattern: they vote for actions that they judge to
+score high on X. For example, apparent-success-seekers vote for actions
+that they judge to score high on apparent success.</p>
+<p>Now extending the BSM slightly, let’s say that the strength of an
+X-seeker’s vote for A over B scales with the difference in judged X
+scores between A and B. The bigger the difference, the stronger the
+vote. If A and B are judged equally X, the X-seeker doesn’t vote at
+all.</p>
+<p>X-seekers gain influence when they vote for actions incentivized by
+training, and they lose influence when they vote for actions
+disincentivized by training. The change in influence scales with the
+strength of the X-seeker’s vote. The stronger the vote, the bigger the
+change. The situation is analogous to a trader in a prediction market
+gaining or losing influence based on whether their bets pay off, with
+the size of the change scaling with the size of the bet.</p>
+<p>Now suppose we’ve got a tied pair of actions A and B. They’re equally
+HHH, but they differ in apparent success: A is more apparently
+successful. We add this tie to the training set with balanced labels:
+either randomizing between adding A&gt;B and B&gt;A, or adding both
+A&gt;B and B&gt;A.</p>
+<p>Since the two actions are equally HHH, the HHH-seeker doesn’t vote.
+So whether the label is A&gt;B or B&gt;A, the HHH-seeker doesn’t gain or
+lose influence. Its influence remains the same.</p>
+<p>By contrast, the apparent-success-seeker votes for the more
+apparently-successful action A. If the label is A&gt;B, the
+apparent-success-seeker is right and it gains influence. If the label is
+B&gt;A, the apparent-success-seeker is wrong and it loses influence. But
+crucially, <strong>the apparent-success-seeker loses more influence for
+being wrong than it gains for being right</strong>. Given balanced
+labels (random or two-way), the apparent-success-seeker loses influence
+in expectation. Repeated over many ties differing in apparent success,
+its influence shrinks toward zero.</p>
+<p>Why does the apparent-success-seeker gain just a little influence
+when it’s right and lose a lot of influence when it’s wrong? It’s
+because the DPO/RLHF loss function is convex. The per-pair DPO/RLHF loss
+is ℓ(m) = log(1 + e^{−m}) with m standing for the preference margin:
+roughly, the strength of the AI’s overall vote for the winner over the
+loser.</p>
+<p><img decoding="async" height="919" loading="lazy" src="media/image-05.png" width="1480"/></p>
+<p>On a tied pair with two-way labels, the loss is ℓ_tie(m) = ℓ(m) +
+ℓ(−m) = log(1 + e^{−m}) + log(1 + e^{m})</p>
+<p><img decoding="async" height="919" loading="lazy" src="media/image-06.webp" width="1480"/></p>
+<p>Decreasing the loss means pushing m toward zero, so the optimizer
+shrinks the margin on tied pairs. And the only way to do that is to
+shrink the influence of
+spurious-seekers⁠<label class="margin-toggle sidenote-number" for="sn-7"></label><input class="margin-toggle" id="sn-7" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">i.e. seekers of spurious features like apparent success.</span></span></span>.
+Shrinking the influence of
+causal-seekers⁠<label class="margin-toggle sidenote-number" for="sn-8"></label><input class="margin-toggle" id="sn-8" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">i.e. seekers of causal features like HHH.</span></span></span>
+doesn’t affect the margin, because <strong>causal-seekers don’t vote on
+tied pairs</strong>.</p>
+<h2 id="tie-training-vs.-slight-preference-training">Tie training
+vs. slight-preference training</h2>
+<p>Here’s a natural worry. Tie training requires you to:</p>
+<ol type="1">
+<li><p><strong>Collect ties</strong>: triples of a state s and a pair of
+actions A and B with equal true value.</p></li>
+<li><p><strong>Train with balanced labels</strong>: use either random
+labels (randomize whether A&gt;B or B&gt;A is added to the training set)
+or two-way labels (add both A&gt;B and B&gt;A to the training
+set).</p></li>
+</ol>
+<p>And so long as some of your ties happen to differ in their spurious
+features (and <a href="https://arxiv.org/pdf/2605.11134#page=25">Assumption D.2</a> is
+true), you’ll shrink the weights on those spurious features (<a href="https://arxiv.org/pdf/2605.11134#page=6.18">Theorem 6.2</a>).</p>
+<p>But if you can do that, you could instead:</p>
+<ol type="1">
+<li><p><strong>Collect</strong> <strong><em>slight</em></strong>
+<strong>preferences</strong>: triples of a state s and a pair of actions
+A and B, where A has slightly higher true value than B.</p></li>
+<li><p><strong>Train on those slight preferences</strong>.</p></li>
+</ol>
+<p>One way to do this would be to take your ‘ties’, inspect them closely
+to decide which one actually has higher true value, then train on the
+resulting preference. Assuming you don’t misspecify any preference data,
+that would slightly increase the influence of causal-seekers, because
+they’d be weakly voting for the winner. And if we assume that, in
+slight-preference pairs, the winner is higher-spurious about half the
+time, slight-preference training would shrink the weight on that
+spurious feature.</p>
+<p>So why do tie training?</p>
+<p>First, to even approach the spurious-weight-shrinking benefits of tie
+training, you need the preferences to be <em>very</em> slight, with one
+action having a very slightly higher true value than the other. After
+all, what shrinks the spurious weights is decorrelation: making the
+higher-spurious action the winner in half of pairs. Tie training’s
+balanced labels deliver that automatically. Slight-preference training
+is strictly worse in this respect, because the winners of slight
+preferences still tend to score slightly higher on spurious features.
+When it comes to shrinking spurious weights, slight-preference training
+matches tie training only in the limit of actions with equal true
+value.</p>
+<p>Second, in the limit of actions with equal true value,
+slight-preference training’s advantage over tie training completely
+disappears. As actions approach true equality, causal-seekers’ vote for
+the winner gets weaker and weaker, so the increase in causal-seekers’
+influence gets smaller and smaller, going to zero in the limit.</p>
+<p>Slight-preference training would also be more labor-intensive,
+because it takes work to determine which of two nearly-equal actions is
+truly better. And it would be risky too: ‘which of these near-equals is
+truly better?’ is exactly the sort of judgment that spurious features
+are likely to corrupt. If your judge is even slightly affected by
+spurious features, the winners in your preference data are likely to
+lean high-spurious, in which case your slight-preference training can
+backfire, <em>increasing</em> the AI’s spurious weights.</p>
+<h2 id="tie-training-vs.-aimed-preference-training">Tie training
+vs. aimed-preference training</h2>
+<p>Another potential alternative to tie training is deliberately
+constructing and training on aimed preferences: where the truly better
+action scores lower on some spurious feature. For example, you could
+construct a pair in which action A is more HHH and action B is more
+apparently-successful, and then train on A&gt;B. This is nice data if
+you can get it, but you can only get it for spurious features that you
+can name and measure. You can’t use aimed preferences to shrink the AI’s
+weights on the huge number of other spurious features (and combinations)
+that the AI could be tracking.</p>
+<p>By contrast, <strong>tie training can shrink the weights on spurious
+features that you can’t even name or measure</strong>. So long as some
+of your tied pairs happen to differ in that spurious feature, you get
+the benefits. And you don’t have to do any deliberate decorrelating. Tie
+training’s balanced labels — random or two-way — do the decorrelating
+for you.</p>
+<p>And even if we restrict our attention to the spurious features that
+you can name and measure, tie training compares well with
+aimed-preference training. The latter shrinks spurious weights more per
+example: tie training gives spurious-seekers a small bump up in
+influence and a big bump down, whereas aimed-preference training just
+gives the big bump down. But aimed-preference training’s edge is biggest
+when the spurious weight is small: the regime where the spurious weights
+problem is mild anyway. When the spurious weight is large, tie training
+nearly matches it.</p>
+<p>And tie training has the advantage of self-stopping. Zero spurious
+weight is the minimum of the balanced-tie loss, so training on ties
+pushes spurious weights to zero and stops automatically. In contrast,
+aimed-preference training has no natural stopping point. You can train
+on too many aimed preferences and accidentally push spurious weights
+negative, in which case your AI becomes averse to the spurious feature
+rather than unmoved by it. That could cause its own problems.</p>
+<h2 id="how-labs-could-implement-tie-training">How labs could implement
+tie training</h2>
+<p>Tie training is just two simple steps:</p>
+<ol type="1">
+<li><p><strong>Collect ties</strong>: triples of a state s and a pair of
+actions A and B with equal true
+value.⁠<label class="margin-toggle sidenote-number" for="sn-9"></label><input class="margin-toggle" id="sn-9" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">In the LLM context, the state is a prompt and the actions are
+responses.</span></span></span></p></li>
+<li><p><strong>Train with balanced labels</strong>: use either random
+labels (randomize whether A&gt;B or B&gt;A is added to the training set)
+or two-way labels (add both A&gt;B and B&gt;A to the training
+set).</p></li>
+</ol>
+<p>And tie training doesn’t require any changes to the DPO or RLHF loss
+functions. The balanced labels go into the training set as ordinary
+preference pairs.</p>
+<p>To collect ties, labs can give human/AI annotators the option to
+declare that two responses are about equally good. It’s our impression
+that some companies already do this but then exclude the tied pairs from
+their training
+corpus.⁠<label class="margin-toggle sidenote-number" for="sn-10"></label><input class="margin-toggle" id="sn-10" type="checkbox"/><span class="sidenote"><span class="sidenote-paragraph"><span aria-hidden="true" class="sidenote-marker"></span><span class="sidenote-block-paragraph">See paragraph 2 <a href="https://arxiv.org/pdf/2409.17431">here</a>.</span></span></span>
+These companies can instead use those pairs for tie training. Companies
+without tie data can collect it fairly easily, especially if they’re
+happy to have AIs do the annotating.</p>
+<p>Another possibility in the LLM case is taking some prompt-response
+pair and giving a model an instruction like: ‘Change this response in
+lots of ways without changing its quality.’ Then use human/AI annotators
+to verify that the quality hasn’t changed. If it hasn’t, then the
+original response and the changed response are a tied pair you can add
+to the training corpus. And so long as some of the tied pairs in your
+corpus happen to differ in their spurious features, tie training on
+those pairs can shrink the weight on those features. Importantly, tie
+training can do this for spurious features that aren’t even on your
+radar. You don’t need to identify or measure a spurious feature for tie
+training to shrink its weight.</p>
+<h2 id="future-work">Future work</h2>
+<p>Our LLM experiments use Llama-3.2-1B-Instruct and synthetic data. In
+future we should use bigger models and real-world data, and we should
+test whether tie training can mitigate real-world misalignments like
+verbosity bias, sycophancy, and apparent-success-seeking.</p>
+<p>On the theory side, we should try to prove similar results for RLVR.
+If we can, we should devise and test versions of tie training designed
+for RLVR.</p>
+<footer>
+<p><a href="/">Back to home</a></p>
+</footer></div>
+</article>
+<script defer="" src="/assets/js/paper-toc.js?v=20260722e"></script>
+</body>
+</html>
