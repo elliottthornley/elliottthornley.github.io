@@ -41,8 +41,8 @@
         .writing-group { grid-column: 1 / span 2; grid-row: 3; min-width: 0; margin-top: calc(-2rem - 1.95rem * 1.25 - 0.6rem - 1px); padding-top: 0; }
         .writing-group .group-label { margin-bottom: 0.7rem; line-height: 1.25; }
         .writing-substack { width: 100%; margin: 0 0 1.6rem; color: var(--site-muted); font-size: 1.04rem; text-align: center; font-style: normal; }
-        .writing-items { columns: 2; column-gap: 2rem; }
-        .writing-items .item { break-inside: avoid; }
+        .writing-items { display: flex; gap: 2rem; align-items: flex-start; }
+        .writing-column { flex: 1 1 0; min-width: 0; }
         .home-column { padding-top: 0; padding-bottom: 0; }
         .ethics-column { grid-column: 4; grid-row: 1 / span 3; min-width: 0; }
         .subsection-label { margin: 0 0 1.1rem; color: #db5438; font-size: 1.42rem; font-weight: 700; letter-spacing: -0.01em; text-align: center; text-transform: none; font-style: normal; }
@@ -68,7 +68,10 @@
             .research-grid { grid-template-rows: none; }
             .research-grid > *, .ai-safety-group > * { grid-column: auto; grid-row: auto; }
             .writing-group { margin-top: 0; }
-            .writing-items { columns: 1; }
+            .writing-items { flex-direction: column; gap: 0; }
+            .writing-column { display: contents; }
+            .writing-items .item:last-child { margin-bottom: 2rem; }
+            .writing-items .item.writing-last { margin-bottom: 0; }
             .site-name { font-size: 2.7rem; }
             .portrait { max-width: 18rem; }
         }
@@ -128,7 +131,7 @@
                         <p class="item-links"><a href="https://www.forethought.org/research/risk-averse-ais">Report</a></p>
                         <details class="abstract-toggle">
                             <summary>Abstract</summary>
-                            <div class="abstract-copy"><p>We make the case for training AIs to be risk-averse in resources — specifically, to treat resources as having diminishing marginal utility. These AIs would (for example) choose $40 for sure over a half-chance of $100 and a half-chance of $0. We argue that risk aversion can preserve AIs’ usefulness in the event that they turn out aligned, and that it provides an extra line of defense in the event that AIs turn out misaligned: misaligned but risk-averse AIs would prefer a higher chance of modest payments to a lower chance of successful rebellion, so in many circumstances we could pay these AIs to cooperate with us. We sketch out some possible methods of training AIs to be risk-averse, and we give reasons to be cautiously optimistic about these methods’ success. The main reasons are that risk aversion is a broad target and easy to reward accurately. Overall, risk aversion seems like a promising line of defense against threats from misaligned AI. Frontier AI companies should consider trying to make their AIs risk-averse.</p></div>
+                            <div class="abstract-copy"><p>We make the case for training AIs to be risk-averse in resources — specifically, to treat resources as having diminishing marginal utility. These AIs would (for example) choose $40 for sure over a half-chance of $100 and a half-chance of $0. We argue that risk aversion can preserve AIs’ usefulness in the event that they turn out aligned, and that it provides an extra line of defense in the event that AIs turn out misaligned: misaligned but risk-averse AIs would prefer a higher chance of modest payments to a lower chance of successful rebellion, so in many circumstances we could pay these AIs not to rebel against us. We sketch out some possible methods of training AIs to be risk-averse, and we give reasons to be cautiously optimistic about these methods’ success. The main reasons are that risk aversion is a broad target and easy to reward accurately. Overall, risk aversion seems like a promising line of defense against threats from misaligned AI. Frontier AI companies should consider trying to make their AIs risk-averse.</p></div>
                         </details>
                     </div>
                 </section>
@@ -175,7 +178,7 @@
                         <p class="item-links"><a href="https://arxiv.org/pdf/2407.00805">PDF</a> / <a href="https://www.tais2025.cc/proceedings/thornley-towards-shutdownable-agents">Poster</a></p>
                         <details class="abstract-toggle">
                             <summary>Abstract</summary>
-                            <div class="abstract-copy"><p>The POST-Agents Proposal (PAP) is an idea for ensuring that advanced artificial agents never resist shutdown. A key part of the PAP is using a novel ‘Discounted Reward for Same-Length Trajectories (DReST)’ reward function to train agents to (1) pursue goals effectively conditional on each trajectory-length (be useful), and (2) choose stochastically between different trajectory-lengths (be neutral about trajectory-lengths). In this paper, we propose evaluation metrics for usefulness and neutrality. We use a DReST reward function to train simple agents to navigate gridworlds, and we find that these agents learn to be useful and neutral. Our results thus provide some initial evidence that DReST reward functions could train advanced agents to be useful and neutral. Our theoretical work suggests that these agents would be useful and shutdownable.</p></div>
+                            <div class="abstract-copy"><p>The POST-Agents Proposal (PAP) is an idea for ensuring that advanced artificial agents do not resist shutdown. Briefly, it recommends that we train agents to satisfy Preferences Only Between Same-Length Trajectories (POST). A key part of the PAP is using a novel ‘Discounted Reward for Same-Length Trajectories (DReST)’ reward function to train agents to (1) pursue goals effectively conditional on each trajectory-length (be ‘useful’), and (2) choose stochastically between different trajectory-lengths (be ‘neutral’ about trajectory-lengths). In this paper, we propose evaluation metrics for usefulness and neutrality. We use a DReST reward function to train simple agents to navigate gridworlds, and we find that these agents learn to be useful and neutral. Our results thus provide some initial evidence that DReST reward functions could train advanced agents to be useful and neutral. Our theoretical work suggests that these agents would be useful and shutdownable.</p></div>
                         </details>
                     </div>
                     <div class="item">
@@ -288,178 +291,182 @@
                 <h2 class="group-label writing-group-label">Writing</h2>
                 <p class="writing-substack">Subscribe to my <a href="https://openairopensea.substack.com/">Substack</a>.</p>
                 <div class="writing-items">
-                        <div class="item">
-                            <h3><a href="/src/writing/ai-philosophy-competition/">AI Philosophy Competition: $11,000 in Prizes</a></h3>
-                            <p class="item-meta">2026</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/ai-philosophy-competition-11000-in">Substack</a> / <a href="https://www.zacharygoodsell.com/ai-philosophy-competition">Competition website</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>AI is now exceptionally capable in mathematics and coding, but how good is it at philosophy? Zachary Goodsell and I are organising the first AI Philosophy Competition to find out.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/challenging-the-unawareness-argument/">Challenging the Unawareness Argument with Third Actions and Mixed Actions</a></h3>
-                            <p class="item-meta">2026</p>
-                            <p class="item-links"><a href="https://forum.effectivealtruism.org/posts/Bw8H9tGyNrnZx2mfo/challenging-the-unawareness-argument-with-third-actions-and">EA Forum</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>I challenge Anthony DiGiovanni&#x27;s unawareness argument using third actions and mixed actions.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/ai-writing-is-not-repetitive-enough/">AI Writing Is Not Repetitive Enough</a></h3>
-                            <p class="item-meta">2026</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/ai-writing-is-not-repetitive-enough">Substack</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>One big defect of AI writing is the use of synonyms to avoid repetition.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/statistically-the-truth-is-disappointing/">Statistically, the Truth Is Disappointing</a></h3>
-                            <p class="item-meta">2026</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/statistically-the-truth-is-disappointing">Substack</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>I prove that, given some reasonable assumptions, noticing that you want X to be true should make you think X is less likely to be true.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/how-big-is-the-sun/">How Big Is the Sun? How Could You Figure It Out?</a></h3>
-                            <p class="item-meta">2026</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/how-big-is-the-sun-how-could-you">Substack</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>I trace a route by which the ancient Greeks could have estimated the size of the Sun.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/tie-training-dpo-rlhf-generalize-better/">Tie Training Can Make DPO/RLHF-Trained AIs Generalize Better</a></h3>
-                            <p class="item-meta">2026</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/tie-training-can-make-dporlhf-trained">Substack</a> / <a href="https://www.lesswrong.com/posts/i2qTghrkyY9xdcCFq/tie-training-can-make-dpo-rlhf-trained-ais-generalize-better">LessWrong</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>This post covers our ICML paper, ‘Spurious Correlation Learning in Preference Optimization: Mechanisms, Consequences, and Mitigation via Tie Training’.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/official-laws-of-football/">The Official Laws of Football Require Some Players to Trap Themselves in the Goal</a></h3>
-                            <p class="item-meta">2026</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/the-official-laws-of-football-require">Substack</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>A strange consequence of the official Laws of the Game.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/anonymous-peer-review-is-almost-over/">Anonymous Peer Review Is Almost Over</a></h3>
-                            <p class="item-meta">2026</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/anonymous-peer-review-is-almost-over">Substack</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>Claude Opus 4.7 is very good at guessing who wrote a piece of text. That could be a problem for anonymous peer review.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/life-is-long/">Life Is Long</a></h3>
-                            <p class="item-meta">2026</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/life-is-long">Substack</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>People say life is short. Compared to what?</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/you-are-quoting-bentham/">You Are Quoting Bentham</a></h3>
-                            <p class="item-meta">2026</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/you-are-quoting-bentham">Substack</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>Jeremy Bentham coined many words we use today, including ‘maximize’, ‘international’, and ‘deontology’.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/taking-scanlon-too-seriously/">Taking Scanlon (Too) Seriously</a></h3>
-                            <p class="item-meta">2026</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/taking-scanlon-too-seriously">Substack</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>As written, Scanlon&#x27;s Transmitter Room case presents no problem for utilitarianism.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/ai-safety-pascals-mugging/">AI Safety Can Be a Pascal&#x27;s Mugging Even If p(doom) Is High</a></h3>
-                            <p class="item-meta">2026</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/ai-safety-can-be-a-pascals-mugging">Substack</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>Pascal&#x27;s muggings are about the probability that you make a difference, not about baseline risk.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/my-favourite-arguments-against-person-affecting-views/">My Favourite Arguments Against Person-Affecting Views</a></h3>
-                            <p class="item-meta">2024</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/my-favourite-arguments-against-person">Substack</a> / <a href="https://forum.effectivealtruism.org/posts/c6ZYCpq2L46AxSJNy/my-favourite-arguments-against-person-affecting-views">EA Forum</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>I present some of my favourite arguments against person-affecting views in population ethics.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/there-are-no-coherence-theorems/">There Are No Coherence Theorems</a></h3>
-                            <p class="item-meta">2023</p>
-                            <p class="item-links"><a href="https://www.alignmentforum.org/posts/yCuzmCsE86BTu9PfA/there-are-no-coherence-theorems">Alignment Forum</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>Authors in the AI safety community often make the following claim: advanced artificial agents will behave like expected utility maximisers, because doing so is the only way to avoid pursuing dominated strategies. I argue that the claim is false.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/strong-longtermism-summary/">Summary: The Case for Strong Longtermism</a></h3>
-                            <p class="item-meta">Global Priorities Institute, 2022</p>
-                            <p class="item-links"><a href="https://globalprioritiesinstitute.org/summary-the-case-for-strong-longtermism/">Global Priorities Institute</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>In this paper, Hilary Greaves and William MacAskill make the case for strong longtermism: the view that the most important feature of our actions today is their impact on the far future. They claim that strong longtermism is of the utmost significance: that if the view were widely adopted, much of what we prioritise would change.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/epistemic-challenge-longtermism-summary/">Summary: The Epistemic Challenge to Longtermism</a></h3>
-                            <p class="item-meta">Global Priorities Institute, 2022</p>
-                            <p class="item-links"><a href="https://globalprioritiesinstitute.org/summary-the-epistemic-challenge-to-longtermism-christian-tarsney/">Global Priorities Institute</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>According to longtermism, what we should do mainly depends on how our actions might affect the long-term future. This claim faces a challenge: the course of the long-term future is difficult to predict, and the effects of our actions on the long-term future might be so unpredictable as to make longtermism false. In ‘The Epistemic Challenge to Longtermism,’ Christian Tarsney evaluates one version of this epistemic challenge and comes to a mixed conclusion. On some plausible worldviews, longtermism stands up to the epistemic challenge. On others, longtermism’s status depends on whether we should take certain high-stakes, long-shot gambles.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/moral-case-long-term-thinking/">The Moral Case for Long-Term Thinking</a></h3>
-                            <p class="item-meta item-meta-authors">with Hilary Greaves and William MacAskill</p>
-                            <p class="item-meta"><em>The Long View</em>, 2021</p>
-                            <p class="item-links"><a href="https://philpapers.org/archive/GRETMC-3.pdf">PDF</a> / <a href="https://da63870c-9860-42b7-8b51-fb15d5bae843.filesusr.com/ugd/07becb_8fe75ba08a4c457ba2988e96e1ee6654.pdf">Book</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>This chapter makes the case for strong longtermism: the claim that, in many situations, impact on the long-run future is the most important feature of our actions. Our case begins with the observation that an astronomical number of people could exist in the aeons to come. Even on conservative estimates, the expected future population is enormous. We then add a moral claim: all the consequences of our actions matter. In particular, the moral importance of what happens does not depend on when it happens. That pushes us toward strong longtermism. We then address a few potential concerns, the first of which is that it is impossible to have any sufficiently predictable influence on the course of the long-run future. We argue that this is not true. Some actions can reasonably be expected to improve humanity’s long-term prospects. These include reducing the risk of human extinction, preventing climate change, guiding the development of artificial intelligence, and investing funds for later use. We end by arguing that these actions are more than just extremely effective ways to do good. Since the benefits of longtermist efforts are large and the personal costs are comparatively small, we are morally required to take up these efforts.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/tractatus-now-with-examples/">Wittgenstein&#x27;s Tractatus: Now With Examples</a></h3>
-                            <p class="item-meta">2021</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/wittgensteins-tractatus-now-with">Substack</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>I explain the <em>Tractatus</em> using plenty of examples.</p></div>
-                            </details>
-                        </div>
-                        <div class="item">
-                            <h3><a href="/src/writing/against-ambition/">Against Ambition</a></h3>
-                            <p class="item-meta">2019</p>
-                            <p class="item-links"><a href="https://openairopensea.substack.com/p/against-ambition">Substack</a> / <a href="https://drive.google.com/file/d/1neQeuNIVkEbH4cloJMjGxdD-rk_ecs6s/view?usp=sharing">PDF</a></p>
-                            <details class="abstract-toggle">
-                                <summary>Abstract</summary>
-                                <div class="abstract-copy"><p>I argue that personal ambition is bad for you.</p></div>
-                            </details>
-                        </div>
+                    <div class="writing-column">
+                            <div class="item" style="order: 0">
+                                <h3><a href="/src/writing/ai-philosophy-competition/">AI Philosophy Competition: $11,000 in Prizes</a></h3>
+                                <p class="item-meta">2026</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/ai-philosophy-competition-11000-in">Substack</a> / <a href="https://www.zacharygoodsell.com/ai-philosophy-competition">Competition website</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>AI is now exceptionally capable in mathematics and coding, but how good is it at philosophy? Zachary Goodsell and I are organising the first AI Philosophy Competition to find out.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 2">
+                                <h3><a href="/src/writing/ai-writing-is-not-repetitive-enough/">AI Writing Is Not Repetitive Enough</a></h3>
+                                <p class="item-meta">2026</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/ai-writing-is-not-repetitive-enough">Substack</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>One big defect of AI writing is the use of synonyms to avoid repetition.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 4">
+                                <h3><a href="/src/writing/how-big-is-the-sun/">How Big Is the Sun? How Could You Figure It Out?</a></h3>
+                                <p class="item-meta">2026</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/how-big-is-the-sun-how-could-you">Substack</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>I trace a route by which the ancient Greeks could have estimated the size of the Sun.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 6">
+                                <h3><a href="/src/writing/official-laws-of-football/">The Official Laws of Football Require Some Players to Trap Themselves in the Goal</a></h3>
+                                <p class="item-meta">2026</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/the-official-laws-of-football-require">Substack</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>A strange consequence of the official Laws of the Game.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 8">
+                                <h3><a href="/src/writing/life-is-long/">Life Is Long</a></h3>
+                                <p class="item-meta">2026</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/life-is-long">Substack</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>People say life is short. Compared to what?</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 10">
+                                <h3><a href="/src/writing/taking-scanlon-too-seriously/">Taking Scanlon (Too) Seriously</a></h3>
+                                <p class="item-meta">2026</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/taking-scanlon-too-seriously">Substack</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>As written, Scanlon&#x27;s Transmitter Room case presents no problem for utilitarianism.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 12">
+                                <h3><a href="/src/writing/my-favourite-arguments-against-person-affecting-views/">My Favourite Arguments Against Person-Affecting Views</a></h3>
+                                <p class="item-meta">2024</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/my-favourite-arguments-against-person">Substack</a> / <a href="https://forum.effectivealtruism.org/posts/c6ZYCpq2L46AxSJNy/my-favourite-arguments-against-person-affecting-views">EA Forum</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>I present some of my favourite arguments against person-affecting views in population ethics.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 14">
+                                <h3><a href="/src/writing/strong-longtermism-summary/">Summary: The Case for Strong Longtermism</a></h3>
+                                <p class="item-meta">Global Priorities Institute, 2022</p>
+                                <p class="item-links"><a href="https://globalprioritiesinstitute.org/summary-the-case-for-strong-longtermism/">Global Priorities Institute</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>In this paper, Hilary Greaves and William MacAskill make the case for strong longtermism: the view that the most important feature of our actions today is their impact on the far future. They claim that strong longtermism is of the utmost significance: that if the view were widely adopted, much of what we prioritise would change.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 16">
+                                <h3><a href="/src/writing/moral-case-long-term-thinking/">The Moral Case for Long-Term Thinking</a></h3>
+                                <p class="item-meta item-meta-authors">with Hilary Greaves and William MacAskill</p>
+                                <p class="item-meta"><em>The Long View</em>, 2021</p>
+                                <p class="item-links"><a href="https://philpapers.org/archive/GRETMC-3.pdf">PDF</a> / <a href="https://da63870c-9860-42b7-8b51-fb15d5bae843.filesusr.com/ugd/07becb_8fe75ba08a4c457ba2988e96e1ee6654.pdf">Book</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>This chapter makes the case for strong longtermism: the claim that, in many situations, impact on the long-run future is the most important feature of our actions. Our case begins with the observation that an astronomical number of people could exist in the aeons to come. Even on conservative estimates, the expected future population is enormous. We then add a moral claim: all the consequences of our actions matter. In particular, the moral importance of what happens does not depend on when it happens. That pushes us toward strong longtermism. We then address a few potential concerns, the first of which is that it is impossible to have any sufficiently predictable influence on the course of the long-run future. We argue that this is not true. Some actions can reasonably be expected to improve humanity’s long-term prospects. These include reducing the risk of human extinction, preventing climate change, guiding the development of artificial intelligence, and investing funds for later use. We end by arguing that these actions are more than just extremely effective ways to do good. Since the benefits of longtermist efforts are large and the personal costs are comparatively small, we are morally required to take up these efforts.</p></div>
+                                </details>
+                            </div>
+                            <div class="item writing-last" style="order: 18">
+                                <h3><a href="/src/writing/against-ambition/">Against Ambition</a></h3>
+                                <p class="item-meta">2019</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/against-ambition">Substack</a> / <a href="https://drive.google.com/file/d/1neQeuNIVkEbH4cloJMjGxdD-rk_ecs6s/view?usp=sharing">PDF</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>I argue that personal ambition is bad for you.</p></div>
+                                </details>
+                            </div>
+                    </div>
+                    <div class="writing-column">
+                            <div class="item" style="order: 1">
+                                <h3><a href="/src/writing/challenging-the-unawareness-argument/">Challenging the Unawareness Argument with Third Actions and Mixed Actions</a></h3>
+                                <p class="item-meta">2026</p>
+                                <p class="item-links"><a href="https://forum.effectivealtruism.org/posts/Bw8H9tGyNrnZx2mfo/challenging-the-unawareness-argument-with-third-actions-and">EA Forum</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>I challenge Anthony DiGiovanni&#x27;s unawareness argument using third actions and mixed actions.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 3">
+                                <h3><a href="/src/writing/statistically-the-truth-is-disappointing/">Statistically, the Truth Is Disappointing</a></h3>
+                                <p class="item-meta">2026</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/statistically-the-truth-is-disappointing">Substack</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>I prove that, given some reasonable assumptions, noticing that you want X to be true should make you think X is less likely to be true.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 5">
+                                <h3><a href="/src/writing/tie-training-dpo-rlhf-generalize-better/">Tie Training Can Make DPO/RLHF-Trained AIs Generalize Better</a></h3>
+                                <p class="item-meta">2026</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/tie-training-can-make-dporlhf-trained">Substack</a> / <a href="https://www.lesswrong.com/posts/i2qTghrkyY9xdcCFq/tie-training-can-make-dpo-rlhf-trained-ais-generalize-better">LessWrong</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>This post covers our ICML paper, ‘Spurious Correlation Learning in Preference Optimization: Mechanisms, Consequences, and Mitigation via Tie Training’.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 7">
+                                <h3><a href="/src/writing/anonymous-peer-review-is-almost-over/">Anonymous Peer Review Is Almost Over</a></h3>
+                                <p class="item-meta">2026</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/anonymous-peer-review-is-almost-over">Substack</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>Claude Opus 4.7 is very good at guessing who wrote a piece of text. That could be a problem for anonymous peer review.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 9">
+                                <h3><a href="/src/writing/you-are-quoting-bentham/">You Are Quoting Bentham</a></h3>
+                                <p class="item-meta">2026</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/you-are-quoting-bentham">Substack</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>Jeremy Bentham coined many words we use today, including ‘maximize’, ‘international’, and ‘deontology’.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 11">
+                                <h3><a href="/src/writing/ai-safety-pascals-mugging/">AI Safety Can Be a Pascal&#x27;s Mugging Even If p(doom) Is High</a></h3>
+                                <p class="item-meta">2026</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/ai-safety-can-be-a-pascals-mugging">Substack</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>Pascal&#x27;s muggings are about the probability that you make a difference, not about baseline risk.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 13">
+                                <h3><a href="/src/writing/there-are-no-coherence-theorems/">There Are No Coherence Theorems</a></h3>
+                                <p class="item-meta">2023</p>
+                                <p class="item-links"><a href="https://www.alignmentforum.org/posts/yCuzmCsE86BTu9PfA/there-are-no-coherence-theorems">Alignment Forum</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>Authors in the AI safety community often make the following claim: advanced artificial agents will behave like expected utility maximisers, because doing so is the only way to avoid pursuing dominated strategies. I argue that the claim is false.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 15">
+                                <h3><a href="/src/writing/epistemic-challenge-longtermism-summary/">Summary: The Epistemic Challenge to Longtermism</a></h3>
+                                <p class="item-meta">Global Priorities Institute, 2022</p>
+                                <p class="item-links"><a href="https://globalprioritiesinstitute.org/summary-the-epistemic-challenge-to-longtermism-christian-tarsney/">Global Priorities Institute</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>According to longtermism, what we should do mainly depends on how our actions might affect the long-term future. This claim faces a challenge: the course of the long-term future is difficult to predict, and the effects of our actions on the long-term future might be so unpredictable as to make longtermism false. In ‘The Epistemic Challenge to Longtermism,’ Christian Tarsney evaluates one version of this epistemic challenge and comes to a mixed conclusion. On some plausible worldviews, longtermism stands up to the epistemic challenge. On others, longtermism’s status depends on whether we should take certain high-stakes, long-shot gambles.</p></div>
+                                </details>
+                            </div>
+                            <div class="item" style="order: 17">
+                                <h3><a href="/src/writing/tractatus-now-with-examples/">Wittgenstein&#x27;s Tractatus: Now With Examples</a></h3>
+                                <p class="item-meta">2021</p>
+                                <p class="item-links"><a href="https://openairopensea.substack.com/p/wittgensteins-tractatus-now-with">Substack</a></p>
+                                <details class="abstract-toggle">
+                                    <summary>Abstract</summary>
+                                    <div class="abstract-copy"><p>I explain the <em>Tractatus</em> using plenty of examples.</p></div>
+                                </details>
+                            </div>
+                    </div>
                 </div>
             </section>
         </div>
