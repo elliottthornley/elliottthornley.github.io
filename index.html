@@ -147,6 +147,17 @@
                             <div class="abstract-copy"><p>Preference learning methods like Direct Preference Optimization (DPO) are known to induce reliance on spurious correlations, leading to sycophancy and length bias in today’s language models and potentially severe goal misgeneralization in future systems. In this work, we provide a unified theoretical analysis of this phenomenon, characterizing the mechanisms of spurious learning, its consequences on deployment, and a provable mitigation strategy. Focusing on log-linear policies, we show that standard preference-learning objectives induce reliance on spurious features at the population level through two channels: mean spurious bias and causal-spurious correlation leakage. We then show that this reliance creates an irreducible vulnerability to distribution shift: more data from the same training distribution fails to reduce the model’s dependence on spurious features. To address this, we propose tie training, a data augmentation strategy using ties (equal-utility preference pairs) to introduce data-driven regularization. We demonstrate that this approach selectively reduces spurious learning without degrading causal learning. Finally, we validate our theory on log-linear models and provide empirical evidence that both the spurious learning mechanisms and the benefits of tie training persist for neural networks and large language models.</p></div>
                         </details>
                     </div>
+                    <h3 class="subsection-label">Reward Hacking</h3>
+                    <div class="item">
+                        <h3><a href="/src/writing/verifier-errors-rlvr/">Verifier Errors in RLVR: Reward Hacking, Limits of Feedback, and Selective Control</a></h3>
+                        <p class="item-meta item-meta-authors">with Christian Moya and Guang Lin</p>
+                        <p class="item-meta">2026</p>
+                        <p class="item-links"><a href="https://arxiv.org/pdf/2609.35677">PDF</a> / <a href="https://github.com/cmoyacal/verifier-errors">Code</a></p>
+                        <details class="abstract-toggle">
+                            <summary>Abstract</summary>
+                            <div class="abstract-copy"><p>In reinforcement learning with verifiable rewards (RLVR), imperfect verifiers can reward incorrect responses, creating opportunities for reward hacking. Using gradient flow with a fixed verifier, we characterize the conditions under which reward rises while correctness falls. We then show that the observations available during RLVR are, in general, insufficient to detect or identify accepted errors, or to guarantee their reduction without sacrificing correct responses. To address this limit, we construct a correction using additional feedback about correctness from audits. This correction achieves <em>selective control</em>: at the current policy, it lowers the probability of accepted errors and raises that of correct responses, provided it outweighs the pressure toward errors from verifier reward. Experiments with log linear and neural contextual bandits and with a language model support the analysis and show that selective control under partial auditing reduces accepted errors while increasing correctness.</p></div>
+                        </details>
+                    </div>
                 </section>
                 <section class="home-column shutdown-column">
                     <h3 class="subsection-label">Shutdownable Agents</h3>
